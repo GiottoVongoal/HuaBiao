@@ -53,6 +53,6 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit-adapters:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
-
-
+    // walle 多渠道打包
+    compile 'com.meituan.android.walle:library:1.0.2'
 }

@@ -15,7 +15,7 @@ import com.ywy.mylibs.listener.ICallBackStatusCode;
 import com.ywy.mylibs.manager.RetrofitCookieManger;
 import com.ywy.mylibs.manager.RetrofitDownLoadManager;
 import com.ywy.mylibs.utils.CommonDialogUtils;
-import com.ywy.mylibs.utils.CoreNullUtils;
+import com.ywy.mylibs.utils.NullUtils;
 import com.ywy.mylibs.utils.NetWorkUtils;
 import com.ywy.mylibs.utils.ToastUtils;
 import com.ywy.mylibs.wedgit.dialog.CommonLoadingDialog;
@@ -489,7 +489,7 @@ public class RetrofitClient {
          * instance to prevent this if desired.
          */
         public Builder client(OkHttpClient client) {
-            retrofitBuilder.client(CoreNullUtils.checkNotNull(client, "client == null"));
+            retrofitBuilder.client(NullUtils.checkNotNull(client, "client == null"));
             return this;
         }
 
@@ -509,7 +509,7 @@ public class RetrofitClient {
          * Note: Calling {@link #client} automatically sets this value.
          */
         public Builder callFactory(okhttp3.Call.Factory factory) {
-            this.callFactory = CoreNullUtils.checkNotNull(factory, "factory == null");
+            this.callFactory = NullUtils.checkNotNull(factory, "factory == null");
             return this;
         }
 
@@ -547,7 +547,7 @@ public class RetrofitClient {
         }
 
         public Builder proxy(Proxy proxy) {
-            okhttpBuilder.proxy(CoreNullUtils.checkNotNull(proxy, "proxy == null"));
+            okhttpBuilder.proxy(NullUtils.checkNotNull(proxy, "proxy == null"));
             return this;
         }
 
@@ -595,7 +595,7 @@ public class RetrofitClient {
          * Set an API base URL which can change over time.
          */
         public Builder baseUrl(String baseUrl) {
-            this.baseUrl = CoreNullUtils.checkNotNull(baseUrl, "baseUrl == null");
+            this.baseUrl = NullUtils.checkNotNull(baseUrl, "baseUrl == null");
             return this;
         }
 
@@ -620,7 +620,7 @@ public class RetrofitClient {
          * Add Header for serialization and deserialization of objects.
          */
         public Builder addHeader(Map<String, String> headers) {
-            okhttpBuilder.addInterceptor(new BaseInterceptor((CoreNullUtils.checkNotNull(headers, "header == null"))));
+            okhttpBuilder.addInterceptor(new BaseInterceptor((NullUtils.checkNotNull(headers, "header == null"))));
             return this;
         }
 
@@ -628,7 +628,7 @@ public class RetrofitClient {
          * Add parameters for serialization and deserialization of objects.
          */
         public Builder addParameters(Map<String, String> parameters) {
-            okhttpBuilder.addInterceptor(new BaseInterceptor((CoreNullUtils.checkNotNull(parameters, "parameters == null"))));
+            okhttpBuilder.addInterceptor(new BaseInterceptor((NullUtils.checkNotNull(parameters, "parameters == null"))));
             return this;
         }
 
@@ -646,7 +646,7 @@ public class RetrofitClient {
          * for a network interceptor to short-circuit or repeat a network request.
          */
         public Builder addInterceptor(Interceptor interceptor) {
-            okhttpBuilder.addInterceptor(CoreNullUtils.checkNotNull(interceptor, "interceptor == null"));
+            okhttpBuilder.addInterceptor(NullUtils.checkNotNull(interceptor, "interceptor == null"));
             return this;
         }
 
@@ -658,7 +658,7 @@ public class RetrofitClient {
          * return types}.
          */
         public Builder callbackExecutor(Executor executor) {
-            this.callbackExecutor = CoreNullUtils.checkNotNull(executor, "executor == null");
+            this.callbackExecutor = NullUtils.checkNotNull(executor, "executor == null");
             return this;
         }
 

@@ -1,7 +1,6 @@
 package com.ywy.mylibs.base;
 
 import android.content.Context;
-import android.os.UserManager;
 import android.support.multidex.MultiDexApplication;
 
 import com.blankj.ALog;
@@ -42,7 +41,6 @@ public class BaseApplication extends MultiDexApplication implements ApplicationI
         super.onTerminate();
         SugarContext.terminate();
     }
-
 
     public static Context getContext() {
         return mInstance;

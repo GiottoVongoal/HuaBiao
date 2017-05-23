@@ -11,10 +11,45 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+        preDexLibraries true  //声明是否对依赖的库进行dex 预处理来使你的增量构建更快速
+        maxProcessCount 8  //设置最大的线程数量使用当运行 dex-in-process时,默认值是4
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("tangguotv.jks")
+            storePassword "tangguo2017"
+            keyAlias "tangutv"
+            keyPassword "tangguo2017"
+        }
+
+        debug {
+            storeFile file("tangguotv.jks")
+            storePassword "tangguo2017"
+            keyAlias "tangutv"
+            keyPassword "tangguo2017"
+        }
+    }
+
     buildTypes {
         release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable false
+            zipAlignEnabled true
+        }
+        debug {
+            shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable true
+            zipAlignEnabled true
         }
     }
 }

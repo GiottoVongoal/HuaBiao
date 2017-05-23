@@ -1,15 +1,12 @@
-package com.huabiao.aoiin;
+package com.huabiao.aoiin.ui;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.blankj.ALog;
+import com.huabiao.aoiin.R;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.base.BindFragmentAct;
-import com.ywy.mylibs.retrofit.RetrofitClient;
-import com.ywy.mylibs.utils.JumpUtils;
 
 import butterknife.Bind;
 

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">MyLibs</string>
     <string name="common_loading_loadingmsg">正在获取数据...</string>
     <string name="check_net_connection">请检查是否连接网络!</string>
 </resources>
