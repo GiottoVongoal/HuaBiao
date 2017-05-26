@@ -22,10 +22,10 @@ public class JumpUtils {
      * @param toClass
      */
     public static void startFragmentByName(Context context, Class toClass) {
-        startFragmentById(context, toClass, null);
+        startFragmentByName(context, toClass, null);
     }
 
-    public static void startFragmentById(Context context, Class toClass, Bundle bundle) {
+    public static void startFragmentByName(Context context, Class toClass, Bundle bundle) {
         String className = toClass.getName();
         Intent intent = new Intent(context, BindFragmentAct.class);
         intent.putExtra("className", className);
