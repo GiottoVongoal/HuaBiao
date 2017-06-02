@@ -1,10 +1,12 @@
 package com.huabiao.aoiin;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.huabiao.aoiin.constant.Config;
 import com.umeng.analytics.MobclickAgent;
 import com.ywy.mylibs.base.BaseApplication;
 import com.ywy.mylibs.constant.Const;
-import com.huabiao.aoiin.utils.ChannelUtil;
+import com.ywy.mylibs.utils.ChannelUtil;
 
 /**
  * Created by PC on 2017/5/23.
@@ -15,7 +17,14 @@ public class HuaBiaoApp extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+//                .setProgressiveJpegConfig(new SimpleProgressiveJpegConfig())// 添加图片加载时模糊效果
+//                .setBitmapMemoryCacheParamsSupplier(bitmapCache)
+                .build();
+        Fresco.initialize(this, config);//注册图片加载框架
         initUmeng();
+
+
     }
 
     /**
@@ -27,8 +36,12 @@ public class HuaBiaoApp extends BaseApplication {
         if (Const.DBG) {
             agent.setDebugMode(true);
         }
-
         agent.startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this, Config.UMENG_APPKEY, channel));
 
+    }
+
+    @Override
+    public boolean isDebug() {
+        return Const.DBG;
     }
 }

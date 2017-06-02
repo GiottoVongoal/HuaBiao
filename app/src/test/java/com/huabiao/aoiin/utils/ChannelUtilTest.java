@@ -2,13 +2,12 @@ package com.huabiao.aoiin.utils;
 
 import com.blankj.ALog;
 import com.ywy.mylibs.base.BaseApplication;
+import com.ywy.mylibs.utils.ChannelUtil;
 
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by PC on 2017/5/24.

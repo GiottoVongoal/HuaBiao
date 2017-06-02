@@ -1,17 +1,23 @@
 package com.ywy.mylibs.base;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.support.multidex.MultiDexApplication;
 
 import com.blankj.ALog;
 import com.orm.SugarContext;
 import com.ywy.mylibs.base.impl.ApplicationInter;
+import com.ywy.mylibs.constant.SPKeysConstants;
+import com.ywy.mylibs.utils.ChannelUtil;
+import com.ywy.mylibs.utils.SPUtils;
 
 
 /**
  * Created by yangweiyi on 16/5/19.
+ * application基类，初始化了sugar和A
  */
-public class BaseApplication extends MultiDexApplication implements ApplicationInter {
+public abstract class BaseApplication extends MultiDexApplication implements ApplicationInter {
 
     private static Context mInstance = null;
     public boolean isDebug = true;
@@ -33,8 +39,9 @@ public class BaseApplication extends MultiDexApplication implements ApplicationI
                 .setLog2FileSwitch(false)// 打印log时是否存到文件的开关，默认关
                 .setBorderSwitch(true)// 输出日志是否带边框开关，默认开
                 .setLogFilter(ALog.V);// log过滤器，和logcat过滤器同理，默认Verbose
-
     }
+
+
 
     @Override
     public void onTerminate() {
@@ -46,8 +53,4 @@ public class BaseApplication extends MultiDexApplication implements ApplicationI
         return mInstance;
     }
 
-    @Override
-    public boolean isDebug() {
-        return true;
-    }
 }

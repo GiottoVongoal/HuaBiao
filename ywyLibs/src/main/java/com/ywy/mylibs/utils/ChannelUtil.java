@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.utils;
+package com.ywy.mylibs.utils;
 
 import java.io.IOException;
 import java.util.Enumeration;

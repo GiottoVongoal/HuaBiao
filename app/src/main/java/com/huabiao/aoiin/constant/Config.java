@@ -5,5 +5,17 @@ package com.huabiao.aoiin.constant;
  */
 
 public class Config {
-    public static String UMENG_APPKEY = "58a2a983f29d982c3c000b87";
+    public static String UMENG_APPKEY = "";
+
+    public final static String N_KEY = "";
+
+    //糖果各平台key
+    public static final String WEIXIN_APPID = "";
+    public static final String WEIXIN_APPSECRET = "";
+
+    public static final String SINA_APPKEY = "";
+    public static final String SINA_APPSECRET = "";
+
+    public static final String QQ_APPID = "";
+    public static final String QQ_APPKEY = "";
 }
