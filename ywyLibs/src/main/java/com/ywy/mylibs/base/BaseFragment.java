@@ -1,19 +1,25 @@
 package com.ywy.mylibs.base;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.blankj.ALog;
 import com.umeng.analytics.MobclickAgent;
+import com.ywy.mylibs.R;
 import com.ywy.mylibs.base.impl.IBase;
 import com.ywy.mylibs.base.impl.IBaseView;
+import com.ywy.mylibs.utils.ClickUtil;
+import com.ywy.mylibs.utils.StringUtil;
 
 import butterknife.ButterKnife;
 
@@ -84,9 +90,61 @@ public abstract class BaseFragment<T extends BasePresenter<IBaseView>> extends F
     public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getContentLayout(), container, false);
         ButterKnife.bind(this, view);
+        initTitleBar(view);
         ALog.i(TAG + "   createView");
         return view;
     }
+
+    protected TextView tv_title;
+    protected ImageView iv_left;
+
+    /**
+     * 初始化title
+     */
+    private void initTitleBar(View view) {
+        tv_title = (TextView) view.findViewById(R.id.tv_title);
+        iv_left = (ImageView) view.findViewById(R.id.iv_left);
+    }
+
+    /**
+     * 设置返回键监听
+     */
+    public void setBackEnable() {
+        if (iv_left != null) {
+            iv_left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClickUtil.onBackClick();
+                }
+            });
+        }
+    }
+
+    /**
+     * 设置title
+     */
+    public void setTitle(String title) {
+        if (!StringUtil.isEmpty(title) && tv_title != null)
+            tv_title.setText(title);
+    }
+
+    public void setTitle(int titleId) {
+        setTitle(getResources().getString(titleId));
+    }
+
+    /**
+     * 设置返回鍵图片
+     */
+    public void setBackResourse(Drawable back) {
+        if (back != null && iv_left != null)
+            iv_left.setBackgroundDrawable(back);
+    }
+
+    public void setBackResourse(int backId) {
+        if (iv_left != null)
+            iv_left.setBackgroundResource(backId);
+    }
+
 
     @Nullable
     @Override
