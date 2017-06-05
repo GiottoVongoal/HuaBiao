@@ -83,7 +83,7 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
 //        setSupportActionBar(mToolbar);
         setActionBar();
         bindView(savedInstanceState);
-        initTitleBar();
+        initTitleBar(mRootView);
     }
 
     protected TextView tv_title;
@@ -92,9 +92,9 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     /**
      * 初始化title
      */
-    private void initTitleBar() {
-        tv_title = (TextView) findViewById(R.id.tv_title);
-        iv_left = (ImageView) findViewById(R.id.iv_left);
+    private void initTitleBar(View mRootView) {
+        tv_title = (TextView) mRootView.findViewById(R.id.tv_title);
+        iv_left = (ImageView) mRootView.findViewById(R.id.iv_left);
     }
 
     /**
