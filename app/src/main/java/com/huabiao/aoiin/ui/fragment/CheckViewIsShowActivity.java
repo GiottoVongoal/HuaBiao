@@ -38,6 +38,8 @@ public class CheckViewIsShowActivity extends BaseActivity implements OnScrollLis
     @Override
     public void bindView(Bundle savedInstanceState) {
         check_myscrollview.setOnScrollListener(this);
+        setTitle("测试页面");
+        setBackEnable();
     }
 
     /**

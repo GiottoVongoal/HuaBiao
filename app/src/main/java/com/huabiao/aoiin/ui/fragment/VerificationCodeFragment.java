@@ -34,7 +34,8 @@ public class VerificationCodeFragment extends BaseFragment implements Verficatio
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-
+        setTitle("输入验证码页面");
+        setBackEnable();
     }
 
     @Override
