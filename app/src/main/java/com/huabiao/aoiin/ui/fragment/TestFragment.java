@@ -1,15 +1,17 @@
-package com.huabiao.aoiin.ui;
+package com.huabiao.aoiin.ui.fragment;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.CameraUtils;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +25,9 @@ public class TestFragment extends BaseFragment {
 
     @Bind(R.id.textView)
     TextView textView;
+
+    @Bind(R.id.main_ll)
+    LinearLayout main_ll;
 
     @Override
     public BasePresenter getPresenter() {
@@ -39,6 +44,18 @@ public class TestFragment extends BaseFragment {
                 startActivity(CameraUtils.getCameraIntent(filePath));
             }
         });
+        TextView tv1 = new TextView(getContext());
+        tv1.setPadding(10, 10, 10, 10);
+        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        main_ll.addView(tv1, lp1);
+        tv1.setText("点我去输入验证码页面");
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JumpUtils.startFragmentByName(getContext(), VerificationCodeFragment.class);
+            }
+        });
+
     }
 
     @Override
