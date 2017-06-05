@@ -82,8 +82,8 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
 //        mToolbar = (Toolbar) findViewById(getToolBarId());
 //        setSupportActionBar(mToolbar);
         setActionBar();
-        bindView(savedInstanceState);
         initTitleBar(mRootView);
+        bindView(savedInstanceState);
     }
 
     protected TextView tv_title;
