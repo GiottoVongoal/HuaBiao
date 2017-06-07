@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">商标助手</string>
+
+    <string name="me_progress_reminder_string">进度提醒</string>
+    <string name="me_my_news">我的消息</string>
+    <string name="me_string">专业 · 服务</string>
+
 </resources>

@@ -9,7 +9,7 @@ public class Config {
 
     public final static String N_KEY = "";
 
-    //糖果各平台key
+    //各平台key
     public static final String WEIXIN_APPID = "";
     public static final String WEIXIN_APPSECRET = "";
 

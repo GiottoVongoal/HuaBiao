@@ -66,6 +66,17 @@ public class TestFragment extends BaseFragment {
                 JumpUtils.startActivity(getContext(), CheckViewIsShowActivity.class);
             }
         });
+        TextView tv3 = new TextView(getContext());
+        tv3.setPadding(10, 10, 10, 10);
+        LinearLayout.LayoutParams lp3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        main_ll.addView(tv3, lp3);
+        tv3.setText("点我去我的页面");
+        tv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JumpUtils.startFragmentByName(getContext(), MeFragment.class);
+            }
+        });
 
     }
 
