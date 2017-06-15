@@ -9,4 +9,17 @@
         <item name="android:textSize">15sp</item>
 
     </style>
+
+    <!-- 灰色的线 -->
+    <style name="GrayLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/grey_DDDDDD</item>
+    </style>
+    <!-- 灰色的竖线 -->
+    <style name="GrayLine_shu">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">1dp</item>
+        <item name="android:background">@color/grey_DDDDDD</item>
+    </style>
 </resources>

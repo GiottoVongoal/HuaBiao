@@ -70,14 +70,19 @@ public class VerficationCodeView extends RelativeLayout {
                     if (stringBuffer.length() < 6) {
                         stringBuffer.append(editable);
                     } else {
-                        //当文本长度大于3位时edittext置空
+                        //当文本长度大于6位时edittext置空
                         editText.setText("");
+                        stringBuffer.delete(6, stringBuffer.length());
                         return;
                     }
                     //将文字添加到StringBuffer中
                     editText.setText("");//添加后将EditText置空  造成没有文字输入的错局
                     //  Log.e("TAG", "afterTextChanged: stringBuffer is " + stringBuffer);
                     count = stringBuffer.length();//记录stringbuffer的长度
+                    if (count > 6) {
+                        stringBuffer.delete(0, stringBuffer.length());
+                        return;
+                    }
                     inputContent = stringBuffer.toString();
                     if (stringBuffer.length() == 6) {
                         //文字长度位6  则调用完成输入的监听
@@ -115,7 +120,7 @@ public class VerficationCodeView extends RelativeLayout {
             count = 6;
             return true;
         }
-        if (stringBuffer.length() > 0) {
+        if (stringBuffer.length() > 0 && stringBuffer.length() <= 6) {
             //删除相应位置的字符
             stringBuffer.delete((count - 1), count);
             count--;

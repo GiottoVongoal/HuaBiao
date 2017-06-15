@@ -8,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.model.MeRecyclerViewBean;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,11 +50,6 @@ public class MeRecyclerViewAdapder extends RecyclerView.Adapter<MeRecyclerViewAd
 
     public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
-    }
-
-    //创建RecyclerView的Item点击事件
-    public interface OnItemClickListener {
-        void onItemClickListener(View view, int position);
     }
 
     public void setHeaderView(View headerView) {

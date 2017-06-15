@@ -14,9 +14,11 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.constant.FlagBase;
 import com.huabiao.aoiin.model.MeRecyclerViewBean;
 import com.huabiao.aoiin.ui.adapter.MeRecyclerViewAdapder;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.huabiao.aoiin.wedgit.SpacesItemDecoration;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.StringUtil;
 import com.ywy.mylibs.wedgit.wedgit.CircleView;
 
 import java.util.ArrayList;
@@ -89,6 +91,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         LinearLayout me_my_news = (LinearLayout) header.findViewById(R.id.me_my_news);
         me_my_news.setOnClickListener(this);
         adapder.setHeaderView(header);
+        StringUtil.isEmpty("");
     }
 
     @Override
@@ -110,7 +113,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void setOnClickListener() {
-        adapder.setOnItemClickListener(new MeRecyclerViewAdapder.OnItemClickListener() {
+        adapder.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
                 switch (position) {
