@@ -1,5 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -17,6 +18,7 @@ import com.huabiao.aoiin.ui.adapter.SearchHistoryAdapter;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.ClickUtil;
+import com.ywy.mylibs.utils.KeyboardUtils;
 import com.ywy.mylibs.utils.SPUtils;
 
 import java.util.ArrayList;
@@ -139,6 +141,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
      * 进行查询并将查询内容写入历史记录中
      */
     private void getSearch() {
+        KeyboardUtils.hideSoftInput(getActivity());
         String etString = search_et.getText().toString();
         if (!TextUtils.isEmpty(etString)) {
             putString(etString);
