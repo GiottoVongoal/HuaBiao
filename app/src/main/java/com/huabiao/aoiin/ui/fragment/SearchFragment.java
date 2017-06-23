@@ -73,7 +73,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                                     getActivity().getCurrentFocus().getWindowToken(),
                                     InputMethodManager.HIDE_NOT_ALWAYS);
                     // 进行搜索操作
-                    getSearch();
+                    String etString = search_et.getText().toString();
+                    getSearch(etString);
                 }
                 return false;
             }
@@ -108,7 +109,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         history_search_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                putString(historyList.get(position));
+                getSearch(historyList.get(position));
             }
         });
     }
@@ -129,7 +130,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                 ClickUtil.onBackClick();
                 break;
             case R.id.search_do_tv:
-                getSearch();
+                String etString = search_et.getText().toString();
+                getSearch(etString);
                 break;
             case R.id.history_search_clear_tv:
                 clearHistory();
@@ -140,12 +142,12 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     /**
      * 进行查询并将查询内容写入历史记录中
      */
-    private void getSearch() {
+    private void getSearch(String searchString) {
         KeyboardUtils.hideSoftInput(getActivity());
-        String etString = search_et.getText().toString();
-        if (!TextUtils.isEmpty(etString)) {
-            putString(etString);
-            showToast("查询" + etString);
+//        String etString = search_et.getText().toString();
+        if (!TextUtils.isEmpty(searchString)) {
+            putString(searchString);
+            showToast("查询" + searchString);
             ClickUtil.onBackClick();
         } else {
             showToast("请输入搜索内容");
