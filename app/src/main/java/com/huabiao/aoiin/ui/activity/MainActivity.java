@@ -17,6 +17,7 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
 import com.huabiao.aoiin.ui.fragment.TestFragment;
+import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
@@ -53,7 +54,7 @@ public class MainActivity extends BaseActivity {
 //                JumpUtils.startFragmentByName(MainActivity.this, TestFragment.class);
 //            }
 //        });
-//        BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
+        BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
             ALog.i("newFile.exists()");
