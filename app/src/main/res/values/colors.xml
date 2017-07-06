@@ -11,4 +11,5 @@
 
     <!-- 灰色 -->
     <color name="grey_DDDDDD">#DDDDDD</color>
+    <color name="black3">#333333</color>
 </resources>

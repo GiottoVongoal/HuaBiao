@@ -93,6 +93,6 @@ public class TestFragment extends BaseFragment {
 
     @Override
     public int getContentLayout() {
-        return R.layout.activity_main;
+        return R.layout.test_fragment_layout;
     }
 }

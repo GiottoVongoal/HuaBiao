@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.huabiao.aoiin"
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion 21
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -68,6 +68,7 @@ dependencies {
     compile('com.facebook.fresco:fresco:0.12.0+') {
         exclude module: 'library'// nineold冲突
     }
+    compile 'com.android.support:design:25+'
 }
 repositories {
     flatDir {  //声明本地仓库地址

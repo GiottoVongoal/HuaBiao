@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item_one"
+        android:icon="@mipmap/common_nav_icon_mc"
+        android:title="One" />
+
+    <item
+        android:id="@+id/menu_item_two"
+        android:icon="@mipmap/common_nav_icon_mc"
+        android:title="Two" />
+
+    <item
+        android:id="@+id/menu_item_three"
+        android:icon="@mipmap/common_nav_icon_mc"
+        android:title="Three" />
+    <item
+        android:id="@+id/menu_item_four"
+        android:icon="@mipmap/common_nav_icon_mc"
+        android:title="Four" />
+    <item
+        android:id="@+id/menu_item_five"
+        android:icon="@mipmap/common_nav_icon_mc"
+        android:title="Five" />
+</menu>
