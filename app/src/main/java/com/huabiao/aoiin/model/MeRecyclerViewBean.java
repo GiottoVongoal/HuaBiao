@@ -4,7 +4,7 @@ package com.huabiao.aoiin.model;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.model
  * @date 2017-06-07 12:05
- * @description
+ * @description 测试
  */
 public class MeRecyclerViewBean {
     private int img;
