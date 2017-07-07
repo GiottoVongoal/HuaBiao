@@ -88,6 +88,17 @@ public class TestFragment extends BaseFragment {
                 JumpUtils.startFragmentByName(getContext(), SearchFragment.class);
             }
         });
+        TextView tv5 = new TextView(getContext());
+        tv5.setPadding(10, 10, 10, 10);
+        LinearLayout.LayoutParams lp5 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        main_ll.addView(tv5, lp5);
+        tv5.setText("点我去折线图页面");
+        tv5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JumpUtils.startFragmentByName(getContext(), LineChartFragment.class);
+            }
+        });
 
     }
 

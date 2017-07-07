@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.model;
+package com.huabiao.aoiin.bean;
 
 /**
  * @author 杨丽亚.

@@ -11,8 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.model.MeRecyclerViewBean;
-import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.bean.MeRecyclerViewBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
 import java.util.ArrayList;

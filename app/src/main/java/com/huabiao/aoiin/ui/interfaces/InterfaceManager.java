@@ -10,9 +10,16 @@ import android.view.View;
  */
 public class InterfaceManager {
 
-
     //创建RecyclerView的Item点击事件
     public interface OnItemClickListener {
         void onItemClickListener(View view, int position);
     }
+
+    /**
+     * 公共的回调方法
+     */
+    public interface CallBackCommon {
+        void getCallBackCommon(Object mData);
+    }
+
 }

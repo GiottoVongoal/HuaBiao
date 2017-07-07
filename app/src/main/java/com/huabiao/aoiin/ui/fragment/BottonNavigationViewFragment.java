@@ -1,15 +1,15 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.ywy.mylibs.base.BaseFragment;
+import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
+
+import butterknife.Bind;
 
 /**
  * @author 杨丽亚.
@@ -17,7 +17,10 @@ import com.huabiao.aoiin.R;
  * @date 2017-07-05 13:20
  * @description
  */
-public class BottonNavigationViewFragment extends Fragment {
+public class BottonNavigationViewFragment extends BaseFragment {
+
+    @Bind(R.id.tv)
+    TextView tvInfo;
 
     public static BottonNavigationViewFragment newInstance(String info) {
         Bundle args = new Bundle();
@@ -27,18 +30,25 @@ public class BottonNavigationViewFragment extends Fragment {
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.item_list, null);
-        TextView tvInfo = (TextView) view.findViewById(R.id.tv);
+    public BasePresenter getPresenter() {
+        return null;
+    }
+
+    @Override
+    public void bindView(Bundle savedInstanceState) {
         tvInfo.setText(getArguments().getString("info"));
         tvInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "hello", Snackbar.LENGTH_SHORT).show();
+//                Snackbar.make(v, "hello", Snackbar.LENGTH_SHORT).show();
+                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
             }
         });
-        return view;
+    }
+
+    @Override
+    public int getContentLayout() {
+        return R.layout.item_list;
     }
 }

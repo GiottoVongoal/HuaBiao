@@ -12,4 +12,6 @@
     <!-- 灰色 -->
     <color name="grey_DDDDDD">#DDDDDD</color>
     <color name="black3">#333333</color>
+    <!-- 背景灰白 -->
+    <color name="backgroundwhite">#efeff4</color>
 </resources>

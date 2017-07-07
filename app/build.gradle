@@ -69,6 +69,8 @@ dependencies {
         exclude module: 'library'// nineold冲突
     }
     compile 'com.android.support:design:25+'
+    //画图表
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
 }
 repositories {
     flatDir {  //声明本地仓库地址

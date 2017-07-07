@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.constant.FlagBase;
-import com.huabiao.aoiin.model.MeRecyclerViewBean;
+import com.huabiao.aoiin.bean.MeRecyclerViewBean;
 import com.huabiao.aoiin.ui.adapter.MeRecyclerViewAdapder;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.huabiao.aoiin.wedgit.SpacesItemDecoration;
