@@ -9,12 +9,17 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
+import com.huabiao.aoiin.bean.TestBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.wedgit.DrawColumnChartView;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -30,6 +35,9 @@ public class LineChartFragment extends BaseFragment {
     DrawLineChartView line_chart;
     @Bind(R.id.line_chart2)
     DrawLineChartView line_chart2;
+
+    @Bind(R.id.column_chart)
+    DrawColumnChartView column_chart;
 
     @Override
     public BasePresenter getPresenter() {
@@ -64,6 +72,19 @@ public class LineChartFragment extends BaseFragment {
                 }
             }
         });
+
+        column_chart.generateDefaultData(setData());
+    }
+
+    private List<TestBean> setData() {
+        List<TestBean> months = new ArrayList<>();
+        for (int i = 0; i < 25; i++) {
+            TestBean testBean = new TestBean();
+            testBean.setName("Name" + i);
+            testBean.setNum(i + 3);
+            months.add(testBean);
+        }
+        return months;
     }
 
     @Override
