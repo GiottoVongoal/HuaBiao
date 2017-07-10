@@ -1,0 +1,29 @@
+{
+  "classificationlist": [
+    {
+      "classificationname": "工业气体,单质",
+      "classificationid": "0101",
+      "nextlevel": true
+    },
+    {
+      "classificationname": "用于工业、科学、农业、园艺、森林的工业化工原料",
+      "classificationid": "0102",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "放射性元素及其化学品",
+      "classificationid": "0103",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "用于工业、科学的化学品、化学制剂，不属于其他类别的产品用的化学制品",
+      "classificationid": "0104",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "用于农业、园艺、林业的化学品、化学制剂",
+      "classificationid": "0105",
+      "nextlevel": false
+    }
+  ]
+}

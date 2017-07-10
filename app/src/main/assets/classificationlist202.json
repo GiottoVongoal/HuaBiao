@@ -1,0 +1,39 @@
+{
+  "classificationlist": [
+    {
+      "classificationname": "染料，媒染剂（不包括食用）",
+      "classificationid": "0201",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "颜料（不包括食用、绝缘用），画家、装饰家、印刷商和艺术家用金属箔",
+      "classificationid": "0202",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "食品着色剂",
+      "classificationid": "0203",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "油墨",
+      "classificationid": "0204",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "涂料，油漆及附料（不包括绝缘漆）",
+      "classificationid": "0205",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "防锈剂，木材防腐剂",
+      "classificationid": "0206",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "未加工的天然树脂",
+      "classificationid": "0207",
+      "nextlevel": false
+    }
+  ]
+}

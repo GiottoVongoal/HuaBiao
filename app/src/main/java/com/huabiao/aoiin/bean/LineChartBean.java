@@ -6,7 +6,7 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-07-07 09:17
- * @description
+ * @description 折线图Bean
  */
 public class LineChartBean {
     /**

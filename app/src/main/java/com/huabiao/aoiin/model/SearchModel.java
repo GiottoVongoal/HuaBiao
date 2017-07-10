@@ -38,17 +38,8 @@ public class SearchModel {
         return "";
     }
 
-    public static void getSearchResult(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, "searchresultregistered.json");
-        Gson gson = new Gson();
-        SearchResultRegisteredBean bean = gson.fromJson(jsonString, SearchResultRegisteredBean.class);
-        if (callback != null) {
-            callback.getCallBackCommon(bean);
-        }
-    }
-
-    public static void getSearchUnregisterResult(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, "searchresultunregistered.json");
+    public static void getJsonResult(Context context, String jsonname, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, jsonname);
         Gson gson = new Gson();
         SearchResultUnregisteredBean bean = gson.fromJson(jsonString, SearchResultUnregisteredBean.class);
         if (callback != null) {
