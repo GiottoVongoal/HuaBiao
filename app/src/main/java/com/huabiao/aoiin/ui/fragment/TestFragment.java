@@ -99,6 +99,17 @@ public class TestFragment extends BaseFragment {
                 JumpUtils.startFragmentByName(getContext(), LineChartFragment.class);
             }
         });
+        TextView tv6 = new TextView(getContext());
+        tv6.setPadding(10, 10, 10, 10);
+        LinearLayout.LayoutParams lp6 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        main_ll.addView(tv6, lp6);
+        tv6.setText("点我去多级选择页面");
+        tv6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JumpUtils.startFragmentByName(getContext(), CheckTypeListFragment.class);
+            }
+        });
 
     }
 

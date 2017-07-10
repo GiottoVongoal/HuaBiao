@@ -1,13 +1,23 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.ClassificationItemBean;
+import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
+import com.huabiao.aoiin.selecttool.AddressSelector;
+import com.huabiao.aoiin.selecttool.DataProvider;
+import com.huabiao.aoiin.selecttool.SelectedListener;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -19,8 +29,13 @@ import butterknife.Bind;
  */
 
 public class CheckTypeListFragment extends BaseFragment {
-    @Bind(R.id.check_type_list_rv)
-    RecyclerView check_type_list_rv;
+//    @Bind(R.id.check_type_list_rv)
+//    RecyclerView check_type_list_rv;
+
+    @Bind(R.id.frameLayout)
+    FrameLayout frameLayout;
+    int deep = 3;
+    String typeId = "0";
 
     @Override
     public BasePresenter getPresenter() {
@@ -29,16 +44,57 @@ public class CheckTypeListFragment extends BaseFragment {
 
     @Override
     public void bindView(Bundle savedInstanceState) {
+        getJsonObj("classificationlist1.json");
+    }
 
-
-        SearchModel.getJsonResult(getContext(), "classificationlist1.json", new InterfaceManager.CallBackCommon() {
+    private void getJsonObj(String string) {
+        SearchModel.getClassificationResult(getContext(), string, new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-
+                    ClassificationListBean bean = (ClassificationListBean) mData;
+                    List<ClassificationItemBean> list = bean.getClassificationlist();
+                    show(typeId, list);
                 }
             }
         });
+    }
+
+    AddressSelector selector;
+
+    private void show(String id, final List<ClassificationItemBean> list) {
+        if (typeId.equals("0")) {
+            selector = new AddressSelector(getContext(), deep);
+            selector.setDataProvider(id, list, new DataProvider() {
+                @Override
+                public void provideData(int currentDeep, String preId, DataReceiver receiver) {
+                    //根据tab的深度和前一项选择的id，获取下一级菜单项
+                    Log.i(TAG, "provideData: currentDeep >>> " + currentDeep + " preId >>> " + preId);
+//                receiver.send(list);
+                    receiver.send();
+                }
+
+                @Override
+                public void getNext(String id) {
+                    typeId = id;
+                    getJsonObj("classificationlist" + typeId + ".json");
+                }
+            });
+            frameLayout.addView(selector.getView());
+        } else {
+            selector.getNextData(typeId, list);
+        }
+        selector.setSelectedListener(new SelectedListener() {
+            @Override
+            public void onAddressSelected(ArrayList<ClassificationItemBean> selectAbles) {
+                String result = "";
+                for (ClassificationItemBean selectAble : selectAbles) {
+                    result += selectAble.getClassificationname() + " ";
+                }
+                Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+            }
+        });
+//        selector.setAddressProvider(new TestAddressProvider());
     }
 
     @Override
