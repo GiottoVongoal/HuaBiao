@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">商标助手</string>
 
-    <string name="me_progress_reminder_string">进度提醒</string>
-    <string name="me_my_news">我的消息</string>
-    <string name="me_string">专业 · 服务</string>
+    <string name="me_trademark_registered_form_string">商标注册表单</string>
+    <string name="me_remind_progress_string">进度提醒</string>
+    <string name="me_order_string">我的订单</string>
+
+    <!--menu-->
+    <string name="menu_title_creat_name">取名</string>
+    <string name="menu_title_registered">注册</string>
+    <string name="menu_title_search">查询</string>
+    <string name="menu_title_hot_world">热搜词</string>
+    <string name="menu_title_my">我的</string>
 
 </resources>

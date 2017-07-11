@@ -2,16 +2,16 @@ package com.huabiao.aoiin.ui.adapter;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.MeRecyclerViewBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
 import java.util.ArrayList;
@@ -26,13 +26,12 @@ import java.util.List;
 public class MeRecyclerViewAdapder extends RecyclerView.Adapter<MeRecyclerViewAdapder.ViewHolder> {
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_NORMAL = 1;
-    private List<MeRecyclerViewBean> mList = new ArrayList<>();
+    private String[] text;
     private Context mContext;
-    private int mHeaderCount = 1;//头部View个数
     private View mHeaderView;
 
-    public MeRecyclerViewAdapder(Context mContext, List<MeRecyclerViewBean> mList) {
-        this.mList = mList;
+    public MeRecyclerViewAdapder(Context mContext, String[] text) {
+        this.text = text;
         this.mContext = mContext;
     }
 
@@ -60,9 +59,8 @@ public class MeRecyclerViewAdapder extends RecyclerView.Adapter<MeRecyclerViewAd
     public void onBindViewHolder(ViewHolder holder, final int position) {
         if (getItemViewType(position) == TYPE_HEADER)
             return;
-        final MeRecyclerViewBean bean = mList.get(position - 1);
-        holder.me_recyclerview_item_iv.setImageResource(bean.getImg());
-        holder.me_recyclerview_item_tv.setText(bean.getText());
+        final String textString = text[position - 1];
+        holder.me_recyclerview_item_tv.setText(textString);
         holder.me_recyclerview_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +71,7 @@ public class MeRecyclerViewAdapder extends RecyclerView.Adapter<MeRecyclerViewAd
 
     @Override
     public int getItemCount() {
-        return mHeaderView == null ? mList.size() : mList.size() + 1;
+        return mHeaderView == null ? text.length : text.length + 1;
     }
 
     @Override
@@ -85,31 +83,14 @@ public class MeRecyclerViewAdapder extends RecyclerView.Adapter<MeRecyclerViewAd
         return TYPE_NORMAL;
     }
 
-    @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
-        RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
-        if (manager instanceof GridLayoutManager) {
-            final GridLayoutManager gridManager = ((GridLayoutManager) manager);
-            gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                @Override
-                public int getSpanSize(int position) {
-                    return getItemViewType(position) == TYPE_HEADER ? gridManager.getSpanCount() : 1;
-                }
-            });
-        }
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView me_recyclerview_item_iv;
         public TextView me_recyclerview_item_tv;
-        public ConstraintLayout me_recyclerview_item;
+        public CardView me_recyclerview_item;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            me_recyclerview_item_iv = (ImageView) itemView.findViewById(R.id.me_recyclerview_item_iv);
             me_recyclerview_item_tv = (TextView) itemView.findViewById(R.id.me_recyclerview_item_tv);
-            me_recyclerview_item = (ConstraintLayout) itemView.findViewById(R.id.me_recyclerview_item);
+            me_recyclerview_item = (CardView) itemView.findViewById(R.id.me_recyclerview_item);
         }
     }
 }

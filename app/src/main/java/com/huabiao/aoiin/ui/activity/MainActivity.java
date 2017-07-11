@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
+import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -60,25 +61,25 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menu_item_one:
+                    case R.id.menu_item_creat_name:
 //                        botton_viewpager.setCurrentItem(0);
                         addFragment(BottonNavigationViewFragment.newInstance("拨号"));
                         break;
-                    case R.id.menu_item_two:
+                    case R.id.menu_item_registered:
 //                        botton_viewpager.setCurrentItem(1);
                         addFragment(BottonNavigationViewFragment.newInstance("信息"));
                         break;
-                    case R.id.menu_item_three:
+                    case R.id.menu_item_search:
 //                        botton_viewpager.setCurrentItem(2);
                         addFragment(BottonNavigationViewFragment.newInstance("联系人"));
                         break;
-                    case R.id.menu_item_four:
+                    case R.id.menu_item_hot_world:
 //                        botton_viewpager.setCurrentItem(3);
                         addFragment(BottonNavigationViewFragment.newInstance("查询"));
                         break;
-                    case R.id.menu_item_five:
+                    case R.id.menu_item_my:
 //                        botton_viewpager.setCurrentItem(4);
-                        addFragment(BottonNavigationViewFragment.newInstance("我的"));
+                        addFragment(new MeFragment());
                         break;
                 }
                 return true;//返回 true 使点击有效
