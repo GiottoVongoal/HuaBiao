@@ -26,7 +26,7 @@ import butterknife.Bind;
 public class MainActivity extends BaseActivity {
 
 //    private MenuItem menuItem;
-    @Bind(R.id.botton_navi_view)
+//    @Bind(R.id.botton_navi_view)
     BottomNavigationView botton_navi_view;
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
