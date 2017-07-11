@@ -3,15 +3,10 @@ package com.huabiao.aoiin.model;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * @author 杨丽亚.
@@ -22,26 +17,15 @@ import java.io.InputStreamReader;
 
 public class SearchModel {
 
-    private static String getJson(Context context, String jsonFile) {
-        try {
-            InputStreamReader isr = new InputStreamReader(context.getAssets().open(jsonFile), "utf-8");
-            BufferedReader br = new BufferedReader(isr);
-            String line;
-            StringBuilder builder = new StringBuilder();
-            while ((line = br.readLine()) != null) {
-                builder.append(line);
-            }
-            br.close();
-            isr.close();
-            return builder.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public static void getSearchResult(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, "searchresultregistered.json");
+    /**
+     * @param context
+     * @param trademarkName 商标名
+     * @param goodsName     商品名
+     * @param callback
+     * @describe 获取查询结果--已注册
+     */
+    public static void getSearchResult(Context context, String trademarkName, String goodsName, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "searchresultregistered.json");
         Gson gson = new Gson();
         SearchResultRegisteredBean bean = gson.fromJson(jsonString, SearchResultRegisteredBean.class);
         if (callback != null) {
@@ -49,8 +33,15 @@ public class SearchModel {
         }
     }
 
-    public static void getSearchUnregisterResult(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, "searchresultunregistered.json");
+    /**
+     * @param context
+     * @param trademarkName 商标名
+     * @param goodsName     商品名
+     * @param callback
+     * @describe 获取查询结果--未注册
+     */
+    public static void getSearchUnregisterResult(Context context, String trademarkName, String goodsName, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "searchresultunregistered.json");
         Gson gson = new Gson();
         SearchResultUnregisteredBean bean = gson.fromJson(jsonString, SearchResultUnregisteredBean.class);
         if (callback != null) {
@@ -58,8 +49,14 @@ public class SearchModel {
         }
     }
 
+    /**
+     * @param context
+     * @param jsonname
+     * @param callback
+     * @describe 获取商标分类
+     */
     public static void getClassificationResult(Context context, String jsonname, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, jsonname);
+        String jsonString = GetJsonToName.getJson(context, jsonname);
         Gson gson = new Gson();
         ClassificationListBean bean = gson.fromJson(jsonString, ClassificationListBean.class);
         if (callback != null) {

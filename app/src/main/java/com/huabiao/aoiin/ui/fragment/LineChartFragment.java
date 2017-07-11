@@ -46,7 +46,7 @@ public class LineChartFragment extends BaseFragment {
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        SearchModel.getSearchResult(getContext(), new InterfaceManager.CallBackCommon() {
+        SearchModel.getSearchResult(getContext(), "", "", new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
@@ -60,7 +60,7 @@ public class LineChartFragment extends BaseFragment {
             }
         });
 
-        SearchModel.getSearchUnregisterResult(getContext(), new InterfaceManager.CallBackCommon() {
+        SearchModel.getSearchUnregisterResult(getContext(), "", "", new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {

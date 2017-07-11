@@ -6,7 +6,7 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-07-07 13:21
- * @description 查询结果--未注册
+ * @description 查询结果--未注册Bean
  */
 public class SearchResultUnregisteredBean {
 

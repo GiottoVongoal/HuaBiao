@@ -1,0 +1,176 @@
+{
+  "recommendnameList": [
+    {
+      "trademarkname": "飘柔",
+      "trademarkclassification": "日化用品",
+      "classificationid": "03",
+      "means": "我是这个商标名的含义,美丽的思考--飘柔",
+      "Xaxistag": [
+        "周一",
+        "周二",
+        "周三",
+        "周四",
+        "周五",
+        "周六",
+        "周日"
+      ],
+      "lines": [
+        {
+          "linename": "京东",
+          "linecolor": "#FF4300",
+          "linevalue": [
+            7,
+            7,
+            6,
+            7,
+            5,
+            6,
+            8
+          ]
+        },
+        {
+          "linename": "亚马逊",
+          "linecolor": "#FFEA00",
+          "linevalue": [
+            2,
+            2,
+            5,
+            4,
+            7,
+            7,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "trademarkname": "顺畅",
+      "trademarkclassification": "日化用品",
+      "classificationid": "03",
+      "means": "我是这个商标名的含义,美丽的思考--顺畅",
+      "Xaxistag": [
+        "周一",
+        "周二",
+        "周三",
+        "周四",
+        "周五",
+        "周六",
+        "周日"
+      ],
+      "lines": [
+        {
+          "linename": "京东",
+          "linecolor": "#FF4300",
+          "linevalue": [
+            7,
+            7,
+            6,
+            7,
+            5,
+            6,
+            8
+          ]
+        },
+        {
+          "linename": "亚马逊",
+          "linecolor": "#FFEA00",
+          "linevalue": [
+            2,
+            2,
+            5,
+            4,
+            7,
+            7,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "trademarkname": "柔亮",
+      "trademarkclassification": "日化用品",
+      "classificationid": "03",
+      "means": "我是这个商标名的含义,美丽的思考--柔亮",
+      "Xaxistag": [
+        "周一",
+        "周二",
+        "周三",
+        "周四",
+        "周五",
+        "周六",
+        "周日"
+      ],
+      "lines": [
+        {
+          "linename": "京东",
+          "linecolor": "#FF4300",
+          "linevalue": [
+            7,
+            7,
+            6,
+            7,
+            5,
+            6,
+            8
+          ]
+        },
+        {
+          "linename": "亚马逊",
+          "linecolor": "#FFEA00",
+          "linevalue": [
+            2,
+            2,
+            5,
+            4,
+            7,
+            7,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "trademarkname": "漂亮",
+      "trademarkclassification": "日化用品",
+      "classificationid": "03",
+      "means": "我是这个商标名的含义,美丽的思考--漂亮",
+      "Xaxistag": [
+        "周一",
+        "周二",
+        "周三",
+        "周四",
+        "周五",
+        "周六",
+        "周日"
+      ],
+      "lines": [
+        {
+          "linename": "京东",
+          "linecolor": "#FF4300",
+          "linevalue": [
+            7,
+            7,
+            6,
+            7,
+            5,
+            6,
+            8
+          ]
+        },
+        {
+          "linename": "亚马逊",
+          "linecolor": "#FFEA00",
+          "linevalue": [
+            2,
+            2,
+            5,
+            4,
+            7,
+            7,
+            3
+          ]
+        }
+      ]
+    }
+  ]
+}

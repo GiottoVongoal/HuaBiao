@@ -29,13 +29,12 @@ import butterknife.Bind;
  */
 
 public class CheckTypeListFragment extends BaseFragment {
-//    @Bind(R.id.check_type_list_rv)
-//    RecyclerView check_type_list_rv;
 
     @Bind(R.id.frameLayout)
     FrameLayout frameLayout;
     int deep = 3;
     String typeId = "0";
+    AddressSelector selector;
 
     @Override
     public BasePresenter getPresenter() {
@@ -60,8 +59,6 @@ public class CheckTypeListFragment extends BaseFragment {
         });
     }
 
-    AddressSelector selector;
-
     private void show(String id, final List<ClassificationItemBean> list) {
         if (typeId.equals("0")) {
             selector = new AddressSelector(getContext(), deep);
@@ -69,8 +66,6 @@ public class CheckTypeListFragment extends BaseFragment {
                 @Override
                 public void provideData(int currentDeep, String preId, DataReceiver receiver) {
                     //根据tab的深度和前一项选择的id，获取下一级菜单项
-                    Log.i(TAG, "provideData: currentDeep >>> " + currentDeep + " preId >>> " + preId);
-//                receiver.send(list);
                     receiver.send();
                 }
 
@@ -94,7 +89,6 @@ public class CheckTypeListFragment extends BaseFragment {
                 Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
             }
         });
-//        selector.setAddressProvider(new TestAddressProvider());
     }
 
     @Override
