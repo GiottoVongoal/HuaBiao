@@ -10,49 +10,13 @@ import java.util.List;
  */
 public class ClassificationListBean {
 
-    private List<ClassificationlistBean> classificationlist;
+    private List<ClassificationItemBean> classificationlist;
 
-    public List<ClassificationlistBean> getClassificationlist() {
+    public List<ClassificationItemBean> getClassificationlist() {
         return classificationlist;
     }
 
-    public void setClassificationlist(List<ClassificationlistBean> classificationlist) {
+    public void setClassificationlist(List<ClassificationItemBean> classificationlist) {
         this.classificationlist = classificationlist;
-    }
-
-    public static class ClassificationlistBean {
-        /**
-         * classificationname : 氙
-         * classificationid : 010551
-         * nextlevel : false
-         */
-
-        private String classificationname;
-        private String classificationid;
-        private boolean nextlevel;
-
-        public String getClassificationname() {
-            return classificationname;
-        }
-
-        public void setClassificationname(String classificationname) {
-            this.classificationname = classificationname;
-        }
-
-        public String getClassificationid() {
-            return classificationid;
-        }
-
-        public void setClassificationid(String classificationid) {
-            this.classificationid = classificationid;
-        }
-
-        public boolean isNextlevel() {
-            return nextlevel;
-        }
-
-        public void setNextlevel(boolean nextlevel) {
-            this.nextlevel = nextlevel;
-        }
     }
 }

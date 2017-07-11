@@ -3,6 +3,8 @@ package com.huabiao.aoiin.model;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.huabiao.aoiin.bean.ClassificationItemBean;
+import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -38,10 +40,28 @@ public class SearchModel {
         return "";
     }
 
-    public static void getJsonResult(Context context, String jsonname, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, jsonname);
+    public static void getSearchResult(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, "searchresultregistered.json");
+        Gson gson = new Gson();
+        SearchResultRegisteredBean bean = gson.fromJson(jsonString, SearchResultRegisteredBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
+    public static void getSearchUnregisterResult(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, "searchresultunregistered.json");
         Gson gson = new Gson();
         SearchResultUnregisteredBean bean = gson.fromJson(jsonString, SearchResultUnregisteredBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
+    public static void getClassificationResult(Context context, String jsonname, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, jsonname);
+        Gson gson = new Gson();
+        ClassificationListBean bean = gson.fromJson(jsonString, ClassificationListBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }
