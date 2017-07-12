@@ -22,26 +22,21 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     //打多个dex
     compile 'com.android.support:multidex:1.0.1'
-
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:support-v4:23.1.0'
     testCompile 'junit:junit:4.12'
-
-    compile 'com.blankj:alog:0.0.2' //log的jar包
+    compile 'com.blankj:alog:0.0.2'
+    //log的jar包
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.squareup:otto:+'
     compile 'com.google.code.gson:gson:2.2.4'
-
     compile 'com.umeng.analytics:analytics:latest.integration'
-
     compile 'com.android.support:recyclerview-v7:23.1.0'
-
     //数据库管理
     compile 'com.github.satyan:sugar:1.4+'
-
     // Retrofit & OkHttp
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
@@ -52,4 +47,8 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     // walle 多渠道打包
     compile 'com.meituan.android.walle:library:1.0.2'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.karumi:dexter:2.2.2'
+    compile files('libs/umeng_social_api.jar')
+    compile files('libs/umeng_social_net.jar')
 }
