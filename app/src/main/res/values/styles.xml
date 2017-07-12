@@ -22,4 +22,9 @@
         <item name="android:layout_width">1dp</item>
         <item name="android:background">@color/grey_DDDDDD</item>
     </style>
+    <!--屏幕底部弹出PopupWindow效果-->
+    <style name="bottom_enter_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
+    </style>
 </resources>

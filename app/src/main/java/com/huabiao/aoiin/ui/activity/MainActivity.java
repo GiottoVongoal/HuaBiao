@@ -14,6 +14,7 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
+import com.huabiao.aoiin.ui.fragment.RegisterOneFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -63,7 +64,7 @@ public class MainActivity extends BaseActivity {
                         addFragment(BottonNavigationViewFragment.newInstance("拨号"));
                         break;
                     case R.id.menu_item_registered:
-                        addFragment(BottonNavigationViewFragment.newInstance("信息"));
+                        addFragment(new RegisterOneFragment());
                         break;
                     case R.id.menu_item_search:
                         addFragment(BottonNavigationViewFragment.newInstance("联系人"));

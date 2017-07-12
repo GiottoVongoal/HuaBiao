@@ -11,9 +11,9 @@ import java.util.List;
 public class SearchResultUnregisteredBean {
 
     /**
-     * classification : [{"classificationname":"化学制剂、肥料","classificationid":"01"},{"classificationname":"颜料油漆、染料、防腐制品","classificationid":"02"}]
-     * otherclassification : [{"classificationname":"化学制剂、肥料","classificationid":"01"},{"classificationname":"颜料油漆、染料、防腐制品","classificationid":"02"},{"classificationname":"日化用品、洗护、香料","classificationid":"03"}]
-     * linechart : {"trademarkname":"飞丝","trademarkclassification":"日化用品、洗护、香料","classificationid":"03","Xaxistag":["周一","周二","周三","周四","周五","周六","周日"],"lines":[{"linename":"百度","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]},{"linename":"淘宝","linecolor":"#FF4081","linevalue":[2,5,7,4,4,8,6]}]}
+     * classification : [{"classificationname":"化学制剂","classificationid":"01"},{"classificationname":"颜料油漆","classificationid":"02"}]
+     * otherclassification : [{"classificationname":"化学制剂","classificationid":"01"},{"classificationname":"颜料油漆","classificationid":"02"},{"classificationname":"日化用品","classificationid":"03"}]
+     * linechart : {"tradename":"飘柔","trademarkclassification":"日化用品","classificationid":"03","Xaxistag":["周一","周二","周三","周四","周五","周六","周日"],"lines":[{"linename":"京东","linecolor":"#FF4300","linevalue":[7,7,6,7,5,6,8]},{"linename":"亚马逊","linecolor":"#FFEA00","linevalue":[2,2,5,4,7,7,3]}]}
      */
 
     private LineChartBean linechart;
@@ -46,7 +46,7 @@ public class SearchResultUnregisteredBean {
 
     public static class ClassificationBean {
         /**
-         * classificationname : 化学制剂、肥料
+         * classificationname : 化学制剂
          * classificationid : 01
          */
 
@@ -72,7 +72,7 @@ public class SearchResultUnregisteredBean {
 
     public static class OtherclassificationBean {
         /**
-         * classificationname : 化学制剂、肥料
+         * classificationname : 化学制剂
          * classificationid : 01
          */
 

@@ -9,7 +9,6 @@ import java.util.List;
  * @description 取名返回的4个推荐名字Bean
  */
 public class GetCreatNameBean {
-
     private List<RecommendnameListBean> recommendnameList;
 
     public List<RecommendnameListBean> getRecommendnameList() {
@@ -22,7 +21,7 @@ public class GetCreatNameBean {
 
     public static class RecommendnameListBean {
         /**
-         * trademarkname : 飘柔
+         * tradename : 飘柔
          * trademarkclassification : 日化用品
          * classificationid : 03
          * means : 我是这个商标名的含义,美丽的思考--飘柔
@@ -30,19 +29,19 @@ public class GetCreatNameBean {
          * lines : [{"linename":"京东","linecolor":"#FF4300","linevalue":[7,7,6,7,5,6,8]},{"linename":"亚马逊","linecolor":"#FFEA00","linevalue":[2,2,5,4,7,7,3]}]
          */
 
-        private String trademarkname;
+        private String tradename;
         private String trademarkclassification;
         private String classificationid;
         private String means;
         private List<String> Xaxistag;
         private List<LinesBean> lines;
 
-        public String getTrademarkname() {
-            return trademarkname;
+        public String getTradename() {
+            return tradename;
         }
 
-        public void setTrademarkname(String trademarkname) {
-            this.trademarkname = trademarkname;
+        public void setTradename(String tradename) {
+            this.tradename = tradename;
         }
 
         public String getTrademarkclassification() {

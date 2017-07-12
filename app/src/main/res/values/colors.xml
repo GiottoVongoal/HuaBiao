@@ -11,7 +11,12 @@
 
     <!-- 灰色 -->
     <color name="grey_DDDDDD">#DDDDDD</color>
+    <color name="grey_DBDBDB">#DBDBDB</color>
+    <color name="grey_d7d7d7">#d7d7d7</color>
+    <color name="grey_EEEEEE">#eeeeee</color>
     <color name="black3">#333333</color>
     <!-- 背景灰白 -->
     <color name="backgroundwhite">#efeff4</color>
+
+    <color name="popup_main_background">#b0000000</color>
 </resources>

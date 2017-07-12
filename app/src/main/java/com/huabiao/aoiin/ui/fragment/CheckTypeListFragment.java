@@ -10,6 +10,7 @@ import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.selecttool.AddressSelector;
+import com.huabiao.aoiin.selecttool.BottomDialog;
 import com.huabiao.aoiin.selecttool.DataProvider;
 import com.huabiao.aoiin.selecttool.SelectedListener;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -89,6 +90,11 @@ public class CheckTypeListFragment extends BaseFragment {
                 Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
             }
         });
+
+
+//        BottomDialog dialog = new BottomDialog(getContext());
+//        dialog.init(getContext(), selector);
+//        dialog.show();
     }
 
     @Override
