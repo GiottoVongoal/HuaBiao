@@ -27,4 +27,12 @@
         <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
         <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
     </style>
+    <!--推荐客服星级评分条-->
+    <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/customer_service_ratingbar</item>
+        <item name="android:numStars">5</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+        <item name="android:stepSize">0.1</item>
+    </style>
 </resources>

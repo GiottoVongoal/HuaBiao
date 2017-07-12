@@ -16,6 +16,7 @@ import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.List;
 
@@ -104,11 +105,17 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
             @Override
             public void selectDefault() {
                 showToast("默认注册\n" + tradename + "\n" + industry);
+                finishPopupWindow.dismiss();
             }
 
             @Override
             public void selectRecommand() {
                 showToast("客服推荐\n" + tradename + "\n" + industry);
+                Bundle bundle = new Bundle();
+                bundle.putString("tradename", tradename);
+                bundle.putString("industry", industry);
+                JumpUtils.startFragmentByName(getContext(), CustomerServiceListFragment.class, bundle);
+                finishPopupWindow.dismiss();
             }
         });
         finishPopupWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);

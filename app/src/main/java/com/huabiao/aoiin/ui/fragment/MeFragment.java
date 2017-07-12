@@ -16,6 +16,7 @@ import com.huabiao.aoiin.ui.adapter.MeRecyclerViewAdapder;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.wedgit.wedgit.CircleView;
 
 import java.util.ArrayList;
@@ -33,7 +34,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.me_recyclerview)
     RecyclerView me_recyclerview;
     private MeRecyclerViewAdapder adapder;
-    private LinearLayoutManager manager;
 
     private String[] text = {"我的收藏", "浏览记录", "地址管理", "反馈", "服务与隐私协议"};
 
@@ -50,8 +50,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     private void showView() {
         //给RecyclerView设置布局管理器
-        manager = new LinearLayoutManager(getContext());
-        me_recyclerview.setLayoutManager(manager);
+        me_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         adapder = new MeRecyclerViewAdapder(getActivity(), text);
         me_recyclerview.setAdapter(adapder);
         View header = LayoutInflater.from(getActivity()).inflate(R.layout.me_head_layout, me_recyclerview, false);
@@ -60,7 +59,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         me_setting.setOnClickListener(this);
         //用户头像
         CircleView me_user_photo = (CircleView) header.findViewById(R.id.me_user_photo);
-
+        BitmapLoader.ins().loadImage("https://b-ssl.duitang.com/uploads/blog/201509/29/20150929164702_KMUBn.thumb.700_0.jpeg", R.mipmap.perter_portrait, me_user_photo);
         me_user_photo.setOnClickListener(this);
         //用户姓名
         TextView me_user_name = (TextView) header.findViewById(R.id.me_user_name);

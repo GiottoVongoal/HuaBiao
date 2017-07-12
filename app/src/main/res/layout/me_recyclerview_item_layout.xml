@@ -7,7 +7,7 @@
     android:layout_marginLeft="7dp"
     android:layout_marginRight="7dp"
     android:layout_marginTop="5dp"
-    android:background="@color/gray_E9E7E7"
+    android:background="@color/grey_E9E7E7"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="5dp"
