@@ -14,7 +14,7 @@ public class LineChartBean {
      * trademarkclassification : 日化用品
      * classificationid : 03
      * Xaxistag : ["周一","周二","周三","周四","周五","周六","周日"]
-     * lines : [{"linename":"百度","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]},{"linename":"淘宝","linecolor":"#FF4081","linevalue":[2,5,7,4,4,8,6]}]
+     * lines : [{"linename":"百度","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]},{"linename":"阿里","linecolor":"#FF4081","linevalue":[2,5,7,4,4,8,6]}]
      */
 
     private String tradename;

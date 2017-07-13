@@ -1,115 +1,41 @@
 {
-  "classification": [
-    {
-      "classificationname": "化学制剂",
-      "classificationid": "01",
-      "trademarkstatus": 1,
-      "detailed": [
-        {
-          "id": "0101",
-          "typename": "工业气体,单质"
-        },
-        {
-          "id": "0102",
-          "typename": "用于工业、科学、农业、园艺、森林的工业化工原料"
-        },
-        {
-          "id": "0103",
-          "typename": "放射性元素及其化学品"
-        },
-        {
-          "id": "0104",
-          "typename": "用于工业、科学的化学品、化学制剂，不属于其他类别的产品用的化学制品"
-        },
-        {
-          "id": "0105",
-          "typename": "用于农业、园艺、林业的化学品、化学制剂"
-        }
-      ]
-    },
-    {
-      "classificationname": "颜料油漆",
-      "classificationid": "02",
-      "trademarkstatus": 3,
-      "detailed": [
-        {
-          "id": "0201",
-          "typename": "染料，媒染剂（不包括食用）"
-        },
-        {
-          "id": "0202",
-          "typename": "颜料（不包括食用、绝缘用），画家、装饰家、印刷商和艺术家用金属箔"
-        },
-        {
-          "id": "0203",
-          "typename": "食品着色剂"
-        },
-        {
-          "id": "0204",
-          "typename": "油墨"
-        },
-        {
-          "id": "0205",
-          "typename": "涂料，油漆及附料（不包括绝缘漆）"
-        },
-        {
-          "id": "0206",
-          "typename": "防锈剂，木材防腐剂"
-        },
-        {
-          "id": "0207",
-          "typename": "未加工的天然树脂"
-        }
-      ]
-    },
-    {
-      "classificationname": "日化用品",
-      "classificationid": "03",
-      "trademarkstatus": 1,
-      "detailed": [
-        {
-          "id": "301",
-          "typename": "肥皂，香皂及其他人用洗洁物品，洗衣用漂白剂及其他物料"
-        },
-        {
-          "id": "0302",
-          "typename": "清洁、去渍用制剂"
-        },
-        {
-          "id": "0303",
-          "typename": "抛光、擦亮制剂"
-        },
-        {
-          "id": "0304",
-          "typename": "研磨用材料及其制剂"
-        },
-        {
-          "id": "0305",
-          "typename": "香料，香精油"
-        },
-        {
-          "id": "0306",
-          "typename": "化妆品（不包括动物用化妆品）"
-        },
-        {
-          "id": "0307",
-          "typename": "牙膏，洗牙用制剂"
-        },
-        {
-          "id": "0308",
-          "typename": "熏料"
-        },
-        {
-          "id": "0309",
-          "typename": "动物用化妆品"
-        },
-        {
-          "id": "0310",
-          "typename": "室内芳香剂"
-        }
-      ]
-    }
-  ],
+  "classification":
+  {
+    "classificationname": "颜料油漆",
+    "classificationid": "02",
+    "trademarkstatus": 3,
+    "detailed": [
+      {
+        "id": "0201",
+        "typename": "染料，媒染剂（不包括食用）"
+      },
+      {
+        "id": "0202",
+        "typename": "颜料（不包括食用、绝缘用），画家、装饰家、印刷商和艺术家用金属箔"
+      },
+      {
+        "id": "0203",
+        "typename": "食品着色剂"
+      },
+      {
+        "id": "0204",
+        "typename": "油墨"
+      },
+      {
+        "id": "0205",
+        "typename": "涂料，油漆及附料（不包括绝缘漆）"
+      },
+      {
+        "id": "0206",
+        "typename": "防锈剂，木材防腐剂"
+      },
+      {
+        "id": "0207",
+        "typename": "未加工的天然树脂"
+      }
+    ]
+  }
+,
   "linechart": {
     "tradename": "海飞丝",
     "trademarkclassification": "日化用品",
@@ -138,7 +64,7 @@
         ]
       },
       {
-        "linename": "淘宝",
+        "linename": "阿里",
         "linecolor": "#FF4081",
         "linevalue": [
           2,
