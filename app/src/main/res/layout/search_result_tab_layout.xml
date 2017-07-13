@@ -30,7 +30,7 @@
             android:layout_weight="1"
             app:tabGravity="center"
             app:tabIndicatorColor="@color/colorAccent"
-            app:tabIndicatorHeight="4dp"
+            app:tabIndicatorHeight="2dp"
             app:tabMode="fixed"
             app:tabPadding="10dp"
             app:tabSelectedTextColor="@color/colorAccent"

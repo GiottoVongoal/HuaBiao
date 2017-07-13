@@ -44,6 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:text="综合" />
 
@@ -54,6 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:text="成功率" />
 
@@ -64,6 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:text="注册时间" />
 
@@ -74,6 +77,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:text="服务" />
     </LinearLayout>
@@ -83,5 +87,6 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/customer_service_list_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:foreground="?android:attr/selectableItemBackground" />
 </LinearLayout>

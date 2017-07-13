@@ -54,7 +54,8 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/search_result_registered_bottom_rv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

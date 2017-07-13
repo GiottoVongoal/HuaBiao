@@ -32,6 +32,8 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
+    Fragment RegisterOneFragment, SearchFragment, MeFragment;
+
     @Override
     public BasePresenter getPresenter() {
         return null;
@@ -40,6 +42,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public void bindView(Bundle savedInstanceState) {
         BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
+
+        MeFragment = new MeFragment();
+        RegisterOneFragment = new RegisterOneFragment();
+        SearchFragment = new SearchFragment();
+
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
             ALog.i("newFile.exists()");
@@ -65,23 +72,23 @@ public class MainActivity extends BaseActivity {
                         addFragment(BottonNavigationViewFragment.newInstance("拨号"));
                         break;
                     case R.id.menu_item_registered:
-                        addFragment(new RegisterOneFragment());
+                        addFragment(RegisterOneFragment);
                         break;
                     case R.id.menu_item_search:
-                        addFragment(new SearchFragment());
+                        addFragment(SearchFragment);
                         break;
                     case R.id.menu_item_hot_world:
                         addFragment(BottonNavigationViewFragment.newInstance("热搜词"));
                         break;
                     case R.id.menu_item_my:
-                        addFragment(new MeFragment());
+                        addFragment(MeFragment);
                         break;
                 }
                 return true;//返回 true 使点击有效
             }
         });
         //默认进来选中第三个
-        addFragment(new SearchFragment());
+        addFragment(SearchFragment);
         botton_navi_view.getMenu().getItem(2).setChecked(true);
     }
 
