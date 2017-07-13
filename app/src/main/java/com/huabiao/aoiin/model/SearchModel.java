@@ -67,4 +67,19 @@ public class SearchModel {
         }
     }
 
+    /**
+     * 获取热搜词数据
+     *
+     * @param context
+     * @param callback
+     */
+    public static void getHotWords(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, "hotwords.json");
+        Gson gson = new Gson();
+        SearchResultUnregisteredBean bean = gson.fromJson(jsonString, SearchResultUnregisteredBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
 }
