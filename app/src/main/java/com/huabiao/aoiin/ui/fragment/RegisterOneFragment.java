@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.model.RegisterOneModel;
-import com.huabiao.aoiin.ui.adapter.IndustryPopupWindowAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
@@ -86,7 +86,7 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
 
     //选择行业弹出框
     private void showIndustryWindow(View view, final List<RegisterOneIndustryBean.IndustrylistBean> industryList) {
-        industryWindow = new IndustryPopupWindow(getContext(), "标题", industryList, place, new IndustryPopupWindowAdapter.OnItemClickListener() {
+        industryWindow = new IndustryPopupWindow(getContext(), "标题", industryList, place, new OnItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
                 industry = industryList.get(position).getIndustryname();

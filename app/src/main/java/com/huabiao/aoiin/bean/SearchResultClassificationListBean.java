@@ -20,40 +20,6 @@ public class SearchResultClassificationListBean {
         this.searchresultclassificationlist = searchresultclassificationlist;
     }
 
-    public static class ClassificationBean {
-        /**
-         * classificationname : 化学制剂
-         * classificationid : 01
-         */
-
-        private String classificationname;
-        private String classificationid;
-
-        public String getClassificationname() {
-            return classificationname;
-        }
-
-        public void setClassificationname(String classificationname) {
-            this.classificationname = classificationname;
-        }
-
-        public String getClassificationid() {
-            return classificationid;
-        }
-
-        public void setClassificationid(String classificationid) {
-            this.classificationid = classificationid;
-        }
-
-        @Override
-        public String toString() {
-            return "ClassificationBean{" +
-                    "classificationname='" + classificationname + '\'' +
-                    ", classificationid='" + classificationid + '\'' +
-                    '}';
-        }
-    }
-
     @Override
     public String toString() {
         return "SearchResultClassificationListBean{" +

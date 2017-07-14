@@ -6,11 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CustomerServiceListBean.CustomerservicelistBean;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.wedgit.wedgit.CircleView;
 
@@ -31,6 +33,12 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
         this.list = list;
     }
 
+    public OnItemClickListener itemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.customer_service_list_item_layout, parent, false);
@@ -38,14 +46,20 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         CustomerservicelistBean bean = list.get(position);
         holder.item_name_tv.setText(bean.getCustomerservicename());
         holder.item_address_tv.setText(bean.getCustomerservicecompany());
         holder.item_rb.setIsIndicator(true);//显示作用,无法进行交互
         holder.item_rb.setRating(bean.getCustomerservicerank());
-
         BitmapLoader.ins().loadImage(bean.getCustomerserviceimg(), R.mipmap.perter_portrait, holder.item_photo_iv);
+
+        holder.item_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemClickListener.onItemClickListener(view, position);
+            }
+        });
     }
 
     @Override
@@ -54,6 +68,7 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
+        LinearLayout item_ll;
         CircleView item_photo_iv;
         TextView item_name_tv;
         TextView item_address_tv;
@@ -61,6 +76,7 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            item_ll = (LinearLayout) itemView.findViewById(R.id.customer_service_list_item_ll);
             item_photo_iv = (CircleView) itemView.findViewById(R.id.customer_service_list_item_photo_iv);
             item_name_tv = (TextView) itemView.findViewById(R.id.customer_service_list_item_name_tv);
             item_address_tv = (TextView) itemView.findViewById(R.id.customer_service_list_item_address_tv);

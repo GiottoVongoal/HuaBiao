@@ -16,15 +16,15 @@ public class SearchResultRegisteredBean {
      * recommend : [{"tradename":"推荐名字1","trademarkclassification":"类别1","classificationid":"01","trademarkstatus":1},{"tradename":"推荐名字2","trademarkclassification":"类别2","classificationid":"02","trademarkstatus":1},{"tradename":"推荐名字3","trademarkclassification":"类别3","classificationid":"03","trademarkstatus":2}]
      */
 
-    private ClassificationBean classification;
+    private Classification classification;
     private LineChartBean linechart;
     private List<RecommendBean> recommend;
 
-    public ClassificationBean getClassification() {
+    public Classification getClassification() {
         return classification;
     }
 
-    public void setClassification(ClassificationBean classification) {
+    public void setClassification(Classification classification) {
         this.classification = classification;
     }
 
@@ -44,7 +44,7 @@ public class SearchResultRegisteredBean {
         this.recommend = recommend;
     }
 
-    public static class ClassificationBean {
+    public static class Classification {
         /**
          * classificationname : 颜料油漆
          * classificationid : 02

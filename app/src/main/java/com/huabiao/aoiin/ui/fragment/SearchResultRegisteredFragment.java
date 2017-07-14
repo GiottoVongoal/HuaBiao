@@ -10,12 +10,12 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
-import com.huabiao.aoiin.bean.SearchResultClassificationListBean.ClassificationBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean.RecommendBean;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.ClassificationBean.ClassficationsmalltypeBean;
+import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredBottomAdapter;
 import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredMenuAdapter;

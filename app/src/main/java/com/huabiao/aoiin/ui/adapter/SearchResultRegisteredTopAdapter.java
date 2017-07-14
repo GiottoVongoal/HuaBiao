@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.ClassificationBean.ClassficationsmalltypeBean;
+import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean;
 import com.huabiao.aoiin.wedgit.ShowRegisteredTypePopupWindow;
 
 import java.util.List;

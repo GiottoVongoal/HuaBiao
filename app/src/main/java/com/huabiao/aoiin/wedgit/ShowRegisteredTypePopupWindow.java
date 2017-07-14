@@ -12,7 +12,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.ClassificationBean.ClassficationsmalltypeBean.DetailedBean;
+import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean.DetailedBean;
 import com.huabiao.aoiin.ui.adapter.ShowRegisteredTypePopupAdapter;
 
 import java.util.List;

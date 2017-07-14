@@ -16,6 +16,7 @@ import com.huabiao.aoiin.selecttool.SelectedListener;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.ClickUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,8 @@ public class CheckTypeListFragment extends BaseFragment {
     int deep = 3;
     String typeId = "0";
     AddressSelector selector;
+
+    String result = "";
 
     @Override
     public BasePresenter getPresenter() {
@@ -83,18 +86,29 @@ public class CheckTypeListFragment extends BaseFragment {
         selector.setSelectedListener(new SelectedListener() {
             @Override
             public void onAddressSelected(ArrayList<ClassificationItemBean> selectAbles) {
-                String result = "";
                 for (ClassificationItemBean selectAble : selectAbles) {
                     result += selectAble.getClassificationname() + " ";
                 }
                 Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+                ClickUtil.onBackClick();
             }
         });
-
 
 //        BottomDialog dialog = new BottomDialog(getContext());
 //        dialog.init(getContext(), selector);
 //        dialog.show();
+    }
+
+    /*接口回调*/
+    public void getResultText(CallBack callBack) {
+        /*获取文本框的信息*/
+        callBack.getResult(result);
+    }
+
+    /*接口*/
+    public interface CallBack {
+        /*定义一个获取信息的方法*/
+        public void getResult(String result);
     }
 
     @Override

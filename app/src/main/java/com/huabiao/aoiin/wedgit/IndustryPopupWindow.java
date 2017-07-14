@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean.IndustrylistBean;
 import com.huabiao.aoiin.ui.adapter.IndustryPopupWindowAdapter;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class IndustryPopupWindow extends PopupWindow {
     private IndustryPopupWindowAdapter adapter;
 
     public IndustryPopupWindow(Context context, String title, List<IndustrylistBean> list, int place,
-                               IndustryPopupWindowAdapter.OnItemClickListener onItemClickListener) {
+                               OnItemClickListener onItemClickListener) {
         super(context);
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);

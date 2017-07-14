@@ -8,27 +8,9 @@ import java.util.List;
  * @date 2017-07-10 11:13
  * @description 分类--小类bean
  */
-public class ClassificationItemBean {
+public class ClassificationItemBean extends ClassificationBean {
 
-    private String classificationname;
-    private String classificationid;
     private boolean nextlevel;
-
-    public String getClassificationname() {
-        return classificationname;
-    }
-
-    public void setClassificationname(String classificationname) {
-        this.classificationname = classificationname;
-    }
-
-    public String getClassificationid() {
-        return classificationid;
-    }
-
-    public void setClassificationid(String classificationid) {
-        this.classificationid = classificationid;
-    }
 
     public boolean isNextlevel() {
         return nextlevel;

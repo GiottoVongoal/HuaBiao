@@ -37,12 +37,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/search_result_registered_top_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <View style="@style/GrayLine" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/search_result_registered_line_chart"
@@ -51,11 +54,12 @@
                 android:layout_margin="10dp"
                 android:background="@color/white" />
 
+            <View style="@style/GrayLine" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/search_result_registered_bottom_rv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:foreground="?android:attr/selectableItemBackground" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
