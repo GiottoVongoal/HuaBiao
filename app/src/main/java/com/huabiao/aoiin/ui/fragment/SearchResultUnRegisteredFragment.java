@@ -1,6 +1,8 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -11,8 +13,10 @@ import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.SearchResultUnRegisterCheckBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
+import com.huabiao.aoiin.constant.FlagBase;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultUnRegisteredAdapter;
+import com.huabiao.aoiin.ui.fragment.CheckTypeListFragment.CallBackChackType;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
@@ -25,6 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+
+import static android.R.attr.data;
 
 /**
  * @author 杨丽亚.
@@ -68,6 +74,7 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
                 }
             }
         });
+        new CheckTypeListFragment();
     }
 
     private void showData(SearchResultUnregisteredBean bean) {
@@ -121,10 +128,22 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
         }
     }
 
+    private List<SearchResultUnRegisterCheckBean> getList(List<ClassificationBean> list) {
+        List<SearchResultUnRegisterCheckBean> resultList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            SearchResultUnRegisterCheckBean bean = new SearchResultUnRegisterCheckBean();
+            bean.setClassificationid(list.get(i).getClassificationid());
+            bean.setClassificationname(list.get(i).getClassificationname());
+            bean.setCheck(false);
+            resultList.add(bean);
+        }
+        return resultList;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
-        new CheckTypeListFragment().getResultText(new CheckTypeListFragment.CallBack() {
+        new CheckTypeListFragment().getResultText(new CheckTypeListFragment.CallBackChackType() {
             @Override
             public void getResult(String result) {
                 if (!(StringUtil.isEmpty(result))) {
@@ -163,16 +182,10 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
         });
     }
 
-    private List<SearchResultUnRegisterCheckBean> getList(List<ClassificationBean> list) {
-        List<SearchResultUnRegisterCheckBean> resultList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            SearchResultUnRegisterCheckBean bean = new SearchResultUnRegisterCheckBean();
-            bean.setClassificationid(list.get(i).getClassificationid());
-            bean.setClassificationname(list.get(i).getClassificationname());
-            bean.setCheck(false);
-            resultList.add(bean);
-        }
-        return resultList;
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        CheckTypeListFragment.result = "";
     }
 
     @Override
@@ -183,13 +196,6 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
     @Override
     public BasePresenter getPresenter() {
         return null;
-    }
-
-    private void My() {
-        List<String> l = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            l.add("aa" + i);
-        }
     }
 
 }

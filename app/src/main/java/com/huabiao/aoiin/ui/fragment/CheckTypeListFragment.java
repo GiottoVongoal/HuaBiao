@@ -1,16 +1,13 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.selecttool.AddressSelector;
-import com.huabiao.aoiin.selecttool.BottomDialog;
 import com.huabiao.aoiin.selecttool.DataProvider;
 import com.huabiao.aoiin.selecttool.SelectedListener;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -27,7 +24,7 @@ import butterknife.Bind;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
  * @date 2017-07-10 13:19
- * @description
+ * @description 查询结果未注册中选择分类页面
  */
 
 public class CheckTypeListFragment extends BaseFragment {
@@ -38,7 +35,7 @@ public class CheckTypeListFragment extends BaseFragment {
     String typeId = "0";
     AddressSelector selector;
 
-    String result = "";
+    static String result = "";
 
     @Override
     public BasePresenter getPresenter() {
@@ -86,10 +83,12 @@ public class CheckTypeListFragment extends BaseFragment {
         selector.setSelectedListener(new SelectedListener() {
             @Override
             public void onAddressSelected(ArrayList<ClassificationItemBean> selectAbles) {
+                String string = "";
                 for (ClassificationItemBean selectAble : selectAbles) {
-                    result += selectAble.getClassificationname() + " ";
+                    string += selectAble.getClassificationname() + " ";
                 }
-                Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+                result = string;
+                showToast(result);
                 ClickUtil.onBackClick();
             }
         });
@@ -99,15 +98,12 @@ public class CheckTypeListFragment extends BaseFragment {
 //        dialog.show();
     }
 
-    /*接口回调*/
-    public void getResultText(CallBack callBack) {
-        /*获取文本框的信息*/
+    public static void getResultText(CallBackChackType callBack) {
+        /*把选择结果放到静态result中*/
         callBack.getResult(result);
     }
 
-    /*接口*/
-    public interface CallBack {
-        /*定义一个获取信息的方法*/
+    public interface CallBackChackType {
         public void getResult(String result);
     }
 
