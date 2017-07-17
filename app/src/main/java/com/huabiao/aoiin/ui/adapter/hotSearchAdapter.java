@@ -28,18 +28,6 @@ public class HotSearchAdapter extends RecyclerView.Adapter<HotSearchAdapter.VH> 
     public HotSearchAdapter(List<HotwordsBean> datas) {
         this.datas1 = datas;
     }
-
-//    private OnItemClickListener mOnClickListener;//声明接口变量
-
-//    public void setmOnClickListener(OnItemClickListener itemClickListener) {
-//        this.mOnClickListener = mOnClickListener;
-//    }
-//
-//    //模拟listView的OnItemClickListener
-//    public interface OnItemClickListener {
-//        void onItemClick(View view, int position);
-//    }
-
     @Override//将布局转化为View并传递给RecycleView封装好的ViewHolder
     public VH onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_list_hot, viewGroup, false);
@@ -62,7 +50,7 @@ public class HotSearchAdapter extends RecyclerView.Adapter<HotSearchAdapter.VH> 
         }
     }
 
-    //获取数据的数量，可以用来提示有多少条新闻
+    //获取数据的数量
     @Override
     public int getItemCount() {
         return datas1.size();
@@ -72,21 +60,12 @@ public class HotSearchAdapter extends RecyclerView.Adapter<HotSearchAdapter.VH> 
         public TextView content;
         public DrawLineChartView hsw_line_chart;
         public TextView title;
+
         public VH(View v) {
             super(v);
             hsw_line_chart = (DrawLineChartView) v.findViewById(R.id.hsw_line_chart);//这里应该是去取折线图
             title = (TextView) v.findViewById(R.id.hsw_title);
             content = (TextView) v.findViewById(R.id.hsw_content);//取数据库文章
-
-//            content.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    if (mOnClickListener != null) {
-//                        mOnClickListener.onItemClick(view, getAdapterPosition());
-//                    }
-//                }
-//            });
-
         }
     }
 }

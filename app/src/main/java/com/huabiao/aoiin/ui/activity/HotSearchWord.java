@@ -2,6 +2,7 @@ package com.huabiao.aoiin.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
@@ -32,8 +33,7 @@ public class HotSearchWord extends BaseFragment {
                 if (mData != null) {
                     HotSearchWordsBean bean = (HotSearchWordsBean) mData;
                     mRecylerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-//                    mRecylerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//                    mRecylerView.setHasFixedSize(true);//确定每个item的高度
+                    mRecylerView.setLayoutManager(new LinearLayoutManager(getContext()));
                     mRecylerView.setLayoutManager(new HotSearchWordLayoutManager());
                     SnapHelper snapHelper=new LinearSnapHelper();
                     snapHelper.attachToRecyclerView(mRecylerView);
