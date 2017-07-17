@@ -1,14 +1,12 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
+import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.bean.TestBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -16,7 +14,6 @@ import com.huabiao.aoiin.wedgit.DrawColumnChartView;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +61,7 @@ public class LineChartFragment extends BaseFragment {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    SearchResultUnregisteredBean bean2 = (SearchResultUnregisteredBean) mData;
+                    SearchResultUnregisteredAndCreatNameBean bean2 = (SearchResultUnregisteredAndCreatNameBean) mData;
                     LineChartBean lineChart2 = bean2.getLinechart();
                     if (lineChart2 != null) {
                         line_chart2.setLineChartBean(lineChart2);

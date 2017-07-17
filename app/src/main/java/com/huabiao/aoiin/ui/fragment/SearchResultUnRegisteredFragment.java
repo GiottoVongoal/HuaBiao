@@ -1,8 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -12,11 +10,9 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.SearchResultUnRegisterCheckBean;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
-import com.huabiao.aoiin.constant.FlagBase;
+import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultUnRegisteredAdapter;
-import com.huabiao.aoiin.ui.fragment.CheckTypeListFragment.CallBackChackType;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
@@ -29,8 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-import static android.R.attr.data;
 
 /**
  * @author 杨丽亚.
@@ -69,7 +63,7 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    SearchResultUnregisteredBean bean = (SearchResultUnregisteredBean) mData;
+                    SearchResultUnregisteredAndCreatNameBean bean = (SearchResultUnregisteredAndCreatNameBean) mData;
                     showData(bean);
                 }
             }
@@ -77,7 +71,7 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
         new CheckTypeListFragment();
     }
 
-    private void showData(SearchResultUnregisteredBean bean) {
+    private void showData(SearchResultUnregisteredAndCreatNameBean bean) {
         //相关分类
         relevantList = getList(bean.getClassification());
         relevant_rv.setLayoutManager(new FullyGridLayoutManager(getContext(), 2));

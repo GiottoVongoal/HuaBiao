@@ -2,12 +2,11 @@ package com.huabiao.aoiin.model;
 
 import android.content.Context;
 
-import com.blankj.ALog;
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
+import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 
 /**
@@ -63,9 +62,9 @@ public class SearchModel {
      * @param callback
      */
     public static void getSearchUnregisterResult(Context context, String trademarkName, String goodsName, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "searchresultunregistered.json");
+        String jsonString = GetJsonToName.getJson(context, "searchresultunregisteredandcreatname.json");
         Gson gson = new Gson();
-        SearchResultUnregisteredBean bean = gson.fromJson(jsonString, SearchResultUnregisteredBean.class);
+        SearchResultUnregisteredAndCreatNameBean bean = gson.fromJson(jsonString, SearchResultUnregisteredAndCreatNameBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

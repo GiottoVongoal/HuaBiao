@@ -3,6 +3,7 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,12 +12,16 @@ import android.widget.TextView;
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CustomerServiceListBean;
+import com.huabiao.aoiin.bean.CustomerServiceListBean.CustomerservicelistBean;
 import com.huabiao.aoiin.model.RegisterOneModel;
 import com.huabiao.aoiin.ui.adapter.CustomerServiceAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.wedgit.CustomPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.ClickUtil;
+
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -33,6 +38,7 @@ public class CustomerServiceListFragment extends BaseFragment implements View.On
     @Bind(R.id.customer_service_list_rv)
     RecyclerView list_rv;
     private CustomerServiceAdapter adapter;
+    private List<CustomerservicelistBean> list;
 
     private String tradename = "", industry = "";
 
@@ -49,6 +55,8 @@ public class CustomerServiceListFragment extends BaseFragment implements View.On
     //查询
     @Bind(R.id.customer_service_list_search_et)
     EditText search_et;
+
+    private CustomPopupWindow customPopupWindow;
 
     @Override
     public BasePresenter getPresenter() {
@@ -74,7 +82,8 @@ public class CustomerServiceListFragment extends BaseFragment implements View.On
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     CustomerServiceListBean bean = (CustomerServiceListBean) mData;
-                    adapter = new CustomerServiceAdapter(getContext(), bean.getCustomerservicelist());
+                    list = bean.getCustomerservicelist();
+                    adapter = new CustomerServiceAdapter(getContext(), list);
                     list_rv.setAdapter(adapter);
                 }
             }
@@ -91,8 +100,22 @@ public class CustomerServiceListFragment extends BaseFragment implements View.On
 
         adapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
             @Override
-            public void onItemClickListener(View view, int position) {
-                showToast("position = " + position);
+            public void onItemClickListener(View view, final int position) {
+                customPopupWindow = new CustomPopupWindow(getContext(), list.get(position)
+                        , new CustomPopupWindow.CustomDialogClickListener() {
+                    @Override
+                    public void selectNext() {
+                        showToast("视频通话" + list.get(position).getCustomerservicename());
+                        customPopupWindow.dismiss();
+                    }
+
+                    @Override
+                    public void selectRateCustom() {
+                        showToast("评价" + list.get(position).getCustomerservicename());
+                        customPopupWindow.dismiss();
+                    }
+                });
+                customPopupWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
             }
         });
     }
