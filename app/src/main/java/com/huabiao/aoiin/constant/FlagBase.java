@@ -12,9 +12,9 @@ public class FlagBase {
     //我的页面
     public static final int ME_COLLECTION = 1;// 我的收藏
     public static final int ME_BROWSE_RECORD = 2;// 浏览记录
-    public static final int ME_ADDRESS_MANAGEMENT = 3;// 地址管理
-    public static final int ME_FEEDBACK = 4;// 反馈
-    public static final int ME_AGREEMENT = 5;// 服务与隐私协议
+//    public static final int ME_ADDRESS_MANAGEMENT = 3;// 地址管理
+//    public static final int ME_FEEDBACK = 4;// 反馈
+//    public static final int ME_AGREEMENT = 5;// 服务与隐私协议
 
 
 }

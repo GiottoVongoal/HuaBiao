@@ -41,7 +41,7 @@ public class IndustryPopupWindowAdapter extends RecyclerView.Adapter<IndustryPop
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.industry_popupwindow_dialog_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.industry_popupwindow_dialog_item, parent, false);
         return new ViewHolder(view);
     }
 

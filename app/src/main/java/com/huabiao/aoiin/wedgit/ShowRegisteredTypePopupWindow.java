@@ -68,7 +68,7 @@ public class ShowRegisteredTypePopupWindow extends PopupWindow {
         this.mandatoryDraw();
 
         popmenu_rv.setLayoutManager(new LinearLayoutManager(context));
-        ShowRegisteredTypePopupAdapter adapter = new ShowRegisteredTypePopupAdapter(context, list, trademarkstatus);
+        ShowRegisteredTypePopupAdapter adapter = new ShowRegisteredTypePopupAdapter(context, list );
         popmenu_rv.setAdapter(adapter);
         //增加底布局
         View footer = LayoutInflater.from(context).inflate(R.layout.show_registered_type_popup_layout, popmenu_rv, false);
