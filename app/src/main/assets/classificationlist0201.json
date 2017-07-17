@@ -1,0 +1,39 @@
+{
+  "classificationlist": [
+    {
+      "classificationname": "媒染剂",
+      "classificationid": "020002",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "茜素染料",
+      "classificationid": "020006",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "木材媒染剂",
+      "classificationid": "020027",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "木材染色剂",
+      "classificationid": "020028",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "鞋染料",
+      "classificationid": "020041",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "染色剂",
+      "classificationid": "020047",
+      "nextlevel": false
+    },
+    {
+      "classificationname": "着色剂",
+      "classificationid": "020047",
+      "nextlevel": false
+    }
+  ]
+}

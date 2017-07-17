@@ -37,6 +37,8 @@ public class SearchResultTabFragment extends BaseFragment implements View.OnClic
     SearchResultTabPagerAdapter adapter;
 
     private String tradename = "", goodsname = "";
+    SearchResultRegisteredFragment registeredFragment;
+    SearchResultUnRegisteredFragment unRegisteredFragment;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -46,8 +48,11 @@ public class SearchResultTabFragment extends BaseFragment implements View.OnClic
         goodsname = bundle.getString("goodsname");
 
         list = new ArrayList<>();
-        list.add(new SearchResultRegisteredFragment());
-        list.add(new LineChartFragment());
+        registeredFragment = new SearchResultRegisteredFragment();
+        unRegisteredFragment = new SearchResultUnRegisteredFragment();
+        unRegisteredFragment.getIntentString(tradename, goodsname);//传值
+        list.add(registeredFragment);
+        list.add(unRegisteredFragment);
         adapter = new SearchResultTabPagerAdapter(getActivity().getSupportFragmentManager(), list, getContext());
         tab_vp.setAdapter(adapter);
         tab_tablayout.setupWithViewPager(tab_vp);

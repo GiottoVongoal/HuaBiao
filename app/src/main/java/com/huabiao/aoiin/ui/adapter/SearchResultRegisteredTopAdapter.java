@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.ClassificationBean.DetailedBean;
+import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean;
+import com.huabiao.aoiin.wedgit.ShowRegisteredTypePopupWindow;
 
 import java.util.List;
 
@@ -16,13 +17,13 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
  * @date 2017-06-15 11:16
- * @description
+ * @description 查询--已注册--筛选后的次级分类Adapter
  */
 public class SearchResultRegisteredTopAdapter extends RecyclerView.Adapter<SearchResultRegisteredTopAdapter.TopHolder> {
-    private List<DetailedBean> historyList;
+    private List<ClassficationsmalltypeBean> historyList;
     private Context context;
 
-    public SearchResultRegisteredTopAdapter(Context context, List<DetailedBean> historyList) {
+    public SearchResultRegisteredTopAdapter(Context context, List<ClassficationsmalltypeBean> historyList) {
         this.context = context;
         this.historyList = historyList;
     }
@@ -34,9 +35,23 @@ public class SearchResultRegisteredTopAdapter extends RecyclerView.Adapter<Searc
     }
 
     @Override
-    public void onBindViewHolder(SearchResultRegisteredTopAdapter.TopHolder holder, int position) {
-        String showText = "[" + historyList.get(position).getId() + "]\t" + historyList.get(position).getTypename();
+    public void onBindViewHolder(SearchResultRegisteredTopAdapter.TopHolder holder, final int position) {
+        final ClassficationsmalltypeBean bean = historyList.get(position);
+        String showText = bean.getClassificationsmallid() + " - " + bean.getClassificationsmallname();
         holder.search_history_item_tv.setText(showText);
+        holder.search_history_item_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //点击显示小分类和注册状态
+                int direction = (position % 2 == 0) ? 1 : 2;
+                ShowRegisteredTypePopupWindow popupWindow = new ShowRegisteredTypePopupWindow(
+                        context, bean.getDetailed(), direction, bean.getTrademarkstatus());
+                if (direction == 1)
+                    popupWindow.showAtDropDownLeft(view);
+                else
+                    popupWindow.showAtDropDownRight(view);
+            }
+        });
     }
 
     @Override

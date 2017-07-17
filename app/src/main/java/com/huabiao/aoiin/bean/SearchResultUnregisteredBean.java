@@ -18,7 +18,7 @@ public class SearchResultUnregisteredBean {
 
     private LineChartBean linechart;
     private List<ClassificationBean> classification;
-    private List<OtherclassificationBean> otherclassification;
+    private List<ClassificationBean> otherclassification;
 
     public LineChartBean getLinechart() {
         return linechart;
@@ -36,63 +36,11 @@ public class SearchResultUnregisteredBean {
         this.classification = classification;
     }
 
-    public List<OtherclassificationBean> getOtherclassification() {
+    public List<ClassificationBean> getOtherclassification() {
         return otherclassification;
     }
 
-    public void setOtherclassification(List<OtherclassificationBean> otherclassification) {
+    public void setOtherclassification(List<ClassificationBean> otherclassification) {
         this.otherclassification = otherclassification;
-    }
-
-    public static class ClassificationBean {
-        /**
-         * classificationname : 化学制剂
-         * classificationid : 01
-         */
-
-        private String classificationname;
-        private String classificationid;
-
-        public String getClassificationname() {
-            return classificationname;
-        }
-
-        public void setClassificationname(String classificationname) {
-            this.classificationname = classificationname;
-        }
-
-        public String getClassificationid() {
-            return classificationid;
-        }
-
-        public void setClassificationid(String classificationid) {
-            this.classificationid = classificationid;
-        }
-    }
-
-    public static class OtherclassificationBean {
-        /**
-         * classificationname : 化学制剂
-         * classificationid : 01
-         */
-
-        private String classificationname;
-        private String classificationid;
-
-        public String getClassificationname() {
-            return classificationname;
-        }
-
-        public void setClassificationname(String classificationname) {
-            this.classificationname = classificationname;
-        }
-
-        public String getClassificationid() {
-            return classificationid;
-        }
-
-        public void setClassificationid(String classificationid) {
-            this.classificationid = classificationid;
-        }
     }
 }

@@ -88,6 +88,13 @@ public class CustomerServiceListFragment extends BaseFragment implements View.On
         success_tv.setOnClickListener(this);
         time_tv.setOnClickListener(this);
         service_tv.setOnClickListener(this);
+
+        adapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View view, int position) {
+                showToast("position = " + position);
+            }
+        });
     }
 
     @Override

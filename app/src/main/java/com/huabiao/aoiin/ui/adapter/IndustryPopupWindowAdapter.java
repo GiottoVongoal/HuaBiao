@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean.IndustrylistBean;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +26,6 @@ public class IndustryPopupWindowAdapter extends RecyclerView.Adapter<IndustryPop
     List<IndustrylistBean> list = new ArrayList<>();
     private final Context context;
     private int place;
-
-    //创建点击事件
-    public interface OnItemClickListener {
-        void onItemClickListener(View view, int position);
-    }
 
     public OnItemClickListener itemClickListener;
 

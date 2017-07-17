@@ -10,12 +10,12 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
-import com.huabiao.aoiin.bean.SearchResultClassificationListBean.ClassificationBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean.RecommendBean;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.ClassificationBean.DetailedBean;
+import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredBottomAdapter;
 import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredMenuAdapter;
@@ -82,8 +82,8 @@ public class SearchResultRegisteredFragment extends BaseFragment implements View
                 if (mData != null) {
                     SearchResultRegisteredBean searchResult = (SearchResultRegisteredBean) mData;
                     //展示小分类
-                    List<DetailedBean> detailedList = searchResult.getClassification().getDetailed();
-                    top_rv.setLayoutManager(new FullyLinearLayoutManager(getContext()));
+                    List<ClassficationsmalltypeBean> detailedList = searchResult.getClassification().getClassficationsmalltype();
+                    top_rv.setLayoutManager(new FullyGridLayoutManager(getContext(), 2));
                     topAdapter = new SearchResultRegisteredTopAdapter(getContext(), detailedList);
                     top_rv.setAdapter(topAdapter);
                     //展示折线图
@@ -128,7 +128,7 @@ public class SearchResultRegisteredFragment extends BaseFragment implements View
             }
         });
         menu_tv.setText(list.get(0).getClassificationname());//默认显示第一个类别
-        initData(list.get(0).getClassificationid());
+        initData(list.get(0).getClassificationid());//根据类别获取已注册数据
         popRecyclerView = (RecyclerView) contentView
                 .findViewById(R.id.popwin_supplier_list_rv);
         contentView.findViewById(R.id.popwin_supplier_list_bottom)

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultClassificationListBean.ClassificationBean;
+import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
 import java.util.List;
