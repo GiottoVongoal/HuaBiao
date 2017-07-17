@@ -68,14 +68,14 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menu_item_creat_name:
-                        addFragment(BottonNavigationViewFragment.newInstance("拨号"));
+                    case R.id.menu_item_search:
+                        addFragment(SearchFragment);
                         break;
                     case R.id.menu_item_registered:
                         addFragment(RegisterOneFragment);
                         break;
-                    case R.id.menu_item_search:
-                        addFragment(SearchFragment);
+                    case R.id.menu_item_creat_name:
+                        addFragment(BottonNavigationViewFragment.newInstance("取名"));
                         break;
                     case R.id.menu_item_hot_world:
                         addFragment(BottonNavigationViewFragment.newInstance("热搜词"));
@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity {
             }
         });
         //默认进来选中第三个
-        addFragment(SearchFragment);
+        addFragment(BottonNavigationViewFragment.newInstance("取名"));
         botton_navi_view.getMenu().getItem(2).setChecked(true);
     }
 

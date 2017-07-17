@@ -21,16 +21,14 @@ import java.util.List;
 public class ShowRegisteredTypePopupAdapter extends RecyclerView.Adapter<ShowRegisteredTypePopupAdapter.PopupViewHolder> {
     private Context context;
     private List<DetailedBean> list;
-    private int trademarkstatus;
 
     private View mFooterView;//底布局
     public static final int TYPE_FOOTER = 1;  //说明是带有Footer的
     public static final int TYPE_NORMAL = 2;  //说明是不带有header和footer的
 
-    public ShowRegisteredTypePopupAdapter(Context context, List<DetailedBean> list, int trademarkstatus) {
+    public ShowRegisteredTypePopupAdapter(Context context, List<DetailedBean> list ) {
         this.context = context;
         this.list = list;
-        this.trademarkstatus = trademarkstatus;
     }
 
     public void setFooterView(View footerView) {

@@ -35,7 +35,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     RecyclerView me_recyclerview;
     private MeRecyclerViewAdapder adapder;
 
-    private String[] text = {"我的收藏", "浏览记录", "地址管理", "反馈", "服务与隐私协议"};
+    private String[] text = {"我的收藏", "浏览记录"};
 
     @Override
     public BasePresenter getPresenter() {
@@ -110,18 +110,18 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                         // 浏览记录
                         showToast(position + "浏览记录");
                         break;
-                    case FlagBase.ME_ADDRESS_MANAGEMENT:
-                        // 地址管理
-                        showToast(position + "地址管理");
-                        break;
-                    case FlagBase.ME_FEEDBACK:
-                        // 反馈
-                        showToast(position + "反馈");
-                        break;
-                    case FlagBase.ME_AGREEMENT:
-                        // 服务与隐私协议
-                        showToast(position + "服务与隐私协议");
-                        break;
+//                    case FlagBase.ME_ADDRESS_MANAGEMENT:
+//                        // 地址管理
+//                        showToast(position + "地址管理");
+//                        break;
+//                    case FlagBase.ME_FEEDBACK:
+//                        // 反馈
+//                        showToast(position + "反馈");
+//                        break;
+//                    case FlagBase.ME_AGREEMENT:
+//                        // 服务与隐私协议
+//                        showToast(position + "服务与隐私协议");
+//                        break;
                 }
             }
         });

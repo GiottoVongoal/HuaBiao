@@ -40,7 +40,7 @@ public class MeRecyclerViewAdapder extends RecyclerView.Adapter<MeRecyclerViewAd
         if (mHeaderView != null && viewType == TYPE_HEADER) {
             return new ViewHolder(mHeaderView);
         }
-        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.me_recyclerview_item_layout, parent, false);
+        View layout = LayoutInflater.from(mContext).inflate(R.layout.me_recyclerview_item_layout, parent, false);
         return new ViewHolder(layout);
     }
 
