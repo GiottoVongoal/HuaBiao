@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity {
                 ALog.i("fis!=null");
             }
         } else {
-            ALog.i("!newFile.exists()");
+//            ALog.i("!newFile.exists()");
         }
         botton_navi_view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity {
                         addFragment(BottonNavigationViewFragment.newInstance("联系人"));
                         break;
                     case R.id.menu_item_four:
-                        addFragment(BottonNavigationViewFragment.newInstance("查询"));
+                        addFragment(new HotSearchWord());
                         break;
                     case R.id.menu_item_five:
                         addFragment(new MeFragment());

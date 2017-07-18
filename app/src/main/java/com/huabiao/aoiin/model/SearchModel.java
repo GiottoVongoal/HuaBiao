@@ -3,8 +3,8 @@ package com.huabiao.aoiin.model;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
+import com.huabiao.aoiin.bean.HotSearchWordsBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -76,7 +76,7 @@ public class SearchModel {
     public static void getHotWords(Context context, final InterfaceManager.CallBackCommon callback) {
         String jsonString = getJson(context, "hotwords.json");
         Gson gson = new Gson();
-        SearchResultUnregisteredBean bean = gson.fromJson(jsonString, SearchResultUnregisteredBean.class);
+        HotSearchWordsBean bean = gson.fromJson(jsonString, HotSearchWordsBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }
