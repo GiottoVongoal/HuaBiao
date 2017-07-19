@@ -11,7 +11,7 @@ import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
-import com.huabiao.aoiin.selecttool.AddressSelector;
+import com.huabiao.aoiin.selecttool.ClassificationTypeSelector;
 import com.huabiao.aoiin.selecttool.DataProvider;
 import com.huabiao.aoiin.selecttool.SelectedListener;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -19,12 +19,9 @@ import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.ClickUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-import static com.huabiao.aoiin.selecttool.AddressSelector.INDEX_INVALID;
 
 /**
  * @author 杨丽亚.
@@ -45,7 +42,7 @@ public class CheckTypeListFragment extends BaseFragment {
     @Bind(R.id.check_type_list_fl)
     FrameLayout frameLayout;
     int deep = 2;
-    AddressSelector selector;
+    ClassificationTypeSelector selector;
 
     private int type;//测试数据变化使用
 
@@ -112,7 +109,7 @@ public class CheckTypeListFragment extends BaseFragment {
     }
 
     private void show(final List<ClassificationItemBean> list) {
-        selector = new AddressSelector(getContext(), deep);
+        selector = new ClassificationTypeSelector(getContext(), deep);
         selector.setDataProvider(list, new DataProvider() {
             @Override
             public void provideData(int currentDeep, DataReceiver receiver) {

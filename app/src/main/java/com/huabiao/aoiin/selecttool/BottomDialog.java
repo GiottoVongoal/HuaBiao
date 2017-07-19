@@ -15,7 +15,7 @@ import com.huabiao.aoiin.R;
  * @description
  */
 public class BottomDialog extends Dialog {
-    private AddressSelector selector;
+    private ClassificationTypeSelector selector;
 
     public BottomDialog(Context context) {
         super(context, R.style.bottom_dialog);
@@ -29,7 +29,7 @@ public class BottomDialog extends Dialog {
         super(context, cancelable, cancelListener);
     }
 
-    public void init(Context context, AddressSelector selector) {
+    public void init(Context context, ClassificationTypeSelector selector) {
         this.selector = selector;
         setContentView(selector.getView());
         Window window = getWindow();

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,13 +13,11 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationItemBean;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class SelectAdapter extends BaseAdapter {
     List<ClassificationItemBean> datas;
-    int selectedIndex = AddressSelector.INDEX_INVALID;
+    int selectedIndex = ClassificationTypeSelector.INDEX_INVALID;
     Activity activity;
 
     public SelectAdapter(Activity activity, List<ClassificationItemBean> datas) {
@@ -68,7 +65,7 @@ public class SelectAdapter extends BaseAdapter {
         holder.textView.setText(item.getClassificationname() + item.getClassificationid());
         if (item.isNextlevel()) {
             //单选
-            boolean checked = selectedIndex != AddressSelector.INDEX_INVALID && datas.get(selectedIndex).getClassificationid().equals(item.getClassificationid());
+            boolean checked = selectedIndex != ClassificationTypeSelector.INDEX_INVALID && datas.get(selectedIndex).getClassificationid().equals(item.getClassificationid());
             holder.textView.setEnabled(!checked);
             holder.imageViewCheckMark.setVisibility(checked ? View.VISIBLE : View.GONE);
             holder.select_item_cb.setVisibility(View.GONE);

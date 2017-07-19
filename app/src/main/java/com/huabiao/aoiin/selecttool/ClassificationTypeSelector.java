@@ -27,9 +27,13 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.media.CamcorderProfile.get;
-
-public class AddressSelector implements AdapterView.OnItemClickListener {
+/**
+ * @author 杨丽亚.
+ * @PackageName com.huabiao.aoiin.selecttool
+ * @date 2017-07-10 13:19
+ * @description 查询结果未注册中选择分类Selector
+ */
+public class ClassificationTypeSelector implements AdapterView.OnItemClickListener {
 
     public static final int INDEX_INVALID = -1;
     private final Context context;
@@ -60,7 +64,7 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
         getNextData(list);
     }
 
-    public AddressSelector(Context context, int deep) {
+    public ClassificationTypeSelector(Context context, int deep) {
         this.context = context;
         this.allDatas = new ArrayList<>(deep);
         selectedIndex = new int[deep];
