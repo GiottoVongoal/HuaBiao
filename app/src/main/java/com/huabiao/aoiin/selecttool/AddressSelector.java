@@ -3,6 +3,7 @@ package com.huabiao.aoiin.selecttool;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.LayoutInflater;
@@ -15,11 +16,18 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationItemBean;
+import com.huabiao.aoiin.bean.ClassificationListBean;
+import com.huabiao.aoiin.model.SearchModel;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.media.CamcorderProfile.get;
 
 public class AddressSelector implements AdapterView.OnItemClickListener {
 
@@ -35,7 +43,11 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
 
     private int tabIndex = 0;
 
-    /* 每个tab的adapter */ List<List<ClassificationItemBean>> allDatas = new ArrayList<>();
+    List<List<ClassificationItemBean>> allDatas = new ArrayList<>();
+    List<List<ClassificationItemBean>> select = new ArrayList<>();
+    CheckTypeResult checkTypeResult;
+
+    /* 每个tab的adapter */
     private SelectAdapter[] adapters;
     /*选择的深度*/
     private int selectDeep;
@@ -43,9 +55,9 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
 
     DataProvider dataProvider;
 
-    public void setDataProvider(String id, List<ClassificationItemBean> list, DataProvider dataProvider) {
+    public void setDataProvider(List<ClassificationItemBean> list, DataProvider dataProvider) {
         this.dataProvider = dataProvider;
-        getNextData(id, list);
+        getNextData(list);
     }
 
     public AddressSelector(Context context, int deep) {
@@ -55,7 +67,9 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
         this.selectDeep = deep;
         for (int i = 0; i < deep; i++) {
             allDatas.add(new ArrayList<ClassificationItemBean>());
+            select.add(new ArrayList<ClassificationItemBean>());
         }
+        checkTypeResult = CheckTypeResult.getInstance(deep);
         initAdapters();
         initViews();
     }
@@ -63,7 +77,7 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
     private void initAdapters() {
         adapters = new SelectAdapter[allDatas.size()];
         for (int i = 0; i < selectDeep; i++) {
-            adapters[i] = new SelectAdapter(allDatas.get(i));
+            adapters[i] = new SelectAdapter((Activity) context, allDatas.get(i));
         }
     }
 
@@ -71,9 +85,7 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
 
     private void initViews() {
         view = LayoutInflater.from(context).inflate(R.layout.address_selector, null);
-
         this.progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-
         this.listView = (ListView) view.findViewById(R.id.listView);
         this.indicator = view.findViewById(R.id.indicator);
         this.ll_tabLayout = (LinearLayout) view.findViewById(R.id.layout_tab);
@@ -102,17 +114,13 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
             });
             tabs[i] = textView;
         }
-
-
         this.listView.setOnItemClickListener(this);
-
         updateIndicator(tabIndex);
     }
 
     public View getView() {
         return view;
     }
-
 
     /**
      * 指示器动画
@@ -125,7 +133,6 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
             }
         });
     }
-
 
     private AnimatorSet buildIndicatorAnimatorTowards(TextView tab) {
         ObjectAnimator xAnimator = ObjectAnimator.ofFloat(indicator, "X", indicator.getX(), tab.getX());
@@ -143,10 +150,8 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
         AnimatorSet set = new AnimatorSet();
         set.setInterpolator(new FastOutSlowInInterpolator());
         set.playTogether(xAnimator, widthAnimator);
-
         return set;
     }
-
 
     private void updateTabsVisibility(int index) {
         for (int i = 0; i < tabs.length; i++) {
@@ -159,9 +164,7 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         this.selectedIndex[tabIndex - 1] = position;
-
-
-        ClassificationItemBean selectAble = allDatas.get(tabIndex - 1).get(position);
+        final ClassificationItemBean selectAble = allDatas.get(tabIndex - 1).get(position);
         tabs[tabIndex - 1].setText(selectAble.getClassificationname());
         for (int i = tabIndex; i < this.allDatas.size(); i++) {
             tabs[i].setText("请选择");
@@ -173,23 +176,46 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
         this.adapters[tabIndex - 1].setSelectedIndex(position);
         this.adapters[tabIndex - 1].notifyDataSetChanged();
         if (tabIndex == selectDeep) {
-            callbackInternal();
+            //执行多选操作
+            listView.setItemChecked(position, selectAble.isChecked());
+            if (selectAble.isChecked()) {
+                selectAble.setChecked(false);
+                select.get(tabIndex - 1).remove(selectAble);
+            } else {
+                selectAble.setChecked(true);
+                select.get(tabIndex - 1).add(selectAble);
+            }
+            adapters[tabIndex - 1].notifyDataSetChanged();
+//            callbackInternal();
             return;
         }
         updateTabsVisibility(tabIndex - 1);
         updateIndicator(tabIndex);
-        dataProvider.getNext(selectAble.getClassificationid());
+        if (selectAble.isNextlevel()) {
+            select.get(tabIndex - 1).add(selectAble);
+            String jsonName = "classificationlist" + selectAble.getClassificationid() + ".json";
+            SearchModel.getClassificationResult(context, jsonName, new InterfaceManager.CallBackCommon() {
+                @Override
+                public void getCallBackCommon(Object mData) {
+                    if (mData != null) {
+                        ClassificationListBean bean = (ClassificationListBean) mData;
+                        List<ClassificationItemBean> list = bean.getClassificationlist();
+                        getNextData(list);
+                    }
+                }
+            });
+        }
     }
 
     /**
      * 根据当前集合选择的id，向用户获取下一级子集的数据
      */
-    public void getNextData(String preId, final List<ClassificationItemBean> data) {
+    public void getNextData(final List<ClassificationItemBean> data) {
         if (dataProvider == null) {
             return;
         }
         progressBar.setVisibility(View.VISIBLE);
-        dataProvider.provideData(tabIndex, preId, new DataProvider.DataReceiver() {
+        dataProvider.provideData(tabIndex, new DataProvider.DataReceiver() {
             @Override
             public void send() {
                 if (data.size() > 0) {
@@ -198,9 +224,9 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
                     allDatas.get(tabIndex).addAll(data);
                     adapters[tabIndex].notifyDataSetChanged();
                     listView.setAdapter(adapters[tabIndex]);
-                } else {
-                    //次级没有内容，直接回调
-                    callbackInternal();
+//                } else {
+//                    //执行多选操作
+//                    callbackInternal();
                 }
                 updateTabsVisibility(tabIndex);
                 updateProgressVisibility();
@@ -210,15 +236,11 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
         });
     }
 
-    private void callbackInternal() {
+    public void callbackInternal(SelectedListener listener) {
+        ALog.i("selectList--->" + select);
+        //次级没有内容，直接回调
         if (listener != null) {
-            ArrayList<ClassificationItemBean> result = new ArrayList<>(allDatas.size());
-            for (int i = 0; i < selectDeep; i++) {
-                ClassificationItemBean resultBean = allDatas.get(i) == null
-                        || selectedIndex[i] == INDEX_INVALID ? null : allDatas.get(i).get(selectedIndex[i]);
-                result.add(resultBean);
-            }
-            listener.onAddressSelected(result);
+            listener.onAddressSelected(select);
         }
     }
 
@@ -226,11 +248,6 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
         ListAdapter adapter = listView.getAdapter();
         int itemCount = adapter.getCount();
         progressBar.setVisibility(itemCount > 0 ? View.GONE : View.VISIBLE);
-    }
-
-
-    public SelectedListener getOnAddressSelectedListener() {
-        return listener;
     }
 
     public void setSelectedListener(SelectedListener listener) {
