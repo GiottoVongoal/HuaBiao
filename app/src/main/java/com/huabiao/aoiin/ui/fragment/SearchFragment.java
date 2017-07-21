@@ -1,6 +1,7 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
@@ -26,7 +27,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     @Bind(R.id.search_goodsname_tl)
     TextInputLayout search_goodsname_tl;//商品名
     @Bind(R.id.search_tv)
-    TextView search_tv;//查询按钮
+    FloatingActionButton search_tv;//查询按钮
 
     String tradename = "", goodsname = "";
 

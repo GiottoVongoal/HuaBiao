@@ -6,6 +6,9 @@
 
     <color name="transparent">#00000000</color>
     <color name="blue_0090FF">#0090FF</color>
+    <color name="color_33000000">#33000000</color>
+    <color name="color_55000000">#55000000</color>
+    <color name="color_AAFFFFFF">#AAFFFFFF</color>
 
     <!-- 灰色 -->
     <color name="grey_E9E7E7">#E9E7E7</color>

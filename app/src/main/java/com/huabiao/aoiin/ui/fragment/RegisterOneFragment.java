@@ -1,6 +1,8 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -30,11 +32,11 @@ import butterknife.Bind;
  */
 public class RegisterOneFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.register_one_tradename_et)
-    EditText tradename_et;//商标名
+    TextInputLayout tradename_et;//商标名
     @Bind(R.id.register_one_industry_tv)
     TextView industry_tv;//选择行业
     @Bind(R.id.register_one_register_tv)
-    TextView register_tv;//注册按钮
+    FloatingActionButton register_tv;//注册按钮
     //选择行业的弹框
     private IndustryPopupWindow industryWindow;
     private int place = 0;
@@ -70,7 +72,7 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
                 break;
             case R.id.register_one_register_tv:
                 //注册按钮
-                tradename = tradename_et.getText().toString();
+                tradename = tradename_et.getEditText().getText().toString();
                 if (TextUtils.isEmpty(tradename)) {
                     showToast("请输入商标名");
                     return;
