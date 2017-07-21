@@ -152,7 +152,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             case R.id.home_search_et:
             case R.id.home_search_do_tv:
                 //输入框
-                JumpUtils.startFragmentByName(getContext(), CustomerServiceListFragment.class);
+                ((MainActivity) getContext()).setItem(1);
                 break;
             case R.id.home_search_cv:
                 //查询

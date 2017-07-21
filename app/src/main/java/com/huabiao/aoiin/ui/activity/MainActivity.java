@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public void bindView(Bundle savedInstanceState) {
         BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
-
         HomePageFragment = new HomePageFragment();
         MeFragment = new MeFragment();
 
@@ -69,24 +68,40 @@ public class MainActivity extends BaseActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_item_one:
-                        addFragment(HomePageFragment);
+                        setItem(0);
                         break;
                     case R.id.menu_item_two:
-                        addFragment(BottonNavigationViewFragment.newInstance("商城"));
+                        setItem(1);
                         break;
                     case R.id.menu_item_three:
-                        addFragment(BottonNavigationViewFragment.newInstance("金融"));
+                        setItem(2);
                         break;
                     case R.id.menu_item_four:
-                        addFragment(MeFragment);
+                        setItem(3);
                         break;
                 }
                 return true;//返回 true 使点击有效
             }
         });
-        //默认进来选中第三个
-        addFragment(HomePageFragment);
-        botton_navi_view.getMenu().getItem(0).setChecked(true);
+        setItem(0);
+    }
+
+    public void setItem(int index) {
+        switch (index) {
+            case 0:
+                addFragment(HomePageFragment);
+                break;
+            case 1:
+                addFragment(BottonNavigationViewFragment.newInstance("商城"));
+                break;
+            case 2:
+                addFragment(BottonNavigationViewFragment.newInstance("金融"));
+                break;
+            case 3:
+                addFragment(MeFragment);
+                break;
+        }
+        botton_navi_view.getMenu().getItem(index).setChecked(true);
     }
 
     private void addFragment(Fragment fragment) {
