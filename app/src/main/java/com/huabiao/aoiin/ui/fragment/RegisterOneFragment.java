@@ -6,12 +6,11 @@ import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
-import com.huabiao.aoiin.model.RegisterOneModel;
+import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
@@ -62,7 +61,7 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
             case R.id.register_one_industry_tv:
                 //选择行业
                 KeyboardUtils.hideSoftInput(getActivity());
-                RegisterOneModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
+                RegisterModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
                     @Override
                     public void getCallBackCommon(Object mData) {
                         if (mData != null) {
@@ -109,6 +108,10 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
             @Override
             public void selectDefault() {
                 showToast("默认注册\n" + tradename + "\n" + industry);
+                Bundle bundle = new Bundle();
+                bundle.putString("tradename", tradename);
+                bundle.putString("industry", industry);
+                JumpUtils.startFragmentByName(getContext(), RegisterFragment.class, bundle);
                 finishPopupWindow.dismiss();
             }
 

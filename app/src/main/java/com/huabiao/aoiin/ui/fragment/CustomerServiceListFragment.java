@@ -13,7 +13,7 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CustomerServiceListBean;
 import com.huabiao.aoiin.bean.CustomerServiceListBean.CustomerservicelistBean;
-import com.huabiao.aoiin.model.RegisterOneModel;
+import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.ui.adapter.CustomerServiceAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.CustomPopupWindow;
@@ -77,7 +77,7 @@ public class CustomerServiceListFragment extends BaseFragment implements View.On
     //展示数据
     private void showData() {
         list_rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        RegisterOneModel.getCustomerServiceList(getContext(), new InterfaceManager.CallBackCommon() {
+        RegisterModel.getCustomerServiceList(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {

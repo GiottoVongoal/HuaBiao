@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/backgroundwhite">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            app:backgroundTint="@color/blue_0090FF"
+            app:borderWidth="0dp"
+            app:fabSize="normal"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/register_trade_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="注册商标:我是商标名" />
+
+                <TextView
+                    android:id="@+id/register_industry_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="行业" />
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="可注册类别" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/register_classification_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="热度指数" />
+
+                <com.huabiao.aoiin.wedgit.DrawLineChartView
+                    android:id="@+id/register_line_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="商标图样" />
+
+                <ImageView
+                    android:id="@+id/register_trademark_logo_iv"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@mipmap/ic_launcher" />
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="联系方式" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/register_username_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:theme="@style/TextInputLayoutLineColor"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="客户姓名"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/register_userphone_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:theme="@style/TextInputLayoutLineColor"
+                    app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                    app:errorEnabled="true"
+                    app:errorTextAppearance="@style/errorAppearance"
+                    app:hintAnimationEnabled="true">
+                    <!--app:errorEnabled="true"时，开启错误提示-->
+                    <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="电话"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="申请人类型" />
+
+                <RadioGroup
+                    android:id="@+id/register_applicant_type_rg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/register_legal_person_rb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="法人或其他组织"
+                        android:textSize="17sp" />
+
+                    <RadioButton
+                        android:id="@+id/register_individual_person_rb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="个体工商户"
+                        android:textSize="17sp" />
+
+                    <RadioButton
+                        android:id="@+id/register_average_person_rb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="自然人"
+                        android:textSize="17sp" />
+                </RadioGroup>
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="服务方式" />
+
+                <RadioGroup
+                    android:id="@+id/register_service_mode_rg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/register_general_register_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:checked="false"
+                        android:drawableRight="@drawable/checkbox_select_type"
+                        android:text="普通注册" />
+
+                    <RadioButton
+                        android:id="@+id/register_urgent_register_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:drawableRight="@drawable/checkbox_select_type"
+                        android:paddingTop="10dp"
+                        android:text="加急注册" />
+
+                    <RadioButton
+                        android:id="@+id/register_rate100_register_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:drawableRight="@drawable/checkbox_select_type"
+                        android:paddingTop="10dp"
+                        android:text="成功率100%" />
+                </RadioGroup>
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="20dp" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View style="@style/GrayLine" />
+
+        <TextView
+            android:id="@+id/register_commit_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="提交订单" />
+    </LinearLayout>
+</LinearLayout>
