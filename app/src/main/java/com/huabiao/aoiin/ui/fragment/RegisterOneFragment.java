@@ -19,6 +19,7 @@ import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+import com.ywy.mylibs.utils.KeyboardUtils;
 
 import java.util.List;
 
@@ -60,6 +61,7 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
         switch (view.getId()) {
             case R.id.register_one_industry_tv:
                 //选择行业
+                KeyboardUtils.hideSoftInput(getActivity());
                 RegisterOneModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
                     @Override
                     public void getCallBackCommon(Object mData) {

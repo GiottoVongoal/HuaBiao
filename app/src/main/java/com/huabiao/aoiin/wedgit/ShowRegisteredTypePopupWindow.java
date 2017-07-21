@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -61,18 +62,18 @@ public class ShowRegisteredTypePopupWindow extends PopupWindow {
         //设置弹出窗体动画效果
         this.setAnimationStyle(direction == 1 ? R.style.PopupleftAnimation : R.style.PopupRightAnimation);
         //实例化一个ColorDrawable颜色为半透明
-        ColorDrawable background = new ColorDrawable(0x4f000000);
+        ColorDrawable background = new ColorDrawable(context.getResources().getColor(R.color.transparent));
         //设置弹出窗体的背景
         this.setBackgroundDrawable(background);
         // 绘制
         this.mandatoryDraw();
 
         popmenu_rv.setLayoutManager(new LinearLayoutManager(context));
-        ShowRegisteredTypePopupAdapter adapter = new ShowRegisteredTypePopupAdapter(context, list );
+        ShowRegisteredTypePopupAdapter adapter = new ShowRegisteredTypePopupAdapter(context, list);
         popmenu_rv.setAdapter(adapter);
         //增加底布局
-        View footer = LayoutInflater.from(context).inflate(R.layout.show_registered_type_popup_layout, popmenu_rv, false);
-        TextView footerTv = (TextView) footer.findViewById(R.id.show_registered_type_popup_tv);
+        View footer = LayoutInflater.from(context).inflate(R.layout.show_registered_type_popup_bottom_layout, popmenu_rv, false);
+        TextView footerTv = (TextView) footer.findViewById(R.id.show_registered_type_popup_bottom_tv);
         String statusString = "";
         switch (trademarkstatus) {
             case 1:
@@ -85,7 +86,7 @@ public class ShowRegisteredTypePopupWindow extends PopupWindow {
                 statusString = "待审核";
                 break;
         }
-        footerTv.setText(statusString);
+        footerTv.setText("商品" + statusString);
         adapter.setFooterView(footer);
 
         this.contentView.setOnTouchListener(new View.OnTouchListener() {

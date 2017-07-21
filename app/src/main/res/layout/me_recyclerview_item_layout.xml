@@ -4,15 +4,14 @@
     android:id="@+id/me_recyclerview_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="7dp"
-    android:layout_marginRight="7dp"
-    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
     android:background="@color/grey_E9E7E7"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="1dp">
-
+    app:cardCornerRadius="5dp">
+    <!--app:cardElevation="1dp"-->
     <TextView
         android:id="@+id/me_recyclerview_item_tv"
         android:layout_width="match_parent"
