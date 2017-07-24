@@ -27,6 +27,7 @@ import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +59,7 @@ public class RegisterFragment extends BaseFragment {
     CardView register_classification_card;
     private CheckTypeResult checkTypeResult;
     private String selectClassify;//在查询页面选择的分类大类名称
+    private List<List<ClassificationItemBean>> typeList;
     private int deep = 2;
 
     @Bind(R.id.register_line_chart)
@@ -96,8 +98,7 @@ public class RegisterFragment extends BaseFragment {
     TextView commit_tv;//提交注册
 
     private String tradename, industry;
-    private int pageIndex;
-    private List<List<ClassificationItemBean>> typeList;
+    private int pageIndex;//1查询;2注册
     private RegisterBean bean;
 
     @Override
@@ -105,13 +106,16 @@ public class RegisterFragment extends BaseFragment {
         setTitle("注册");
         setBackEnable();
         trade_name_tv.setText("注册商标:" + tradename);
-        industry_tv.setText("分类:" + industry);
-        typeList = new ArrayList<>();
-        for (int i = 0; i < deep; i++) {
-            typeList.add(new ArrayList<ClassificationItemBean>());
-        }
+        industry_tv.setText("分类:" + (StringUtil.isEmpty(industry) ? "无" : industry));
         checkTypeResult = CheckTypeResult.getInstance(deep);
-        typeList = checkTypeResult.getSelectList();
+        if (pageIndex == 1) {
+            //查询跳转过来的(获取查询页面选择的结果)
+            typeList = new ArrayList<>();
+            for (int i = 0; i < deep; i++) {
+                typeList.add(new ArrayList<ClassificationItemBean>());
+            }
+            typeList = checkTypeResult.getSelectList();
+        }
         ALog.i("typeList-->" + typeList);
         RegisterModel.getRegisterData(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
