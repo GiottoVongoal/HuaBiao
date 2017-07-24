@@ -73,6 +73,7 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
                 break;
             case R.id.register_one_register_tv:
                 //注册按钮
+                KeyboardUtils.hideSoftInput(getActivity());
                 tradename = tradename_et.getEditText().getText().toString();
                 if (TextUtils.isEmpty(tradename)) {
                     showToast("请输入商标名");
@@ -111,6 +112,7 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
                 Bundle bundle = new Bundle();
                 bundle.putString("tradename", tradename);
                 bundle.putString("industry", industry);
+                bundle.putInt("pageIndex",2);
                 JumpUtils.startFragmentByName(getContext(), RegisterFragment.class, bundle);
                 finishPopupWindow.dismiss();
             }

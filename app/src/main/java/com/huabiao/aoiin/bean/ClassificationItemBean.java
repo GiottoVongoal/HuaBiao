@@ -1,6 +1,7 @@
 package com.huabiao.aoiin.bean;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * @author 杨丽亚.

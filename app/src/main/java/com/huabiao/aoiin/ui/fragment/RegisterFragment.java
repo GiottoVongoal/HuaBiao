@@ -3,6 +3,7 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,9 +11,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationBean;
+import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.RegisterBean;
 import com.huabiao.aoiin.bean.SearchResultUnRegisterCheckBean;
 import com.huabiao.aoiin.model.RegisterModel;
@@ -44,10 +47,17 @@ public class RegisterFragment extends BaseFragment {
 
     @Bind(R.id.register_classification_rv)
     RecyclerView classification_rv;//可注册类别
+    //注册第一步跳转过来的
     private SearchResultUnRegisteredAdapter mAdapter;
     private List<SearchResultUnRegisterCheckBean> list;
     private int Position;
+    //查询跳转过来的
+    @Bind(R.id.register_classification_tv)
+    TextView register_classification_tv;//隐藏类别的RecyclerView,显示一个TextView
+    @Bind(R.id.register_classification_card)
+    CardView register_classification_card;
     private CheckTypeResult checkTypeResult;
+    private String selectClassify;//在查询页面选择的分类大类名称
     private int deep = 2;
 
     @Bind(R.id.register_line_chart)
@@ -86,6 +96,8 @@ public class RegisterFragment extends BaseFragment {
     TextView commit_tv;//提交注册
 
     private String tradename, industry;
+    private int pageIndex;
+    private List<List<ClassificationItemBean>> typeList;
     private RegisterBean bean;
 
     @Override
@@ -94,7 +106,13 @@ public class RegisterFragment extends BaseFragment {
         setBackEnable();
         trade_name_tv.setText("注册商标:" + tradename);
         industry_tv.setText("分类:" + industry);
+        typeList = new ArrayList<>();
+        for (int i = 0; i < deep; i++) {
+            typeList.add(new ArrayList<ClassificationItemBean>());
+        }
         checkTypeResult = CheckTypeResult.getInstance(deep);
+        typeList = checkTypeResult.getSelectList();
+        ALog.i("typeList-->" + typeList);
         RegisterModel.getRegisterData(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
@@ -162,22 +180,31 @@ public class RegisterFragment extends BaseFragment {
     }
 
     private void showData() {
-        list = getList(bean.getClassification());
-        register_line_chart.setLineChartBean(bean.getLinechart());
         classification_rv.setLayoutManager(new FullyGridLayoutManager(getContext(), 2));
-        mAdapter = new SearchResultUnRegisteredAdapter(getContext(), list);
-        classification_rv.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
-            @Override
-            public void onItemClickListener(View view, final int position) {
-                Bundle bundle = new Bundle();
-                bundle.putString("tradename", tradename);
-                bundle.putString("classificationname", list.get(position).getClassificationid() + " - " + list.get(position).getClassificationname());
-                bundle.putInt("type", 1);//测试数据变化使用
-                JumpUtils.startFragmentByName(getContext(), CheckTypeListFragment.class, bundle);
-                Position = position;
-            }
-        });
+        if (pageIndex == 2) {
+            //注册第一步跳转过来的
+            list = getList(bean.getClassification());
+            mAdapter = new SearchResultUnRegisteredAdapter(getContext(), list);
+            classification_rv.setAdapter(mAdapter);
+            mAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+                @Override
+                public void onItemClickListener(View view, final int position) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tradename", tradename);
+                    bundle.putString("classificationname", list.get(position).getClassificationid() + " - " + list.get(position).getClassificationname());
+                    bundle.putInt("type", 1);//测试数据变化使用
+                    JumpUtils.startFragmentByName(getContext(), CheckTypeListFragment.class, bundle);
+                    Position = position;
+                }
+            });
+        } else {
+            //查询跳转过来的
+            classification_rv.setVisibility(View.GONE);
+            register_classification_card.setVisibility(View.VISIBLE);
+            register_classification_tv.setText(selectClassify);
+        }
+        //折线图
+        register_line_chart.setLineChartBean(bean.getLinechart());
     }
 
 
@@ -187,20 +214,24 @@ public class RegisterFragment extends BaseFragment {
         Bundle bundle = getActivity().getIntent().getExtras();
         tradename = bundle.getString("tradename");
         industry = bundle.getString("industry");
+        pageIndex = bundle.getInt("pageIndex", 2);//1查询;2注册第一步
+        selectClassify = bundle.getString("selectClassify");//
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (checkTypeResult.isChange()) {
-            //判断是否有选择注册分类
-            for (int i = 0; i < list.size(); i++) {
-                if (i == Position)
-                    list.get(i).setCheck(true);
-                else
-                    list.get(i).setCheck(false);
+        if (pageIndex == 2) {
+            if (checkTypeResult.isChange()) {
+                //判断是否有选择注册分类
+                for (int i = 0; i < list.size(); i++) {
+                    if (i == Position)
+                        list.get(i).setCheck(true);
+                    else
+                        list.get(i).setCheck(false);
+                }
+                mAdapter.updateListView(list);
             }
-            mAdapter.updateListView(list);
         }
     }
 

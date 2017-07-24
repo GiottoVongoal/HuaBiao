@@ -19,7 +19,7 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
  * @date 2017-07-14 15:06
- * @description
+ * @description 查询结果未注册Adapter/注册第一步跳转过来的Type展示Adapter(有点击事件)
  */
 public class SearchResultUnRegisteredAdapter extends RecyclerView.Adapter<SearchResultUnRegisteredAdapter.UnRegisteredViewHolder> {
     private Context context;

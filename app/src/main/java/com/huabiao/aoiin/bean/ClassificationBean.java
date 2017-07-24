@@ -1,5 +1,8 @@
 package com.huabiao.aoiin.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
@@ -33,4 +36,5 @@ public class ClassificationBean {
                 ", classificationid='" + classificationid + '\'' +
                 '}';
     }
+
 }
