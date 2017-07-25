@@ -3,9 +3,11 @@ package com.ywy.mylibs.base;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.blankj.ALog;
+import com.karumi.dexter.Dexter;
 import com.orm.SugarContext;
 import com.ywy.mylibs.base.impl.ApplicationInter;
 import com.ywy.mylibs.constant.SPKeysConstants;
@@ -29,6 +31,7 @@ public abstract class BaseApplication extends MultiDexApplication implements App
         isDebug = isDebug();
 
         SugarContext.init(this);
+        Dexter.initialize(this);
 
         ALog.Builder builder = new ALog.Builder(this)
                 .setLogSwitch(isDebug)// 设置log总开关，默认开
@@ -47,6 +50,12 @@ public abstract class BaseApplication extends MultiDexApplication implements App
     public void onTerminate() {
         super.onTerminate();
         SugarContext.terminate();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     public static Context getContext() {
