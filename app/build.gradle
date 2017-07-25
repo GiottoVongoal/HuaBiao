@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     dexOptions {
         incremental true
@@ -74,6 +75,8 @@ dependencies {
     //多级联动选择器
     compile 'com.github.chihane:JDAddressSelector:1.1.3'
     compile 'com.android.support:cardview-v7:24.1.1'
+    //日历
+    compile 'joda-time:joda-time:2.9.4'
 }
 repositories {
     flatDir {  //声明本地仓库地址
