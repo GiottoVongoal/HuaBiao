@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.HomeBannarBean;
+import com.huabiao.aoiin.bean.UserProgressDateBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 
 /**
@@ -22,6 +23,15 @@ public class HomeModel {
         String jsonString = GetJsonToName.getJson(context, "bannarjson.json");
         Gson gson = new Gson();
         HomeBannarBean bean = gson.fromJson(jsonString, HomeBannarBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
+    public static void getProgressDateList(Context context, int year, int month, int day, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "progressdatelistjson.json");
+        Gson gson = new Gson();
+        UserProgressDateBean bean = gson.fromJson(jsonString,UserProgressDateBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

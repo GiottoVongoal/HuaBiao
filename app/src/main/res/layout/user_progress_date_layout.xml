@@ -17,7 +17,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/llTitleDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -27,7 +26,7 @@
                 android:visibility="visible">
 
                 <TextView
-                    android:id="@+id/tvTitleMonth"
+                    android:id="@+id/user_progress_date_month_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -37,7 +36,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvTitleDay"
+                    android:id="@+id/user_progress_date_day_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -54,7 +53,7 @@
                 app:week_text_size="13" />
 
             <com.huabiao.aoiin.dateview.schedule.ScheduleLayout
-                android:id="@+id/schedule_layout"
+                android:id="@+id/user_progress_date_schedule_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:auto_change_month_row="true"
@@ -75,7 +74,7 @@
                             android:layout_height="wrap_content">
 
                             <com.huabiao.aoiin.dateview.MonthCalendarView
-                                android:id="@+id/mcvCalendar"
+                                android:id="@+id/user_progress_date_month_calendar"
                                 android:layout_width="match_parent"
                                 android:layout_height="288dp"
                                 android:background="@color/white"
@@ -89,7 +88,7 @@
                         </RelativeLayout>
 
                         <com.huabiao.aoiin.dateview.WeekCalendarView
-                            android:id="@+id/wcvCalendar"
+                            android:id="@+id/user_progress_date_week_calendar"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/week_calendar_height"
                             android:background="@color/white"
@@ -110,8 +109,14 @@
                         android:layout_height="match_parent"
                         android:background="@color/white">
 
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="24.5dp"
+                            android:background="@color/grey_DDDDDD" />
+
                         <com.huabiao.aoiin.dateview.schedule.ScheduleRecyclerView
-                            android:id="@+id/rvScheduleList"
+                            android:id="@+id/user_progress_date_srv"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_alignParentLeft="true"

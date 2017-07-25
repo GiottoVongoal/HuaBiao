@@ -1,16 +1,22 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.UserProgressDateBean;
+import com.huabiao.aoiin.bean.UserProgressDateBean.UserprogressdatelistBean;
 import com.huabiao.aoiin.dateview.OnCalendarClickListener;
 import com.huabiao.aoiin.dateview.schedule.ScheduleLayout;
 import com.huabiao.aoiin.dateview.schedule.ScheduleRecyclerView;
-import com.huabiao.aoiin.ui.adapter.SettingRecyclerViewAdapder;
+import com.huabiao.aoiin.model.HomeModel;
+import com.huabiao.aoiin.ui.adapter.UserProgressDateAdapter;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 
@@ -23,17 +29,17 @@ import butterknife.Bind;
  * @description 测试日历
  */
 public class UserProgressDateFragment extends BaseFragment {
-    @Bind(R.id.schedule_layout)
+    @Bind(R.id.user_progress_date_schedule_layout)
     ScheduleLayout slSchedule;
-    @Bind(R.id.rvScheduleList)
+    @Bind(R.id.user_progress_date_srv)
     ScheduleRecyclerView rvScheduleList;
 
-    private SettingRecyclerViewAdapder adapder;
-    private String[] text = {"我的收藏", "我的足记", "我的消息", "设置", "我的收藏", "我的足记", "我的消息", "设置", "我的收藏", "我的足记", "我的消息", "设置"};
+    private UserProgressDateAdapter adapder;
+    private List<UserprogressdatelistBean> list;
 
-    @Bind(R.id.tvTitleMonth)
+    @Bind(R.id.user_progress_date_month_title_tv)
     TextView tvTitleMonth;
-    @Bind(R.id.tvTitleDay)
+    @Bind(R.id.user_progress_date_day_title_tv)
     TextView tvTitleDay;
 
     private String[] mMonthText;
@@ -54,6 +60,7 @@ public class UserProgressDateFragment extends BaseFragment {
                 //监听获得点击的年月日
                 resetMainTitleDate(year, month, day);
                 showToast(year + "年" + (month + 1) + "月" + day + "日");
+                getDateList(year, month, day);
             }
 
             @Override
@@ -61,11 +68,25 @@ public class UserProgressDateFragment extends BaseFragment {
 
             }
         });
-        slSchedule.getMonthCalendar().setTodayToView();
 
+        list = new ArrayList<>();
         rvScheduleList.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapder = new SettingRecyclerViewAdapder(getActivity(), text);
+        adapder = new UserProgressDateAdapter(getActivity(), list);
         rvScheduleList.setAdapter(adapder);
+        getDateList(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
+    }
+
+    private void getDateList(int year, int month, int day) {
+        HomeModel.getProgressDateList(getContext(), year, month, day, new InterfaceManager.CallBackCommon() {
+            @Override
+            public void getCallBackCommon(Object mData) {
+                if (mData != null) {
+                    UserProgressDateBean bean = (UserProgressDateBean) mData;
+                    adapder.updateListView(bean.getUserprogressdatelist());
+                }
+            }
+        });
     }
 
     public void resetMainTitleDate(int year, int month, int day) {
