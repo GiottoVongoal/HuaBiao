@@ -1,15 +1,16 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
-import com.huabiao.aoiin.model.RegisterOneModel;
+import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
@@ -17,6 +18,7 @@ import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+import com.ywy.mylibs.utils.KeyboardUtils;
 
 import java.util.List;
 
@@ -30,11 +32,11 @@ import butterknife.Bind;
  */
 public class RegisterOneFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.register_one_tradename_et)
-    EditText tradename_et;//商标名
+    TextInputLayout tradename_et;//商标名
     @Bind(R.id.register_one_industry_tv)
     TextView industry_tv;//选择行业
     @Bind(R.id.register_one_register_tv)
-    TextView register_tv;//注册按钮
+    FloatingActionButton register_tv;//注册按钮
     //选择行业的弹框
     private IndustryPopupWindow industryWindow;
     private int place = 0;
@@ -58,7 +60,8 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
         switch (view.getId()) {
             case R.id.register_one_industry_tv:
                 //选择行业
-                RegisterOneModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
+                KeyboardUtils.hideSoftInput(getActivity());
+                RegisterModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
                     @Override
                     public void getCallBackCommon(Object mData) {
                         if (mData != null) {
@@ -70,7 +73,8 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
                 break;
             case R.id.register_one_register_tv:
                 //注册按钮
-                tradename = tradename_et.getText().toString();
+                KeyboardUtils.hideSoftInput(getActivity());
+                tradename = tradename_et.getEditText().getText().toString();
                 if (TextUtils.isEmpty(tradename)) {
                     showToast("请输入商标名");
                     return;
@@ -105,6 +109,11 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
             @Override
             public void selectDefault() {
                 showToast("默认注册\n" + tradename + "\n" + industry);
+                Bundle bundle = new Bundle();
+                bundle.putString("tradename", tradename);
+                bundle.putString("industry", industry);
+                bundle.putInt("pageIndex",2);
+                JumpUtils.startFragmentByName(getContext(), RegisterFragment.class, bundle);
                 finishPopupWindow.dismiss();
             }
 

@@ -1,5 +1,7 @@
 package com.huabiao.aoiin.bean;
 
+import android.os.Parcel;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean

@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
+import com.huabiao.aoiin.ui.fragment.HomePageFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.ui.fragment.RegisterOneFragment;
 import com.huabiao.aoiin.ui.fragment.SearchFragment;
@@ -32,7 +33,7 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
-    Fragment RegisterOneFragment, SearchFragment, MeFragment;
+    Fragment HomePageFragment, MeFragment;
 
     @Override
     public BasePresenter getPresenter() {
@@ -42,10 +43,8 @@ public class MainActivity extends BaseActivity {
     @Override
     public void bindView(Bundle savedInstanceState) {
         BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
-
+        HomePageFragment = new HomePageFragment();
         MeFragment = new MeFragment();
-        RegisterOneFragment = new RegisterOneFragment();
-        SearchFragment = new SearchFragment();
 
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
@@ -68,28 +67,41 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menu_item_search:
-                        addFragment(SearchFragment);
+                    case R.id.menu_item_one:
+                        setItem(0);
                         break;
-                    case R.id.menu_item_registered:
-                        addFragment(RegisterOneFragment);
+                    case R.id.menu_item_two:
+                        setItem(1);
                         break;
-                    case R.id.menu_item_creat_name:
-                        addFragment(BottonNavigationViewFragment.newInstance("取名"));
+                    case R.id.menu_item_three:
+                        setItem(2);
                         break;
-                    case R.id.menu_item_hot_world:
-                        addFragment(BottonNavigationViewFragment.newInstance("热搜词"));
-                        break;
-                    case R.id.menu_item_my:
-                        addFragment(MeFragment);
+                    case R.id.menu_item_four:
+                        setItem(3);
                         break;
                 }
                 return true;//返回 true 使点击有效
             }
         });
-        //默认进来选中第三个
-        addFragment(BottonNavigationViewFragment.newInstance("取名"));
-        botton_navi_view.getMenu().getItem(2).setChecked(true);
+        setItem(0);
+    }
+
+    public void setItem(int index) {
+        switch (index) {
+            case 0:
+                addFragment(HomePageFragment);
+                break;
+            case 1:
+                addFragment(BottonNavigationViewFragment.newInstance("商城"));
+                break;
+            case 2:
+                addFragment(BottonNavigationViewFragment.newInstance("金融"));
+                break;
+            case 3:
+                addFragment(MeFragment);
+                break;
+        }
+        botton_navi_view.getMenu().getItem(index).setChecked(true);
     }
 
     private void addFragment(Fragment fragment) {

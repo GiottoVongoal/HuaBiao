@@ -4,32 +4,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/view_title" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/check_type_list_tradename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="品牌名"
-            android:textSize="18sp" />
+            android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
+            android:id="@+id/check_type_list_classificationname"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="服务小项" />
-    </LinearLayout>
+            android:layout_below="@+id/check_type_list_tradename"
+            android:layout_marginTop="15dp"
+            android:text="日化品" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/check_type_list_classificationname"
+            android:layout_marginTop="15dp"
+            android:text="服务小项" />
+
+        <TextView
+            android:id="@+id/check_type_list_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_sharp_circle"
+            android:padding="25dp"
+            android:text="确认"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View style="@style/GrayLine" />
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/check_type_list_fl"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_alignParentBottom="true" />
+        android:layout_height="match_parent" />
 </LinearLayout>

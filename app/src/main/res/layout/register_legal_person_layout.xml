@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_person_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintAppearance">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="申请人姓名"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_certificates_type_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                android:visibility="gone"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintAppearance">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="身份证件文件名称"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_certificates_id_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                android:visibility="gone"
+                app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/errorAppearance"
+                app:hintAnimationEnabled="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="身份证件文件号码"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/applicant_select_address_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_round_gray"
+                android:padding="10dp"
+                android:text="选择行政区划" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_person_address_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintAppearance">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="申请人地址"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_contacts_person_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintAppearance">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="联系人"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_contacts_person_phone_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/errorAppearance"
+                app:hintAnimationEnabled="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="联系人电话"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_contacts_person_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/errorAppearance"
+                app:hintAnimationEnabled="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="邮政编码"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_legal_person_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                android:visibility="gone"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintAppearance">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="法人姓名"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_collect_person_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintAppearance">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="收件人姓名"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_collect_person_phone_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/errorAppearance"
+                app:hintAnimationEnabled="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="收件人电话"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/applicant_collect_person_address_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_round_gray"
+                android:padding="10dp"
+                android:text="选择收件人地址" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/applicant_collect_person_address_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextInputLayoutLineColor"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintAppearance">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="收件人地址"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/applicant_save_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_round_gray"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="保存" />
+</LinearLayout>

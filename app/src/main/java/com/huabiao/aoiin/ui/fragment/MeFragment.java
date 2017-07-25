@@ -17,6 +17,7 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.wedgit.wedgit.CircleView;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     RecyclerView me_recyclerview;
     private MeRecyclerViewAdapder adapder;
 
-    private String[] text = {"我的收藏", "浏览记录"};
+    private String[] text = {"我的收藏", "我的足记", "我的消息", "设置"};
 
     @Override
     public BasePresenter getPresenter() {
@@ -54,9 +55,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         adapder = new MeRecyclerViewAdapder(getActivity(), text);
         me_recyclerview.setAdapter(adapder);
         View header = LayoutInflater.from(getActivity()).inflate(R.layout.me_head_layout, me_recyclerview, false);
-        //设置
-        ImageView me_setting = (ImageView) header.findViewById(R.id.me_setting);
-        me_setting.setOnClickListener(this);
         //用户头像
         CircleView me_user_photo = (CircleView) header.findViewById(R.id.me_user_photo);
         BitmapLoader.ins().loadImage("https://b-ssl.duitang.com/uploads/blog/201509/29/20150929164702_KMUBn.thumb.700_0.jpeg", R.mipmap.perter_portrait, me_user_photo);
@@ -79,9 +77,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.me_setting:
-                showToast("设置");
-                break;
             case R.id.me_user_photo:
                 showToast("头像");
                 break;
@@ -107,21 +102,18 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                         showToast(position + "我的收藏");
                         break;
                     case FlagBase.ME_BROWSE_RECORD:
-                        // 浏览记录
-                        showToast(position + "浏览记录");
+                        // 我的足记
+                        showToast(position + "我的足记");
                         break;
-//                    case FlagBase.ME_ADDRESS_MANAGEMENT:
-//                        // 地址管理
-//                        showToast(position + "地址管理");
-//                        break;
-//                    case FlagBase.ME_FEEDBACK:
-//                        // 反馈
-//                        showToast(position + "反馈");
-//                        break;
-//                    case FlagBase.ME_AGREEMENT:
-//                        // 服务与隐私协议
-//                        showToast(position + "服务与隐私协议");
-//                        break;
+                    case FlagBase.ME_MESSAGE:
+                        // 我的消息
+                        showToast(position + "我的消息");
+                        break;
+                    case FlagBase.ME_SETTING:
+                        // 设置
+                        JumpUtils.startFragmentByName(getContext(), SettingFragment.class);
+//                        showToast(position + "设置");
+                        break;
                 }
             }
         });

@@ -1,13 +1,17 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
-import com.huabiao.aoiin.selecttool.AddressSelector;
+import com.huabiao.aoiin.selecttool.ClassificationTypeSelector;
 import com.huabiao.aoiin.selecttool.DataProvider;
 import com.huabiao.aoiin.selecttool.SelectedListener;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -15,7 +19,6 @@ import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.ClickUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -29,22 +32,67 @@ import butterknife.Bind;
 
 public class CheckTypeListFragment extends BaseFragment {
 
-    @Bind(R.id.frameLayout)
+    @Bind(R.id.check_type_list_tradename)
+    TextView tradename;
+    @Bind(R.id.check_type_list_classificationname)
+    TextView classificationname;
+    @Bind(R.id.check_type_list_confirm)
+    TextView confirm;
+
+    @Bind(R.id.check_type_list_fl)
     FrameLayout frameLayout;
-    int deep = 3;
-    String typeId = "0";
-    AddressSelector selector;
+    int deep = 2;
+    ClassificationTypeSelector selector;
 
-    static String result = "";
+    private int type;//测试数据变化使用
 
-    @Override
-    public BasePresenter getPresenter() {
-        return null;
-    }
+    private CheckTypeResult checkTypeResult;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        getJsonObj("classificationlist1.json");
+        setTitle("服务小项");
+        setBackEnable();
+        Bundle bundle = getActivity().getIntent().getExtras();
+        tradename.setText(bundle.getString("tradename"));
+        classificationname.setText(bundle.getString("classificationname"));
+        checkTypeResult = CheckTypeResult.getInstance(deep);
+        checkTypeResult.setChange(false);
+
+        type = bundle.getInt("type");
+        getJsonObj(type == 1 ? "classificationlist01.json" : "classificationlist02.json");
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getResult();
+            }
+        });
+    }
+
+    private void getResult() {
+        if (selector != null) {
+            selector.callbackInternal(new SelectedListener() {
+                @Override
+                public void onAddressSelected(List<List<ClassificationItemBean>> selectAbles) {
+                    if (selectAbles.get(deep - 1).size() > 0) {
+                        ALog.i("selectAbles = " + selectAbles);
+                        String string = "";
+                        for (int i = 0; i < selectAbles.size(); i++) {
+                            for (int j = 0; j < selectAbles.get(i).size(); j++) {
+                                ClassificationItemBean resultBean = selectAbles.get(i).get(j);
+                                string += resultBean.getClassificationname() + ",";
+                            }
+                        }
+                        checkTypeResult.setSelectList(selectAbles);
+                        checkTypeResult.setChange(true);
+                        ALog.i("result = " + string);
+                        ClickUtil.onBackClick();
+                    } else {
+                        showToast("请选择小项");
+                    }
+                }
+            });
+        }
     }
 
     private void getJsonObj(String string) {
@@ -54,57 +102,30 @@ public class CheckTypeListFragment extends BaseFragment {
                 if (mData != null) {
                     ClassificationListBean bean = (ClassificationListBean) mData;
                     List<ClassificationItemBean> list = bean.getClassificationlist();
-                    show(typeId, list);
+                    show(list);
                 }
             }
         });
     }
 
-    private void show(String id, final List<ClassificationItemBean> list) {
-        if (typeId.equals("0")) {
-            selector = new AddressSelector(getContext(), deep);
-            selector.setDataProvider(id, list, new DataProvider() {
-                @Override
-                public void provideData(int currentDeep, String preId, DataReceiver receiver) {
-                    //根据tab的深度和前一项选择的id，获取下一级菜单项
-                    receiver.send();
-                }
-
-                @Override
-                public void getNext(String id) {
-                    typeId = id;
-                    getJsonObj("classificationlist" + typeId + ".json");
-                }
-            });
-            frameLayout.addView(selector.getView());
-        } else {
-            selector.getNextData(typeId, list);
-        }
-        selector.setSelectedListener(new SelectedListener() {
+    private void show(final List<ClassificationItemBean> list) {
+        selector = new ClassificationTypeSelector(getContext(), deep);
+        selector.setDataProvider(list, new DataProvider() {
             @Override
-            public void onAddressSelected(ArrayList<ClassificationItemBean> selectAbles) {
-                String string = "";
-                for (ClassificationItemBean selectAble : selectAbles) {
-                    string += selectAble.getClassificationname() + " ";
-                }
-                result = string;
-                showToast(result);
-                ClickUtil.onBackClick();
+            public void provideData(int currentDeep, DataReceiver receiver) {
+                //根据tab的深度和前一项选择的id，获取下一级菜单项
+                receiver.send();
             }
         });
-
+        frameLayout.addView(selector.getView());
 //        BottomDialog dialog = new BottomDialog(getContext());
 //        dialog.init(getContext(), selector);
 //        dialog.show();
     }
 
-    public static void getResultText(CallBackChackType callBack) {
-        /*把选择结果放到静态result中*/
-        callBack.getResult(result);
-    }
-
-    public interface CallBackChackType {
-        public void getResult(String result);
+    @Override
+    public BasePresenter getPresenter() {
+        return null;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.huabiao.aoiin.bean;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * @author 杨丽亚.
@@ -11,6 +12,15 @@ import java.util.List;
 public class ClassificationItemBean extends ClassificationBean {
 
     private boolean nextlevel;
+    private boolean isChecked = false;
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
 
     public boolean isNextlevel() {
         return nextlevel;
@@ -18,5 +28,13 @@ public class ClassificationItemBean extends ClassificationBean {
 
     public void setNextlevel(boolean nextlevel) {
         this.nextlevel = nextlevel;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassificationItemBean{" +
+                "nextlevel=" + nextlevel +
+                ", isChecked=" + isChecked +
+                '}';
     }
 }
