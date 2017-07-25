@@ -11,17 +11,15 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.blankj.ALog;
-import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
-
+import com.huabiao.aoiin.R;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
 import butterknife.Bind;
 
 public class MainActivity extends BaseActivity {
@@ -66,7 +64,7 @@ public class MainActivity extends BaseActivity {
                         addFragment(BottonNavigationViewFragment.newInstance("电话"));
                         break;
                     case R.id.menu_item_three:
-                        addFragment(BottonNavigationViewFragment.newInstance("联系人"));
+                        addFragment(new DenominateFragment());
                         break;
                     case R.id.menu_item_four:
                         addFragment(new HotSearchWord());
@@ -79,7 +77,7 @@ public class MainActivity extends BaseActivity {
             }
         });
         //默认进来选中第三个
-        addFragment(BottonNavigationViewFragment.newInstance("联系人"));
+        addFragment(new DenominateFragment());
         botton_navi_view.getMenu().getItem(2).setChecked(true);
     }
 

@@ -15,18 +15,22 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 
-import java.util.List;
-
 import butterknife.Bind;
 
 public class HotSearchWord extends BaseFragment {
-    private List<HotSearchWordsBean.HotwordsBean> list;
     private HotSearchAdapter mAdapter;
 
     @Bind(R.id.my_recyclerview)
     RecyclerView mRecylerView;
 
-    private void initData() {
+    @Override
+    public BasePresenter getPresenter() {
+        return null;
+    }
+
+    @Override
+    public void bindView(Bundle savedInstanceState) {
+        //初始化
         SearchModel.getHotWords(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
@@ -42,18 +46,6 @@ public class HotSearchWord extends BaseFragment {
                 }
             }
         });
-    }
-
-    @Override
-    public BasePresenter getPresenter() {
-        return null;
-    }
-
-    @Override
-    public void bindView(Bundle savedInstanceState) {
-        //初始化
-        initData();
-
     }
 
     @Override

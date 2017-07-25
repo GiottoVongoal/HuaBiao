@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
+import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.HotSearchWordsBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
@@ -77,6 +78,15 @@ public class SearchModel {
         String jsonString = getJson(context, "hotwords.json");
         Gson gson = new Gson();
         HotSearchWordsBean bean = gson.fromJson(jsonString, HotSearchWordsBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
+    public static void getCreatName(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, "getcreatnamelist.json");
+        Gson gson = new Gson();
+        CreatNameBean bean = gson.fromJson(jsonString, CreatNameBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

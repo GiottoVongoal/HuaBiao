@@ -76,6 +76,7 @@ public class DrawLineChartView extends RelativeLayout {
     }
 
     private void drawLineChart() {
+        line_chart_ll.removeAllViews();
         if (bean.getLines() != null && bean.getLines().size() > 0) {
             for (int i = 0; i < bean.getLines().size(); i++) {
                 LineChartBean.LinesBean data = bean.getLines().get(i);

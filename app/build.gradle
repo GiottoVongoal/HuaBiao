@@ -59,8 +59,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
-    testCompile 'junit:junit:4.12'
 
     compile project(':ywyLibs')
 
@@ -68,13 +66,16 @@ dependencies {
     compile('com.facebook.fresco:fresco:0.12.0+') {
         exclude module: 'library'// nineold冲突
     }
-    compile 'com.android.support:design:25+'
     //画图表
-    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
     //多级联动选择器
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.+'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
     compile 'com.github.chihane:JDAddressSelector:1.1.3'
     compile 'com.android.support:cardview-v7:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:support-v4:24.2.1'
+    testCompile 'junit:junit:4.12'
 }
 repositories {
     flatDir {  //声明本地仓库地址

@@ -22,4 +22,5 @@ public class InterfaceManager {
         void getCallBackCommon(Object mData);
     }
 
+
 }
