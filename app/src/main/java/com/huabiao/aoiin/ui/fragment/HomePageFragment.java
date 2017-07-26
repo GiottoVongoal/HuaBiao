@@ -168,8 +168,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.home_progress_cv:
                 //进度
-                JumpUtils.startFragmentByName(getContext(), UserProgressDateFragment.class);
-                showToast("进度");
+                JumpUtils.startFragmentByName(getContext(), UserProgressFragment.class);
                 break;
         }
     }

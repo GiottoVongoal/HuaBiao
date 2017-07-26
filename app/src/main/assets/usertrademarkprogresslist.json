@@ -1,0 +1,16 @@
+{
+  "trademarkprogresslist": [
+    {
+      "trademarkname": "商标1",
+      "trademarkid": "1001"
+    },
+    {
+      "trademarkname": "商标2",
+      "trademarkid": "1002"
+    },
+    {
+      "trademarkname": "商标3",
+      "trademarkid": "1003"
+    }
+  ]
+}

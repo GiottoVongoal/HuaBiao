@@ -17,13 +17,13 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
  * @date 2017-07-13 13:55
- * @description
+ * @description 下拉展示菜单的Adapter
  */
-public class SearchResultRegisteredMenuAdapter extends RecyclerView.Adapter<SearchResultRegisteredMenuAdapter.MyViewHolder> {
+public class UpMenuAdapter extends RecyclerView.Adapter<UpMenuAdapter.MyViewHolder> {
     private Context context;
-    private List<ClassificationBean> list;
+    private List<String> list;
 
-    public SearchResultRegisteredMenuAdapter(Context context, List<ClassificationBean> list) {
+    public UpMenuAdapter(Context context, List<String> list) {
         this.context = context;
         this.list = list;
     }
@@ -42,8 +42,7 @@ public class SearchResultRegisteredMenuAdapter extends RecyclerView.Adapter<Sear
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        ClassificationBean bean = list.get(position);
-        holder.popwind_tv.setText(bean.getClassificationname());
+        holder.popwind_tv.setText(list.get(position));
         holder.popwind_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

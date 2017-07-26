@@ -5,8 +5,10 @@
     android:background="@color/backgroundwhite"
     android:orientation="vertical">
 
+    <include layout="@layout/view_title" />
+
     <LinearLayout
-        android:id="@+id/search_result_registered_menu_ll"
+        android:id="@+id/user_progress_menu_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -14,12 +16,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/search_result_registered_menu_tv"
+            android:id="@+id/user_progress_menu_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="15dp"
-            android:text="选择分类"
+            android:text="我的商标列表"
             android:textSize="14dp" />
 
         <ImageView
@@ -28,39 +30,30 @@
             android:src="@mipmap/icon_arrow_down" />
     </LinearLayout>
 
-    <View style="@style/GrayLine" />
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/search_result_registered_top_rv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <View style="@style/GrayLine" />
-
-            <com.huabiao.aoiin.wedgit.DrawLineChartView
-                android:id="@+id/search_result_registered_line_chart"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/user_progress_tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/white" />
-
-            <View style="@style/GrayLine" />
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_sharp_circle"
+                android:padding="80dp"
+                android:text="进度"
+                android:textSize="30sp" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/search_result_registered_bottom_rv"
+                android:id="@+id/user_progress_rv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

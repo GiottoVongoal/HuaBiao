@@ -9,9 +9,9 @@
         android:id="@+id/popwin_supplier_list_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:cacheColorHint="@android:color/transparent"
+        android:cacheColorHint="@color/white"
         android:fadingEdge="none"
-        android:listSelector="@color/transparent"
+        android:listSelector="@color/backgroundwhite"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="none"
         android:scrollingCache="false" />

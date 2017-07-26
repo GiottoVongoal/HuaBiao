@@ -22,6 +22,8 @@ import com.ywy.mylibs.base.BasePresenter;
 
 import butterknife.Bind;
 
+import static java.lang.Integer.parseInt;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
@@ -48,12 +50,43 @@ public class UserProgressDateFragment extends BaseFragment {
     public void bindView(Bundle savedInstanceState) {
         setTitle("进度");
         setBackEnable();
+    }
+
+    @Override
+    public void getIntentValue() {
+        super.getIntentValue();
+        Bundle bundle = getActivity().getIntent().getExtras();
+        String time = bundle.getString("time");
+        string2Date(time);
+    }
+
+    private void string2Date(String timeString) {
+        timeString = timeString.replace("年", "-");
+        timeString = timeString.replace("月", "-");
+        timeString = timeString.replace("日", "-");
+        // 切割年月日
+        String yearStr, monthStr, dateStr;
+        // 截取日期
+        String[] ymd = timeString.split("-");
+        // 判断日期精确度
+        yearStr = ymd[0];
+        monthStr = ymd.length > 1 ? ymd[1] : "";
+        dateStr = ymd.length > 2 ? ymd[2] : "";
+        monthStr = monthStr == "" ? Integer.toString(1) : monthStr;
+        dateStr = dateStr == "" ? Integer.toString(1) : dateStr;
+
+        int year = parseInt(yearStr.trim());
+        int month = Integer.parseInt(monthStr.trim());
+        int day = Integer.parseInt(dateStr.trim());
 
         mMonthText = getResources().getStringArray(R.array.calendar_month);
-        tvTitleMonth.setText(mMonthText[Calendar.getInstance().get(Calendar.MONTH)]);
-        Calendar calendar = Calendar.getInstance();
-        resetMainTitleDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        tvTitleMonth.setText(mMonthText[month - 1]);
+        initSchedule(year, month - 1, day);
+    }
 
+    private void initSchedule(int year, int month, int day) {
+        slSchedule.initData(year, month, day);
+        resetMainTitleDate(year, month, day);
         slSchedule.setOnCalendarClickListener(new OnCalendarClickListener() {
             @Override
             public void onClickDate(int year, int month, int day) {
@@ -73,8 +106,7 @@ public class UserProgressDateFragment extends BaseFragment {
         rvScheduleList.setLayoutManager(new LinearLayoutManager(getContext()));
         adapder = new UserProgressDateAdapter(getActivity(), list);
         rvScheduleList.setAdapter(adapder);
-        getDateList(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-
+        getDateList(year, month, day);
     }
 
     private void getDateList(int year, int month, int day) {

@@ -4,7 +4,7 @@
     android:useLevel="false">
 
     <!-- 填充颜色 -->
-    <solid android:color="@color/transparent" />
+    <solid android:color="@color/white" />
 
     <!-- 线的宽度，颜色灰色 -->
     <stroke

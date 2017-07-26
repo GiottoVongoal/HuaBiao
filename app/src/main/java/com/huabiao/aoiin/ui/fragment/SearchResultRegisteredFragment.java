@@ -18,18 +18,20 @@ import com.huabiao.aoiin.bean.SearchResultRegisteredBean.RecommendBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredBottomAdapter;
-import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredMenuAdapter;
+import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredTopAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
-import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+
+import static com.umeng.analytics.a.p;
 
 /**
  * @author 杨丽亚.
@@ -45,7 +47,7 @@ public class SearchResultRegisteredFragment extends BaseFragment implements View
     TextView menu_tv;
     private PopupWindow popMenu;
     private RecyclerView popRecyclerView;
-    private SearchResultRegisteredMenuAdapter menuAdapter;
+    private UpMenuAdapter menuAdapter;
 
     //展示数据
     @Bind(R.id.search_result_registered_top_rv)
@@ -138,7 +140,11 @@ public class SearchResultRegisteredFragment extends BaseFragment implements View
                     }
                 });
         popRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        menuAdapter = new SearchResultRegisteredMenuAdapter(getContext(), list);
+        List<String> l = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            l.add(list.get(i).getClassificationname());
+        }
+        menuAdapter = new UpMenuAdapter(getContext(), l);
 
         menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
             @Override
