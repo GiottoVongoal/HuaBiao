@@ -16,6 +16,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.ClassificationItemBean;
+import com.huabiao.aoiin.bean.RegisterApplicantPersonBean;
 import com.huabiao.aoiin.bean.RegisterBean;
 import com.huabiao.aoiin.bean.SearchResultUnRegisterCheckBean;
 import com.huabiao.aoiin.model.RegisterModel;
@@ -40,7 +41,7 @@ import butterknife.Bind;
  * @date 2017-07-21 15:57
  * @description 默认注册页面
  */
-public class RegisterFragment extends BaseFragment {
+public class RegisterFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.register_trade_name_tv)
     TextView trade_name_tv;//注册商标:我是商标名
     @Bind(R.id.register_industry_tv)
@@ -75,14 +76,14 @@ public class RegisterFragment extends BaseFragment {
     TextInputLayout userphone_et;
 
     //申请人类型
-    @Bind(R.id.register_applicant_type_rg)
-    RadioGroup applicant_type_rg;
-    @Bind(R.id.register_legal_person_rb)
-    RadioButton legal_person_rb;//法人或其他组织
-    @Bind(R.id.register_individual_person_rb)
-    RadioButton individual_person_rb;//个体工商户
-    @Bind(R.id.register_average_person_rb)
-    RadioButton average_person_rb;//自然人
+    @Bind(R.id.register_legal_person_tv)
+    TextView legal_person_tv;//法人或其他组织
+    @Bind(R.id.register_individual_person_tv)
+    TextView individual_person_tv;//个体工商户
+    @Bind(R.id.register_average_person_tv)
+    TextView average_person_tv;//自然人
+    private RegisterApplicantPersonBean personBean;
+    private TextView[] AppPersonTV = new TextView[3];
 
     //服务方式
     @Bind(R.id.register_service_mode_rg)
@@ -105,6 +106,10 @@ public class RegisterFragment extends BaseFragment {
     public void bindView(Bundle savedInstanceState) {
         setTitle("注册");
         setBackEnable();
+        personBean = RegisterApplicantPersonBean.getInstance();
+        AppPersonTV[0] = legal_person_tv;
+        AppPersonTV[1] = individual_person_tv;
+        AppPersonTV[2] = average_person_tv;
         trade_name_tv.setText("注册商标:" + tradename);
         industry_tv.setText("分类:" + (StringUtil.isEmpty(industry) ? "无" : industry));
         checkTypeResult = CheckTypeResult.getInstance(deep);
@@ -126,40 +131,19 @@ public class RegisterFragment extends BaseFragment {
                 }
             }
         });
-        init();
+        initEdit();
 
     }
 
-    private void init() {
+    private void initEdit() {
         userphone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(userphone_et, "请输入正确的手机号!", 1));
         //开启计数(输入框后边有0/11的字数统计)
         userphone_et.setCounterEnabled(true);
         userphone_et.setCounterMaxLength(11);//最大输入限制数(输入框后边有0/11的字数统计)
         //申请人类型
-        applicant_type_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                Bundle bundle = new Bundle();
-                switch (i) {
-                    case R.id.register_legal_person_rb:
-                        //法人或其他组织
-                        bundle.putInt("type", 1);
-                        bundle.putString("title", "法人或其他组织");
-                        break;
-                    case R.id.register_individual_person_rb:
-                        //个体工商户
-                        bundle.putInt("type", 2);
-                        bundle.putString("title", "个体工商户");
-                        break;
-                    case R.id.register_average_person_rb:
-                        //自然人
-                        bundle.putInt("type", 3);
-                        bundle.putString("title", "自然人");
-                        break;
-                }
-                JumpUtils.startFragmentByName(getContext(), RegisterApplicantPersonFragment.class, bundle);
-            }
-        });
+        legal_person_tv.setOnClickListener(RegisterFragment.this);
+        individual_person_tv.setOnClickListener(RegisterFragment.this);
+        average_person_tv.setOnClickListener(this);
         //服务方式
         service_mode_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -181,6 +165,29 @@ public class RegisterFragment extends BaseFragment {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        Bundle bundle = new Bundle();
+        switch (view.getId()) {
+            case R.id.register_legal_person_tv:
+                //法人或其他组织
+                bundle.putInt("type", 1);
+                bundle.putString("title", "法人或其他组织");
+                break;
+            case R.id.register_individual_person_tv:
+                //个体工商户
+                bundle.putInt("type", 2);
+                bundle.putString("title", "个体工商户");
+                break;
+            case R.id.register_average_person_tv:
+                //自然人
+                bundle.putInt("type", 3);
+                bundle.putString("title", "自然人");
+                break;
+        }
+        JumpUtils.startFragmentByName(getContext(), RegisterApplicantPersonFragment.class, bundle);
     }
 
     private void showData() {
@@ -219,7 +226,7 @@ public class RegisterFragment extends BaseFragment {
         tradename = bundle.getString("tradename");
         industry = bundle.getString("industry");
         pageIndex = bundle.getInt("pageIndex", 2);//1查询;2注册第一步
-        selectClassify = bundle.getString("selectClassify");//
+        selectClassify = bundle.getString("selectClassify");
     }
 
     @Override
@@ -237,6 +244,17 @@ public class RegisterFragment extends BaseFragment {
                 mAdapter.updateListView(list);
             }
         }
+        setAppPersonSelect(personBean.getChangeType() - 1);
+        ALog.i("personBean-->" + personBean);
+    }
+
+    private void setAppPersonSelect(int position) {
+        for (int i = 0; i < AppPersonTV.length; i++) {
+            AppPersonTV[i].setBackgroundResource(R.drawable.g_white_gray);
+            if (i == position) {
+                AppPersonTV[i].setBackground(getResources().getDrawable(R.drawable.g_white_white));
+            }
+        }
     }
 
     private List<SearchResultUnRegisterCheckBean> getList(List<ClassificationBean> list) {
@@ -250,6 +268,7 @@ public class RegisterFragment extends BaseFragment {
         }
         return resultList;
     }
+
 
     @Override
     public int getContentLayout() {

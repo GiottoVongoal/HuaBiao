@@ -192,62 +192,44 @@
                     android:padding="10dp"
                     android:text="申请人类型" />
 
-                <RadioGroup
-                    android:id="@+id/register_applicant_type_rg"
+                <TextView
+                    android:id="@+id/register_legal_person_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/g_white_gray"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:padding="10dp"
+                    android:text="法人或其他组织"
+                    android:textSize="17sp" />
 
-                    <RadioButton
-                        android:id="@+id/register_legal_person_rb"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/radio"
-                        android:button="@null"
-                        android:checked="false"
-                        android:gravity="center"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:text="法人或其他组织"
-                        android:textSize="17sp" />
+                <TextView
+                    android:id="@+id/register_individual_person_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/g_white_gray"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="个体工商户"
+                    android:textSize="17sp" />
 
-                    <RadioButton
-                        android:id="@+id/register_individual_person_rb"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/radio"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:text="个体工商户"
-                        android:textSize="17sp" />
-
-                    <RadioButton
-                        android:id="@+id/register_average_person_rb"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/radio"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:text="自然人"
-                        android:textSize="17sp" />
-                </RadioGroup>
+                <TextView
+                    android:id="@+id/register_average_person_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/g_white_gray"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="自然人"
+                    android:textSize="17sp" />
 
                 <View
                     style="@style/GrayLine"

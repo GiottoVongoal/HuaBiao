@@ -5,12 +5,14 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterApplicantPersonBean;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.ClickUtil;
 import com.ywy.mylibs.utils.StringUtil;
 
 import butterknife.Bind;
@@ -74,6 +76,7 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
     public void bindView(Bundle savedInstanceState) {
         setTitle(title);
         setBackEnable();
+        bean = RegisterApplicantPersonBean.getInstance();
         switch (type) {
             case 1:
                 //法人或其他组织
@@ -137,12 +140,8 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
             showToast("请输入申请人姓名");
             return;
         }
-        if (StringUtil.isEmpty(select_address_tv.getText().toString().trim())) {
+        if ((select_address_tv.getText().toString().equals("选择行政区划"))) {
             showToast("请选择行政区划");
-            return;
-        }
-        if (StringUtil.isEmpty(person_address_et.getEditText().getText().toString().trim())) {
-            showToast("请输入申请人地址");
             return;
         }
         if (StringUtil.isEmpty(person_address_et.getEditText().getText().toString().trim())) {
@@ -169,7 +168,7 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
             showToast("请输入收件人电话");
             return;
         }
-        if (StringUtil.isEmpty(collect_person_address_tv.getText().toString().trim())) {
+        if ((collect_person_address_tv.getText().toString().equals("选择收件人地址"))) {
             showToast("请选择收件人地址行政区划");
             return;
         }
@@ -200,7 +199,41 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
                 }
                 break;
         }
-
+        bean.setPersonName(person_name_et.getEditText().getText().toString().trim());
+        bean.setSelectAddress(select_address_tv.getText().toString().trim());
+        bean.setPersonAddress(person_address_et.getEditText().getText().toString().trim());
+        bean.setContactsPersonName(contacts_person_name_et.getEditText().getText().toString().trim());
+        bean.setContactsPersonPhone(contacts_person_phone_et.getEditText().getText().toString().trim());
+        bean.setContactsPersonCode(contacts_person_code_et.getEditText().getText().toString().trim());
+        bean.setCollectPersonName(collect_person_name_et.getEditText().getText().toString().trim());
+        bean.setCollectPersonPhone(collect_person_phone_et.getEditText().getText().toString().trim());
+        bean.setCollectPersonSelectAddress(collect_person_address_tv.getText().toString().trim());
+        bean.setCollectPersonAddress(collect_person_address_et.getEditText().getText().toString().trim());
+        switch (type) {
+            case 1:
+                //法人或其他组织
+                bean.setLegalPersonName(legal_person_name_et.getEditText().getText().toString().trim());
+                bean.setCertificatesType("");
+                bean.setCertificatesID("");
+                bean.setChangeType(1);
+                break;
+            case 2:
+                //个体工商户
+                bean.setLegalPersonName("");
+                bean.setCertificatesType("");
+                bean.setCertificatesID("");
+                bean.setChangeType(2);
+                break;
+            case 3:
+                //自然人
+                bean.setLegalPersonName("");
+                bean.setCertificatesType(certificates_type_et.getEditText().getText().toString().trim());
+                bean.setCertificatesID(certificates_id_et.getEditText().getText().toString().trim());
+                bean.setChangeType(3);
+                break;
+        }
+        ALog.i("申请人数据-->" + bean.toString());
+        ClickUtil.onBackClick();
     }
 
     private void getAddress(final TextView tv) {

@@ -37,8 +37,8 @@ public class RegisterApplicantPersonBean {
     private String certificatesType;//身份证件文件名称
     private String certificatesID;//身份证件文件号码
 
-    //是否修改申请人类型
-    private boolean isChange;
+    //修改申请人类型
+    private int changeType;
 
     public String getPersonName() {
         return personName;
@@ -144,11 +144,31 @@ public class RegisterApplicantPersonBean {
         this.certificatesID = certificatesID;
     }
 
-    public boolean isChange() {
-        return isChange;
+    public int getChangeType() {
+        return changeType;
     }
 
-    public void setChange(boolean change) {
-        isChange = change;
+    public void setChangeType(int changeType) {
+        this.changeType = changeType;
+    }
+
+    @Override
+    public String toString() {
+        return "RegisterApplicantPersonBean{" +
+                "personName='" + personName + '\'' +
+                ", selectAddress='" + selectAddress + '\'' +
+                ", personAddress='" + personAddress + '\'' +
+                ", contactsPersonName='" + contactsPersonName + '\'' +
+                ", contactsPersonPhone='" + contactsPersonPhone + '\'' +
+                ", contactsPersonCode='" + contactsPersonCode + '\'' +
+                ", collectPersonName='" + collectPersonName + '\'' +
+                ", collectPersonPhone='" + collectPersonPhone + '\'' +
+                ", collectPersonSelectAddress='" + collectPersonSelectAddress + '\'' +
+                ", collectPersonAddress='" + collectPersonAddress + '\'' +
+                ", legalPersonName='" + legalPersonName + '\'' +
+                ", certificatesType='" + certificatesType + '\'' +
+                ", certificatesID='" + certificatesID + '\'' +
+                ", changeType=" + changeType +
+                '}';
     }
 }
