@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.RegisterApplicantPersonBean;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.StringUtil;
 
 import butterknife.Bind;
 import chihane.jdaddressselector.BottomDialog;
@@ -66,18 +68,22 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
     private int type;
     private String title;
 
+    private RegisterApplicantPersonBean bean;
+
     @Override
     public void bindView(Bundle savedInstanceState) {
         setTitle(title);
         setBackEnable();
         switch (type) {
             case 1:
+                //法人或其他组织
                 legal_person_name_et.setVisibility(View.VISIBLE);
                 break;
             case 2:
-
+                //个体工商户
                 break;
             case 3:
+                //自然人
                 certificates_type_et.setVisibility(View.VISIBLE);
                 certificates_id_et.setVisibility(View.VISIBLE);
                 certificates_id_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(certificates_id_et, "请输入正确的身份证号!", 3));
@@ -87,13 +93,13 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
         }
         contacts_person_phone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(contacts_person_phone_et, "请输入正确的手机号!", 1));
         contacts_person_phone_et.setCounterEnabled(true);
-        contacts_person_phone_et.setCounterMaxLength(11);//最大输入限制数(输入框后边有0/11的字数统计)
+        contacts_person_phone_et.setCounterMaxLength(11);
         contacts_person_code_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(contacts_person_code_et, "请输入正确的邮政编码!", 2));
         contacts_person_code_et.setCounterEnabled(true);
-        contacts_person_code_et.setCounterMaxLength(6);//最大输入限制数(输入框后边有0/11的字数统计)
+        contacts_person_code_et.setCounterMaxLength(6);
         collect_person_phone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(collect_person_phone_et, "请输入正确的手机号!", 1));
         collect_person_phone_et.setCounterEnabled(true);
-        collect_person_phone_et.setCounterMaxLength(11);//最大输入限制数(输入框后边有0/11的字数统计)
+        collect_person_phone_et.setCounterMaxLength(11);
 
         select_address_tv.setOnClickListener(this);
         collect_person_address_tv.setOnClickListener(this);
@@ -113,6 +119,7 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
         switch (view.getId()) {
             case R.id.applicant_save_tv:
                 //保存
+                save();
                 break;
             case R.id.applicant_select_address_tv:
                 //选择行政区划
@@ -123,6 +130,77 @@ public class RegisterApplicantPersonFragment extends BaseFragment implements Vie
                 getAddress(collect_person_address_tv);
                 break;
         }
+    }
+
+    private void save() {
+        if (StringUtil.isEmpty(person_name_et.getEditText().getText().toString().trim())) {
+            showToast("请输入申请人姓名");
+            return;
+        }
+        if (StringUtil.isEmpty(select_address_tv.getText().toString().trim())) {
+            showToast("请选择行政区划");
+            return;
+        }
+        if (StringUtil.isEmpty(person_address_et.getEditText().getText().toString().trim())) {
+            showToast("请输入申请人地址");
+            return;
+        }
+        if (StringUtil.isEmpty(person_address_et.getEditText().getText().toString().trim())) {
+            showToast("请输入申请人地址");
+            return;
+        }
+        if (StringUtil.isEmpty(contacts_person_name_et.getEditText().getText().toString().trim())) {
+            showToast("请输入联系人姓名");
+            return;
+        }
+        if (StringUtil.isEmpty(contacts_person_phone_et.getEditText().getText().toString().trim())) {
+            showToast("请输入联系人电话");
+            return;
+        }
+        if (StringUtil.isEmpty(contacts_person_code_et.getEditText().getText().toString().trim())) {
+            showToast("请输入邮政编码");
+            return;
+        }
+        if (StringUtil.isEmpty(collect_person_name_et.getEditText().getText().toString().trim())) {
+            showToast("请输入收件人姓名");
+            return;
+        }
+        if (StringUtil.isEmpty(collect_person_phone_et.getEditText().getText().toString().trim())) {
+            showToast("请输入收件人电话");
+            return;
+        }
+        if (StringUtil.isEmpty(collect_person_address_tv.getText().toString().trim())) {
+            showToast("请选择收件人地址行政区划");
+            return;
+        }
+        if (StringUtil.isEmpty(collect_person_address_et.getEditText().getText().toString().trim())) {
+            showToast("请输入收件人地址");
+            return;
+        }
+        switch (type) {
+            case 1:
+                //法人或其他组织
+                if (StringUtil.isEmpty(legal_person_name_et.getEditText().getText().toString().trim())) {
+                    showToast("请输入法人姓名");
+                    return;
+                }
+                break;
+            case 2:
+                //个体工商户
+                break;
+            case 3:
+                //自然人
+                if (StringUtil.isEmpty(certificates_type_et.getEditText().getText().toString().trim())) {
+                    showToast("请输入身份证件文件名称");
+                    return;
+                }
+                if (StringUtil.isEmpty(certificates_id_et.getEditText().getText().toString().trim())) {
+                    showToast("请输入身份证号");
+                    return;
+                }
+                break;
+        }
+
     }
 
     private void getAddress(final TextView tv) {
