@@ -1,9 +1,7 @@
 package com.huabiao.aoiin.ui.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.huabiao.aoiin.R;
@@ -47,13 +45,13 @@ public class Mall extends BaseFragment {
                 }
             }
         });
-        mall_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                mall_listview.setAdapter(mallAapter);
-
-            }
-        });
+//        mall_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+////                mall_listview.setAdapter(mallAapter);
+//                showToast("i = " + i);
+//            }
+//        });
     }
 
     private void getList(final int page) {

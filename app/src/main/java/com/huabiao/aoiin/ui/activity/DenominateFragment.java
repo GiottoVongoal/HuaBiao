@@ -95,7 +95,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     private void setData() {
         List<String> nameList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            nameList.add(list.get(i).getLinechart().getTrademarkname());
+            nameList.add(list.get(i).getLinechart().getTradename());
         }
         rp.setStr(nameList);
         rp.setAnimationEndListener(this);
@@ -104,7 +104,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     }
 
     private void setCreatNameData(int position) {
-        name.setText(list.get(position).getLinechart().getTrademarkname());
+        name.setText(list.get(position).getLinechart().getTradename());
         means.setText(list.get(position).getMeans());
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
         trademarkclassification.setText(classificationString);

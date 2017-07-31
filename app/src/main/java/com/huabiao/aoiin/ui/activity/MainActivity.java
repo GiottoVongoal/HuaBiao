@@ -11,19 +11,18 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.blankj.ALog;
+import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
-import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.ui.fragment.HomePageFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
-import com.huabiao.aoiin.ui.fragment.RegisterOneFragment;
-import com.huabiao.aoiin.ui.fragment.SearchFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
-import com.huabiao.aoiin.R;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 import butterknife.Bind;
 
 public class MainActivity extends BaseActivity {
@@ -71,19 +70,14 @@ public class MainActivity extends BaseActivity {
                         setItem(0);
                         break;
                     case R.id.menu_item_two:
-                        addFragment(new Mall());
                         setItem(1);
                         break;
                     case R.id.menu_item_three:
-                        addFragment(new DenominateFragment());
+//                        addFragment(new DenominateFragment());//取名
                         setItem(2);
                         break;
                     case R.id.menu_item_four:
                         setItem(3);
-                        addFragment(new HotSearchWord());
-                        break;
-                    case R.id.menu_item_five:
-                        addFragment(new MeFragment());
                         break;
                 }
                 return true;//返回 true 使点击有效
@@ -98,7 +92,7 @@ public class MainActivity extends BaseActivity {
                 addFragment(HomePageFragment);
                 break;
             case 1:
-                addFragment(BottonNavigationViewFragment.newInstance("商城"));
+                addFragment(new Mall());
                 break;
             case 2:
                 addFragment(BottonNavigationViewFragment.newInstance("金融"));
@@ -107,10 +101,6 @@ public class MainActivity extends BaseActivity {
                 addFragment(MeFragment);
                 break;
         }
-        botton_navi_view.getMenu().getItem(index).setChecked(true);
-        //默认进来选中第三个
-        addFragment(new DenominateFragment());
-        botton_navi_view.getMenu().getItem(2).setChecked(true);
     }
 
     private void addFragment(Fragment fragment) {
