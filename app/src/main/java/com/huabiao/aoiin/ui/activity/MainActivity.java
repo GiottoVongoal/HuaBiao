@@ -24,7 +24,7 @@ import butterknife.Bind;
 
 public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_navi_view)
-    BottomNavigationView botton_navi_view;
+     BottomNavigationView botton_navi_view;
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity {
                         addFragment(BottonNavigationViewFragment.newInstance("拨号"));
                         break;
                     case R.id.menu_item_two:
-                        addFragment(BottonNavigationViewFragment.newInstance("电话"));
+                        addFragment(new Mall());
                         break;
                     case R.id.menu_item_three:
                         addFragment(new DenominateFragment());

@@ -32,6 +32,8 @@
         <activity
             android:name=".ui.activity.Denominate"
             android:label="@string/title_activity_denominate" />
+        <activity android:name=".ui.activity.Mall" />
+        <activity android:name=".ui.adapter.MallAdapter"></activity>
     </application>
 
 </manifest>

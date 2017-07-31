@@ -1,7 +1,6 @@
 package com.huabiao.aoiin.ui.adapter;
 
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +21,6 @@ import java.util.List;
 public class HotSearchAdapter extends RecyclerView.Adapter<HotSearchAdapter.VH> {
 
     private List<HotwordsBean> datas1;
-    private Context mContext;
-
     //构造器，接收数据集
     public HotSearchAdapter(List<HotwordsBean> datas) {
         this.datas1 = datas;

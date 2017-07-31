@@ -69,32 +69,6 @@ public class DenominateRotatePanLayout extends View {
             setClickable(true);
         }
     }
-    /**
-     *  public DenominateRotatePanLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-     super(context, attrs, defStyleAttr);
-     this.context = context;
-     mDetector = new GestureDetectorCompat(context, new RotatePanGestureListener());
-     scroller = ScrollerCompat.create(context);
-     refreshPan(context);
-     }
-     private void refreshPan(Context context) {
-     if (list != null && list.size() != 0) {
-     panNum = list.size();
-     if (360 % panNum != 0)
-
-     //            InitAngle = 360 / panNum;
-     verPanRadius = 360 / panNum;
-     diffRadius = verPanRadius / 2;
-     dPaint.setColor(Color.rgb(255, 255, 255));
-     sPaint.setColor(Color.rgb(255 ,255, 255));
-     textPaint.setColor(Color.WHITE);
-     textPaint.setTextSize(Util.dip2px(context, 16));
-     setClickable(true);
-     }
-     }
-     *
-     *
-     * */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // TODO Auto-generated method stub

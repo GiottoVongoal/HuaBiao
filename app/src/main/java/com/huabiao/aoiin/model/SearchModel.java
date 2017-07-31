@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.HotSearchWordsBean;
+import com.huabiao.aoiin.bean.MallBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -87,6 +88,14 @@ public class SearchModel {
         String jsonString = getJson(context, "getcreatnamelist.json");
         Gson gson = new Gson();
         CreatNameBean bean = gson.fromJson(jsonString, CreatNameBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+    public static void getShoppingMallList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, "shoppingmalllist.json");
+        Gson gson = new Gson();
+        MallBean bean = gson.fromJson(jsonString, MallBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

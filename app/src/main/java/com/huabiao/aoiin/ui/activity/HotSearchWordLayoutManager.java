@@ -60,8 +60,6 @@ public class HotSearchWordLayoutManager extends RecyclerView.LayoutManager {
             int top = getPaddingTop();
             if(getChildCount()>0){
                 child=getChildAt(getChildCount()-1);
-//                int lastPosition=getPosition(child);
-//                startPos=lastPosition+1;
                 startPos=getPosition(child)+1;
                 left=getNextViewLeft(child);
             }
