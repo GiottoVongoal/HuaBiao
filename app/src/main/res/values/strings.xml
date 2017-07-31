@@ -38,5 +38,8 @@
     </string-array>
     <string name="calendar_day">%d 日</string>
     <string name="calendar_year">%d-</string>
-    <!--日历相关-->
+
+    <!--拍照选照相关-->
+    <string name="select_image_format">请选择JPG/JPEG/PNG格式的图片！</string>
+    <string name="select_image_size">请选择5MB以内的图片！</string>
 </resources>

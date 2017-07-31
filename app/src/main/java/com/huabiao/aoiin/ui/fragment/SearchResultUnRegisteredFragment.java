@@ -1,7 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
@@ -11,22 +10,19 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationBean;
-import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.LineChartBean;
-import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.bean.SearchResultUnRegisterCheckBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.model.SearchModel;
+import com.huabiao.aoiin.ui.activity.RegisterActivity;
 import com.huabiao.aoiin.ui.adapter.SearchResultUnRegisteredAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
-import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
-import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -162,7 +158,7 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
                 bundle.putString("industry", "");//无行业
                 bundle.putString("selectClassify", selectClassify);//选择的分类大类名称
                 bundle.putInt("pageIndex", 1);
-                JumpUtils.startFragmentByName(getContext(), RegisterFragment.class, bundle);
+                JumpUtils.startActivity(getContext(), RegisterActivity.class, bundle);
                 finishPopupWindow.dismiss();
             }
 

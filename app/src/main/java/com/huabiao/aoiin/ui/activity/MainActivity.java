@@ -1,12 +1,17 @@
 package com.huabiao.aoiin.ui.activity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -15,8 +20,6 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
 import com.huabiao.aoiin.ui.fragment.HomePageFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
-import com.huabiao.aoiin.ui.fragment.RegisterOneFragment;
-import com.huabiao.aoiin.ui.fragment.SearchFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -84,6 +87,9 @@ public class MainActivity extends BaseActivity {
             }
         });
         setItem(0);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+        }
     }
 
     public void setItem(int index) {

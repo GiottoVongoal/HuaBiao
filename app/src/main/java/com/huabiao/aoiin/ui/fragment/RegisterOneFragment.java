@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.model.RegisterModel;
+import com.huabiao.aoiin.ui.activity.RegisterActivity;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
@@ -113,7 +114,7 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
                 bundle.putString("tradename", tradename);
                 bundle.putString("industry", industry);
                 bundle.putInt("pageIndex",2);
-                JumpUtils.startFragmentByName(getContext(), RegisterFragment.class, bundle);
+                JumpUtils.startActivity(getContext(), RegisterActivity.class, bundle);
                 finishPopupWindow.dismiss();
             }
 

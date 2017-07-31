@@ -1,6 +1,8 @@
 package com.huabiao.aoiin.constant;
 
-import android.accounts.Account;
+import android.os.Environment;
+
+import java.io.File;
 
 /**
  * @author 杨丽亚.
@@ -9,7 +11,6 @@ import android.accounts.Account;
  * @description 公共常量
  */
 public class FlagBase {
-
 
     //我的页面
     public static final int ME_COLLECTION = 1;// 我的收藏
@@ -25,4 +26,9 @@ public class FlagBase {
     public static final int SETTING__AGREEMENT = 4;// 服务与隐私协议
     public static final int SETTING_CLEAR_CACHE = 5;// 清除缓存
 
+    //拍照选照相关
+    //移动端存放头像的本地路径，即attachment
+    public static final String SDCARD_FJ_PATH = Environment.getExternalStorageDirectory() + File.separator;
+    public static final int MEDIA_PHOTO = 10061;// 拍照标识
+    public static final int MEDIA_SPHOTO = 10062;// 选照标识
 }
