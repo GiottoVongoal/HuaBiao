@@ -1,10 +1,13 @@
 package com.huabiao.aoiin.selecttool;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -12,15 +15,13 @@ import com.huabiao.aoiin.bean.ClassificationItemBean;
 
 import java.util.List;
 
-/**
- * Created by dun on 17/2/9.
- */
-
 public class SelectAdapter extends BaseAdapter {
     List<ClassificationItemBean> datas;
-    int selectedIndex = AddressSelector.INDEX_INVALID;
+    int selectedIndex = ClassificationTypeSelector.INDEX_INVALID;
+    Activity activity;
 
-    public SelectAdapter(List<ClassificationItemBean> datas) {
+    public SelectAdapter(Activity activity, List<ClassificationItemBean> datas) {
+        this.activity = activity;
         this.datas = datas;
     }
 
@@ -41,37 +42,45 @@ public class SelectAdapter extends BaseAdapter {
     @Override
     public long getItemId(int i) {
         return i;
-//        return datas.get(position).getClassificationid();
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Holder holder;
-
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final Holder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_area, parent, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.select_item_area, parent, false);
 
             holder = new Holder();
+            holder.select_type_rl = (RelativeLayout) convertView.findViewById(R.id.select_type_rl);
             holder.textView = (TextView) convertView.findViewById(R.id.textView);
             holder.imageViewCheckMark = (ImageView) convertView.findViewById(R.id.imageViewCheckMark);
+            holder.select_item_cb = (CheckBox) convertView.findViewById(R.id.select_item_cb);
 
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();
         }
 
-        ClassificationItemBean item = (ClassificationItemBean) getItem(position);
+        final ClassificationItemBean item = datas.get(position);
         holder.textView.setText(item.getClassificationname() + item.getClassificationid());
-
-        boolean checked = selectedIndex != AddressSelector.INDEX_INVALID && datas.get(selectedIndex).getClassificationid().equals(item.getClassificationid());
-        holder.textView.setEnabled(!checked);
-        holder.imageViewCheckMark.setVisibility(checked ? View.VISIBLE : View.GONE);
-
+        if (item.isNextlevel()) {
+            //单选
+            boolean checked = selectedIndex != ClassificationTypeSelector.INDEX_INVALID && datas.get(selectedIndex).getClassificationid().equals(item.getClassificationid());
+            holder.textView.setEnabled(!checked);
+            holder.imageViewCheckMark.setVisibility(checked ? View.VISIBLE : View.GONE);
+            holder.select_item_cb.setVisibility(View.GONE);
+        } else {
+            holder.imageViewCheckMark.setVisibility(View.GONE);
+            holder.select_item_cb.setVisibility(View.VISIBLE);
+            holder.select_item_cb.setChecked(item.isChecked());
+        }
         return convertView;
     }
 
     class Holder {
+        RelativeLayout select_type_rl;
         TextView textView;
         ImageView imageViewCheckMark;
+        CheckBox select_item_cb;
     }
 }

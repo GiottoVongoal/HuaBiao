@@ -1,0 +1,32 @@
+{
+  "trademarkname": "商标1",
+  "trademarkid": "1001",
+  "latestprogress": "审核被驳回",
+  "latestime": "2017年07月26日",
+  "userprogresslist": [
+    {
+      "progressimg": "https://www.materialui.co/materialIcons/action/aspect_ratio_black_144x144.png",
+      "progresscontent": "提交",
+      "progressstatustext": "提交成功",
+      "progresstime": "2017年1月1日"
+    },
+    {
+      "progressimg": "https://www.materialui.co/materialIcons/action/android_black_144x144.png",
+      "progresscontent": "审核",
+      "progressstatustext": "审核中",
+      "progresstime": "2017年1月8日"
+    },
+    {
+      "progressimg": "https://www.materialui.co/materialIcons/action/announcement_black_144x144.png",
+      "progresscontent": "初审公告",
+      "progressstatustext": "审核被驳回",
+      "progresstime": "2017年07月26日"
+    },
+    {
+      "progressimg": "https://www.materialui.co/materialIcons/action/check_circle_black_144x144.png",
+      "progresscontent": "注册成功",
+      "progressstatustext": "",
+      "progresstime": ""
+    }
+  ]
+}

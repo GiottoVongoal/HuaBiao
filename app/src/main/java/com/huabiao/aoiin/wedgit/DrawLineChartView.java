@@ -69,8 +69,8 @@ public class DrawLineChartView extends RelativeLayout {
 
     //显示
     private void setTextString() {
-        if (!(TextUtils.isEmpty(bean.getTrademarkname())) && !(TextUtils.isEmpty(bean.getTrademarkclassification()))) {
-            line_chart_trademark_name.setText(bean.getTrademarkname());
+        if (!(TextUtils.isEmpty(bean.getTradename())) && !(TextUtils.isEmpty(bean.getTrademarkclassification()))) {
+            line_chart_trademark_name.setText(bean.getTradename());
             line_chart_trademark_classification.setText(bean.getTrademarkclassification());
         }
     }

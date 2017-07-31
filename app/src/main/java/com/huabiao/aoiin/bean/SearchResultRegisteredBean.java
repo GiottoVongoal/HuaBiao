@@ -6,19 +6,27 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-07-06 14:30
- * @description
+ * @description 查询结果--已注册Bean
  */
 public class SearchResultRegisteredBean {
 
     /**
-     * classification : [{"classificationname":"化学制剂、肥料","classificationid":"01","detailed":[{"id":"0101","typename":"工业气体,单质"},{"id":"0102","typename":"用于工业、科学、农业、园艺、森林的工业化工原料"},{"id":"0103","typename":"放射性元素及其化学品"},{"id":"0104","typename":"用于工业、科学的化学品、化学制剂，不属于其他类别的产品用的化学制品"},{"id":"0105","typename":"用于农业、园艺、林业的化学品、化学制剂"}]},{"classificationname":"颜料油漆、染料、防腐制品","classificationid":"02","detailed":[{"id":"0201","typename":"染料，媒染剂（不包括食用）"},{"id":"0202","typename":"颜料（不包括食用、绝缘用），画家、装饰家、印刷商和艺术家用金属箔"},{"id":"0203","typename":"食品着色剂"},{"id":"0204","typename":"油墨"},{"id":"0205","typename":"涂料，油漆及附料（不包括绝缘漆）"},{"id":"0206","typename":"防锈剂，木材防腐剂"},{"id":"0207","typename":"未加工的天然树脂"}]},{"classificationname":"日化用品、洗护、香料","classificationid":"03","detailed":[{"id":"301","typename":"肥皂，香皂及其他人用洗洁物品，洗衣用漂白剂及其他物料"},{"id":"0302","typename":"清洁、去渍用制剂"},{"id":"0303","typename":"抛光、擦亮制剂"},{"id":"0304","typename":"研磨用材料及其制剂"},{"id":"0305","typename":"香料，香精油"},{"id":"0306","typename":"化妆品（不包括动物用化妆品）"},{"id":"0307","typename":"牙膏，洗牙用制剂"},{"id":"0308","typename":"熏料"},{"id":"0309","typename":"动物用化妆品"},{"id":"0310","typename":"室内芳香剂"}]}]
-     * linechart : {"trademarkname":"海飞丝","trademarkclassification":"日化用品、洗护、香料","classificationid":"03","Xaxistag":["周一","周二","周三","周四","周五","周六","周日"],"lines":[{"linename":"百度","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]},{"linename":"淘宝","linecolor":"#FF4081","linevalue":[2,5,7,4,4,8,6]}]}
-     * recommend : [{"trademarkname":"推荐名字1","trademarkclassification":"类别1","classificationid":"01","isregister":true},{"trademarkname":"推荐名字2","trademarkclassification":"类别2","classificationid":"02","isregister":false},{"trademarkname":"推荐名字3","trademarkclassification":"类别3","classificationid":"03","isrgister":false}]
+     * classification : {"classificationname":"颜料油漆","classificationid":"02","trademarkstatus":3,"classficationsmalltype":[{"classificationsmallname":"食品着色剂","classificationsmallid":"0203","detailed":[{"id":"020004","typename":"饮料色素"},{"id":"020005","typename":"食用色素"},{"id":"020005","typename":"食品用着色剂"},{"id":"020023","typename":"黄油色素"},{"id":"020024","typename":"啤酒色素"},{"id":"020034","typename":"焦糖（食品色素）"},{"id":"020035","typename":"麦芽焦糖（食品色素）"},{"id":"020048","typename":"麦芽色素"},{"id":"020088","typename":"利口酒用色素"}]},{"classificationsmallname":"油墨","classificationsmallid":"0204","detailed":[{"id":"020033","typename":"制革用墨"},{"id":"020066","typename":"印刷油墨"},{"id":"020121","typename":"复印机用墨（调色剂）"},{"id":"020123","typename":"打印机和复印机用已填充的鼓粉盒"},{"id":"C020015","typename":"激光打印机墨盒"},{"id":"C020016","typename":"喷墨打印机墨盒"},{"id":"C020017","typename":"复印机用碳粉"},{"id":"020128","typename":"可食用墨"},{"id":"020129","typename":"已填充可食用墨的打印机墨盒"}]},{"classificationsmallname":"未加工的天然树脂","classificationsmallid":"0207","detailed":[{"id":"020022","typename":"加拿大香脂"},{"id":"020046","typename":"松香"},{"id":"020050","typename":"天然硬树脂"},{"id":"020061","typename":"天然树脂（原料）"},{"id":"020078","typename":"树胶脂"},{"id":"020061","typename":"天然树脂（原料）"},{"id":"020100","typename":"山达脂"}]}]}
+     * linechart : {"tradename":"海飞丝","trademarkclassification":"日化用品","classificationid":"03","Xaxistag":["周一","周二","周三","周四","周五","周六","周日"],"lines":[{"linename":"百度","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]},{"linename":"阿里","linecolor":"#FF4081","linevalue":[2,5,7,4,4,8,6]}]}
+     * recommend : [{"tradename":"推荐名字1","trademarkclassification":"类别1","classificationid":"01","trademarkstatus":1},{"tradename":"推荐名字2","trademarkclassification":"类别2","classificationid":"02","trademarkstatus":1},{"tradename":"推荐名字3","trademarkclassification":"类别3","classificationid":"03","trademarkstatus":2}]
      */
 
+    private Classification classification;
     private LineChartBean linechart;
-    private List<ClassificationBean> classification;
     private List<RecommendBean> recommend;
+
+    public Classification getClassification() {
+        return classification;
+    }
+
+    public void setClassification(Classification classification) {
+        this.classification = classification;
+    }
 
     public LineChartBean getLinechart() {
         return linechart;
@@ -26,14 +34,6 @@ public class SearchResultRegisteredBean {
 
     public void setLinechart(LineChartBean linechart) {
         this.linechart = linechart;
-    }
-
-    public List<ClassificationBean> getClassification() {
-        return classification;
-    }
-
-    public void setClassification(List<ClassificationBean> classification) {
-        this.classification = classification;
     }
 
     public List<RecommendBean> getRecommend() {
@@ -44,17 +44,17 @@ public class SearchResultRegisteredBean {
         this.recommend = recommend;
     }
 
-    public static class ClassificationBean {
+    public static class Classification {
         /**
-         * classificationname : 化学制剂、肥料
-         * classificationid : 01
-         * detailed : [{"id":"0101","typename":"工业气体,单质"},{"id":"0102","typename":"用于工业、科学、农业、园艺、森林的工业化工原料"},{"id":"0103","typename":"放射性元素及其化学品"},{"id":"0104","typename":"用于工业、科学的化学品、化学制剂，不属于其他类别的产品用的化学制品"},{"id":"0105","typename":"用于农业、园艺、林业的化学品、化学制剂"}]
+         * classificationname : 颜料油漆
+         * classificationid : 02
+         * trademarkstatus : 3
+         * classficationsmalltype : [{"classificationsmallname":"食品着色剂","classificationsmallid":"0203","detailed":[{"id":"020004","typename":"饮料色素"},{"id":"020005","typename":"食用色素"},{"id":"020005","typename":"食品用着色剂"},{"id":"020023","typename":"黄油色素"},{"id":"020024","typename":"啤酒色素"},{"id":"020034","typename":"焦糖（食品色素）"},{"id":"020035","typename":"麦芽焦糖（食品色素）"},{"id":"020048","typename":"麦芽色素"},{"id":"020088","typename":"利口酒用色素"}]},{"classificationsmallname":"油墨","classificationsmallid":"0204","detailed":[{"id":"020033","typename":"制革用墨"},{"id":"020066","typename":"印刷油墨"},{"id":"020121","typename":"复印机用墨（调色剂）"},{"id":"020123","typename":"打印机和复印机用已填充的鼓粉盒"},{"id":"C020015","typename":"激光打印机墨盒"},{"id":"C020016","typename":"喷墨打印机墨盒"},{"id":"C020017","typename":"复印机用碳粉"},{"id":"020128","typename":"可食用墨"},{"id":"020129","typename":"已填充可食用墨的打印机墨盒"}]},{"classificationsmallname":"未加工的天然树脂","classificationsmallid":"0207","detailed":[{"id":"020022","typename":"加拿大香脂"},{"id":"020046","typename":"松香"},{"id":"020050","typename":"天然硬树脂"},{"id":"020061","typename":"天然树脂（原料）"},{"id":"020078","typename":"树胶脂"},{"id":"020061","typename":"天然树脂（原料）"},{"id":"020100","typename":"山达脂"}]}]
          */
 
         private String classificationname;
         private String classificationid;
-        private int trademarkstatus;
-        private List<DetailedBean> detailed;
+        private List<ClassficationsmalltypeBean> classficationsmalltype;
 
         public String getClassificationname() {
             return classificationname;
@@ -72,85 +72,105 @@ public class SearchResultRegisteredBean {
             this.classificationid = classificationid;
         }
 
-        public int getTrademarkstatus() {
-            return trademarkstatus;
+        public List<ClassficationsmalltypeBean> getClassficationsmalltype() {
+            return classficationsmalltype;
         }
 
-        public void setTrademarkstatus(int trademarkstatus) {
-            this.trademarkstatus = trademarkstatus;
+        public void setClassficationsmalltype(List<ClassficationsmalltypeBean> classficationsmalltype) {
+            this.classficationsmalltype = classficationsmalltype;
         }
 
-        public List<DetailedBean> getDetailed() {
-            return detailed;
-        }
-
-        public void setDetailed(List<DetailedBean> detailed) {
-            this.detailed = detailed;
-        }
-
-        public static class DetailedBean {
+        public static class ClassficationsmalltypeBean {
             /**
-             * id : 0101
-             * typename : 工业气体,单质
+             * classificationsmallname : 食品着色剂
+             * classificationsmallid : 0203
+             * detailed : [{"id":"020004","typename":"饮料色素"},{"id":"020005","typename":"食用色素"},{"id":"020005","typename":"食品用着色剂"},{"id":"020023","typename":"黄油色素"},{"id":"020024","typename":"啤酒色素"},{"id":"020034","typename":"焦糖（食品色素）"},{"id":"020035","typename":"麦芽焦糖（食品色素）"},{"id":"020048","typename":"麦芽色素"},{"id":"020088","typename":"利口酒用色素"}]
              */
 
-            private String id;
-            private String typename;
+            private String classificationsmallname;
+            private String classificationsmallid;
+            private int trademarkstatus;
+            private List<DetailedBean> detailed;
 
-            public String getId() {
-                return id;
+            public int getTrademarkstatus() {
+                return trademarkstatus;
             }
 
-            public void setId(String id) {
-                this.id = id;
+            public void setTrademarkstatus(int trademarkstatus) {
+                this.trademarkstatus = trademarkstatus;
             }
 
-            public String getTypename() {
-                return typename;
+            public String getClassificationsmallname() {
+                return classificationsmallname;
             }
 
-            public void setTypename(String typename) {
-                this.typename = typename;
+            public void setClassificationsmallname(String classificationsmallname) {
+                this.classificationsmallname = classificationsmallname;
             }
 
-            @Override
-            public String toString() {
-                return "DetailedBean{" +
-                        "id='" + id + '\'' +
-                        ", typename='" + typename + '\'' +
-                        '}';
+            public String getClassificationsmallid() {
+                return classificationsmallid;
             }
-        }
 
-        @Override
-        public String toString() {
-            return "ClassificationBean{" +
-                    "classificationname='" + classificationname + '\'' +
-                    ", classificationid='" + classificationid + '\'' +
-                    ", detailed=" + detailed +
-                    '}';
+            public void setClassificationsmallid(String classificationsmallid) {
+                this.classificationsmallid = classificationsmallid;
+            }
+
+            public List<DetailedBean> getDetailed() {
+                return detailed;
+            }
+
+            public void setDetailed(List<DetailedBean> detailed) {
+                this.detailed = detailed;
+            }
+
+            public static class DetailedBean {
+                /**
+                 * id : 020004
+                 * typename : 饮料色素
+                 */
+
+                private String id;
+                private String typename;
+
+                public String getId() {
+                    return id;
+                }
+
+                public void setId(String id) {
+                    this.id = id;
+                }
+
+                public String getTypename() {
+                    return typename;
+                }
+
+                public void setTypename(String typename) {
+                    this.typename = typename;
+                }
+            }
         }
     }
 
     public static class RecommendBean {
         /**
-         * trademarkname : 推荐名字1
+         * tradename : 推荐名字1
          * trademarkclassification : 类别1
          * classificationid : 01
-         * trademarkstatus : 0
+         * trademarkstatus : 1
          */
 
-        private String trademarkname;
+        private String tradename;
         private String trademarkclassification;
         private String classificationid;
-        private int trademarkstatus;//0未注册  1已注册  2审核中  3已失效 ...
+        private int trademarkstatus;
 
-        public String getTrademarkname() {
-            return trademarkname;
+        public String getTradename() {
+            return tradename;
         }
 
-        public void setTrademarkname(String trademarkname) {
-            this.trademarkname = trademarkname;
+        public void setTradename(String tradename) {
+            this.tradename = tradename;
         }
 
         public String getTrademarkclassification() {
@@ -176,24 +196,5 @@ public class SearchResultRegisteredBean {
         public void setTrademarkstatus(int trademarkstatus) {
             this.trademarkstatus = trademarkstatus;
         }
-
-        @Override
-        public String toString() {
-            return "RecommendBean{" +
-                    "trademarkname='" + trademarkname + '\'' +
-                    ", trademarkclassification='" + trademarkclassification + '\'' +
-                    ", classificationid='" + classificationid + '\'' +
-                    ", trademarkstatus=" + trademarkstatus +
-                    '}';
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "SearchResultRegisteredBean{" +
-                "linechart=" + linechart +
-                ", classification=" + classification +
-                ", recommend=" + recommend +
-                '}';
     }
 }

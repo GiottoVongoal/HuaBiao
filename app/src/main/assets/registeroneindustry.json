@@ -1,0 +1,44 @@
+{
+  "registeroneindustrylist": [
+    {
+      "industryname": "服装纺织",
+      "industryid": "0001"
+    },
+    {
+      "industryname": "化妆品",
+      "industryid": "0002"
+    },
+    {
+      "industryname": "餐饮业",
+      "industryid": "0003"
+    },
+    {
+      "industryname": "食品",
+      "industryid": "0004"
+    },
+    {
+      "industryname": "软件互联网",
+      "industryid": "0005"
+    },
+    {
+      "industryname": "电子产品",
+      "industryid": "0006"
+    },
+    {
+      "industryname": "家用电器",
+      "industryid": "0007"
+    },
+    {
+      "industryname": "珠宝业",
+      "industryid": "0008"
+    },
+    {
+      "industryname": "文具",
+      "industryid": "0009"
+    },
+    {
+      "industryname": "建材家居",
+      "industryid": "0010"
+    }
+  ]
+}

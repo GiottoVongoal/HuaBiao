@@ -1,0 +1,16 @@
+{
+  "searchresultclassificationlist": [
+    {
+      "classificationname": "化学制剂",
+      "classificationid": "01"
+    },
+    {
+      "classificationname": "颜料油漆",
+      "classificationid": "02"
+    },
+    {
+      "classificationname": "日化用品",
+      "classificationid": "03"
+    }
+  ]
+}

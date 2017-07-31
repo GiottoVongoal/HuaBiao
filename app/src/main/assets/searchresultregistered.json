@@ -1,117 +1,225 @@
 {
-  "classification": [
-    {
-      "classificationname": "化学制剂",
-      "classificationid": "01",
-      "trademarkstatus": 1,
-      "detailed": [
-        {
-          "id": "0101",
-          "typename": "工业气体,单质"
-        },
-        {
-          "id": "0102",
-          "typename": "用于工业、科学、农业、园艺、森林的工业化工原料"
-        },
-        {
-          "id": "0103",
-          "typename": "放射性元素及其化学品"
-        },
-        {
-          "id": "0104",
-          "typename": "用于工业、科学的化学品、化学制剂，不属于其他类别的产品用的化学制品"
-        },
-        {
-          "id": "0105",
-          "typename": "用于农业、园艺、林业的化学品、化学制剂"
-        }
-      ]
-    },
-    {
-      "classificationname": "颜料油漆",
-      "classificationid": "02",
-      "trademarkstatus": 3,
-      "detailed": [
-        {
-          "id": "0201",
-          "typename": "染料，媒染剂（不包括食用）"
-        },
-        {
-          "id": "0202",
-          "typename": "颜料（不包括食用、绝缘用），画家、装饰家、印刷商和艺术家用金属箔"
-        },
-        {
-          "id": "0203",
-          "typename": "食品着色剂"
-        },
-        {
-          "id": "0204",
-          "typename": "油墨"
-        },
-        {
-          "id": "0205",
-          "typename": "涂料，油漆及附料（不包括绝缘漆）"
-        },
-        {
-          "id": "0206",
-          "typename": "防锈剂，木材防腐剂"
-        },
-        {
-          "id": "0207",
-          "typename": "未加工的天然树脂"
-        }
-      ]
-    },
-    {
-      "classificationname": "日化用品",
-      "classificationid": "03",
-      "trademarkstatus": 1,
-      "detailed": [
-        {
-          "id": "301",
-          "typename": "肥皂，香皂及其他人用洗洁物品，洗衣用漂白剂及其他物料"
-        },
-        {
-          "id": "0302",
-          "typename": "清洁、去渍用制剂"
-        },
-        {
-          "id": "0303",
-          "typename": "抛光、擦亮制剂"
-        },
-        {
-          "id": "0304",
-          "typename": "研磨用材料及其制剂"
-        },
-        {
-          "id": "0305",
-          "typename": "香料，香精油"
-        },
-        {
-          "id": "0306",
-          "typename": "化妆品（不包括动物用化妆品）"
-        },
-        {
-          "id": "0307",
-          "typename": "牙膏，洗牙用制剂"
-        },
-        {
-          "id": "0308",
-          "typename": "熏料"
-        },
-        {
-          "id": "0309",
-          "typename": "动物用化妆品"
-        },
-        {
-          "id": "0310",
-          "typename": "室内芳香剂"
-        }
-      ]
-    }
-  ],
+  "classification": {
+    "classificationname": "颜料油漆",
+    "classificationid": "02",
+    "classficationsmalltype": [
+      {
+        "classificationsmallname": "食品着色剂",
+        "classificationsmallid": "0203",
+        "trademarkstatus": 3,
+        "detailed": [
+          {
+            "id": "020004",
+            "typename": "饮料色素"
+          },
+          {
+            "id": "020005",
+            "typename": "食用色素"
+          },
+          {
+            "id": "020005",
+            "typename": "食品用着色剂"
+          },
+          {
+            "id": "020023",
+            "typename": "黄油色素"
+          },
+          {
+            "id": "020024",
+            "typename": "啤酒色素"
+          },
+          {
+            "id": "020034",
+            "typename": "焦糖（食品色素）"
+          },
+          {
+            "id": "020035",
+            "typename": "麦芽焦糖（食品色素）"
+          },
+          {
+            "id": "020048",
+            "typename": "麦芽色素"
+          },
+          {
+            "id": "020088",
+            "typename": "利口酒用色素"
+          }
+        ]
+      },
+      {
+        "classificationsmallname": "油墨",
+        "classificationsmallid": "0204",
+        "trademarkstatus": 3,
+        "detailed": [
+          {
+            "id": "020033",
+            "typename": "制革用墨"
+          },
+          {
+            "id": "020066",
+            "typename": "印刷油墨"
+          },
+          {
+            "id": "020121",
+            "typename": "复印机用墨（调色剂）"
+          },
+          {
+            "id": "020123",
+            "typename": "打印机和复印机用已填充的鼓粉盒"
+          },
+          {
+            "id": "C020015",
+            "typename": "激光打印机墨盒"
+          },
+          {
+            "id": "C020016",
+            "typename": "喷墨打印机墨盒"
+          },
+          {
+            "id": "C020017",
+            "typename": "复印机用碳粉"
+          },
+          {
+            "id": "020128",
+            "typename": "可食用墨"
+          },
+          {
+            "id": "020129",
+            "typename": "已填充可食用墨的打印机墨盒"
+          }
+        ]
+      },
+      {
+        "classificationsmallname": "未加工的天然树脂",
+        "classificationsmallid": "0207",
+        "trademarkstatus": 1,
+        "detailed": [
+          {
+            "id": "020022",
+            "typename": "加拿大香脂"
+          },
+          {
+            "id": "020046",
+            "typename": "松香"
+          },
+          {
+            "id": "020050",
+            "typename": "天然硬树脂"
+          },
+          {
+            "id": "020061",
+            "typename": "天然树脂（原料）"
+          },
+          {
+            "id": "020078",
+            "typename": "树胶脂"
+          },
+          {
+            "id": "020061",
+            "typename": "天然树脂（原料）"
+          },
+          {
+            "id": "020100",
+            "typename": "山达脂"
+          }
+        ]
+      },
+      {
+        "classificationsmallname": "净化制剂",
+        "classificationsmallid": "0503",
+        "trademarkstatus": 3,
+        "detailed": [
+          {
+            "id": "050005",
+            "typename": "空气净化制剂"
+          },
+          {
+            "id": "050117",
+            "typename": "净化剂"
+          },
+          {
+            "id": "050119",
+            "typename": "非人用、非动物用除臭剂"
+          },
+          {
+            "id": "050202",
+            "typename": "除霉化学制剂"
+          },
+          {
+            "id": "050401",
+            "typename": "空气除臭剂"
+          },
+          {
+            "id": "C050029",
+            "typename": "冰箱除味剂"
+          },
+          {
+            "id": "050400",
+            "typename": "衣服和纺织品用除臭剂"
+          }
+        ]
+      },
+      {
+        "classificationsmallname": "填塞牙孔用料，牙科用蜡",
+        "classificationsmallid": "0507",
+        "trademarkstatus": 3,
+        "detailed": [
+          {
+            "id": "050001",
+            "typename": "牙用研磨剂"
+          },
+          {
+            "id": "050003",
+            "typename": "假牙粘合剂"
+          },
+          {
+            "id": "050066",
+            "typename": "牙科用橡胶"
+          },
+          {
+            "id": "050113",
+            "typename": "牙用粘胶剂"
+          },
+          {
+            "id": "050110",
+            "typename": "牙填料"
+          },
+          {
+            "id": "050115",
+            "typename": "假牙用瓷料"
+          },
+          {
+            "id": "050116",
+            "typename": "出牙剂"
+          }
+        ]
+      },
+      {
+        "classificationsmallname": "单一商品",
+        "classificationsmallid": "0508",
+        "trademarkstatus": 1,
+        "detailed": [
+          {
+            "id": "050440",
+            "typename": "宠物尿布"
+          }
+        ]
+      },
+      {
+        "classificationsmallname": "牙科设备及器具",
+        "classificationsmallid": "1002",
+        "trademarkstatus": 1,
+        "detailed": [
+          {
+            "id": "100048",
+            "typename": "牙科医生用扶手椅"
+          }
+        ]
+      }
+    ]
+  },
   "linechart": {
-    "trademarkname": "海飞丝",
+    "tradename": "海飞丝",
     "trademarkclassification": "日化用品",
     "classificationid": "03",
     "Xaxistag": [
@@ -138,7 +246,7 @@
         ]
       },
       {
-        "linename": "淘宝",
+        "linename": "阿里",
         "linecolor": "#FF4081",
         "linevalue": [
           2,
@@ -154,19 +262,19 @@
   },
   "recommend": [
     {
-      "trademarkname": "推荐名字1",
+      "tradename": "推荐名字1",
       "trademarkclassification": "类别1",
       "classificationid": "01",
       "trademarkstatus": 1
     },
     {
-      "trademarkname": "推荐名字2",
+      "tradename": "推荐名字2",
       "trademarkclassification": "类别2",
       "classificationid": "02",
       "trademarkstatus": 1
     },
     {
-      "trademarkname": "推荐名字3",
+      "tradename": "推荐名字3",
       "trademarkclassification": "类别3",
       "classificationid": "03",
       "trademarkstatus": 2

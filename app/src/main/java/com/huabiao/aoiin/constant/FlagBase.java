@@ -1,5 +1,7 @@
 package com.huabiao.aoiin.constant;
 
+import android.accounts.Account;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.constant
@@ -10,14 +12,17 @@ public class FlagBase {
 
 
     //我的页面
-    public static final int ME_TRADEMARK_SEARCH = 1;// 注册前查询
-    public static final int ME_TRADEMARK_REGISTRATION = 2;// 商标注册
-    public static final int ME_LOGG_COPYRIGHT = 3;// LOGO版权
-    public static final int ME_BUG_TRADEMARK = 4;// 商标购买
-    public static final int ME_INTERMARK_REGISTRATION = 5;// 国际商标注册
-    public static final int ME_IS_APPLY_FOR_A_PATENT = 6;// 查专利能否申请
-    public static final int ME_TRADEMARK_REVIEW = 7;// 商标驳回复审
-    public static final int ME_TRADEMARK_TORT = 8;// 商标侵权检测
+    public static final int ME_COLLECTION = 1;// 我的收藏
+    public static final int ME_BROWSE_RECORD = 2;// 我的足迹
+    public static final int ME_MESSAGE = 3;// 我的消息
+    public static final int ME_SETTING = 4;// 设置
 
+    //设置页面
+    public static final int SETTING_ACCOUNT_SAFE = 0;// 账户安全
+    public static final int SETTING_ADDRESS = 1;// 地址管理
+    public static final int SETTING_FEEDBACK = 2;// 建议反馈
+    public static final int SETTING_ABOUT_US = 3;// 关于我们
+    public static final int SETTING__AGREEMENT = 4;// 服务与隐私协议
+    public static final int SETTING_CLEAR_CACHE = 5;// 清除缓存
 
 }

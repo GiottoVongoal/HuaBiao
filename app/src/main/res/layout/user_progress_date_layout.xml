@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/user_progress_date_month_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="九月"
+                    android:textColor="@color/black3"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/user_progress_date_day_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="今天"
+                    android:textColor="@color/black3"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <com.huabiao.aoiin.dateview.WeekBarView
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@color/white"
+                app:week_text_size="13" />
+
+            <com.huabiao.aoiin.dateview.schedule.ScheduleLayout
+                android:id="@+id/user_progress_date_schedule_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:auto_change_month_row="true"
+                app:default_view="week">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/rlMonthCalendar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.huabiao.aoiin.dateview.MonthCalendarView
+                                android:id="@+id/user_progress_date_month_calendar"
+                                android:layout_width="match_parent"
+                                android:layout_height="288dp"
+                                android:background="@color/white"
+                                android:overScrollMode="never"
+                                app:month_day_text_size="13"
+                                app:month_holiday_color="@color/holiday_text_color"
+                                app:month_selected_circle_color="@color/select_circle_color"
+                                app:month_show_holiday_hint="true"
+                                app:month_show_lunar="true"
+                                app:month_show_task_hint="true" />
+                        </RelativeLayout>
+
+                        <com.huabiao.aoiin.dateview.WeekCalendarView
+                            android:id="@+id/user_progress_date_week_calendar"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/week_calendar_height"
+                            android:background="@color/white"
+                            android:overScrollMode="never"
+                            android:visibility="gone"
+                            app:week_day_text_size="13"
+                            app:week_holiday_color="@color/holiday_text_color"
+                            app:week_selected_circle_color="@color/select_circle_color"
+                            app:week_show_holiday_hint="true"
+                            app:week_show_lunar="true"
+                            app:week_show_task_hint="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlScheduleList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white">
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="24.5dp"
+                            android:background="@color/grey_DDDDDD" />
+
+                        <com.huabiao.aoiin.dateview.schedule.ScheduleRecyclerView
+                            android:id="@+id/user_progress_date_srv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:orientation="vertical"
+                            android:overScrollMode="never"
+                            android:paddingTop="6dp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </com.huabiao.aoiin.dateview.schedule.ScheduleLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
