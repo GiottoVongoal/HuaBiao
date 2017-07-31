@@ -10,19 +10,16 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <Button
-            android:id="@+id/denominate_trade_name_btn"
+        <EditText
+            android:id="@+id/denominate_trade_name_et"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/bg_round_gray"
             android:gravity="center"
-            android:text="商品名"
-            android:clickable="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/denominate_trade_editTextResult"/>
+            android:hint="商品名"
+            android:padding="10dp" />
+
         <View style="@style/GrayLine_shu" />
 
         <Button
@@ -36,56 +33,57 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
 
         <ImageView
+            android:id="@+id/arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/arrow"
-            android:src="@mipmap/arrow"
             android:clickable="true"
+            android:src="@mipmap/arrow"
             android:visibility="visible" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/bg_round_gray"
         android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:background="@drawable/bg_round_gray"
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="商品名"
             android:id="@+id/tv_name"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/black_080C31"
-            android:textSize="@dimen/text_size_20"
-            />
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_trademarkclassification"
-            android:padding="5dp"
-            android:text="商品类型"
             android:layout_gravity="center_horizontal"
-            />
+            android:text="商品名"
+            android:textColor="@color/black_080C31"
+            android:textSize="@dimen/text_size_20" />
+
+        <TextView
+            android:id="@+id/tv_trademarkclassification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="商品类型" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="释义："
             android:textColor="@color/black3" />
+
         <TextView
+            android:id="@+id/tv_means"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="释义的内容"
-            android:id="@+id/tv_means"/>
+            android:text="释义的内容" />
 
         <com.huabiao.aoiin.wedgit.DrawLineChartView
             android:id="@+id/creat_name_line_chart"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <RelativeLayout
@@ -98,19 +96,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            zhuanpan:pannum="3"
-             />
+            android:layout_centerHorizontal="true" />
 
         <ImageView
             android:id="@+id/go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@mipmap/node"
-            android:visibility="visible"
             android:layout_alignTop="@+id/rp_layout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp" />
+            android:layout_marginTop="75dp"
+            android:clickable="true"
+            android:src="@mipmap/node"
+            android:visibility="visible" />
     </RelativeLayout>
 </LinearLayout>

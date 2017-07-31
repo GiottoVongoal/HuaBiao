@@ -69,6 +69,7 @@ public class DenominateRotatePanLayout extends View {
             setClickable(true);
         }
     }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // TODO Auto-generated method stub

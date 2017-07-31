@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.HomeBannarBean;
 import com.huabiao.aoiin.bean.HomeBannarBean.BannarlistBean;
 import com.huabiao.aoiin.model.HomeModel;
+import com.huabiao.aoiin.ui.activity.DenominateFragment;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -23,15 +25,10 @@ import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.JumpUtils;
 
-import android.widget.LinearLayout.LayoutParams;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-import static com.huabiao.aoiin.R.id.center_vertical;
-import static com.huabiao.aoiin.R.id.view;
 
 /**
  * @author 杨丽亚.
@@ -164,7 +161,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.home_creat_name_cv:
                 //取名
-                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
+                JumpUtils.startFragmentByName(getContext(), DenominateFragment.class);
                 break;
             case R.id.home_progress_cv:
                 //进度

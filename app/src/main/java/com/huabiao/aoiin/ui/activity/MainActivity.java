@@ -27,11 +27,11 @@ import butterknife.Bind;
 
 public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_navi_view)
-     BottomNavigationView botton_navi_view;
+    BottomNavigationView botton_navi_view;
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
-    Fragment HomePageFragment, MeFragment;
+    Fragment HomePageFragment, Mall, MeFragment;
 
     @Override
     public BasePresenter getPresenter() {
@@ -42,6 +42,7 @@ public class MainActivity extends BaseActivity {
     public void bindView(Bundle savedInstanceState) {
         BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
         HomePageFragment = new HomePageFragment();
+        Mall = new Mall();
         MeFragment = new MeFragment();
 
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
@@ -66,14 +67,12 @@ public class MainActivity extends BaseActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_item_one:
-                        addFragment(BottonNavigationViewFragment.newInstance("拨号"));
                         setItem(0);
                         break;
                     case R.id.menu_item_two:
                         setItem(1);
                         break;
                     case R.id.menu_item_three:
-//                        addFragment(new DenominateFragment());//取名
                         setItem(2);
                         break;
                     case R.id.menu_item_four:
@@ -92,7 +91,7 @@ public class MainActivity extends BaseActivity {
                 addFragment(HomePageFragment);
                 break;
             case 1:
-                addFragment(new Mall());
+                addFragment(Mall);
                 break;
             case 2:
                 addFragment(BottonNavigationViewFragment.newInstance("金融"));
