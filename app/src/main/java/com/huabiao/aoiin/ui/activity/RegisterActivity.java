@@ -115,6 +115,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     RadioButton urgent_register_rb;//加急注册
     @Bind(R.id.register_rate100_register_rb)
     RadioButton rate100_register_rb;//成功率100%
+    private int general_register = 0;
 
     @Bind(R.id.register_commit_tv)
     TextView commit_tv;//提交注册
@@ -175,14 +176,17 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     case R.id.register_general_register_rb:
                         //普通注册
                         showToast("普通注册");
+                        general_register = 1;
                         break;
                     case R.id.register_urgent_register_rb:
                         //加急注册
                         showToast("加急注册");
+                        general_register = 2;
                         break;
                     case R.id.register_rate100_register_rb:
                         //成功率100%
                         showToast("成功率100%");
+                        general_register = 3;
                         break;
                 }
             }
@@ -225,16 +229,47 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void commit() {
+        typeList = checkTypeResult.getSelectList();
+        if (checkTypeResult.getSelectList().size() <= 0) {
+            showToast("请选择分类");
+            return;
+        }
+        if (StringUtil.isEmpty(username_et.getEditText().getText().toString().trim())) {
+            showToast("您还未输入客户姓名");
+            return;
+        }
+        if (StringUtil.isEmpty(userphone_et.getEditText().getText().toString().trim())) {
+            showToast("您还未输入客户电话");
+            return;
+        }
+        if (personBean.getChangeType() <= 0) {
+            showToast("请选择申请人类型");
+            return;
+        }
+        if (general_register <= 0) {
+            showToast("请选择服务方式");
+            return;
+        }
         //上传商标logo图片
-        File file = new File(Path + "trademark_logo.jpg");
+        File file = new File(Path + folderName + File.separator + "trademark_logo.jpg");
         if (!file.exists()) {
             //不存在這個文件
+            showToast("请上传商标样式");
             return;
         }
         String tagName = "";
         String tagType = "";
         Map<String, File> files = new HashMap<String, File>();
         files.put(file.getName(), file);
+
+        ALog.i("提交typeList-->" + typeList);
+        ALog.i("提交username-->" + username_et.getEditText().getText().toString().trim());
+        ALog.i("提交userphone-->" + userphone_et.getEditText().getText().toString().trim());
+        ALog.i("提交personBean-->" + personBean);
+        ALog.i("提交general_register-->" + general_register);
+        ALog.i("提交logo-->" + Path + folderName + File.separator + "trademark_logo.jpg");
+        showToast("提交");
+
     }
 
     private void selectPic(View view) {
@@ -345,6 +380,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 mAdapter.updateListView(list);
             }
         }
+        //申请人类型
         setAppPersonSelect(personBean.getChangeType() - 1);
         ALog.i("personBean-->" + personBean);
     }

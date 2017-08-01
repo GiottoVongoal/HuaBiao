@@ -41,5 +41,38 @@
         </attr>
         <attr name="auto_change_month_row" format="boolean" />
     </declare-styleable>
-    <!--日历相关-->
+
+    <declare-styleable name="CircleRangeView">
+
+        <attr name="rangeColorArray" format="reference" />
+        <attr name="rangeTextArray" format="reference" />
+        <attr name="rangeValueArray" format="reference" />
+
+        <attr name="borderColor" format="color|reference" />
+        <attr name="cursorColor" format="color|reference" />
+        <attr name="extraTextColor" format="color|reference" />
+
+        <attr name="rangeTextSize" format="dimension|reference" />
+        <attr name="extraTextSize" format="dimension|reference" />
+    </declare-styleable>
+    <!--圆弧进度条-->
+    <declare-styleable name="ColorArcProgressBar">
+        <attr name="back_color" format="color" />
+        <attr name="front_color1" format="color" />
+        <attr name="front_color2" format="color" />
+        <attr name="front_color3" format="color" />
+        <attr name="back_width" format="dimension" />
+        <attr name="front_width" format="dimension" />
+        <attr name="is_need_title" format="boolean" />
+        <attr name="is_need_content" format="boolean" />
+        <attr name="is_need_unit" format="boolean" />
+        <attr name="is_need_dial" format="boolean" />
+        <attr name="string_title" format="string" />
+        <attr name="string_unit" format="string" />
+        <attr name="total_engle" format="integer" />
+        <attr name="current_value" format="float" />
+        <attr name="max_value" format="float" />
+
+    </declare-styleable>
+
 </resources>

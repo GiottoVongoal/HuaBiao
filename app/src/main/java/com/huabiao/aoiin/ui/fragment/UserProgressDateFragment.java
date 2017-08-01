@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.UserProgressDateBean;
 import com.huabiao.aoiin.bean.UserProgressDateBean.UserprogressdatelistBean;
@@ -92,7 +93,7 @@ public class UserProgressDateFragment extends BaseFragment {
             public void onClickDate(int year, int month, int day) {
                 //监听获得点击的年月日
                 resetMainTitleDate(year, month, day);
-                showToast(year + "年" + (month + 1) + "月" + day + "日");
+                ALog.i(year + "年" + (month + 1) + "月" + day + "日");
                 getDateList(year, month, day);
             }
 

@@ -56,6 +56,32 @@
             android:textSize="18sp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/btn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_one_ll"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="-25dp"
+        android:background="@drawable/bg_sharp_circle_purple"
+        android:clickable="true"
+        android:padding="20dp"
+        android:text="left" />
+
+    <TextView
+        android:id="@+id/btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_one_ll"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="-25dp"
+        android:background="@drawable/bg_sharp_circle_purple"
+        android:clickable="true"
+        android:padding="20dp"
+        android:text="right" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/register_one_register_tv"
         android:layout_width="wrap_content"

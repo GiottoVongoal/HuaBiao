@@ -39,5 +39,6 @@
 
     <View
         style="@style/GrayLine"
+        android:paddingTop="5dp"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>

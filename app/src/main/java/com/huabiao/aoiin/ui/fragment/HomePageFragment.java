@@ -16,6 +16,7 @@ import com.huabiao.aoiin.bean.HomeBannarBean;
 import com.huabiao.aoiin.bean.HomeBannarBean.BannarlistBean;
 import com.huabiao.aoiin.model.HomeModel;
 import com.huabiao.aoiin.ui.activity.MainActivity;
+import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
@@ -168,7 +169,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.home_progress_cv:
                 //进度
-                JumpUtils.startFragmentByName(getContext(), UserProgressFragment.class);
+                JumpUtils.startActivity(getContext(), UserProgressActivity.class);
                 break;
         }
     }

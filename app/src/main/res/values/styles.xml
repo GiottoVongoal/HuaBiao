@@ -1,5 +1,10 @@
 <resources>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="text_editStyle">
         <item name="android:layout_height">43dp</item>
         <item name="android:layout_width">43dp</item>
