@@ -5,63 +5,50 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.SelectClassificationCheckBean;
-import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
- * @date 2017-07-14 15:06
- * @description 查询结果未注册Adapter/注册第一步跳转过来的Type展示Adapter(有点击事件)
+ * @date 2017-08-02 21:28
+ * @description 自主注册第一张卡片中的可注册类别
  */
-public class SearchResultUnRegisteredAdapter extends RecyclerView.Adapter<SearchResultUnRegisteredAdapter.UnRegisteredViewHolder> {
+public class RegisterCardOneAdapter extends RecyclerView.Adapter<RegisterCardOneAdapter.ViewHolder> {
     private Context context;
-    private List<SelectClassificationCheckBean> list;
+    private List<SelectClassificationCheckBean> list = new ArrayList<>();
 
-    public SearchResultUnRegisteredAdapter(Context context, List<SelectClassificationCheckBean> list) {
+    public RegisterCardOneAdapter(Context context, List<SelectClassificationCheckBean> list) {
         this.context = context;
         this.list = list;
     }
 
-    public InterfaceManager.OnItemClickListener itemClickListener;
+    public OnItemClickListener itemClickListener;
 
-    public void setOnItemClickListener(InterfaceManager.OnItemClickListener itemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
 
-    /**
-     * 更新列表数据
-     *
-     * @param list
-     */
-    public void updateListView(List<SelectClassificationCheckBean> list) {
-        this.list = list;
-        notifyDataSetChanged();
-    }
-
     @Override
-    public UnRegisteredViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.select_classification_item_layout, parent, false);
-        return new UnRegisteredViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(UnRegisteredViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         SelectClassificationCheckBean bean = list.get(position);
         holder.item_tv.setText(bean.getClassificationid() + " - " + bean.getClassificationname());
         boolean ischeck = bean.isCheck();
-        if (ischeck) {
-            holder.item_iv.setImageResource(R.mipmap.star_pre);
-        } else {
-            holder.item_iv.setImageResource(R.mipmap.star_nor);
-        }
+        holder.item_cb.setChecked(ischeck);
         holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,15 +62,15 @@ public class SearchResultUnRegisteredAdapter extends RecyclerView.Adapter<Search
         return list == null ? 0 : list.size();
     }
 
-    class UnRegisteredViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout item_ll;
-        ImageView item_iv;
+        CheckBox item_cb;
         TextView item_tv;
 
-        public UnRegisteredViewHolder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             item_ll = (LinearLayout) itemView.findViewById(R.id.select_classification_item);
-            item_iv = (ImageView) itemView.findViewById(R.id.search_result_unregistered_item_iv);
+            item_cb = (CheckBox) itemView.findViewById(R.id.select_classification_item_cb);
             item_tv = (TextView) itemView.findViewById(R.id.select_classification_item_tv);
         }
     }

@@ -43,6 +43,20 @@
     <string name="select_image_format">请选择JPG/JPEG/PNG格式的图片！</string>
     <string name="select_image_size">请选择5MB以内的图片！</string>
 
+    <string-array name="jazzy_effects">
+        <item>Standard</item>
+        <item>Tablet</item>
+        <item>CubeIn</item>
+        <item>CubeOut</item>
+        <item>FlipVertical</item>
+        <item>FlipHorizontal</item>
+        <item>Stack</item>
+        <item>ZoomIn</item>
+        <item>ZoomOut</item>
+        <item>RotateUp</item>
+        <item>RotateDown</item>
+        <item>Accordion</item>
+    </string-array>
 
     <string-array name="circlerangeview_colors">
         <item>#008C8C</item>
@@ -73,4 +87,5 @@
         <item>中度</item>
         <item>重度</item>
     </string-array>
+
 </resources>

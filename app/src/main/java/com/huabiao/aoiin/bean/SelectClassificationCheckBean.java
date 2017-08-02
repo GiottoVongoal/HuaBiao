@@ -6,9 +6,9 @@ import android.os.Parcel;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-07-14 17:05
- * @description 原来监测未注册的两个GridView的选择情况
+ * @description 可注册类别的选择项
  */
-public class SearchResultUnRegisterCheckBean extends ClassificationBean {
+public class SelectClassificationCheckBean extends ClassificationBean {
 
     private boolean isCheck;
 

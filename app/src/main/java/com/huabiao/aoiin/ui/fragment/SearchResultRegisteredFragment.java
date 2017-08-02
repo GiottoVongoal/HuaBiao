@@ -12,10 +12,10 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.LineChartBean;
-import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean.RecommendBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean;
+import com.huabiao.aoiin.bean.SelectClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultRegisteredBottomAdapter;
 import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
@@ -30,8 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-import static com.umeng.analytics.a.p;
 
 /**
  * @author 杨丽亚.
@@ -63,11 +61,11 @@ public class SearchResultRegisteredFragment extends BaseFragment implements View
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        SearchModel.getSearchClassificationList(getContext(), tradename, goodsname, new InterfaceManager.CallBackCommon() {
+        SearchModel.getSelectClassificationList(getContext(),  new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    SearchResultClassificationListBean bean = (SearchResultClassificationListBean) mData;
+                    SelectClassificationListBean bean = (SelectClassificationListBean) mData;
                     List<ClassificationBean> list = bean.getClassification();
                     initPopMenu(list);
                     menu_ll.setOnClickListener(SearchResultRegisteredFragment.this);

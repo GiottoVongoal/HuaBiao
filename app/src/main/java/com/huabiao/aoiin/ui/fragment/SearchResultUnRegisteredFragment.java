@@ -11,7 +11,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.LineChartBean;
-import com.huabiao.aoiin.bean.SearchResultUnRegisterCheckBean;
+import com.huabiao.aoiin.bean.SelectClassificationCheckBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.activity.RegisterActivity;
@@ -51,7 +51,7 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
     private String tradename = "", goodsname = "";
 
     private SearchResultUnRegisteredAdapter relevantAdapter, otherAdapter;
-    private List<SearchResultUnRegisterCheckBean> relevantList, otherList;
+    private List<SelectClassificationCheckBean> relevantList, otherList;
 
     private int Position;//点击的Position
     private int Type;//1相关分类;2其他分类
@@ -177,10 +177,10 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
         finishPopupWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
     }
 
-    private List<SearchResultUnRegisterCheckBean> getList(List<ClassificationBean> list) {
-        List<SearchResultUnRegisterCheckBean> resultList = new ArrayList<>();
+    private List<SelectClassificationCheckBean> getList(List<ClassificationBean> list) {
+        List<SelectClassificationCheckBean> resultList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            SearchResultUnRegisterCheckBean bean = new SearchResultUnRegisterCheckBean();
+            SelectClassificationCheckBean bean = new SelectClassificationCheckBean();
             bean.setClassificationid(list.get(i).getClassificationid());
             bean.setClassificationname(list.get(i).getClassificationname());
             bean.setCheck(false);

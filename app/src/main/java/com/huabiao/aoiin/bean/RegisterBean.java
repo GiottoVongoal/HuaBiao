@@ -10,13 +10,17 @@ import java.util.List;
  */
 public class RegisterBean {
 
-    /**
-     * classification : [{"classificationname":"化学制剂","classificationid":"01"},{"classificationname":"颜料油漆","classificationid":"02"},{"classificationname":"金属材料","classificationid":"06"},{"classificationname":"机械设备","classificationid":"07"},{"classificationname":"医药","classificationid":"05"}]
-     * linechart : {"tradename":"飘柔","trademarkclassification":"日化用品","classificationid":"03","Xaxistag":["周一","周二","周三","周四","周五","周六","周日"],"lines":[{"linename":"京东","linecolor":"#FF4300","linevalue":[7,7,6,7,5,6,8]},{"linename":"亚马逊","linecolor":"#FFEA00","linevalue":[2,2,5,4,7,7,3]}]}
-     */
-
+    private String means;
     private LineChartBean linechart;
     private List<ClassificationBean> classification;
+
+    public String getMeans() {
+        return means;
+    }
+
+    public void setMeans(String means) {
+        this.means = means;
+    }
 
     public LineChartBean getLinechart() {
         return linechart;

@@ -4,9 +4,9 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
-import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
+import com.huabiao.aoiin.bean.SelectClassificationListBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 
 /**
@@ -19,17 +19,15 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 public class SearchModel {
 
     /**
-     * 获取查询结果--已注册--类型
+     * 获取可注册类别列表
      *
      * @param context
-     * @param tradeName
-     * @param goodsName
      * @param callback
      */
-    public static void getSearchClassificationList(Context context, String tradeName, String goodsName, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "searchresultregisteredclassificationlist.json");
+    public static void getSelectClassificationList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "selecctclassificationlist.json");
         Gson gson = new Gson();
-        SearchResultClassificationListBean bean = gson.fromJson(jsonString, SearchResultClassificationListBean.class);
+        SelectClassificationListBean bean = gson.fromJson(jsonString, SelectClassificationListBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }
@@ -39,7 +37,7 @@ public class SearchModel {
      * 获取查询结果--已注册
      *
      * @param context
-     * @param tradeName  商标名
+     * @param tradeName      商标名
      * @param goodsName      商品名
      * @param classification 类型
      * @param callback
@@ -58,7 +56,7 @@ public class SearchModel {
      *
      * @param context
      * @param tradeName 商标名
-     * @param goodsName     商品名
+     * @param goodsName 商品名
      * @param callback
      */
     public static void getSearchUnregisterResult(Context context, String tradeName, String goodsName, final InterfaceManager.CallBackCommon callback) {

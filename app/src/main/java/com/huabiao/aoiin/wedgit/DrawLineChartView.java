@@ -37,7 +37,7 @@ public class DrawLineChartView extends RelativeLayout {
     List<Line> lines = new ArrayList<>();
 
     TextView line_chart_trademark_name;
-    TextView line_chart_trademark_classification;
+//    TextView line_chart_trademark_classification;
 
     LineChartBean bean;
 
@@ -63,7 +63,7 @@ public class DrawLineChartView extends RelativeLayout {
         line_chart_ll = (LinearLayout) lineChartView.findViewById(R.id.line_chart_ll);
         chart = (LineChartView) lineChartView.findViewById(R.id.chart);
         line_chart_trademark_name = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_name);
-        line_chart_trademark_classification = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_classification);
+//        line_chart_trademark_classification = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_classification);
     }
 
 
@@ -71,7 +71,7 @@ public class DrawLineChartView extends RelativeLayout {
     private void setTextString() {
         if (!(TextUtils.isEmpty(bean.getTradename())) && !(TextUtils.isEmpty(bean.getTrademarkclassification()))) {
             line_chart_trademark_name.setText(bean.getTradename());
-            line_chart_trademark_classification.setText(bean.getTrademarkclassification());
+//            line_chart_trademark_classification.setText(bean.getTrademarkclassification());
         }
     }
 

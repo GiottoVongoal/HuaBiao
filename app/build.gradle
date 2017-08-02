@@ -81,6 +81,8 @@ dependencies {
     compile 'joda-time:joda-time:2.9.4'
     //自定义开关
     compile 'com.7heaven.ioswidget:iosswitch:0.6'
+    //ViewPager炫酷滑动效果(自主注册卡片滑动)
+    compile 'com.nineoldandroids:library:2.4.0'
 }
 repositories {
     flatDir {  //声明本地仓库地址
