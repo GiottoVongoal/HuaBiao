@@ -4,10 +4,10 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
-import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
 import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.HotSearchWordsBean;
 import com.huabiao.aoiin.bean.MallBean;
+import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
 import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -113,6 +113,7 @@ public class SearchModel {
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }
+
     }
     public static void getShoppingMallList(Context context, final InterfaceManager.CallBackCommon callback) {
         String jsonString = GetJsonToName.getJson(context, "shoppingmalllist.json");

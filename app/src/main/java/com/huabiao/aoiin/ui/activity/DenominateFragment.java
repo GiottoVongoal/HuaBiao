@@ -13,8 +13,8 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
+import com.huabiao.aoiin.model.AnalysisJson;
 import com.huabiao.aoiin.model.RegisterModel;
-import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.view.DenominateRotatePanLayout;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
@@ -56,7 +56,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     private List<CreatNameBean.RecommendnamelistBean> list;
     private IndustryPopupWindow industryWindow;
     private int place = 0;
-    private String industry = "", tradename = "";
+    private String industry = "";
 
     public void endAnimation(int position) {
         goBtn.setEnabled(true);
@@ -70,11 +70,28 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     }
 
     private void refreshView(final boolean isFirst) {
-        SearchModel.getCreatName(getContext(), new InterfaceManager.CallBackCommon() {
+//        SearchModel.getCreatName(getContext(), new InterfaceManager.CallBackCommon() {
+//            @Override
+//            public void getCallBackCommon(Object mData) {
+//                if (mData != null) {
+//                    CreatNameBean bean = (CreatNameBean) mData;
+//                    list = bean.getRecommendnamelist();
+//                    if (list.size() > 0) {
+//                        setData();
+//                    }
+//                    rp.startRotate(-1);
+//                    if (isFirst) {
+//                        goBtn.setEnabled(false);
+//                    }
+//                }
+//            }
+//        });
+        AnalysisJson.getDenominateName(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     CreatNameBean bean = (CreatNameBean) mData;
+                    ALog.i("CreatNameBean-->" +bean.toString());
                     list = bean.getRecommendnamelist();
                     if (list.size() > 0) {
                         setData();
@@ -91,8 +108,8 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     private void setData() {
         List<String> nameList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            String name=list.get(i).getLinechart().getTradename();
-            ALog.i("list.get(i) "+list.get(i)+"   "+name);
+            String name = list.get(i).getLinechart().getTradename();
+            ALog.i("list.get(i) " + list.get(i) + "   " + name);
             nameList.add(name);
         }
         ALog.i(nameList.toString());

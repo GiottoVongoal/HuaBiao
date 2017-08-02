@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/buying_recyclerview1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <View
+                style="@style/GrayLine"
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buying_recyclerview2"
+                />
+            <View
+                style="@style/GrayLine"
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buying_recyclerview3"
+                />
+            <View
+                style="@style/GrayLine"
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buying_recyclerview4"
+                />
+            <View
+                style="@style/GrayLine"
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="注册全新商标"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/buying1_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/grey_E9E7E7"
+            android:padding="15dp"
+            android:text="在线询价"
+            android:textAlignment="center"
+            android:textColor="@color/black3" />
+
+        <View
+            style="@style/GrayLine_shu"
+            android:background="@color/black3" />
+
+        <TextView
+            android:id="@+id/buying2_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/grey_E9E7E7"
+            android:padding="15dp"
+            android:text="求购此标"
+            android:textAlignment="center"
+            android:textColor="@color/black3" />
+    </LinearLayout>
+</LinearLayout>

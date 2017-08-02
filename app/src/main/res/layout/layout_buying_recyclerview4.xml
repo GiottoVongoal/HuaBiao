@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/buying_rcv4_notice_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="公告状态"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/buying_rcv4_status1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="商标注册申请中" />
+
+    <TextView
+        android:id="@+id/buying_rcv4_status1_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="20170201"
+        android:layout_toEndOf="@+id/buying_rcv4_left_rl" />
+
+    <RelativeLayout
+        android:id="@+id/buying_rcv4_left_rl"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/user_progress_date_item_spot_iv1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/date_tracking_green" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/user_progress_date_item_spot_iv"
+            android:layout_centerHorizontal="true"
+            android:background="@color/grey_DDDDDD" />
+
+        <View
+            android:id="@+id/line_bottom"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/user_progress_date_item_spot_iv"
+            android:layout_centerHorizontal="true"
+            android:background="@color/grey_DDDDDD" />
+
+        <ImageView
+            android:id="@+id/user_progress_date_item_spot_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/date_tracking_green" />
+        <ImageView
+            android:id="@+id/user_progress_date_item_spot_iv2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+
+            android:scaleType="fitXY"
+            android:src="@mipmap/date_tracking_green" />
+    </RelativeLayout>
+
+</RelativeLayout>

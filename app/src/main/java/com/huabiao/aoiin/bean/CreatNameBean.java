@@ -51,5 +51,12 @@ public class CreatNameBean {
                     '}';
         }
     }
+
+    @Override
+    public String toString() {
+        return "CreatNameBean{" +
+                "recommendnamelist=" + recommendnamelist +
+                '}';
+    }
 }
 
