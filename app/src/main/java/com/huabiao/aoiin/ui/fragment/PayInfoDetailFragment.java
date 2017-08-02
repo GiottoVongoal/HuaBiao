@@ -109,7 +109,7 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
                 switch (i) {
                     case R.id.pay_info_detail_personal_rb:
                         //个人
-                        detail_invoice_dutynum_et.setVisibility(View.GONE);
+                        detail_invoice_dutynum_et.setVisibility(View.INVISIBLE);
                         detail_invoice_dutynum_tip_iv.setVisibility(View.GONE);
                         invoiceHeaderType = 1;
                         break;
