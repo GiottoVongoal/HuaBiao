@@ -32,6 +32,7 @@ import com.huabiao.aoiin.picview.BitmapUtil;
 import com.huabiao.aoiin.picview.MediaView;
 import com.huabiao.aoiin.ui.adapter.SearchResultUnRegisteredAdapter;
 import com.huabiao.aoiin.ui.fragment.CheckTypeListFragment;
+import com.huabiao.aoiin.ui.fragment.PayInfoDetailFragment;
 import com.huabiao.aoiin.ui.fragment.RegisterApplicantPersonFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
@@ -45,9 +46,7 @@ import com.ywy.mylibs.utils.StringUtil;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.Bind;
 
@@ -229,47 +228,47 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void commit() {
-        typeList = checkTypeResult.getSelectList();
-        if (checkTypeResult.getSelectList().size() <= 0) {
-            showToast("请选择分类");
-            return;
-        }
-        if (StringUtil.isEmpty(username_et.getEditText().getText().toString().trim())) {
-            showToast("您还未输入客户姓名");
-            return;
-        }
-        if (StringUtil.isEmpty(userphone_et.getEditText().getText().toString().trim())) {
-            showToast("您还未输入客户电话");
-            return;
-        }
-        if (personBean.getChangeType() <= 0) {
-            showToast("请选择申请人类型");
-            return;
-        }
-        if (general_register <= 0) {
-            showToast("请选择服务方式");
-            return;
-        }
-        //上传商标logo图片
-        File file = new File(Path + folderName + File.separator + "trademark_logo.jpg");
-        if (!file.exists()) {
-            //不存在這個文件
-            showToast("请上传商标样式");
-            return;
-        }
-        String tagName = "";
-        String tagType = "";
-        Map<String, File> files = new HashMap<String, File>();
-        files.put(file.getName(), file);
-
-        ALog.i("提交typeList-->" + typeList);
-        ALog.i("提交username-->" + username_et.getEditText().getText().toString().trim());
-        ALog.i("提交userphone-->" + userphone_et.getEditText().getText().toString().trim());
-        ALog.i("提交personBean-->" + personBean);
-        ALog.i("提交general_register-->" + general_register);
-        ALog.i("提交logo-->" + Path + folderName + File.separator + "trademark_logo.jpg");
-        showToast("提交");
-
+//        typeList = checkTypeResult.getSelectList();
+//        if (checkTypeResult.getSelectList().size() <= 0) {
+//            showToast("请选择分类");
+//            return;
+//        }
+//        if (StringUtil.isEmpty(username_et.getEditText().getText().toString().trim())) {
+//            showToast("您还未输入客户姓名");
+//            return;
+//        }
+//        if (StringUtil.isEmpty(userphone_et.getEditText().getText().toString().trim())) {
+//            showToast("您还未输入客户电话");
+//            return;
+//        }
+//        if (personBean.getChangeType() <= 0) {
+//            showToast("请选择申请人类型");
+//            return;
+//        }
+//        if (general_register <= 0) {
+//            showToast("请选择服务方式");
+//            return;
+//        }
+//        //上传商标logo图片
+//        File file = new File(Path + folderName + File.separator + "trademark_logo.jpg");
+//        if (!file.exists()) {
+//            //不存在這個文件
+//            showToast("请上传商标样式");
+//            return;
+//        }
+//        String tagName = "";
+//        String tagType = "";
+//        Map<String, File> files = new HashMap<String, File>();
+//        files.put(file.getName(), file);
+//
+//        ALog.i("提交typeList-->" + typeList);
+//        ALog.i("提交username-->" + username_et.getEditText().getText().toString().trim());
+//        ALog.i("提交userphone-->" + userphone_et.getEditText().getText().toString().trim());
+//        ALog.i("提交personBean-->" + personBean);
+//        ALog.i("提交general_register-->" + general_register);
+//        ALog.i("提交logo-->" + Path + folderName + File.separator + "trademark_logo.jpg");
+//        showToast("提交");
+        JumpUtils.startFragmentByName(this, PayInfoDetailFragment.class);
     }
 
     private void selectPic(View view) {

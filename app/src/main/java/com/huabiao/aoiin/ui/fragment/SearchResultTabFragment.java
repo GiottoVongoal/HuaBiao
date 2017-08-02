@@ -1,6 +1,5 @@
 package com.huabiao.aoiin.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.ui.adapter.SearchResultTabPagerAdapter;
+import com.huabiao.aoiin.ui.adapter.TabPagerAdapter;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.ClickUtil;
@@ -34,7 +33,7 @@ public class SearchResultTabFragment extends BaseFragment implements View.OnClic
     ViewPager tab_vp;
 
     private List<Fragment> list;
-    SearchResultTabPagerAdapter adapter;
+    TabPagerAdapter adapter;
 
     private String tradename = "", goodsname = "";
     SearchResultRegisteredFragment registeredFragment;
@@ -53,7 +52,10 @@ public class SearchResultTabFragment extends BaseFragment implements View.OnClic
         unRegisteredFragment.getIntentString(tradename, goodsname);//传值
         list.add(registeredFragment);
         list.add(unRegisteredFragment);
-        adapter = new SearchResultTabPagerAdapter(getActivity().getSupportFragmentManager(), list, getContext());
+        List<String> titles = new ArrayList<>();
+        titles.add("已注册");
+        titles.add("未注册");
+        adapter = new TabPagerAdapter(getActivity().getSupportFragmentManager(), list, getContext(), titles);
         tab_vp.setAdapter(adapter);
         tab_tablayout.setupWithViewPager(tab_vp);
 

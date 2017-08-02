@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,16 +14,17 @@ import java.util.List;
  * @date 2017-07-13 10:55
  * @description
  */
-public class SearchResultTabPagerAdapter extends FragmentPagerAdapter {
-    private String[] titles = {"已注册", "未注册"};
+public class TabPagerAdapter extends FragmentPagerAdapter {
+    private List<String> titles = new ArrayList<>();
     private Context context;
     private List<Fragment> list;
 
 
-    public SearchResultTabPagerAdapter(FragmentManager fm, List<Fragment> list, Context context) {
+    public TabPagerAdapter(FragmentManager fm, List<Fragment> list, Context context, List<String> titles) {
         super(fm);
         this.list = list;
         this.context = context;
+        this.titles = titles;
     }
 
     @Override
@@ -32,11 +34,11 @@ public class SearchResultTabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return titles.length;
+        return titles.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return titles[position];
+        return titles.get(position);
     }
 }
