@@ -5,8 +5,10 @@
     android:background="@color/backgroundwhite"
     android:orientation="vertical">
 
+    <include layout="@layout/view_title" />
+
     <LinearLayout
-        android:id="@+id/search_result_registered_menu_ll"
+        android:id="@+id/search_result_menu_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -14,7 +16,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/search_result_registered_menu_tv"
+            android:id="@+id/search_result_menu_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -42,14 +44,14 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/search_result_registered_top_rv"
+                android:id="@+id/search_result_top_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <View style="@style/GrayLine" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
-                android:id="@+id/search_result_registered_line_chart"
+                android:id="@+id/search_result_line_chart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -58,7 +60,7 @@
             <View style="@style/GrayLine" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/search_result_registered_bottom_rv"
+                android:id="@+id/search_result_bottom_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

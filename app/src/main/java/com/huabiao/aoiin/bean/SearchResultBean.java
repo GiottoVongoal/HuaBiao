@@ -8,7 +8,7 @@ import java.util.List;
  * @date 2017-07-06 14:30
  * @description 查询结果--已注册Bean
  */
-public class SearchResultRegisteredBean {
+public class SearchResultBean {
 
     /**
      * classification : {"classificationname":"颜料油漆","classificationid":"02","trademarkstatus":3,"classficationsmalltype":[{"classificationsmallname":"食品着色剂","classificationsmallid":"0203","detailed":[{"id":"020004","typename":"饮料色素"},{"id":"020005","typename":"食用色素"},{"id":"020005","typename":"食品用着色剂"},{"id":"020023","typename":"黄油色素"},{"id":"020024","typename":"啤酒色素"},{"id":"020034","typename":"焦糖（食品色素）"},{"id":"020035","typename":"麦芽焦糖（食品色素）"},{"id":"020048","typename":"麦芽色素"},{"id":"020088","typename":"利口酒用色素"}]},{"classificationsmallname":"油墨","classificationsmallid":"0204","detailed":[{"id":"020033","typename":"制革用墨"},{"id":"020066","typename":"印刷油墨"},{"id":"020121","typename":"复印机用墨（调色剂）"},{"id":"020123","typename":"打印机和复印机用已填充的鼓粉盒"},{"id":"C020015","typename":"激光打印机墨盒"},{"id":"C020016","typename":"喷墨打印机墨盒"},{"id":"C020017","typename":"复印机用碳粉"},{"id":"020128","typename":"可食用墨"},{"id":"020129","typename":"已填充可食用墨的打印机墨盒"}]},{"classificationsmallname":"未加工的天然树脂","classificationsmallid":"0207","detailed":[{"id":"020022","typename":"加拿大香脂"},{"id":"020046","typename":"松香"},{"id":"020050","typename":"天然硬树脂"},{"id":"020061","typename":"天然树脂（原料）"},{"id":"020078","typename":"树胶脂"},{"id":"020061","typename":"天然树脂（原料）"},{"id":"020100","typename":"山达脂"}]}]}

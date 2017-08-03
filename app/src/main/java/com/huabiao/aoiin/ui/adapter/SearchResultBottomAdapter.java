@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.RecommendBean;
+import com.huabiao.aoiin.bean.SearchResultBean.RecommendBean;
 
 import java.util.List;
 
@@ -18,23 +18,23 @@ import java.util.List;
  * @date 2017-06-15 11:16
  * @description
  */
-public class SearchResultRegisteredBottomAdapter extends RecyclerView.Adapter<SearchResultRegisteredBottomAdapter.TopHolder> {
+public class SearchResultBottomAdapter extends RecyclerView.Adapter<SearchResultBottomAdapter.TopHolder> {
     private List<RecommendBean> recommendList;
     private Context context;
 
-    public SearchResultRegisteredBottomAdapter(Context context, List<RecommendBean> recommendList) {
+    public SearchResultBottomAdapter(Context context, List<RecommendBean> recommendList) {
         this.context = context;
         this.recommendList = recommendList;
     }
 
     @Override
-    public SearchResultRegisteredBottomAdapter.TopHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SearchResultBottomAdapter.TopHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.search_result_bottom_item_layout, parent, false);
         return new TopHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(SearchResultRegisteredBottomAdapter.TopHolder holder, int position) {
+    public void onBindViewHolder(SearchResultBottomAdapter.TopHolder holder, int position) {
         RecommendBean bean = recommendList.get(position);
         holder.title_tv.setText(bean.getTradename());
         String typeString = "[" + bean.getClassificationid() + "]\t" + bean.getTrademarkclassification();

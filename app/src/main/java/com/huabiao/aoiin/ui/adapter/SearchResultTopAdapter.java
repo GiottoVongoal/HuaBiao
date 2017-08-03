@@ -5,10 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean;
+import com.huabiao.aoiin.bean.SearchResultBean.Classification.ClassficationsmalltypeBean;
 import com.huabiao.aoiin.wedgit.ShowRegisteredTypePopupWindow;
 
 import java.util.List;
@@ -17,29 +18,30 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
  * @date 2017-06-15 11:16
- * @description 查询--已注册--筛选后的次级分类Adapter
+ * @description 查结果--筛选后的次级分类Adapter
  */
-public class SearchResultRegisteredTopAdapter extends RecyclerView.Adapter<SearchResultRegisteredTopAdapter.TopHolder> {
+public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTopAdapter.TopHolder> {
     private List<ClassficationsmalltypeBean> historyList;
     private Context context;
 
-    public SearchResultRegisteredTopAdapter(Context context, List<ClassficationsmalltypeBean> historyList) {
+    public SearchResultTopAdapter(Context context, List<ClassficationsmalltypeBean> historyList) {
         this.context = context;
         this.historyList = historyList;
     }
 
     @Override
-    public SearchResultRegisteredTopAdapter.TopHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SearchResultTopAdapter.TopHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.search_result_top_item_layout, parent, false);
         return new TopHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(SearchResultRegisteredTopAdapter.TopHolder holder, final int position) {
+    public void onBindViewHolder(SearchResultTopAdapter.TopHolder holder, final int position) {
         final ClassficationsmalltypeBean bean = historyList.get(position);
         String showText = bean.getClassificationsmallid() + " - " + bean.getClassificationsmallname();
-        holder.search_history_item_tv.setText(showText);
-        holder.search_history_item_tv.setOnClickListener(new View.OnClickListener() {
+        holder.item_tv.setText(showText);
+
+        holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //点击显示小分类和注册状态
@@ -65,11 +67,15 @@ public class SearchResultRegisteredTopAdapter extends RecyclerView.Adapter<Searc
     }
 
     class TopHolder extends RecyclerView.ViewHolder {
-        TextView search_history_item_tv;
+        LinearLayout item_ll;
+        TextView item_tv, item_left_tv, item_right_tv;
 
         public TopHolder(View itemView) {
             super(itemView);
-            search_history_item_tv = (TextView) itemView.findViewById(R.id.search_result_top_item_tv);
+            item_ll = (LinearLayout) itemView.findViewById(R.id.search_result_top_item_ll);
+            item_tv = (TextView) itemView.findViewById(R.id.search_result_top_item_tv);
+            item_left_tv = (TextView) itemView.findViewById(R.id.search_result_top_item_left_tv);
+            item_right_tv = (TextView) itemView.findViewById(R.id.search_result_top_item_right_tv);
         }
     }
 

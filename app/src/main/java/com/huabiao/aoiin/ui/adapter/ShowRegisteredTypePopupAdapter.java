@@ -2,14 +2,13 @@ package com.huabiao.aoiin.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean.Classification.ClassficationsmalltypeBean.DetailedBean;
+import com.huabiao.aoiin.bean.SearchResultBean.Classification.ClassficationsmalltypeBean.DetailedBean;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
  * @date 2017-07-14 10:52
- * @description 查询--已注册--点击次级分类的小分类弹框Adapter
+ * @description 查询结果--点击次级分类的小分类弹框Adapter
  */
 public class ShowRegisteredTypePopupAdapter extends RecyclerView.Adapter<ShowRegisteredTypePopupAdapter.PopupViewHolder> {
     private Context context;
@@ -27,7 +26,7 @@ public class ShowRegisteredTypePopupAdapter extends RecyclerView.Adapter<ShowReg
     public static final int TYPE_FOOTER = 1;  //说明是带有Footer的
     public static final int TYPE_NORMAL = 2;  //说明是不带有header和footer的
 
-    public ShowRegisteredTypePopupAdapter(Context context, List<DetailedBean> list ) {
+    public ShowRegisteredTypePopupAdapter(Context context, List<DetailedBean> list) {
         this.context = context;
         this.list = list;
     }

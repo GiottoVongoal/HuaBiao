@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
-import com.huabiao.aoiin.bean.SearchResultRegisteredBean;
+import com.huabiao.aoiin.bean.SearchResultBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.bean.SelectClassificationListBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -37,15 +37,13 @@ public class SearchModel {
      * 获取查询结果--已注册
      *
      * @param context
-     * @param tradeName      商标名
-     * @param goodsName      商品名
      * @param classification 类型
      * @param callback
      */
-    public static void getSearchResult(Context context, String tradeName, String goodsName, String classification, final InterfaceManager.CallBackCommon callback) {
+    public static void getSearchResult(Context context, String classification, final InterfaceManager.CallBackCommon callback) {
         String jsonString = GetJsonToName.getJson(context, "searchresultregistered.json");
         Gson gson = new Gson();
-        SearchResultRegisteredBean bean = gson.fromJson(jsonString, SearchResultRegisteredBean.class);
+        SearchResultBean bean = gson.fromJson(jsonString, SearchResultBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

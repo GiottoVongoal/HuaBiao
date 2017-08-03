@@ -1,22 +1,19 @@
 package com.huabiao.aoiin.ui.activity;
 
 
-import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.constant.FlagBase;
+import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
 import com.huabiao.aoiin.ui.fragment.RegisterCardOneView;
 import com.huabiao.aoiin.ui.fragment.RegisterCardTwoView;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ChangeRegisterIndexEvent;
-import com.huabiao.aoiin.wedgit.JazzyViewPager;
-import com.huabiao.aoiin.wedgit.OutlineContainer;
-import com.squareup.otto.Bus;
+import com.huabiao.aoiin.wedgit.ShadowTransformer;
 import com.squareup.otto.Subscribe;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -33,10 +30,13 @@ import butterknife.Bind;
  * @description 默认注册页面
  */
 public class RegisterActivity extends BaseActivity {
-    @Bind(R.id.register_jazzy_vp)
-    JazzyViewPager register_jazzy_vp;
 
     private List<View> vpList;
+
+    @Bind(R.id.register_card_vp)
+    ViewPager register_card_vp;
+    CardPagerAdapter mCardAdapter;
+    ShadowTransformer mCardShadowTransformer;
 
     private RegisterCardOneView cardOne;
     private RegisterCardTwoView cardTwo;
@@ -60,40 +60,14 @@ public class RegisterActivity extends BaseActivity {
         vpList.add(cardOne);
         vpList.add(cardTwo);
 
-        register_jazzy_vp.setTransitionEffect(JazzyViewPager.TransitionEffect.ZoomIn);
-        register_jazzy_vp.setFadeEnabled(true);
-        register_jazzy_vp.setPageMargin(0);
-        register_jazzy_vp.setAdapter(new PagerAdapter() {
-
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                if (view instanceof OutlineContainer) {
-                    return ((OutlineContainer) view).getChildAt(0) == object;
-                } else {
-                    return view == object;
-                }
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position,
-                                    Object object) {
-                container.removeView(register_jazzy_vp.findViewFromObject(position));
-            }
-
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-                container.addView(vpList.get(position));
-                register_jazzy_vp.setObjectForPosition(vpList.get(position),
-                        position);
-                return vpList.get(position);
-            }
-
-            @Override
-            public int getCount() {
-                return vpList.size();
-            }
-        });
-
+        mCardAdapter = new CardPagerAdapter();
+        mCardAdapter.addCardItem(cardOne);
+        mCardAdapter.addCardItem(cardTwo);
+        mCardShadowTransformer = new ShadowTransformer(register_card_vp, mCardAdapter);
+        mCardShadowTransformer.enableScaling(true);
+        register_card_vp.setAdapter(mCardAdapter);
+        register_card_vp.setPageTransformer(false, mCardShadowTransformer);
+        register_card_vp.setOffscreenPageLimit(3);
     }
 
     @Override
@@ -131,9 +105,14 @@ public class RegisterActivity extends BaseActivity {
         }
     }
 
+    /**
+     * 实现点击卡片中下一步按钮跳转下个Item
+     *
+     * @param event
+     */
     @Subscribe
     public void setIndex(ChangeRegisterIndexEvent event) {
-        register_jazzy_vp.setCurrentItem(event.getIndex());
+        register_card_vp.setCurrentItem(event.getIndex());
     }
 
     @Override

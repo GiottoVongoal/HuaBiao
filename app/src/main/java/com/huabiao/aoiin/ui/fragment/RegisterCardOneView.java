@@ -1,6 +1,7 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -30,7 +31,7 @@ import java.util.List;
  * @date 2017-08-02 20:40
  * @description 自主注册第一张卡片(基本信息、注册类别、折线图)
  */
-public class RegisterCardOneView extends LinearLayout implements View.OnClickListener {
+public class RegisterCardOneView extends CardView implements View.OnClickListener {
     private TextView tradename_tv;//注册商标
     private TextView tradetype_tv;//分类
 
@@ -94,7 +95,6 @@ public class RegisterCardOneView extends LinearLayout implements View.OnClickLis
                 adapter.notifyDataSetChanged();
             }
         });
-
         meaning_tv.setText(bean.getMeans());
     }
 
