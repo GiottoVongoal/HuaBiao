@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.fragment;
+package com.huabiao.aoiin.ui.view;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.RegisterBean;
+import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.bean.SelectClassificationCheckBean;
 import com.huabiao.aoiin.bean.SelectClassificationListBean;
 import com.huabiao.aoiin.model.RegisterModel;
@@ -31,7 +32,7 @@ import java.util.List;
  * @date 2017-08-02 20:40
  * @description 自主注册第一张卡片(基本信息、注册类别、折线图)
  */
-public class RegisterCardOneView extends CardView implements View.OnClickListener {
+public class RegisterCardOneView extends RegisterCardBaseView implements View.OnClickListener {
     private TextView tradename_tv;//注册商标
     private TextView tradetype_tv;//分类
 
@@ -45,6 +46,8 @@ public class RegisterCardOneView extends CardView implements View.OnClickListene
     private TextView meaning_tv;//释义
     private TextView next_tv;//下一步
 
+    private RegisterCommitBean commitBean;
+
     private View view;
     private Context context;
 
@@ -53,6 +56,7 @@ public class RegisterCardOneView extends CardView implements View.OnClickListene
         view = inflate(context, R.layout.register_card_one_layout, this);
         this.context = context;
         list = new ArrayList<>();
+        commitBean = RegisterCommitBean.getInstance();
         tradename_tv = (TextView) view.findViewById(R.id.register_card_one_tradename_tv);
         tradetype_tv = (TextView) view.findViewById(R.id.register_card_one_tradetype_tv);
         classification_tv = (TextView) view.findViewById(R.id.register_card_one_classification_tv);
@@ -75,8 +79,8 @@ public class RegisterCardOneView extends CardView implements View.OnClickListene
     }
 
     private void getShowData(RegisterBean bean) {
-        tradename_tv.setText("注册商标" + bean.getLinechart().getTradename());
-        tradetype_tv.setText("分类" + bean.getLinechart().getClassificationid() + "-" + bean.getLinechart().getTrademarkclassification());
+        tradename_tv.setText("注册商标:" + bean.getLinechart().getTradename());
+        tradetype_tv.setText("分类:" + bean.getLinechart().getClassificationid() + "-" + bean.getLinechart().getTrademarkclassification());
         linechart.setLineChartBean(bean.getLinechart());
 
         list = getList(bean.getClassification());
@@ -110,6 +114,21 @@ public class RegisterCardOneView extends CardView implements View.OnClickListene
                 AppBus.getInstance().post(produceChangeIndex());
                 break;
         }
+    }
+
+    @Override
+    public void save() {
+        super.save();
+        List<ClassificationBean> result = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).isCheck()) {
+                ClassificationBean bean = new ClassificationBean();
+                bean.setClassificationname(list.get(i).getClassificationname());
+                bean.setClassificationid(list.get(i).getClassificationid());
+                result.add(bean);
+            }
+        }
+        commitBean.setClaList(result);
     }
 
     /**

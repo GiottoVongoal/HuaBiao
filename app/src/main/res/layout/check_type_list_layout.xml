@@ -48,7 +48,7 @@
     <View style="@style/GrayLine" />
 
     <FrameLayout
-        android:id="@+id/check_type_list_fl"
+        android:id="@+id/person_type_select_address_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

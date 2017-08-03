@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.fragment;
+package com.huabiao.aoiin.ui.view;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ChangeRegisterIndexEvent;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
@@ -25,12 +26,14 @@ import chihane.jdaddressselector.model.Street;
  * @date 2017-08-02 21:51
  * @description 自主注册第二张卡片(联系方式)
  */
-public class RegisterCardTwoView extends CardView implements View.OnClickListener {
+public class RegisterCardTwoView extends RegisterCardBaseView implements View.OnClickListener {
     private TextInputLayout username_et, userphone_et;//客户姓名,电话
     private TextView select_address_tv;//选择地址
     private TextInputLayout address_et;//输入地址
     private TextInputLayout code_et;//邮政编码
     private TextView next_tv;//下一步
+
+    private RegisterCommitBean commitBean;
 
     private View view;
     private Context context;
@@ -39,6 +42,7 @@ public class RegisterCardTwoView extends CardView implements View.OnClickListene
         super(context);
         view = inflate(context, R.layout.register_card_two_layout, this);
         this.context = context;
+        commitBean = RegisterCommitBean.getInstance();
         username_et = (TextInputLayout) view.findViewById(R.id.register_card_two_username_et);
         userphone_et = (TextInputLayout) view.findViewById(R.id.register_card_two_userphone_et);
         select_address_tv = (TextView) view.findViewById(R.id.register_card_two_select_address_tv);
@@ -72,6 +76,15 @@ public class RegisterCardTwoView extends CardView implements View.OnClickListene
         }
     }
 
+    @Override
+    public void save() {
+        super.save();
+        commitBean.setUsername(username_et.getEditText().getText().toString());
+        commitBean.setUserphone(userphone_et.getEditText().getText().toString());
+        commitBean.setContractAddress(select_address_tv.getText().toString() + "," + address_et.getEditText().getText().toString());
+        commitBean.setCode(code_et.getEditText().getText().toString());
+    }
+
     /**
      * 产生事件
      *
@@ -93,9 +106,9 @@ public class RegisterCardTwoView extends CardView implements View.OnClickListene
             @Override
             public void onAddressSelected(Province province, City city, County county, Street street) {
                 String address = (province == null ? "" : province.name) +
-                        (city == null ? "" : "\t" + city.name) +
-                        (county == null ? "" : "\t" + county.name) +
-                        (street == null ? "" : "\t" + street.name);
+                        (city == null ? "" : "," + city.name) +
+                        (county == null ? "" : "," + county.name) +
+                        (street == null ? "" : "," + street.name);
                 tv.setText(address);
                 dialog.dismiss();
             }

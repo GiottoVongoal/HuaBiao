@@ -39,7 +39,7 @@ public class CheckTypeListFragment extends BaseFragment {
     @Bind(R.id.check_type_list_confirm)
     TextView confirm;
 
-    @Bind(R.id.check_type_list_fl)
+    @Bind(R.id.person_type_select_address_fl)
     FrameLayout frameLayout;
     int deep = 2;
     ClassificationTypeSelector selector;

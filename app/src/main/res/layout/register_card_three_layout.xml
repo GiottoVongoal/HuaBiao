@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="20dp"
     android:orientation="vertical">
 
     <TextView
@@ -10,4 +11,53 @@
         android:gravity="center"
         android:padding="15dp"
         android:text="申请人类型" />
+
+    <TextView
+        android:id="@+id/register_card_three_legal_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/g_white_gray"
+        android:gravity="center"
+        android:padding="7dp"
+        android:text="法人或其他组织"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/register_card_three_individual_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/g_white_gray"
+        android:gravity="center"
+        android:padding="7dp"
+        android:text="个体工商户"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/register_card_three_average_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/g_white_gray"
+        android:gravity="center"
+        android:padding="7dp"
+        android:text="自然人"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/register_card_three_next_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/bg_round_gray"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="下一步" />
 </LinearLayout>

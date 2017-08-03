@@ -6,7 +6,7 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-07-21 16:53
- * @description
+ * @description 注册页面获取的显示数据
  */
 public class RegisterBean {
 

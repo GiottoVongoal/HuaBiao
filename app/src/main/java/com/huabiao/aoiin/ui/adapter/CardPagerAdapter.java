@@ -6,20 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.huabiao.aoiin.ui.interfaces.ICardAdapter;
+import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CardPagerAdapter extends PagerAdapter implements ICardAdapter {
 
-    private List<CardView> mViews;
+    private List<RegisterCardBaseView> mViews;
     private float mBaseElevation;
 
     public CardPagerAdapter() {
         mViews = new ArrayList<>();
     }
 
-    public void setCardItem(List<CardView> item) {
+    public void setCardItem(List<RegisterCardBaseView> item) {
         mViews = item;
     }
 
@@ -55,6 +56,7 @@ public class CardPagerAdapter extends PagerAdapter implements ICardAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
+        ((RegisterCardBaseView) object).save();
         container.removeView((View) object);
         mViews.set(position, null);
     }
