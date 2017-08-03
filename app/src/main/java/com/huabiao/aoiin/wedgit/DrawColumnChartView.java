@@ -36,7 +36,7 @@ import static android.R.id.list;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.wedgit
  * @date 2017-07-07 18:09
- * @description
+ * @description 柱状图
  */
 public class DrawColumnChartView extends RelativeLayout {
     ColumnChartView chart;

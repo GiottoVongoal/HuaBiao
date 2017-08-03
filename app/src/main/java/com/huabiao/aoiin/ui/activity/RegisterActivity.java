@@ -41,9 +41,7 @@ public class RegisterActivity extends BaseActivity {
     private RegisterCardOneView cardOne;
     private RegisterCardTwoView cardTwo;
 
-    private String tradename, industry;
-    private int pageIndex;//1查询;2注册
-    private String selectClassify;//在查询页面选择的分类大类名称
+//    private String tradename, industry;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -74,10 +72,8 @@ public class RegisterActivity extends BaseActivity {
     public void getIntentValue() {
         super.getIntentValue();
         Bundle bundle = getIntent().getExtras();
-        tradename = bundle.getString("tradename");
-        industry = bundle.getString("industry");
-        pageIndex = bundle.getInt("pageIndex", 2);//1查询;2注册第一步
-        selectClassify = bundle.getString("selectClassify");
+//        tradename = bundle.getString("tradename");
+//        industry = bundle.getString("industry");
     }
 
     @Override

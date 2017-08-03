@@ -16,7 +16,7 @@ import com.huabiao.aoiin.R;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.wedgit
  * @date 2017-06-05 11:54
- * @description
+ * @description 6位验证码
  */
 public class VerficationCodeView extends RelativeLayout {
     private EditText editText;

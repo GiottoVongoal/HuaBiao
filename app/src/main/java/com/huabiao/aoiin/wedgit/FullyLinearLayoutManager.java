@@ -12,7 +12,7 @@ import com.blankj.ALog;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.wedgit
  * @date 2017-07-13 14:46
- * @description
+ * @description ScrollView嵌套RecyclerView
  */
 
 public class FullyLinearLayoutManager extends LinearLayoutManager {

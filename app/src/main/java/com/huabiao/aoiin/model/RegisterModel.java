@@ -17,7 +17,7 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 public class RegisterModel {
 
     /**
-     * 获取注册页面的行业列表
+     * 获取行业列表
      *
      * @param context
      * @param callBack

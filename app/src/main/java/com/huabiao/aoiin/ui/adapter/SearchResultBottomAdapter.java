@@ -39,19 +39,6 @@ public class SearchResultBottomAdapter extends RecyclerView.Adapter<SearchResult
         holder.title_tv.setText(bean.getTradename());
         String typeString = "[" + bean.getClassificationid() + "]\t" + bean.getTrademarkclassification();
         holder.type_tv.setText(typeString);
-        String statusString = "";
-        switch (bean.getTrademarkstatus()) {
-            case 1:
-                statusString = "已注册";
-                break;
-            case 2:
-                statusString = "未注册";
-                break;
-            case 3:
-                statusString = "待审核";
-                break;
-        }
-        holder.status_tv.setText(statusString);
     }
 
     @Override
@@ -65,13 +52,12 @@ public class SearchResultBottomAdapter extends RecyclerView.Adapter<SearchResult
     }
 
     class TopHolder extends RecyclerView.ViewHolder {
-        TextView title_tv, type_tv, status_tv;
+        TextView title_tv, type_tv;
 
         public TopHolder(View itemView) {
             super(itemView);
             title_tv = (TextView) itemView.findViewById(R.id.search_result_bottom_item_title_tv);
             type_tv = (TextView) itemView.findViewById(R.id.search_result_bottom_item_type_tv);
-            status_tv = (TextView) itemView.findViewById(R.id.search_result_bottom_item_status_tv);
         }
     }
 

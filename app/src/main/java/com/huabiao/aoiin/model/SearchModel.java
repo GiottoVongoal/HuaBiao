@@ -19,7 +19,7 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 public class SearchModel {
 
     /**
-     * 获取可注册类别列表
+     * 获取查询结果可注册类别列表
      *
      * @param context
      * @param callback
@@ -34,7 +34,7 @@ public class SearchModel {
     }
 
     /**
-     * 获取查询结果--已注册
+     * 获取查询结果
      *
      * @param context
      * @param classification 类型

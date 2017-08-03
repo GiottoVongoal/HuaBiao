@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultBean.Classification.ClassficationsmalltypeBean.DetailedBean;
+import com.huabiao.aoiin.bean.SearchResultBean;
+import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean.ClassficationsmalltypeBean;
 
 import java.util.List;
 
@@ -20,13 +21,13 @@ import java.util.List;
  */
 public class ShowRegisteredTypePopupAdapter extends RecyclerView.Adapter<ShowRegisteredTypePopupAdapter.PopupViewHolder> {
     private Context context;
-    private List<DetailedBean> list;
+    private List<ClassficationsmalltypeBean> list;
 
     private View mFooterView;//底布局
     public static final int TYPE_FOOTER = 1;  //说明是带有Footer的
     public static final int TYPE_NORMAL = 2;  //说明是不带有header和footer的
 
-    public ShowRegisteredTypePopupAdapter(Context context, List<DetailedBean> list) {
+    public ShowRegisteredTypePopupAdapter(Context context, List<ClassficationsmalltypeBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -50,8 +51,8 @@ public class ShowRegisteredTypePopupAdapter extends RecyclerView.Adapter<ShowReg
         if (getItemViewType(position) == TYPE_FOOTER) {
             return;
         }
-        DetailedBean bean = list.get(position);
-        String showText = "[" + bean.getId() + "]\t" + bean.getTypename();
+        ClassficationsmalltypeBean bean = list.get(position);
+        String showText = "[" + bean.getClassificationsmallid() + "]\t" + bean.getClassificationsmallname();
         holder.popwind_tv.setText(showText);
 
     }

@@ -18,8 +18,7 @@ import android.view.WindowManager;
 import com.huabiao.aoiin.R;
 
 /**
- * colorful arc progress bar
- * Created by shinelw on 12/4/15.
+ * 圆弧进度条
  */
 public class ColorArcProgressBar extends View {
 

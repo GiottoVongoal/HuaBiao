@@ -14,7 +14,6 @@ import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.ui.activity.RegisterActivity;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
-import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -34,14 +33,12 @@ import butterknife.Bind;
 public class RegisterOneFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.register_one_tradename_et)
     TextInputLayout tradename_et;//商标名
-    @Bind(R.id.register_one_industry_tv)
-    TextView industry_tv;//选择行业
+    @Bind(R.id.register_one_goodsname_et)
+    TextInputLayout goodsname_et;//商品名
     @Bind(R.id.register_one_register_tv)
     FloatingActionButton register_tv;//注册按钮
-    //选择行业的弹框
-    private IndustryPopupWindow industryWindow;
-    private int place = 0;
-    private String industry = "", tradename = "";
+    private String tradename = "", goodsname = "";
+
     //选择客服弹出框
     private RegisterOneFinishPopupWindow finishPopupWindow;
 
@@ -58,7 +55,6 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        industry_tv.setOnClickListener(this);
         register_tv.setOnClickListener(this);
         hide(btn_left);
         hide(btn_right);
@@ -67,29 +63,17 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
     @Override
     public void onClick(final View view) {
         switch (view.getId()) {
-            case R.id.register_one_industry_tv:
-                //选择行业
-                KeyboardUtils.hideSoftInput(getActivity());
-                RegisterModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
-                    @Override
-                    public void getCallBackCommon(Object mData) {
-                        if (mData != null) {
-                            RegisterOneIndustryBean bean = (RegisterOneIndustryBean) mData;
-                            showIndustryWindow(view, bean.getRegisteroneindustrylist());
-                        }
-                    }
-                });
-                break;
             case R.id.register_one_register_tv:
                 //注册按钮
                 KeyboardUtils.hideSoftInput(getActivity());
                 tradename = tradename_et.getEditText().getText().toString();
+                goodsname = goodsname_et.getEditText().getText().toString();
                 if (TextUtils.isEmpty(tradename)) {
                     showToast("请输入商标名");
                     return;
                 }
-                if (TextUtils.isEmpty(industry)) {
-                    showToast("请选择行业");
+                if (TextUtils.isEmpty(goodsname)) {
+                    showToast("请输入商品名");
                     return;
                 }
                 showFinishPopupWindow(view);
@@ -106,42 +90,20 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
         }
     }
 
-    //选择行业弹出框
-    private void showIndustryWindow(View view, final List<RegisterOneIndustryBean.IndustrylistBean> industryList) {
-        industryWindow = new IndustryPopupWindow(getContext(), "标题", industryList, place, new OnItemClickListener() {
-            @Override
-            public void onItemClickListener(View view, int position) {
-                industry = industryList.get(position).getIndustryname();
-                industry_tv.setText(industry);
-                place = position;
-                industryWindow.dismiss();
-            }
-        });
-        //显示窗口
-        industryWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
-    }
-
     //选择客服弹出框
     private void showFinishPopupWindow(View view) {
         finishPopupWindow = new RegisterOneFinishPopupWindow(getContext(), new RegisterOneFinishPopupWindow.DialogClickListener() {
             @Override
             public void selectDefault() {
-                showToast("默认注册\n" + tradename + "\n" + industry);
-                Bundle bundle = new Bundle();
-                bundle.putString("tradename", tradename);
-                bundle.putString("industry", industry);
-                bundle.putInt("pageIndex", 2);
-                JumpUtils.startActivity(getContext(), RegisterActivity.class, bundle);
+                showToast("默认注册\n" + tradename + "\n" + goodsname);
+                JumpUtils.startActivity(getContext(), RegisterActivity.class);
                 finishPopupWindow.dismiss();
             }
 
             @Override
             public void selectRecommand() {
-                showToast("客服推荐\n" + tradename + "\n" + industry);
-                Bundle bundle = new Bundle();
-                bundle.putString("tradename", tradename);
-                bundle.putString("industry", industry);
-                JumpUtils.startFragmentByName(getContext(), CustomerServiceListFragment.class, bundle);
+                showToast("客服推荐\n" + tradename + "\n" + goodsname);
+                JumpUtils.startFragmentByName(getContext(), CustomerServiceListFragment.class);
                 finishPopupWindow.dismiss();
             }
         });

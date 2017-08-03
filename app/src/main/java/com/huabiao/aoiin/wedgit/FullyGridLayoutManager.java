@@ -10,7 +10,7 @@ import android.view.ViewGroup;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.wedgit
  * @date 2017-07-13 15:13
- * @description
+ * @description ScrollView嵌套RecyclerView
  */
 public class FullyGridLayoutManager extends GridLayoutManager {
     public FullyGridLayoutManager(Context context, int spanCount) {

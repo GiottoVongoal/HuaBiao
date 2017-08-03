@@ -9,7 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultBean.Classification.ClassficationsmalltypeBean;
+import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean;
+import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean.ClassficationsmalltypeBean;
 import com.huabiao.aoiin.wedgit.ShowRegisteredTypePopupWindow;
 
 import java.util.List;
@@ -21,12 +22,12 @@ import java.util.List;
  * @description 查结果--筛选后的次级分类Adapter
  */
 public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTopAdapter.TopHolder> {
-    private List<ClassficationsmalltypeBean> historyList;
+    private ClassificationBean bean;
     private Context context;
 
-    public SearchResultTopAdapter(Context context, List<ClassficationsmalltypeBean> historyList) {
+    public SearchResultTopAdapter(Context context, ClassificationBean bean) {
         this.context = context;
-        this.historyList = historyList;
+        this.bean = bean;
     }
 
     @Override
@@ -37,23 +38,43 @@ public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTop
 
     @Override
     public void onBindViewHolder(SearchResultTopAdapter.TopHolder holder, final int position) {
-        final ClassficationsmalltypeBean bean = historyList.get(position);
-        String showText = bean.getClassificationsmallid() + " - " + bean.getClassificationsmallname();
-        holder.item_tv.setText(showText);
+        //左边显示最大分类
+        String leftTextt = bean.getClassificationid() + " - " + bean.getClassificationname();
+        holder.item_left_tv.setText(leftTextt);
 
-        holder.item_ll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //点击显示小分类和注册状态
-                int direction = (position % 2 == 0) ? 1 : 2;
-                ShowRegisteredTypePopupWindow popupWindow = new ShowRegisteredTypePopupWindow(
-                        context, bean.getDetailed(), direction, bean.getTrademarkstatus());
-                if (direction == 1)
-                    popupWindow.showAtDropDownLeft(view);
-                else
-                    popupWindow.showAtDropDownRight(view);
-            }
-        });
+        ClassficationsmalltypeBean smallBean = bean.getClassficationsmalltype().get(position);
+
+        //上边显示第二分类的ID和最小分类的name
+        String topTex = smallBean.getClassificationsmallid() + " - " + smallBean.getClassificationsmallname();
+        holder.item_tv.setText(topTex);
+        //右边显示状态
+        String statusString = "";
+        switch (smallBean.getTrademarkstatus()) {
+            case 1:
+                statusString = "已注册";
+                break;
+            case 2:
+                statusString = "未注册";
+                break;
+            case 3:
+                statusString = "待审核";
+                break;
+        }
+        holder.item_right_tv.setText(statusString);
+
+//        holder.item_ll.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //点击显示小分类和注册状态
+//                int direction = (position % 2 == 0) ? 1 : 2;
+//                ShowRegisteredTypePopupWindow popupWindow = new ShowRegisteredTypePopupWindow(
+//                        context, bean.getDetailed(), direction, bean.getTrademarkstatus());
+//                if (direction == 1)
+//                    popupWindow.showAtDropDownLeft(view);
+//                else
+//                    popupWindow.showAtDropDownRight(view);
+//            }
+//        });
     }
 
     @Override
@@ -63,7 +84,7 @@ public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTop
 
     @Override
     public int getItemCount() {
-        return historyList == null ? 0 : historyList.size();
+        return bean.getClassficationsmalltype() == null ? 0 : bean.getClassficationsmalltype().size();
     }
 
     class TopHolder extends RecyclerView.ViewHolder {

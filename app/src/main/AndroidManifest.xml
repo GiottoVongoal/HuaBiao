@@ -33,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.fragment.CheckViewIsShowActivity" />
         <!--注册页面-->
         <activity android:name=".ui.activity.RegisterActivity" />
         <!--进度页面(测试圆弧进度条)-->

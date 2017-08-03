@@ -13,7 +13,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultBean.Classification.ClassficationsmalltypeBean.DetailedBean;
+import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean.ClassficationsmalltypeBean;
 import com.huabiao.aoiin.ui.adapter.ShowRegisteredTypePopupAdapter;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class ShowRegisteredTypePopupWindow extends PopupWindow {
 
     private RecyclerView popmenu_rv;
 
-    public ShowRegisteredTypePopupWindow(Context context, List<DetailedBean> list, int direction, int trademarkstatus) {
+    public ShowRegisteredTypePopupWindow(Context context, List<ClassficationsmalltypeBean> list, int direction, int trademarkstatus) {
         super(context);
         this.context = context;
         this.initPopupWindow(list, direction, trademarkstatus);
@@ -44,7 +44,7 @@ public class ShowRegisteredTypePopupWindow extends PopupWindow {
      * @param list
      * @param direction 设置动画的方向:1 左;2 右
      */
-    private void initPopupWindow(List<DetailedBean> list, int direction, int trademarkstatus) {
+    private void initPopupWindow(List<ClassficationsmalltypeBean> list, int direction, int trademarkstatus) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.contentView = inflater.inflate(R.layout.show_registered_type_popupwindow, null);
