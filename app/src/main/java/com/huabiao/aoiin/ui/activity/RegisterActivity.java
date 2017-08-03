@@ -4,12 +4,14 @@ package com.huabiao.aoiin.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.view.View;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.constant.FlagBase;
 import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
 import com.huabiao.aoiin.ui.fragment.RegisterCardOneView;
+import com.huabiao.aoiin.ui.fragment.RegisterCardThreeView;
 import com.huabiao.aoiin.ui.fragment.RegisterCardTwoView;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ChangeRegisterIndexEvent;
@@ -31,7 +33,7 @@ import butterknife.Bind;
  */
 public class RegisterActivity extends BaseActivity {
 
-    private List<View> vpList;
+    private List<CardView> vpList;
 
     @Bind(R.id.register_card_vp)
     ViewPager register_card_vp;
@@ -40,6 +42,7 @@ public class RegisterActivity extends BaseActivity {
 
     private RegisterCardOneView cardOne;
     private RegisterCardTwoView cardTwo;
+    private RegisterCardThreeView cardThree;
 
 //    private String tradename, industry;
 
@@ -53,14 +56,15 @@ public class RegisterActivity extends BaseActivity {
         //卡片初始化
         cardOne = new RegisterCardOneView(this);
         cardTwo = new RegisterCardTwoView(this);
+        cardThree = new RegisterCardThreeView(this);
         //vp相关初始化
         vpList = new ArrayList<>();
         vpList.add(cardOne);
         vpList.add(cardTwo);
+        vpList.add(cardThree);
 
         mCardAdapter = new CardPagerAdapter();
-        mCardAdapter.addCardItem(cardOne);
-        mCardAdapter.addCardItem(cardTwo);
+        mCardAdapter.setCardItem(vpList);
         mCardShadowTransformer = new ShadowTransformer(register_card_vp, mCardAdapter);
         mCardShadowTransformer.enableScaling(true);
         register_card_vp.setAdapter(mCardAdapter);

@@ -19,8 +19,8 @@ public class CardPagerAdapter extends PagerAdapter implements ICardAdapter {
         mViews = new ArrayList<>();
     }
 
-    public void addCardItem(CardView item) {
-        mViews.add(item);
+    public void setCardItem(List<CardView> item) {
+        mViews = item;
     }
 
     public float getBaseElevation() {

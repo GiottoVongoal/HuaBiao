@@ -55,6 +55,8 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     public void bindView(Bundle savedInstanceState) {
+        tradename_et.getEditText().setText("我是商标名(注册)");
+        goodsname_et.getEditText().setText("我是商品名(注册)");
         register_tv.setOnClickListener(this);
         hide(btn_left);
         hide(btn_right);

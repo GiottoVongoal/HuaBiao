@@ -38,8 +38,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        search_tradename_tl.getEditText().setText("a");
-        search_goodsname_tl.getEditText().setText("a");
+        search_tradename_tl.getEditText().setText("我是商标名(查询)");
+        search_goodsname_tl.getEditText().setText("我是商品名(查询)");
         search_tv.setOnClickListener(this);
     }
 
