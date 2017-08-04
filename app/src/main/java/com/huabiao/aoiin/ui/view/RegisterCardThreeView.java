@@ -90,7 +90,6 @@ public class RegisterCardThreeView extends RegisterCardBaseView implements View.
             case R.id.register_card_three_next_tv:
                 //下一步
                 AppBus.getInstance().post(produceChangeIndex());
-                ALog.i("commitBean -- >" + commitBean.toString());
                 break;
         }
     }

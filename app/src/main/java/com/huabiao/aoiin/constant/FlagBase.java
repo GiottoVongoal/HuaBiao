@@ -31,4 +31,9 @@ public class FlagBase {
     public static final String SDCARD_FJ_PATH = Environment.getExternalStorageDirectory() + File.separator;
     public static final int MEDIA_PHOTO = 10061;// 拍照标识
     public static final int MEDIA_SPHOTO = 10062;// 选照标识
+
+    public static final int REGISTER_PHOTO = 10070;// 注册页面标识
+    public static final int TRADE_LOGO = 10071;// 商标图样标识
+    public static final int PROXY = 10072;// 委托书标识
+    public static final int BUSINESS_LICENCE = 10073;// 营业执照标识
 }

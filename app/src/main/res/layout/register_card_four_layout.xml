@@ -8,11 +8,12 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/register_card_four_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:text="公司注册资料提交" />
+        android:text="资料提交" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,12 +25,12 @@
             android:id="@+id/register_card_four_trade_logo_iv"
             android:layout_width="150dp"
             android:layout_height="100dp"
+            android:layout_marginRight="10dp"
             android:background="@mipmap/ic_launcher"
             android:scaleType="fitXY"
             app:layout_constraintLeft_toLeftOf="parent"
-            tools:layout_editor_absoluteY="0dp"
             app:layout_constraintRight_toLeftOf="@+id/register_card_four_proxy_iv"
-            android:layout_marginRight="10dp" />
+            tools:layout_editor_absoluteY="0dp" />
 
         <ImageView
             android:id="@+id/register_card_four_proxy_iv"
@@ -91,7 +92,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <TextView
-        android:id="@+id/register_card_two_next_tv"
+        android:id="@+id/register_card_four_next_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"

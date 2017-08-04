@@ -45,20 +45,18 @@ public class CardPagerAdapter extends PagerAdapter implements ICardAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(mViews.get(position));
+        RegisterCardBaseView view = mViews.get(position);
+        container.addView(view);
         if (mBaseElevation == 0) {
-            mBaseElevation = mViews.get(position).getCardElevation();
+            mBaseElevation = view.getCardElevation();
         }
         mViews.get(position).setMaxCardElevation(mBaseElevation * MAX_ELEVATION_FACTOR);
-        mViews.set(position, mViews.get(position));
-        return mViews.get(position);
+        return view;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        ((RegisterCardBaseView) object).save();
         container.removeView((View) object);
-        mViews.set(position, null);
     }
 
 }

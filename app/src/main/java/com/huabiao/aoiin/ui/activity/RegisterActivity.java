@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.constant.FlagBase;
 import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
+import com.huabiao.aoiin.ui.fragment.PayInfoDetailFragment;
+import com.huabiao.aoiin.ui.ottobus.ToNextPageEvent;
 import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
+import com.huabiao.aoiin.ui.view.RegisterCardFiveView;
 import com.huabiao.aoiin.ui.view.RegisterCardFourView;
 import com.huabiao.aoiin.ui.view.RegisterCardOneView;
 import com.huabiao.aoiin.ui.view.RegisterCardThreeView;
@@ -21,6 +25,7 @@ import com.huabiao.aoiin.wedgit.ShadowTransformer;
 import com.squareup.otto.Subscribe;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +53,7 @@ public class RegisterActivity extends BaseActivity {
     private RegisterCardTwoView cardTwo;
     private RegisterCardThreeView cardThree;
     private RegisterCardFourView cardFour;
+    private RegisterCardFiveView cardFive;
 
 //    private String tradename, industry;
 
@@ -65,12 +71,14 @@ public class RegisterActivity extends BaseActivity {
         cardTwo = new RegisterCardTwoView(this);
         cardThree = new RegisterCardThreeView(this);
         cardFour = new RegisterCardFourView(this);
+        cardFive = new RegisterCardFiveView(this);
         //vp相关初始化
         vpList = new ArrayList<>();
         vpList.add(cardOne);
         vpList.add(cardTwo);
         vpList.add(cardThree);
         vpList.add(cardFour);
+        vpList.add(cardFive);
 
         mCardAdapter = new CardPagerAdapter();
         mCardAdapter.setCardItem(vpList);
@@ -90,6 +98,9 @@ public class RegisterActivity extends BaseActivity {
                 //页面跳转完后被调用，arg0是你当前选中的页面的Position（位置编号）
                 if (position > 0) {
                     vpList.get(position - 1).save();
+                }
+                for (int i = 0; i < vpList.size(); i++) {
+                    ALog.i(i + "==" + (vpList.get(i) == null ? "null" : "notNull"));
                 }
             }
 
@@ -117,26 +128,7 @@ public class RegisterActivity extends BaseActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case FlagBase.MEDIA_PHOTO:// 拍照
-//                String filePath = Path + folderName + File.separator + "trademark_logo.jpg";
-//                ALog.i("filePath = " + filePath);
-//                File file = new File(filePath);
-//                if (file.exists()) {
-//                    Bitmap mBitmap = BitmapUtil.createImageThumbnail(filePath);
-//                    int degree = mMediaView.loadImageDegree(filePath);
-//                    Bitmap bitmap = mMediaView.rotateBitmap(mBitmap, degree);
-//                    mMediaView.saveBitmap(bitmap, filePath);
-//                    trademark_logo_iv.setImageBitmap(bitmap);
-//                }
-                break;
-            case FlagBase.MEDIA_SPHOTO:// 选照
-//                if (data != null && data.getData() != null) {
-//                    Bitmap bitmap = mMediaView.selectPhotoSave(data, folderName, "trademark_logo");
-//                    trademark_logo_iv.setImageBitmap(bitmap);
-//                }
-                break;
-        }
+        cardFour.onActivityResult(requestCode, data);
     }
 
     /**
@@ -147,6 +139,11 @@ public class RegisterActivity extends BaseActivity {
     @Subscribe
     public void setIndex(ChangeRegisterIndexEvent event) {
         register_card_vp.setCurrentItem(event.getIndex());
+    }
+
+    @Subscribe
+    public void toNextPage(ToNextPageEvent event) {
+        JumpUtils.startFragmentByName(this, PayInfoDetailFragment.class);
     }
 
     @Override

@@ -14,7 +14,9 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.sevenheaven.iosswitch.ShSwitchView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -82,11 +84,14 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
     @Bind(R.id.pay_info_detail_pay_tv)
     TextView detail_pay_tv;//立即支付
 
+    private RegisterCommitBean commitBean;
+
     @Override
     public void bindView(Bundle savedInstanceState) {
         setTitle("支付信息");
         setBackEnable();
-
+        commitBean = RegisterCommitBean.getInstance();
+        ALog.i("commitBean -- >" + commitBean.toString());
         detail_orderid_tv.setText("订单编号:0123456789");
         detail_switch_view.setOn(true);
         detail_switch_view.setOnSwitchStateChangeListener(new ShSwitchView.OnSwitchStateChangeListener() {

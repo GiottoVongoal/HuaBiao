@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="服务方式" />
+
+    <RadioGroup
+        android:id="@+id/register_card_five_service_mode_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/register_card_five_general_rb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/checkbox_select_type"
+            android:text="普通注册"
+            android:textColor="@color/grey_8E8E8E" />
+
+        <RadioButton
+            android:id="@+id/register_card_five_urgent_rb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/checkbox_select_type"
+            android:paddingTop="15dp"
+            android:text="加急注册"
+            android:textColor="@color/grey_8E8E8E" />
+
+        <RadioButton
+            android:id="@+id/register_card_five_guarantee_rb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/checkbox_select_type"
+            android:paddingTop="15dp"
+            android:text="注册 + 预审 + 退费担保"
+            android:textColor="@color/grey_8E8E8E" />
+    </RadioGroup>
+
+    <View
+        style="@style/GrayLine"
+        android:layout_marginTop="15dp"
+        android:background="@color/grey_5000" />
+
+    <TextView
+        android:id="@+id/register_card_five_total_cost_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="总费用" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="(注册不成功，翻倍全额退款)"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/register_card_five_finish_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/bg_round_gray"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="确定" />
+</LinearLayout>
