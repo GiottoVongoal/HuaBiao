@@ -1,9 +1,5 @@
 package com.huabiao.aoiin.ui.fragment;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,7 +21,6 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.DeviceUtils;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.StringUtil;
 
@@ -33,8 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-import static android.R.attr.bitmap;
 
 /**
  * @author 杨丽亚.

@@ -2,7 +2,6 @@ package com.huabiao.aoiin.model;
 
 import android.content.Context;
 
-import com.blankj.ALog;
 import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.CreatNameBean.RecommendnamelistBean;
 import com.huabiao.aoiin.bean.LineChartBean;
@@ -45,7 +44,7 @@ public class AnalysisJson {
                 //取Xaxistag数组
                 List<String> s1 = new ArrayList<>();
                 JSONArray a1 = oj.getJSONArray("Xaxistag");
-                ALog.i("a1 : " + a1.toString() + "   a1.size : " + a1.length());
+//                ALog.i("a1 : " + a1.toString() + "   a1.size : " + a1.length());
                 for (int m = 0; m < a1.length(); m++) {
                     s1.add(a1.getString(m));
                 }

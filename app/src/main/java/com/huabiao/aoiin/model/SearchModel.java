@@ -3,6 +3,7 @@ package com.huabiao.aoiin.model;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.huabiao.aoiin.bean.BuyingInfoBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.HotSearchWordsBean;
@@ -115,6 +116,21 @@ public class SearchModel {
         }
 
     }
+    /**
+     * 获取求购详情页面的数据
+     *
+     * @param context
+     * @param callback
+     */
+    public static void getBuyingInfo(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, "buyinginfo.json");
+        Gson gson = new Gson();
+        BuyingInfoBean bean = gson.fromJson(jsonString, BuyingInfoBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
     public static void getShoppingMallList(Context context, final InterfaceManager.CallBackCommon callback) {
         String jsonString = GetJsonToName.getJson(context, "shoppingmalllist.json");
         Gson gson = new Gson();

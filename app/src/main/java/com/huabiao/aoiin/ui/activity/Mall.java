@@ -45,13 +45,6 @@ public class Mall extends BaseFragment {
                 }
             }
         });
-//        mall_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-////                mall_listview.setAdapter(mallAapter);
-//                showToast("i = " + i);
-//            }
-//        });
     }
 
     private void getList(final int page) {

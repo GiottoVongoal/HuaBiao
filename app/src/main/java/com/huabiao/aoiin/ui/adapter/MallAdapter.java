@@ -1,6 +1,7 @@
 package com.huabiao.aoiin.ui.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +11,16 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MallBean.ShoppingmalllistBean;
+import com.huabiao.aoiin.ui.activity.Buying;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.StringUtil;
-import com.ywy.mylibs.utils.ToastUtils;
 
 import java.util.List;
 
-public class MallAdapter extends BaseAdapter {
+import static com.huabiao.aoiin.R.id.mall_listitem_Cybersquatting;
+
+public class MallAdapter extends BaseAdapter implements View.OnClickListener {
     private Context context;
     private List<ShoppingmalllistBean> data2;
 
@@ -24,6 +28,7 @@ public class MallAdapter extends BaseAdapter {
         this.context = context;
         this.data2 = data2;
     }
+
 
     public class MallViewHolder {
         public ImageView imageView;
@@ -64,14 +69,23 @@ public class MallAdapter extends BaseAdapter {
         if (view == null) {
             mallViewHolder = new MallViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.layout_mall_list_item, null);
+            //商标图片
             mallViewHolder.imageView = (ImageView) view.findViewById(R.id.mall_listitem_imageView);
+            //商标名
             mallViewHolder.mallTextview = (TextView) view.findViewById(R.id.mall_contentTextView);
+            //状态
             mallViewHolder.show_TextView = (TextView) view.findViewById(R.id.show_TextView);
+            // 注册号
             mallViewHolder.register_TextView = (TextView) view.findViewById(R.id.mall_register_number);
+            //申请人
             mallViewHolder.applicant_TexView = (TextView) view.findViewById(R.id.mall_applicantTextview);
+            //分类id
             mallViewHolder.classfication_TextView = (TextView) view.findViewById(R.id.mall_classficationid_TextView);
+            //异议按钮
             mallViewHolder.mall_listitem_yiyi = (TextView) view.findViewById(R.id.mall_listitem_yiyi);
+            //抢注按钮
             mallViewHolder.mall_listitem_Cybersquatting = (TextView) view.findViewById(R.id.mall_listitem_Cybersquatting);
+            //求购按钮
             mallViewHolder.mall_listitem_buy = (TextView) view.findViewById(R.id.mall_listitem_buy);
             view.setTag(mallViewHolder);
 
@@ -115,12 +129,28 @@ public class MallAdapter extends BaseAdapter {
                     break;
             }
         }
-        mallViewHolder.mallTextview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ToastUtils.getInstance().showToast(mb.getGoodsname());
-            }
-        });
+        //抢注、求购、异议按钮监听事件
+        mallViewHolder.mall_listitem_Cybersquatting.setOnClickListener(this);
+        mallViewHolder.mall_listitem_buy.setOnClickListener(this);
+        mallViewHolder.mall_listitem_yiyi.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.mall_listitem_buy:
+                JumpUtils.startFragmentByName(context, Buying.class);
+                break;
+            case R.id.mall_listitem_yiyi:
+                JumpUtils.startFragmentByName(context, Buying.class);
+                break;
+            case mall_listitem_Cybersquatting:
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "hai");
+                bundle.putString("id", "0045");
+                JumpUtils.startFragmentByName(context, Buying.class, bundle);
+                break;
+        }
     }
 }

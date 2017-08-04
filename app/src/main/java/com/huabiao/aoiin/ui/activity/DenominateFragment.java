@@ -48,7 +48,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     DrawLineChartView creat_name_line_chart;
 
     @Bind(R.id.denominate_trade_name_et)
-    EditText denominate_trade_name_et;
+    EditText denominate_trade_name_et;//输入商品名
 
     @Bind(R.id.denominate_industry_btn)
     Button denominate_industry_btn;//选择行业

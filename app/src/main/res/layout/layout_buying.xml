@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundwhite"
     android:orientation="vertical">
 
     <ScrollView
@@ -14,46 +15,84 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/buying_recyclerview1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            <include layout="@layout/layout_buying_view" />
+
             <View
                 style="@style/GrayLine"
-                android:layout_width="match_parent"
-                android:layout_height="4dp" />
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/buying_recyclerview2"
-                />
+                android:layout_marginTop="0dp"
+                android:background="@color/black3" />
+
             <View
                 style="@style/GrayLine"
-                android:layout_width="match_parent"
-                android:layout_height="4dp" />
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/buying_recyclerview3"
-                />
+                android:layout_marginTop="10dp"
+                android:background="@color/black3" />
+
+            <include layout="@layout/layout_buying_baseinfo" />
+
             <View
                 style="@style/GrayLine"
-                android:layout_width="match_parent"
-                android:layout_height="4dp" />
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/buying_recyclerview4"
-                />
+                android:layout_marginTop="0dp"
+                android:background="@color/black3" />
+
             <View
                 style="@style/GrayLine"
-                android:layout_width="match_parent"
-                android:layout_height="4dp" />
+                android:layout_marginTop="10dp"
+                android:background="@color/black3" />
+
+            <include layout="@layout/layout_buying_registerinfo" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="0dp"
+                android:background="@color/black3" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="10dp"
+                android:background="@color/black3" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="注册全新商标"
-                android:textAlignment="center"/>
+                android:background="@color/white"
+                android:padding="8dp"
+                android:text="商标服务列表"
+                android:textSize="18dp" />
+
+            <com.huabiao.aoiin.wedgit.MaxRecyclerView
+                android:id="@+id/buying_recyclerview1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="0dp"
+                android:background="@color/black3" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="10dp"
+                android:background="@color/black3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:text="公告与状态"
+                android:textSize="18dp" />
+
+            <com.huabiao.aoiin.wedgit.MaxRecyclerView
+                android:id="@+id/buying_recyclerview2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
         </LinearLayout>
     </ScrollView>
 

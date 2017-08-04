@@ -169,7 +169,6 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 break;
         }
     }
-
     //实现VierPager监听器接口
     class BannerListener implements ViewPager.OnPageChangeListener {
 

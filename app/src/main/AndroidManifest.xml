@@ -28,13 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.fragment.CheckViewIsShowActivity" />
-        <activity android:name=".ui.activity.HotSearchWordLayoutManager" />
-        <activity
-            android:name=".ui.activity.Denominate"
-            android:label="@string/title_activity_denominate" />
-        <activity android:name=".ui.activity.Mall" />
-        <activity android:name=".ui.adapter.MallAdapter"></activity>
-        <activity android:name=".ui.fragment.CheckViewIsShowActivity" />
     </application>
 
 </manifest>
