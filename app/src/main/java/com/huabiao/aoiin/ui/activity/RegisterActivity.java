@@ -4,14 +4,13 @@ package com.huabiao.aoiin.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.CardView;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
-import com.huabiao.aoiin.constant.FlagBase;
+import com.huabiao.aoiin.tools.ActivityCollector;
 import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
-import com.huabiao.aoiin.ui.fragment.PayInfoDetailFragment;
+import com.huabiao.aoiin.ui.fragment.RegisterDataPreviewFragment;
 import com.huabiao.aoiin.ui.ottobus.ToNextPageEvent;
 import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
 import com.huabiao.aoiin.ui.view.RegisterCardFiveView;
@@ -63,6 +62,7 @@ public class RegisterActivity extends BaseActivity {
         setBackEnable();
 
         commitBean = RegisterCommitBean.getInstance();
+        ActivityCollector.addActivity(this);
 
         AppBus.getInstance().register(this);//注册
 
@@ -143,7 +143,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Subscribe
     public void toNextPage(ToNextPageEvent event) {
-        JumpUtils.startFragmentByName(this, PayInfoDetailFragment.class);
+        JumpUtils.startFragmentByName(this, RegisterDataPreviewFragment.class);
     }
 
     @Override

@@ -81,7 +81,8 @@ public class RegisterCardTwoView extends RegisterCardBaseView implements View.On
         super.save();
         commitBean.setUsername(username_et.getEditText().getText().toString());
         commitBean.setUserphone(userphone_et.getEditText().getText().toString());
-        commitBean.setContractAddress(select_address_tv.getText().toString() + "," + address_et.getEditText().getText().toString());
+        String address = select_address_tv.getText().toString().equals("点我选择合同地址地区") ? "" : select_address_tv.getText().toString();
+        commitBean.setContractAddress(address + "," + address_et.getEditText().getText().toString());
         commitBean.setCode(code_et.getEditText().getText().toString());
     }
 

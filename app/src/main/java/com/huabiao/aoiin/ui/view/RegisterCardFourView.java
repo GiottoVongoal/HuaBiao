@@ -26,8 +26,6 @@ import com.squareup.otto.Produce;
 
 import java.io.File;
 
-import static android.R.attr.data;
-
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
@@ -55,9 +53,9 @@ public class RegisterCardFourView extends RegisterCardBaseView {
         view = inflate(context, R.layout.register_card_four_layout, this);
         this.context = context;
         title_tv = (TextView) view.findViewById(R.id.register_card_four_title_tv);
-        trade_logo_iv = (ImageView) view.findViewById(R.id.register_card_four_trade_logo_iv);
-        proxy_iv = (ImageView) view.findViewById(R.id.register_card_four_proxy_iv);
-        business_licence_iv = (ImageView) view.findViewById(R.id.register_card_four_business_licence_iv);
+        trade_logo_iv = (ImageView) view.findViewById(R.id.register_data_preview_trade_logo_iv);
+        proxy_iv = (ImageView) view.findViewById(R.id.register_data_preview_proxy_iv);
+        business_licence_iv = (ImageView) view.findViewById(R.id.register_data_preview_business_licence_iv);
         next_tv = (TextView) view.findViewById(R.id.register_card_four_next_tv);
 
         commitBean = RegisterCommitBean.getInstance();
@@ -78,7 +76,7 @@ public class RegisterCardFourView extends RegisterCardBaseView {
         }
 
         mMediaView = MediaView.getInstance(context);
-        folderName = mMediaView.getFolderName();
+        folderName = "logo";
 
         trade_logo_iv.setOnClickListener(new ViewOnClickListener(0));
         proxy_iv.setOnClickListener(new ViewOnClickListener(0));
@@ -112,15 +110,15 @@ public class RegisterCardFourView extends RegisterCardBaseView {
                     //选照
                     mMediaView.selectPhoto(flag + FlagBase.REGISTER_PHOTO);
                     break;
-                case R.id.register_card_four_trade_logo_iv:
+                case R.id.register_data_preview_trade_logo_iv:
                     //商标图样
                     selectPic(view, FlagBase.TRADE_LOGO);
                     break;
-                case R.id.register_card_four_proxy_iv:
+                case R.id.register_data_preview_proxy_iv:
                     //委托书+公章
                     selectPic(view, FlagBase.PROXY);
                     break;
-                case R.id.register_card_four_business_licence_iv:
+                case R.id.register_data_preview_business_licence_iv:
                     //营业执照+空白处盖公章
                     selectPic(view, FlagBase.BUSINESS_LICENCE);
                     break;
@@ -192,6 +190,7 @@ public class RegisterCardFourView extends RegisterCardBaseView {
             Bitmap bitmap = mMediaView.rotateBitmap(mBitmap, degree);
             mMediaView.saveBitmap(bitmap, filePath);
             iv.setImageBitmap(bitmap);
+            iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
 
@@ -200,6 +199,7 @@ public class RegisterCardFourView extends RegisterCardBaseView {
         if (data != null && data.getData() != null) {
             Bitmap bitmap = mMediaView.selectPhotoSave(data, folderName, folderName + flag);
             iv.setImageBitmap(bitmap);
+            iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
 
