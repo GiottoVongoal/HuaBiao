@@ -1,5 +1,7 @@
 package com.huabiao.aoiin.bean;
 
+import com.ywy.mylibs.utils.StringUtil;
+
 import java.util.List;
 
 /**
@@ -44,6 +46,53 @@ public class RegisterCommitBean {
 
     public static void setInstance(RegisterCommitBean instance) {
         RegisterCommitBean.instance = instance;
+    }
+
+    //判断所有数据是否为空
+    private boolean isNull() {
+        if (claList == null || claList.size() == 0) {
+            return true;
+        }
+        if (StringUtil.isEmpty(username)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(userphone)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(contractAddress)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(code)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(personName)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(collectAddress)) {
+            return true;
+        }
+        if (personType == 0) {
+            return true;
+        }
+        if (personType == 1 && personType == 2 && StringUtil.isEmpty(legalPersonName)) {
+            return true;
+        }
+        if (personType == 3 && StringUtil.isEmpty(certificatesID)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(logoImg)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(proxyImg)) {
+            return true;
+        }
+        if (StringUtil.isEmpty(businessLicenceImg)) {
+            return true;
+        }
+        if (serviceMode == 0) {
+            return true;
+        }
+        return false;
     }
 
     public List<ClassificationBean> getClaList() {
