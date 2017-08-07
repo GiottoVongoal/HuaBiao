@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;

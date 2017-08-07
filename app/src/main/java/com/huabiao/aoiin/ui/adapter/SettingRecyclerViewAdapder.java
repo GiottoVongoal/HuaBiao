@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 
-import static com.huabiao.aoiin.ui.adapter.MeRecyclerViewAdapder.TYPE_HEADER;
-
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
