@@ -35,6 +35,8 @@
         </activity>
         <!--注册页面-->
         <activity android:name=".ui.activity.RegisterActivity" />
+        <!--注册资料预览页-->
+        <activity android:name=".ui.fragment.RegisterDataPreviewActivity" />
         <!--进度页面(测试圆弧进度条)-->
         <activity
             android:name=".ui.activity.UserProgressActivity"

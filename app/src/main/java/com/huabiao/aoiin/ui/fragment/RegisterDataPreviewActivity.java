@@ -22,6 +22,7 @@ import com.huabiao.aoiin.ui.adapter.RegisterDataPreviewAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
+import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
@@ -38,7 +39,7 @@ import static android.R.attr.transitionName;
  * @date 2017-08-04 14:37
  * @description 注册资料预览页面
  */
-public class RegisterDataPreviewFragment extends BaseFragment implements View.OnClickListener {
+public class RegisterDataPreviewActivity extends BaseActivity implements View.OnClickListener {
     @Bind(R.id.register_data_preview_tradename_tv)
     TextView tradename_tv;//注册商标
     @Bind(R.id.register_data_preview_tradetype_tv)
@@ -92,9 +93,10 @@ public class RegisterDataPreviewFragment extends BaseFragment implements View.On
         setTitle("资料预览");
         setBackEnable();
         commitBean = RegisterCommitBean.getInstance();
+        ActivityCollector.addActivity(this);
 
         //获取基本信息
-        RegisterModel.getRegisterData(getContext(), new InterfaceManager.CallBackCommon() {
+        RegisterModel.getRegisterData(this, new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
@@ -106,8 +108,8 @@ public class RegisterDataPreviewFragment extends BaseFragment implements View.On
             }
         });
 
-        mAdapter = new RegisterDataPreviewAdapter(getContext(), commitBean.getClaList());
-        classification_rv.setLayoutManager(new FullyGridLayoutManager(getContext(), 2));
+        mAdapter = new RegisterDataPreviewAdapter(this, commitBean.getClaList());
+        classification_rv.setLayoutManager(new FullyGridLayoutManager(this, 2));
         classification_rv.setAdapter(mAdapter);
 
         username_tv.setText("客户姓名:" + commitBean.getUsername());
@@ -177,18 +179,20 @@ public class RegisterDataPreviewFragment extends BaseFragment implements View.On
                 ClickUtil.onBackClick();
                 break;
             case R.id.register_data_preview_commit_tv:
-                JumpUtils.startFragmentByName(getContext(), PayInfoDetailFragment.class);
+                JumpUtils.startFragmentByName(this, PayInfoDetailFragment.class);
                 ActivityCollector.finishAll();
+                commitBean.emptyBean();
                 break;
         }
     }
 
+    //显示大图
     private void showLargeImg(ImageView iv, String path) {
-        Intent i = new Intent(getContext(), ShowLargeImageActivity.class);
+        Intent i = new Intent(this, ShowLargeImageActivity.class);
         i.putExtra("path", path);
         String transitionName = "square_blue";
         ActivityOptions transitionActivityOptions =
-                ActivityOptions.makeSceneTransitionAnimation(getActivity(), iv, transitionName);
+                ActivityOptions.makeSceneTransitionAnimation(this, iv, transitionName);
         startActivity(i, transitionActivityOptions.toBundle());
     }
 

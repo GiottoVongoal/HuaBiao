@@ -19,9 +19,17 @@
     {
       "classificationname": "氪",
       "classificationid": "010372"
+    },
+    {
+      "classificationname": "氢",
+      "classificationid": "010359"
+    },
+    {
+      "classificationname": "氨",
+      "classificationid": "010061"
     }
   ],
-  "means": "我是这个商标名的含义,美丽的思考",
+  "means": "海飞丝 Head &shoulders; 联想：head 是头，shoulder是“肩膀”的意思，因为人有两个肩膀，所以是复数。头和肩膀都没头屑，嘿嘿，海飞丝的功效就没的说啦。",
   "linechart": {
     "tradename": "飘柔",
     "trademarkclassification": "日化用品",

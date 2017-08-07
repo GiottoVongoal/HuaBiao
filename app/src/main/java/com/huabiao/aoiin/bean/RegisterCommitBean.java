@@ -1,7 +1,11 @@
 package com.huabiao.aoiin.bean;
 
+import com.blankj.ALog;
+import com.huabiao.aoiin.picview.BitmapUtil;
 import com.ywy.mylibs.utils.StringUtil;
+import com.ywy.mylibs.utils.ToastUtils;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -26,6 +30,7 @@ public class RegisterCommitBean {
     private List<ClassificationBean> claList;//可注册类别
     private String username;//客户姓名
     private String userphone;//客户电话
+    private String contractSelectAddress;//合同地址
     private String contractAddress;//合同地址
     private String code;//邮政编码
 
@@ -44,55 +49,91 @@ public class RegisterCommitBean {
 
     private int serviceMode;//服务方式
 
-    public static void setInstance(RegisterCommitBean instance) {
-        RegisterCommitBean.instance = instance;
-    }
-
     //判断所有数据是否为空
-    private boolean isNull() {
+    public boolean isNull() {
         if (claList == null || claList.size() == 0) {
+            ToastUtils.getInstance().showToast("请选择分类");
             return true;
         }
         if (StringUtil.isEmpty(username)) {
+            ToastUtils.getInstance().showToast("请输入申请人姓名");
             return true;
         }
         if (StringUtil.isEmpty(userphone)) {
+            ToastUtils.getInstance().showToast("请输入联系电话");
+            return true;
+        }
+        if (StringUtil.isEmpty(contractSelectAddress)) {
+            ToastUtils.getInstance().showToast("请选择合同地址行政区划");
             return true;
         }
         if (StringUtil.isEmpty(contractAddress)) {
+            ToastUtils.getInstance().showToast("请输入合同地址");
             return true;
         }
         if (StringUtil.isEmpty(code)) {
-            return true;
-        }
-        if (StringUtil.isEmpty(personName)) {
-            return true;
-        }
-        if (StringUtil.isEmpty(collectAddress)) {
+            ToastUtils.getInstance().showToast("请输入邮政编码");
             return true;
         }
         if (personType == 0) {
+            ToastUtils.getInstance().showToast("请选择申请人类型");
             return true;
         }
-        if (personType == 1 && personType == 2 && StringUtil.isEmpty(legalPersonName)) {
+        if (StringUtil.isEmpty(personName)) {
+            ToastUtils.getInstance().showToast("请输入申请人姓名");
+            return true;
+        }
+        if ((personType == 1 || personType == 2) && StringUtil.isEmpty(legalPersonName)) {
+            ToastUtils.getInstance().showToast("请输入法人姓名");
+            return true;
+        }
+        if (StringUtil.isEmpty(collectAddress)) {
+            ToastUtils.getInstance().showToast("请选择申请人地址行政区划");
             return true;
         }
         if (personType == 3 && StringUtil.isEmpty(certificatesID)) {
+            ToastUtils.getInstance().showToast("请输入身份证号码");
             return true;
         }
-        if (StringUtil.isEmpty(logoImg)) {
+        if (!(new File(logoImg).exists())) {
+            ToastUtils.getInstance().showToast("请上传商标图样");
             return true;
         }
-        if (StringUtil.isEmpty(proxyImg)) {
+        if (!(new File(proxyImg).exists())) {
+            ToastUtils.getInstance().showToast("请上传委托书");
             return true;
         }
-        if (StringUtil.isEmpty(businessLicenceImg)) {
+        if (!(new File(businessLicenceImg).exists())) {
+            ToastUtils.getInstance().showToast("请上传营业执照");
             return true;
         }
         if (serviceMode == 0) {
+            ToastUtils.getInstance().showToast("请选择服务方式");
             return true;
         }
         return false;
+    }
+
+    //所有值清空
+    public void emptyBean() {
+        claList.clear();
+        username = "";
+        userphone = "";
+        contractSelectAddress = "";
+        contractAddress = "";
+        code = "";
+        personType = 0;
+        personName = "";
+        legalPersonName = "";
+        collectAddress = "";
+        certificatesID = "";
+        BitmapUtil.deleteFile(logoImg);
+        BitmapUtil.deleteFile(proxyImg);
+        BitmapUtil.deleteFile(businessLicenceImg);
+        logoImg = "";
+        proxyImg = "";
+        businessLicenceImg = "";
+        serviceMode = 0;
     }
 
     public List<ClassificationBean> getClaList() {
@@ -117,6 +158,14 @@ public class RegisterCommitBean {
 
     public void setUserphone(String userphone) {
         this.userphone = userphone;
+    }
+
+    public String getContractSelectAddress() {
+        return contractSelectAddress;
+    }
+
+    public void setContractSelectAddress(String contractSelectAddress) {
+        this.contractSelectAddress = contractSelectAddress;
     }
 
     public String getContractAddress() {

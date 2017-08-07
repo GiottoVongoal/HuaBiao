@@ -1,191 +1,192 @@
-{"hotwordslist":[
-  {
-    "name":"梅勒",
-    "industrytype":"建筑行业",
-    "interpretation":"如果你无法简洁的表达你的想法，那只说明你还不够了解它。-- 阿尔伯特·爱因斯坦操控速度很快sigh看很快日个护ski红人馆日诶一人挂号费的话而忒日银行股i额虽然跟黑人和是如何合肥热乎乎日开完会惹我哈日股份hi和人格热管业务 广发银行委员会哈佛i委员会我。",
-    "linechart": {
-      "trademarkname": "梅勒",
-      "trademarkclassification": "建筑行业",
-      "classificationid": "05",
-      "Xaxistag": [
-        "周一",
-        "周二",
-        "周三",
-        "周四",
-        "周五",
-        "周六",
-        "周日"
-      ],
-      "lines": [
-        {
-          "linename": "百度",
-          "linecolor": "#419BF9",
-          "linevalue": [
-            9,
-            7,
-            6,
-            7,
-            8,
-            6,
-            8
-          ]
-        },
-        {
-          "linename": "阿里",
-          "linecolor": "#FF4081",
-          "linevalue": [
-            2,
-            5,
-            7,
-            4,
-            4,
-            8,
-            6
-          ]
-        }
-      ]
+{
+  "hotwordslist": [
+    {
+      "name": "舒肤佳",
+      "industrytype": "日化用品",
+      "interpretation": "Safeguard 保护者; safe 是“安全”的意思，guard 是“门卫”的意思，safeguard是个合成词，保护者，很形象的描述了舒肤佳香皂的功能和产品定位。",
+      "linechart": {
+        "trademarkname": "舒肤佳",
+        "trademarkclassification": "日化用品",
+        "classificationid": "05",
+        "Xaxistag": [
+          "周一",
+          "周二",
+          "周三",
+          "周四",
+          "周五",
+          "周六",
+          "周日"
+        ],
+        "lines": [
+          {
+            "linename": "百度",
+            "linecolor": "#419BF9",
+            "linevalue": [
+              9,
+              7,
+              6,
+              7,
+              8,
+              6,
+              8
+            ]
+          },
+          {
+            "linename": "阿里",
+            "linecolor": "#FF4081",
+            "linevalue": [
+              2,
+              5,
+              7,
+              4,
+              4,
+              8,
+              6
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "雪碧",
+      "industrytype": "啤酒饮料",
+      "interpretation": "Sprite 小妖精，调皮鬼; 这个单词个人觉得很符合雪碧一直以来以年轻人为主体消费者的一个定位，充分展示了雪碧透心凉的活力。",
+      "linechart": {
+        "trademarkname": "雪碧",
+        "trademarkclassification": "啤酒饮料",
+        "classificationid": "05",
+        "Xaxistag": [
+          "周一",
+          "周二",
+          "周三",
+          "周四",
+          "周五",
+          "周六",
+          "周日"
+        ],
+        "lines": [
+          {
+            "linename": "百度",
+            "linecolor": "#419BF9",
+            "linevalue": [
+              9,
+              7,
+              6,
+              7,
+              8,
+              6,
+              8
+            ]
+          },
+          {
+            "linename": "阿里",
+            "linecolor": "#FF4081",
+            "linevalue": [
+              2,
+              5,
+              7,
+              4,
+              4,
+              8,
+              6
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "耐克",
+      "industrytype": "运动品牌",
+      "interpretation": "Nike 耐克，运动品牌，'胜利女神'之意，确实它做到了最初的期望。",
+      "linechart": {
+        "trademarkname": "耐克",
+        "trademarkclassification": "运动品牌",
+        "classificationid": "05",
+        "Xaxistag": [
+          "周一",
+          "周二",
+          "周三",
+          "周四",
+          "周五",
+          "周六",
+          "周日"
+        ],
+        "lines": [
+          {
+            "linename": "百度",
+            "linecolor": "#419BF9",
+            "linevalue": [
+              9,
+              7,
+              6,
+              7,
+              8,
+              6,
+              8
+            ]
+          },
+          {
+            "linename": "阿里",
+            "linecolor": "#FF4081",
+            "linevalue": [
+              2,
+              5,
+              7,
+              4,
+              4,
+              8,
+              6
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ONLY",
+      "industrytype": "服饰品牌",
+      "interpretation": "only有'唯一'的意思，品牌想要表示自己设计独到。",
+      "linechart": {
+        "trademarkname": "ONLY",
+        "trademarkclassification": "服饰品牌",
+        "classificationid": "05",
+        "Xaxistag": [
+          "周一",
+          "周二",
+          "周三",
+          "周四",
+          "周五",
+          "周六",
+          "周日"
+        ],
+        "lines": [
+          {
+            "linename": "百度",
+            "linecolor": "#419BF9",
+            "linevalue": [
+              9,
+              7,
+              6,
+              7,
+              8,
+              6,
+              8
+            ]
+          },
+          {
+            "linename": "阿里",
+            "linecolor": "#FF4081",
+            "linevalue": [
+              2,
+              5,
+              7,
+              4,
+              4,
+              8,
+              6
+            ]
+          }
+        ]
+      }
     }
-  },
-  {
-    "name":"梅勒2",
-    "industrytype":"建筑行业",
-    "interpretation":"如果你无法简洁的表达你的想法，那只说明你还不够了解它。-- 阿尔伯特·爱因斯坦操控速度很快sigh看很快日个护ski红人馆日诶一人挂号费的话而忒日银行股i额虽然跟黑人和是如何合肥热乎乎日开完会惹我哈日股份hi和人格热管业务 广发银行委员会哈佛i委员会我。",
-    "linechart": {
-      "trademarkname": "梅勒2",
-      "trademarkclassification": "建筑行业",
-      "classificationid": "05",
-      "Xaxistag": [
-        "周一",
-        "周二",
-        "周三",
-        "周四",
-        "周五",
-        "周六",
-        "周日"
-      ],
-      "lines": [
-        {
-          "linename": "百度",
-          "linecolor": "#419BF9",
-          "linevalue": [
-            9,
-            7,
-            6,
-            7,
-            8,
-            6,
-            8
-          ]
-        },
-        {
-          "linename": "阿里",
-          "linecolor": "#FF4081",
-          "linevalue": [
-            2,
-            5,
-            7,
-            4,
-            4,
-            8,
-            6
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "name":"梅勒3",
-    "industrytype":"建筑行业",
-    "interpretation":"如果你无法简洁的表达你的想法，那只说明你还不够了解它。-- 阿尔伯特·爱因斯坦操控速度很快sigh看很快日个护ski红人馆日诶一人挂号费的话而忒日银行股i额虽然跟黑人和是如何合肥热乎乎日开完会惹我哈日股份hi和人格热管业务 广发银行委员会哈佛i委员会我。",
-    "linechart": {
-      "trademarkname": "梅勒3",
-      "trademarkclassification": "建筑行业",
-      "classificationid": "05",
-      "Xaxistag": [
-        "周一",
-        "周二",
-        "周三",
-        "周四",
-        "周五",
-        "周六",
-        "周日"
-      ],
-      "lines": [
-        {
-          "linename": "百度",
-          "linecolor": "#419BF9",
-          "linevalue": [
-            9,
-            7,
-            6,
-            7,
-            8,
-            6,
-            8
-          ]
-        },
-        {
-          "linename": "阿里",
-          "linecolor": "#FF4081",
-          "linevalue": [
-            2,
-            5,
-            7,
-            4,
-            4,
-            8,
-            6
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "name":"梅勒4",
-    "industrytype":"建筑行业",
-    "interpretation":"如果你无法简洁的表达你的想法，那只说明你还不够了解它。-- 阿尔伯特·爱因斯坦操控速度很快sigh看很快日个护ski红人馆日诶一人挂号费的话而忒日银行股i额虽然跟黑人和是如何合肥热乎乎日开完会惹我哈日股份hi和人格热管业务 广发银行委员会哈佛i委员会我。",
-    "linechart": {
-      "trademarkname": "梅勒4",
-      "trademarkclassification": "建筑行业",
-      "classificationid": "05",
-      "Xaxistag": [
-        "周一",
-        "周二",
-        "周三",
-        "周四",
-        "周五",
-        "周六",
-        "周日"
-      ],
-      "lines": [
-        {
-          "linename": "百度",
-          "linecolor": "#419BF9",
-          "linevalue": [
-            9,
-            7,
-            6,
-            7,
-            8,
-            6,
-            8
-          ]
-        },
-        {
-          "linename": "阿里",
-          "linecolor": "#FF4081",
-          "linevalue": [
-            2,
-            5,
-            7,
-            4,
-            4,
-            8,
-            6
-          ]
-        }
-      ]
-    }
-  }
-]
+  ]
 }

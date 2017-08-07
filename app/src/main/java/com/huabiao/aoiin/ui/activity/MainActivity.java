@@ -12,8 +12,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
@@ -27,6 +29,8 @@ import com.ywy.mylibs.base.BasePresenter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.Bind;
 
@@ -120,5 +124,31 @@ public class MainActivity extends BaseActivity {
     @Override
     public int getContentLayout() {
         return R.layout.activity_main;
+    }
+
+    private static Boolean isExit = false;// 退出
+
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN
+                && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            // finish();
+            // System.exit(0);
+            Timer tExit = null;
+            if (isExit == false) {
+                isExit = true;
+                Toast.makeText(this, "再次点击退出程序", Toast.LENGTH_SHORT).show();
+                tExit = new Timer();
+                tExit.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        isExit = false; // 取消退出
+                    }
+                }, 2000);
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 }

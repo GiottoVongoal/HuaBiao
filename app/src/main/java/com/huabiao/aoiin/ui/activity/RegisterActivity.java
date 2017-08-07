@@ -12,7 +12,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ActivityCollector;
 import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
-import com.huabiao.aoiin.ui.fragment.RegisterDataPreviewFragment;
+import com.huabiao.aoiin.ui.fragment.RegisterDataPreviewActivity;
 import com.huabiao.aoiin.ui.ottobus.ToNextPageEvent;
 import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
 import com.huabiao.aoiin.ui.view.RegisterCardFiveView;
@@ -169,7 +169,9 @@ public class RegisterActivity extends BaseActivity {
 
     @Subscribe
     public void toNextPage(ToNextPageEvent event) {
-        JumpUtils.startFragmentByName(this, RegisterDataPreviewFragment.class);
+        if (!commitBean.isNull()) {
+            JumpUtils.startActivity(this, RegisterDataPreviewActivity.class);
+        }
     }
 
     @Override

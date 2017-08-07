@@ -82,7 +82,8 @@ public class RegisterCardTwoView extends RegisterCardBaseView implements View.On
         commitBean.setUsername(username_et.getEditText().getText().toString());
         commitBean.setUserphone(userphone_et.getEditText().getText().toString());
         String address = select_address_tv.getText().toString().equals("点我选择合同地址地区") ? "" : select_address_tv.getText().toString();
-        commitBean.setContractAddress(address + "," + address_et.getEditText().getText().toString());
+        commitBean.setContractSelectAddress(address);
+        commitBean.setContractAddress(address_et.getEditText().getText().toString());
         commitBean.setCode(code_et.getEditText().getText().toString());
     }
 
@@ -107,10 +108,11 @@ public class RegisterCardTwoView extends RegisterCardBaseView implements View.On
             @Override
             public void onAddressSelected(Province province, City city, County county, Street street) {
                 String address = (province == null ? "" : province.name) +
-                        (city == null ? "" : "," + city.name) +
-                        (county == null ? "" : "," + county.name) +
-                        (street == null ? "" : "," + street.name);
-                tv.setText(address);
+                        (city == null ? "" : "\t" + city.name) +
+                        (county == null ? "" : "\t" + county.name) +
+                        (street == null ? "" : "\t" + street.name);
+
+                tv.setText(address.trim());
                 dialog.dismiss();
             }
         });

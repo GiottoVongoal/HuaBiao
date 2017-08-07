@@ -55,17 +55,16 @@ public class BitmapUtil {
 
     // 删除图片
     public static void deleteFile(String signPath) {
-        if (Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED)) {
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             File file = new File(signPath);
             if (file.exists()) {
                 file.delete();
-                Log.i("", "删除完成");
+                ALog.i("", "删除完成");
             } else {
-                Log.i("", "文件未找到[" + signPath + "]");
+                ALog.i("", "文件未找到[" + signPath + "]");
             }
         } else {
-            Log.i("", "SD卡不存在");
+            ALog.i("", "SD卡不存在");
         }
     }
 
