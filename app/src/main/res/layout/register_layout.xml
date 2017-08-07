@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundwhite"
     android:orientation="vertical">
 
-    <include layout="@layout/view_title" />
+    <include
+        android:id="@+id/register_card_title"
+        layout="@layout/view_title" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/register_card_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/register_card_title"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:padding="30dp" />
-</LinearLayout>
+        android:padding="30dp"
+        android:paddingBottom="25dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/register_card_vp_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:padding="10dp" />
+    </RelativeLayout>
+</RelativeLayout>

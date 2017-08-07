@@ -4,6 +4,8 @@ package com.huabiao.aoiin.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
@@ -31,6 +33,8 @@ import java.util.List;
 
 import butterknife.Bind;
 
+import static com.huabiao.aoiin.R.id.register_card_vp_points;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
@@ -45,6 +49,10 @@ public class RegisterActivity extends BaseActivity {
     ViewPager register_card_vp;
     CardPagerAdapter mCardAdapter;
     ShadowTransformer mCardShadowTransformer;
+
+    private int pointIndex = 0;// 圆圈标志位
+    @Bind(R.id.register_card_vp_points)
+    LinearLayout vp_points;
 
     private RegisterCommitBean commitBean;//提交注册的所有数据
 
@@ -80,6 +88,17 @@ public class RegisterActivity extends BaseActivity {
         vpList.add(cardFour);
         vpList.add(cardFive);
 
+        // 设置圆圈点
+        for (int i = 0; i < vpList.size(); i++) {
+            View view = new View(this);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(25, 25);
+            params.leftMargin = 15;
+            view.setBackgroundResource(R.drawable.register_point_background);
+            view.setLayoutParams(params);
+            view.setEnabled(false);
+            vp_points.addView(view);
+        }
+
         mCardAdapter = new CardPagerAdapter();
         mCardAdapter.setCardItem(vpList);
         mCardShadowTransformer = new ShadowTransformer(register_card_vp, mCardAdapter);
@@ -87,6 +106,7 @@ public class RegisterActivity extends BaseActivity {
         register_card_vp.setAdapter(mCardAdapter);
         register_card_vp.setPageTransformer(false, mCardShadowTransformer);
         register_card_vp.setOffscreenPageLimit(3);
+        vp_points.getChildAt(pointIndex).setEnabled(true);
         register_card_vp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -102,6 +122,12 @@ public class RegisterActivity extends BaseActivity {
                 for (int i = 0; i < vpList.size(); i++) {
                     ALog.i(i + "==" + (vpList.get(i) == null ? "null" : "notNull"));
                 }
+                int newPosition = position % vpList.size();
+                vp_points.getChildAt(newPosition).setEnabled(true);
+                vp_points.getChildAt(pointIndex).setEnabled(false);
+                // 更新标志位
+                pointIndex = newPosition;
+
             }
 
             @Override
