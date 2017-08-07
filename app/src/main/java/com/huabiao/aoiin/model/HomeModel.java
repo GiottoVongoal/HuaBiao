@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.HomeBannarBean;
+import com.huabiao.aoiin.bean.HotWordsListBean;
 import com.huabiao.aoiin.bean.UserProgressDateBean;
 import com.huabiao.aoiin.bean.UserProgressListBean;
 import com.huabiao.aoiin.bean.UserTrademarkProgressListBean;
@@ -25,6 +26,20 @@ public class HomeModel {
         String jsonString = GetJsonToName.getJson(context, "bannarjson.json");
         Gson gson = new Gson();
         HomeBannarBean bean = gson.fromJson(jsonString, HomeBannarBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
+    /**
+     * @param context
+     * @param callback
+     * @describe 获取首页热搜词List
+     */
+    public static void getHotWordsList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "hotwordslistjson.json");
+        Gson gson = new Gson();
+        HotWordsListBean bean = gson.fromJson(jsonString, HotWordsListBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

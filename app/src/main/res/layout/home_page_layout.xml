@@ -205,11 +205,10 @@
 
             <View style="@style/GrayLine" />
 
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_hot_words_rv"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="@color/white"
-                android:orientation="vertical"></LinearLayout>
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

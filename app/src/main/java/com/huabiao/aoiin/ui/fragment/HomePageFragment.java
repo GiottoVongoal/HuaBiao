@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,11 +16,17 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.HomeBannarBean;
 import com.huabiao.aoiin.bean.HomeBannarBean.BannarlistBean;
+import com.huabiao.aoiin.bean.HotWordsListBean;
+import com.huabiao.aoiin.bean.HotWordsListBean.HotwordsBean;
 import com.huabiao.aoiin.model.HomeModel;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
+import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
+import com.huabiao.aoiin.ui.adapter.HotWordsAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
+import com.huabiao.aoiin.wedgit.ShadowTransformer;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
@@ -30,9 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-import static com.huabiao.aoiin.R.id.center_vertical;
-import static com.huabiao.aoiin.R.id.view;
 
 /**
  * @author 杨丽亚.
@@ -69,6 +74,10 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     CardView home_creat_name_tv;
     @Bind(R.id.home_progress_cv)
     CardView home_progress_tv;
+    //热搜词
+    @Bind(R.id.home_hot_words_rv)
+    RecyclerView home_hot_words_rv;
+    private HotWordsAdapter hotWordsAdapter;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -87,6 +96,26 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                     HomeBannarBean bean = (HomeBannarBean) mData;
                     bannarList = bean.getBannarlist();
                     initBannar();
+                    showHotWords();
+                }
+            }
+        });
+
+    }
+
+    //获取热搜词
+    private void showHotWords() {
+        HomeModel.getHotWordsList(getContext(), new InterfaceManager.CallBackCommon() {
+            @Override
+            public void getCallBackCommon(Object mData) {
+                if (mData != null) {
+                    HotWordsListBean bean = (HotWordsListBean) mData;
+                    List<HotwordsBean> howWordList = bean.getHotwordslist();
+                    hotWordsAdapter = new HotWordsAdapter(getContext(), howWordList);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                    linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                    home_hot_words_rv.setLayoutManager(linearLayoutManager);
+                    home_hot_words_rv.setAdapter(hotWordsAdapter);
                 }
             }
         });
