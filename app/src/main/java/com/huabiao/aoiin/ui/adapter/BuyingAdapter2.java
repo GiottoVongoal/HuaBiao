@@ -33,8 +33,8 @@ public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
     @Override
     public void onBindViewHolder(BuyingAdapter2.VH2 holder, int position) {
         BuyingInfoBean.NoticeBean noticeBean = noticedata.get(position);
-        holder.noticeitem.setText(noticeBean.getTitle());
-        holder.noticeitemtime.setText(noticeBean.getTime());
+            holder.noticeitem.setText(noticeBean.getTitle());
+            holder.noticeitemtime.setText(noticeBean.getTime());
         //公告是否可见
         int status = noticeBean.getIsvisible();
         switch (status) {
@@ -45,7 +45,8 @@ public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
                 holder.noticevisable.setVisibility(View.VISIBLE);
                 break;
         }
-        if(position==noticedata.size()-1){
+        //布局中最后一条线不可见
+        if (position == noticedata.size() - 1) {
             holder.buying_rcv2_linear.setVisibility(View.INVISIBLE);
         }
 
@@ -58,7 +59,7 @@ public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
     }
 
     class VH2 extends RecyclerView.ViewHolder {
-        //公告以及状态
+        //公告与状态
         private TextView noticeitem;
         private TextView noticeitemtime;
         private TextView noticevisable;

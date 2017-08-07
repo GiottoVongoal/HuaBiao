@@ -26,6 +26,9 @@ import butterknife.Bind;
 public class Buying extends BaseFragment implements View.OnClickListener {
     private BuyingAdapter1 buyingAdapter1;
     private BuyingAdapter2 buyingAdapter2;
+    //商标无效
+    @Bind(R.id.buying_trademarkuseless)
+    TextView trademarkuseless;
     //求购详情页面最下方的两个按钮
     @Bind(R.id.buying1_tv)
     TextView buying1_tv;
@@ -85,7 +88,7 @@ public class Buying extends BaseFragment implements View.OnClickListener {
     //商标注册信息专用期限
     @Bind(R.id.buying_registerinfo_dedicatedterm)
     TextView registerinfo_dedicatedterm;
-
+    int n;
 
     @Override
     public BasePresenter getPresenter() {
@@ -94,11 +97,27 @@ public class Buying extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-//        Bundle bundle = getActivity().getIntent().getExtras();
-//        String name = bundle.getString("name");
+        //bundle传递数据，最下方按钮的文字变化，case123是表示页面id
+        Bundle bundle = getActivity().getIntent().getExtras();
+        n = bundle.getInt("pageid", 1);
+        switch (n) {
+            case 1:
+                buying1_tv.setText("咨询客服");
+                buying2_tv.setText("求购此标");
+                break;
+            case 2:
+                buying1_tv.setText("阻止申请");
+                buying2_tv.setText("求购此标");
+                break;
+            case 3:
+                buying1_tv.setText("咨询客服");
+                buying2_tv.setText("抢注此标");
+                break;
+        }
+
         buying1_tv.setOnClickListener(this);
         buying2_tv.setOnClickListener(this);
-        SearchModel.getBuyingInfo(getContext(), new InterfaceManager.CallBackCommon() {
+        SearchModel.getBuyingInfo(getContext(), n, new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
@@ -143,11 +162,18 @@ public class Buying extends BaseFragment implements View.OnClickListener {
                     buyingRecylerView1.setLayoutManager(new FullyLinearLayoutManager(getContext()));
                     buyingAdapter1 = new BuyingAdapter1(buyingInfoBean.getServicelist());
                     buyingRecylerView1.setAdapter(buyingAdapter1);
-                    //商标公告与状态
-                    //商标服务列表RecyclerView1,adpter数据获取
-                    buying_recyclerview2.setLayoutManager(new FullyLinearLayoutManager(getContext()));
-                    buyingAdapter2 = new BuyingAdapter2(buyingInfoBean.getNotice());
-                    buying_recyclerview2.setAdapter(buyingAdapter2);
+                    /*商标公告与状态
+                     商标服务列表RecyclerView1,adpter数据获取
+                     "商标无效"是否可见，有数据时不可见，无数据时可见*/
+                        buying_recyclerview2.setLayoutManager(new FullyLinearLayoutManager(getContext()));
+                        buyingAdapter2 = new BuyingAdapter2(buyingInfoBean.getNotice());
+                        buying_recyclerview2.setAdapter(buyingAdapter2);
+                    if ( buyingInfoBean.getNotice()!=null&&buyingInfoBean.getNotice().size()>0) {
+                        buying_recyclerview2.setAdapter(buyingAdapter2);
+                        trademarkuseless.setVisibility(View.GONE);
+                    } else {
+                        trademarkuseless.setVisibility(View.VISIBLE);
+                    }
                 }
             }
         });
@@ -162,10 +188,30 @@ public class Buying extends BaseFragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buying1_tv:
-                showToast("嗯，咨询咨询");
+                switch (n) {
+                    case 1:
+                        showToast("求购详情页的咨询");
+                        break;
+                    case 2:
+                        showToast("异议详情页的阻止");
+                        break;
+                    case 3:
+                        showToast("抢注详情页的咨询");
+                        break;
+                }
                 break;
             case R.id.buying2_tv:
-                showToast("来人呐，求购啊");
+                switch (n) {
+                    case 1:
+                        showToast("求购详情页的求购");
+                        break;
+                    case 2:
+                        showToast("异议详情页的求购");
+                        break;
+                    case 3:
+                        showToast("抢注详情页的抢注");
+                        break;
+                }
                 break;
         }
     }

@@ -45,7 +45,7 @@ public class SearchModel {
      * 获取查询结果--已注册
      *
      * @param context
-     * @param tradeName  商标名
+     * @param tradeName      商标名
      * @param goodsName      商品名
      * @param classification 类型
      * @param callback
@@ -64,7 +64,7 @@ public class SearchModel {
      *
      * @param context
      * @param tradeName 商标名
-     * @param goodsName     商品名
+     * @param goodsName 商品名
      * @param callback
      */
     public static void getSearchUnregisterResult(Context context, String tradeName, String goodsName, final InterfaceManager.CallBackCommon callback) {
@@ -116,14 +116,27 @@ public class SearchModel {
         }
 
     }
+
     /**
      * 获取求购详情页面的数据
+     * 以及获取抢注页面和可异议页面的数据
      *
      * @param context
      * @param callback
      */
-    public static void getBuyingInfo(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, "buyinginfo.json");
+    public static void getBuyingInfo(Context context, int index, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = "";
+        switch (index) {
+            case 1:
+                jsonString = getJson(context, "buyinginfo.json");
+                break;
+            case 2:
+                jsonString = getJson(context, "yiyi.json");
+                break;
+            case 3:
+                jsonString = getJson(context, "cybersquatting.json");
+                break;
+        }
         Gson gson = new Gson();
         BuyingInfoBean bean = gson.fromJson(jsonString, BuyingInfoBean.class);
         if (callback != null) {
