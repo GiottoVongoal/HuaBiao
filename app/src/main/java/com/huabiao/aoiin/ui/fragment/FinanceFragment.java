@@ -12,6 +12,7 @@ import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.KeyboardUtils;
+import com.ywy.mylibs.utils.StringUtil;
 
 import butterknife.Bind;
 
@@ -42,6 +43,9 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
 
         evaluate_circle_tv.setBackgroundColor(getContext().getResources().getColor(R.color.white));
 
+        tradename_tl.getEditText().setText("商标名");
+        tradeid_tl.getEditText().setText("商标编号");
+
         evaluate_circle_tv.setOnClickListener(this);
         trade_pledge_ll.setOnClickListener(this);
         trade_sale_ll.setOnClickListener(this);
@@ -54,6 +58,14 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
         switch (view.getId()) {
             case R.id.finance_evaluate_circle_tv:
                 //评估
+                if (StringUtil.isEmpty(tradename_tl.getEditText().getText().toString().toString())) {
+                    showToast("请输入商标名");
+                    return;
+                }
+                if (StringUtil.isEmpty(tradeid_tl.getEditText().getText().toString().toString())) {
+                    showToast("请输入商标编号");
+                    return;
+                }
                 KeyboardUtils.hideSoftInput(getActivity());
                 JumpUtils.startFragmentByName(getContext(), FinanceEvaluateReportFragment.class);
                 break;

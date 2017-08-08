@@ -107,7 +107,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
 
         username_tv.setText("客户姓名:" + commitBean.getUsername());
         userphone_tv.setText("联系电话:" + commitBean.getUserphone());
-        contract_address_tv.setText("合同地址:" + commitBean.getContractAddress());
+        contract_address_tv.setText("合同地址:" + commitBean.getContractSelectAddress() + commitBean.getContractAddress());
         code_tv.setText("邮政编码:" + commitBean.getCode());
 
         int person_type = commitBean.getPersonType();
