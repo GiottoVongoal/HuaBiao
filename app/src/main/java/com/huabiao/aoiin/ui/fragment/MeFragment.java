@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.tools.ViewTools;
+import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
@@ -102,7 +103,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                 showToast("商标注册表单");
                 break;
             case R.id.me_remind_progress_cv:
-                showToast("进度提醒");
+                //进度提醒
+                JumpUtils.startActivity(getContext(), UserProgressActivity.class);
                 break;
             case R.id.me_order_cv:
                 showToast("我的订单");

@@ -22,10 +22,27 @@
                 android:padding="15dp"
                 android:text="联系方式" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="申请人类型" />
+
+            <TextView
+                android:id="@+id/register_card_two_person_type_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_round_gray"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="请选择申请人类型"
+                android:textSize="14dp" />
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/register_card_two_username_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:theme="@style/TextInputLayoutLineColor"
                 app:hintAnimationEnabled="true"
                 app:hintTextAppearance="@style/hintAppearance"
@@ -70,7 +87,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bg_round_gray"
                 android:padding="10dp"
-                android:text="点我选择合同地址地区" />
+                android:text="请选择合同地址地区" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/register_card_two_address_et"

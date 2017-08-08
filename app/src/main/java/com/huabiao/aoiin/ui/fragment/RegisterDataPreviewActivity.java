@@ -2,13 +2,10 @@ package com.huabiao.aoiin.ui.fragment;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -23,15 +20,11 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
 import com.ywy.mylibs.base.BaseActivity;
-import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.ClickUtil;
 import com.ywy.mylibs.utils.JumpUtils;
 
 import butterknife.Bind;
-
-import static android.R.attr.transitionName;
 
 /**
  * @author 杨丽亚.
@@ -138,9 +131,6 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
         trade_logo_iv.setImageBitmap(BitmapUtil.createImageThumbnail(commitBean.getLogoImg()));
         proxy_iv.setImageBitmap(BitmapUtil.createImageThumbnail(commitBean.getProxyImg()));
         business_licence_iv.setImageBitmap(BitmapUtil.createImageThumbnail(commitBean.getBusinessLicenceImg()));
-//        BitmapLoader.ins().loadLocalImage(commitBean.getLogoImg(), R.mipmap.ic_launcher, trade_logo_iv, 150, 100);
-//        BitmapLoader.ins().loadLocalImage(commitBean.getProxyImg(), R.mipmap.ic_launcher, proxy_iv, 150, 100);
-//        BitmapLoader.ins().loadLocalImage(commitBean.getBusinessLicenceImg(), R.mipmap.ic_launcher, business_licence_iv, 200, 100);
 
         int serviceMode = commitBean.getServiceMode();
         switch (serviceMode) {

@@ -45,35 +45,36 @@ public class RegisterPersonTypeFragment extends BaseFragment implements View.OnC
     TextInputLayout certificates_id_et;//身份证件文件号码
 
     @Bind(R.id.person_type_select_address_fl)
-    FrameLayout  select_address_fl;
+    FrameLayout select_address_fl;
     private AddressSelector selector;
 
     @Bind(R.id.person_type_save_tv)
     TextView save_tv;//保存
 
     private int type;
-    private String title;
 
     private RegisterCommitBean bean;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        setTitle(title);
         setBackEnable();
         bean = RegisterCommitBean.getInstance();
         switch (type) {
             case 1:
                 //法人或其他组织
+                setTitle("法人或其他组织");
                 legal_name_et.setVisibility(View.VISIBLE);
                 certificates_id_et.setVisibility(View.GONE);
                 break;
             case 2:
                 //个体工商户
+                setTitle("个体工商户");
                 legal_name_et.setVisibility(View.VISIBLE);
                 certificates_id_et.setVisibility(View.GONE);
                 break;
             case 3:
                 //自然人
+                setTitle("自然人");
                 legal_name_et.setVisibility(View.GONE);
                 certificates_id_et.setVisibility(View.VISIBLE);
                 certificates_id_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(certificates_id_et, "请输入正确的身份证号!", 3));
@@ -93,7 +94,6 @@ public class RegisterPersonTypeFragment extends BaseFragment implements View.OnC
         super.getIntentValue();
         Bundle bundle = getActivity().getIntent().getExtras();
         type = bundle.getInt("type", 1);
-        title = bundle.getString("title");
     }
 
     @Override

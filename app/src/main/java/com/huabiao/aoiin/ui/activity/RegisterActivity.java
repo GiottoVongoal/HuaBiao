@@ -16,10 +16,9 @@ import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
 import com.huabiao.aoiin.ui.fragment.RegisterDataPreviewActivity;
 import com.huabiao.aoiin.ui.ottobus.ToNextPageEvent;
 import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
-import com.huabiao.aoiin.ui.view.RegisterCardFiveView;
 import com.huabiao.aoiin.ui.view.RegisterCardFourView;
-import com.huabiao.aoiin.ui.view.RegisterCardOneView;
 import com.huabiao.aoiin.ui.view.RegisterCardThreeView;
+import com.huabiao.aoiin.ui.view.RegisterCardOneView;
 import com.huabiao.aoiin.ui.view.RegisterCardTwoView;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ChangeRegisterIndexEvent;
@@ -33,8 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-import static com.huabiao.aoiin.R.id.register_card_vp_points;
 
 /**
  * @author 杨丽亚.
@@ -64,9 +61,6 @@ public class RegisterActivity extends BaseActivity {
     private RegisterCardTwoView cardTwo;
     private RegisterCardThreeView cardThree;
     private RegisterCardFourView cardFour;
-    private RegisterCardFiveView cardFive;
-
-//    private String tradename, industry;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -83,14 +77,12 @@ public class RegisterActivity extends BaseActivity {
         cardTwo = new RegisterCardTwoView(this);
         cardThree = new RegisterCardThreeView(this);
         cardFour = new RegisterCardFourView(this);
-        cardFive = new RegisterCardFiveView(this);
         //vp相关初始化
         vpList = new ArrayList<>();
         vpList.add(cardOne);
         vpList.add(cardTwo);
         vpList.add(cardThree);
         vpList.add(cardFour);
-        vpList.add(cardFive);
 
         // 设置圆圈点
         for (int i = 0; i < vpList.size(); i++) {
@@ -159,13 +151,14 @@ public class RegisterActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        cardThree.setPersonTypeSelect(commitBean.getPersonType() - 1);
+//        cardThree.setPersonTypeSelect(commitBean.getPersonType() - 1);
+        cardTwo.setPersonTypeSelect();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        cardFour.onActivityResult(requestCode, data);
+        cardThree.onActivityResult(requestCode, data);
     }
 
     /**

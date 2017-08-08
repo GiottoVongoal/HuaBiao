@@ -27,12 +27,11 @@ public class ShowLargeImageActivity extends BaseActivity {
     @Override
     public void bindView(Bundle savedInstanceState) {
         String path = getIntent().getStringExtra("path");
-        int width = DeviceUtils.getScreenWidth(this);
-        int height = DeviceUtils.getScreenHeight(this);
-
-        large_iv.setImageBitmap(BitmapUtil.createImageThumbnail(path));
-
-//        BitmapLoader.ins().loadLocalImage(path, R.mipmap.ic_launcher, large_iv, width, height);
+        if (path.contains("http")) {
+            BitmapLoader.ins().loadImage(path, R.mipmap.ic_launcher, large_iv);
+        } else {
+            large_iv.setImageBitmap(BitmapUtil.createImageThumbnail(path));
+        }
         large_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
