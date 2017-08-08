@@ -226,8 +226,8 @@ public class ColorArcProgressBar extends View {
         canvas.drawArc(bgRect, startAngle, currentAngle, false, progressPaint);
 
         if (isNeedContent) {
-//            canvas.drawText(String.format("%.0f", curValues), centerX, centerY + textSize / 3, vTextPaint);
-            canvas.drawText(contentString, centerX, centerY + textSize / 3, vTextPaint);
+            canvas.drawText(String.format("%.0f", curValues), centerX, centerY + textSize / 3, vTextPaint);
+//            canvas.drawText(contentString, centerX, centerY + textSize / 3, vTextPaint);
         }
         if (isNeedUnit) {
             canvas.drawText(hintString, centerX, centerY + 2 * textSize / 3, hintPaint);

@@ -95,7 +95,7 @@ public class FinanceEvaluateReportFragment extends BaseFragment implements View.
                 break;
         }
         circle_bar.setCurrentValues(bean.getTradegrade());
-        circle_bar.setContent(String.valueOf(bean.getTradegrade()));
+//        circle_bar.setContent(String.valueOf(bean.getTradegrade()));
         linechart.setLineChartBean(bean.getLinechart());
         time_limit_tv.setText("专用期限：" + bean.getTimelimit());
         serviceAdapter = new ServiceAreaAdapter(getContext(), bean.getServicearealist());
