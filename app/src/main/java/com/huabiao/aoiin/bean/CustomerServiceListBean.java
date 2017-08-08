@@ -9,7 +9,6 @@ import java.util.List;
  * @description
  */
 public class CustomerServiceListBean {
-
     private List<CustomerservicelistBean> customerservicelist;
 
     public List<CustomerservicelistBean> getCustomerservicelist() {
@@ -24,7 +23,8 @@ public class CustomerServiceListBean {
         /**
          * customerservicename : 客服1
          * customerservicecompany : 上海商标公司
-         * customerservicerank : 5
+         * reputablenumber : 6643
+         * consultnumber : 564
          * customerserviceid : 001
          * successrate : 98%
          * usedtime : 30分钟
@@ -34,7 +34,8 @@ public class CustomerServiceListBean {
 
         private String customerservicename;
         private String customerservicecompany;
-        private int customerservicerank;
+        private String reputablenumber;
+        private String consultnumber;
         private String customerserviceid;
         private String successrate;
         private String usedtime;
@@ -57,12 +58,20 @@ public class CustomerServiceListBean {
             this.customerservicecompany = customerservicecompany;
         }
 
-        public int getCustomerservicerank() {
-            return customerservicerank;
+        public String getReputablenumber() {
+            return reputablenumber;
         }
 
-        public void setCustomerservicerank(int customerservicerank) {
-            this.customerservicerank = customerservicerank;
+        public void setReputablenumber(String reputablenumber) {
+            this.reputablenumber = reputablenumber;
+        }
+
+        public String getConsultnumber() {
+            return consultnumber;
+        }
+
+        public void setConsultnumber(String consultnumber) {
+            this.consultnumber = consultnumber;
         }
 
         public String getCustomerserviceid() {

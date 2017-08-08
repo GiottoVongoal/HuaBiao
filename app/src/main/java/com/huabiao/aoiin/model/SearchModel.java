@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.BuyingInfoBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.CreatNameBean;
+import com.huabiao.aoiin.bean.CustomerServiceListBean;
 import com.huabiao.aoiin.bean.HotSearchWordsBean;
 import com.huabiao.aoiin.bean.MallBean;
 import com.huabiao.aoiin.bean.SearchResultClassificationListBean;
@@ -153,4 +154,18 @@ public class SearchModel {
         }
     }
 
+    /**
+     * 获取客服列表
+     *
+     * @param context
+     * @param callback
+     */
+    public static void getCustomerSerCustomerServiceList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = getJson(context, "customerservicelist.json");
+        Gson gson = new Gson();
+        CustomerServiceListBean bean = gson.fromJson(jsonString, CustomerServiceListBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
 }
