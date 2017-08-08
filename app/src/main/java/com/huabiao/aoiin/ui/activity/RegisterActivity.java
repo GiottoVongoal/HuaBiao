@@ -3,6 +3,7 @@ package com.huabiao.aoiin.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -54,6 +55,9 @@ public class RegisterActivity extends BaseActivity {
     @Bind(R.id.register_card_vp_points)
     LinearLayout vp_points;
 
+    @Bind(R.id.register_card_fabtn)
+    FloatingActionButton register_card_fabtn;
+
     private RegisterCommitBean commitBean;//提交注册的所有数据
 
     private RegisterCardOneView cardOne;
@@ -72,7 +76,7 @@ public class RegisterActivity extends BaseActivity {
         commitBean = RegisterCommitBean.getInstance();
         ActivityCollector.addActivity(this);
 
-        AppBus.getInstance().register(this);//注册
+        AppBus.getInstance().register(this);//注册事件
 
         //卡片初始化
         cardOne = new RegisterCardOneView(this);
@@ -135,6 +139,13 @@ public class RegisterActivity extends BaseActivity {
                 //arg0 ==1的时表示正在滑动，arg0==2的时表示滑动完毕了，arg0==0的时表示什么都没做。
             }
         });
+
+        register_card_fabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToast("视频通话");
+            }
+        });
     }
 
     @Override
@@ -167,6 +178,11 @@ public class RegisterActivity extends BaseActivity {
         register_card_vp.setCurrentItem(event.getIndex());
     }
 
+    /**
+     * 实现跳转到注册资料预览页面
+     *
+     * @param event
+     */
     @Subscribe
     public void toNextPage(ToNextPageEvent event) {
         if (!commitBean.isNull()) {
@@ -187,6 +203,6 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppBus.getInstance().unregister(this);
+        AppBus.getInstance().unregister(this);//解除注册事件
     }
 }

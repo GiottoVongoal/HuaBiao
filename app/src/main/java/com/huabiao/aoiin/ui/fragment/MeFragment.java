@@ -4,6 +4,7 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -47,6 +48,10 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void bindView(Bundle savedInstanceState) {
+        //透明状态栏
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        //透明导航栏
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         showView();
     }
 
