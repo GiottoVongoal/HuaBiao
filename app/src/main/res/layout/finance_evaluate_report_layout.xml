@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/finance_evaluate_report_trade_iv"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/finance_evaluate_report_tradename_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="商标名"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/finance_evaluate_report_tradetype_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="类别" />
+
+            <TextView
+                android:id="@+id/finance_evaluate_report_tradestatus_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="状态" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_round_gray"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="系统综合评估" />
+
+                <View style="@style/GrayLine" />
+
+                <com.huabiao.aoiin.wedgit.CircleTextView
+                    android:id="@+id/finance_evaluate_report_grade_circle_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="综合评分" />
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="15dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="30日监测数据" />
+
+                <com.huabiao.aoiin.wedgit.DrawLineChartView
+                    android:id="@+id/finance_evaluate_report_linechart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View style="@style/GrayLine" />
+
+                <TextView
+                    android:id="@+id/finance_evaluate_report_time_limit_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="专用期限：2014-01-28~2024-01-27" />
+
+                <View style="@style/GrayLine" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="服务范围" />
+
+                <View style="@style/GrayLine" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/finance_evaluate_report_service_area_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="10dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="相关动态" />
+
+                <TextView
+                    android:id="@+id/finance_evaluate_report_trends_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="更多" />
+            </RelativeLayout>
+
+            <View style="@style/GrayLine" />
+
+            <TextView
+                android:id="@+id/finance_evaluate_report_trends_info_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="安塞乐米塔尔：到2021年将提升日化品产量25% 07-18 10:07\n国家统计局：6月全国日化用品均产量244.1万吨 07-18 09:58" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View style="@style/GrayLine" />
+
+    <TextView
+        android:id="@+id/finance_evaluate_report_to_next_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="资讯专业人员获取精准评估结果" />
+</LinearLayout>

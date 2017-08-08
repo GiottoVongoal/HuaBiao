@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
+import com.huabiao.aoiin.ui.fragment.FinanceFragment;
 import com.huabiao.aoiin.ui.fragment.HomePageFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
@@ -40,7 +41,7 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
-    Fragment HomePageFragment, MeFragment;
+    Fragment homePageFragment, financeFragment, meFragment;
 
     @Override
     public BasePresenter getPresenter() {
@@ -50,8 +51,9 @@ public class MainActivity extends BaseActivity {
     @Override
     public void bindView(Bundle savedInstanceState) {
         BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
-        HomePageFragment = new HomePageFragment();
-        MeFragment = new MeFragment();
+        homePageFragment = new HomePageFragment();
+        financeFragment = new FinanceFragment();
+        meFragment = new MeFragment();
 
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
@@ -99,16 +101,16 @@ public class MainActivity extends BaseActivity {
     public void setItem(int index) {
         switch (index) {
             case 0:
-                addFragment(HomePageFragment);
+                addFragment(homePageFragment);
                 break;
             case 1:
                 addFragment(BottonNavigationViewFragment.newInstance("商城"));
                 break;
             case 2:
-                addFragment(BottonNavigationViewFragment.newInstance("金融"));
+                addFragment(financeFragment);
                 break;
             case 3:
-                addFragment(MeFragment);
+                addFragment(meFragment);
                 break;
         }
         botton_navi_view.getMenu().getItem(index).setChecked(true);
