@@ -42,7 +42,7 @@ public class ColorArcProgressBar extends View {
 
     private ValueAnimator progressAnimator;
 
-    private float startAngle = 135;
+    private float startAngle = 270;
     private float sweepAngle = 270;
     private float currentAngle = 0;
     private float lastAngle;
@@ -51,7 +51,7 @@ public class ColorArcProgressBar extends View {
     private float curValues = 0;
     private float bgArcWidth = dipToPx(2);
     private float progressWidth = dipToPx(10);
-    private float textSize = dipToPx(25);
+    private float textSize = dipToPx(40);
     private float hintSize = dipToPx(15);
     private float curSpeedSize = dipToPx(13);
     private int aniSpeed = 1000;
@@ -59,9 +59,9 @@ public class ColorArcProgressBar extends View {
     private float shortdegree = dipToPx(5);
     private final int DEGREE_PROGRESS_DISTANCE = dipToPx(8);
     private String hintColor = "#676767";
-    private String longDegreeColor = "#111111";
-    private String shortDegreeColor = "#111111";
-    private String bgArcColor = "#111111";
+    private String longDegreeColor = "#8E8E8E";
+    private String shortDegreeColor = "#8E8E8E";
+    private String bgArcColor = "#8E8E8E";
     private boolean isShowCurrentSpeed = true;
     private String hintString = "Km/h";
     private String contentString = "";
@@ -131,7 +131,8 @@ public class ColorArcProgressBar extends View {
 
     private void initView() {
 
-        diameter = 3 * getScreenWidth() / 5;
+//        diameter = 3 * getScreenWidth() / 5;
+        diameter = getScreenWidth() / 4;
         //弧形的矩阵区域
         bgRect = new RectF();
         bgRect.top = longdegree + progressWidth / 2 + DEGREE_PROGRESS_DISTANCE;

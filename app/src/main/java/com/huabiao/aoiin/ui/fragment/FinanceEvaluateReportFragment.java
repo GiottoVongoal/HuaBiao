@@ -12,6 +12,7 @@ import com.huabiao.aoiin.model.FinanceModel;
 import com.huabiao.aoiin.ui.adapter.ServiceAreaAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.CircleTextView;
+import com.huabiao.aoiin.wedgit.ColorArcProgressBar;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseFragment;
@@ -19,6 +20,8 @@ import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
 
 import butterknife.Bind;
+
+import static com.umeng.analytics.a.p;
 
 /**
  * @author 杨丽亚.
@@ -36,8 +39,8 @@ public class FinanceEvaluateReportFragment extends BaseFragment implements View.
     @Bind(R.id.finance_evaluate_report_tradestatus_tv)
     TextView tradestatus_tv;
 
-    @Bind(R.id.finance_evaluate_report_grade_circle_tv)
-    CircleTextView grade_circle_tv;
+    @Bind(R.id.finance_evaluate_report_circle_bar)
+    ColorArcProgressBar circle_bar;
 
     @Bind(R.id.finance_evaluate_report_linechart)
     DrawLineChartView linechart;
@@ -91,7 +94,8 @@ public class FinanceEvaluateReportFragment extends BaseFragment implements View.
                 tradestatus_tv.setText("初审公告");
                 break;
         }
-        grade_circle_tv.setText(bean.getTradegrade());
+        circle_bar.setCurrentValues(bean.getTradegrade());
+        circle_bar.setContent(String.valueOf(bean.getTradegrade()));
         linechart.setLineChartBean(bean.getLinechart());
         time_limit_tv.setText("专用期限：" + bean.getTimelimit());
         serviceAdapter = new ServiceAreaAdapter(getContext(), bean.getServicearealist());

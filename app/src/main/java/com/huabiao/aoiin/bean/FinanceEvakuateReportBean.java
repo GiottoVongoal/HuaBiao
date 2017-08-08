@@ -29,7 +29,7 @@ public class FinanceEvakuateReportBean {
     private String trademarkclassification;
     private String classificationid;
     private int tradestatus;
-    private String tradegrade;
+    private int tradegrade;
     private LineChartBean linechart;
     private String timelimit;
     private String trendsinfo;
@@ -75,11 +75,11 @@ public class FinanceEvakuateReportBean {
         this.tradestatus = tradestatus;
     }
 
-    public String getTradegrade() {
+    public int getTradegrade() {
         return tradegrade;
     }
 
-    public void setTradegrade(String tradegrade) {
+    public void setTradegrade(int tradegrade) {
         this.tradegrade = tradegrade;
     }
 

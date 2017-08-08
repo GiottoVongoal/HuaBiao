@@ -39,5 +39,5 @@
     <color name="wdiget_circlerange_border_color">#B9E2FB</color>
     <color name="wdiget_circlerange_cursor_color">#356CDB</color>
 
-    <color name="yellow_f3c412">#F3C412</color>
+    <color name="yellow_ffff00">#ffff00</color>
 </resources>

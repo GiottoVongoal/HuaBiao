@@ -1,5 +1,6 @@
 package com.huabiao.aoiin.ui.activity;
 
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -7,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -23,7 +23,7 @@ import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.adapter.UserProgressAdapter;
 import com.huabiao.aoiin.ui.fragment.UserProgressDateFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
-import com.huabiao.aoiin.wedgit.ColorArcProgressBar;
+import com.huabiao.aoiin.wedgit.CircleTextView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -60,8 +60,8 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
     CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     //展示数据
-    @Bind(R.id.user_progress_circle_bar)
-    ColorArcProgressBar circle_bar;
+    @Bind(R.id.user_progress_circle_tv)
+    CircleTextView circle_tv;
     @Bind(R.id.user_progress_rv)
     RecyclerView user_progress_rv;
     private UserProgressAdapter mAdapter;
@@ -107,9 +107,10 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     bean = (UserProgressListBean) mData;
-                    circle_bar.setCurrentValues(100);
-                    circle_bar.setContent(bean.getLatestprogress());
-                    circle_bar.setOnClickListener(UserProgressActivity.this);
+                    circle_tv.setText(bean.getLatestprogress());
+                    circle_tv.setTextColor(Color.WHITE);
+                    circle_tv.setBackgroundColor(getResources().getColor(R.color.blue_0090FF));
+                    circle_tv.setOnClickListener(UserProgressActivity.this);
                     user_progress_rv.setLayoutManager(new FullyLinearLayoutManager(UserProgressActivity.this));
                     final List<ProgresslistBean> l = bean.getUserprogresslist();
                     mAdapter = new UserProgressAdapter(UserProgressActivity.this, l);
@@ -174,12 +175,12 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.user_progress_toolbar_title:
-            //下拉菜单
+                //下拉菜单
                 toolbar_title.setTextColor(getResources().getColor(R.color.black3));
                 popRecyclerView.setAdapter(menuAdapter);
                 popMenu.showAsDropDown(toolbar_title, 0, 2);
                 break;
-            case R.id.user_progress_circle_bar:
+            case R.id.user_progress_circle_tv:
                 //最新进度
                 Bundle bundle = new Bundle();
                 bundle.putString("time", bean.getLatestime());
