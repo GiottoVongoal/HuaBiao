@@ -1,22 +1,23 @@
 package com.huabiao.aoiin.ui.fragment;
 
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.LineChartBean;
+import com.huabiao.aoiin.bean.ScreenBean;
+import com.huabiao.aoiin.bean.ScreenBean.ScreenlistBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
 import com.huabiao.aoiin.bean.SearchResultBean.RecommendBean;
-import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean.ClassficationsmalltypeBean;
-import com.huabiao.aoiin.bean.SelectClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
+import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.adapter.SearchResultBottomAdapter;
 import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.adapter.SearchResultTopAdapter;
@@ -25,10 +26,10 @@ import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.huabiao.aoiin.wedgit.MaxRecyclerView;
+import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -40,14 +41,10 @@ import butterknife.Bind;
  * @description 查询结果已注册页面
  */
 public class SearchResultFragment extends BaseFragment implements View.OnClickListener {
-    //下拉筛选菜单
-    @Bind(R.id.search_result_menu_ll)
-    LinearLayout menu_ll;
-    @Bind(R.id.search_result_menu_tv)
-    TextView menu_tv;
-    private PopupWindow popMenu;
-    private RecyclerView popRecyclerView;
-    private UpMenuAdapter menuAdapter;
+    //筛选
+    @Bind(R.id.search_result_screen_tv)
+    TextView screen_tv;
+    private ScreenPopupWindow screenPopupWindow;
 
     //展示数据
     @Bind(R.id.search_result_top_rv)
@@ -68,10 +65,10 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    SelectClassificationListBean bean = (SelectClassificationListBean) mData;
-                    List<ClassificationBean> list = bean.getClassification();
+                    ScreenBean bean = (ScreenBean) mData;
+                    List<ScreenlistBean> list = bean.getScreenlist();
                     initPopMenu(list);
-                    menu_ll.setOnClickListener(SearchResultFragment.this);
+                    screen_tv.setOnClickListener(SearchResultFragment.this);
                 }
             }
         });
@@ -109,52 +106,21 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.search_result_menu_ll:
-                menu_tv.setTextColor(getResources().getColor(R.color.black3));
-                popRecyclerView.setAdapter(menuAdapter);
-                popMenu.showAsDropDown(menu_ll, 0, 2);
+            case R.id.search_result_screen_tv:
+                screenPopupWindow.showPopupWindow(view);
                 break;
         }
     }
 
     //下拉筛选菜单相关
-    private void initPopMenu(final List<ClassificationBean> list) {
-        View contentView = View.inflate(getContext(), R.layout.popwin_supplier_list, null);
-        popMenu = new PopupWindow(contentView,
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        popMenu.setOutsideTouchable(true);
-        popMenu.setBackgroundDrawable(new BitmapDrawable());
-        popMenu.setFocusable(true);
-        popMenu.setAnimationStyle(R.style.popwin_anim_style);
-        popMenu.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            public void onDismiss() {
-                menu_tv.setTextColor(getResources().getColor(R.color.black3));
-            }
-        });
-        menu_tv.setText(list.get(0).getClassificationname());//默认显示第一个类别
-        initData(list.get(0).getClassificationid());//根据类别获取已注册数据
-        popRecyclerView = (RecyclerView) contentView
-                .findViewById(R.id.popwin_supplier_list_rv);
-        contentView.findViewById(R.id.popwin_supplier_list_bottom)
-                .setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        popMenu.dismiss();
-                    }
-                });
-        popRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        List<String> l = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            l.add(list.get(i).getClassificationname());
-        }
-        menuAdapter = new UpMenuAdapter(getContext(), l);
-
-        menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+    private void initPopMenu(final List<ScreenlistBean> list) {
+        //默认获取第一类数据
+        initData(list.get(0).getSlist().get(0).getClassificationid());
+        screenPopupWindow = new ScreenPopupWindow(getActivity(), list, new InterfaceManager.OnScreenItemClickListener() {
             @Override
-            public void onItemClickListener(View view, int position) {
-                popMenu.dismiss();
-                menu_tv.setText(list.get(position).getClassificationname());
-                showToast(list.get(position).getClassificationname());
+            public void onItemClickListener(View view, ClassificationBean bean) {
+                ALog.i("bean", bean.getClassificationid() + "-" + bean.getClassificationname());
+                initData(bean.getClassificationid());
             }
         });
     }

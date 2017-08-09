@@ -76,7 +76,7 @@ public class CustomPopupWindow extends PopupWindow {
         setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         setAnimationStyle(R.style.bottom_enter_anim);
-        setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(R.color.popup_main_background)));
+        setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(R.color.popup_bg_b0000000)));
         setFocusable(true);
 
     }

@@ -1,18 +1,19 @@
 package com.huabiao.aoiin.ui.view;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.RegisterBean;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
+import com.huabiao.aoiin.bean.ScreenBean;
+import com.huabiao.aoiin.bean.ScreenBean.ScreenlistBean;
 import com.huabiao.aoiin.bean.SelectClassificationCheckBean;
-import com.huabiao.aoiin.bean.SelectClassificationListBean;
 import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.RegisterCardOneAdapter;
@@ -21,6 +22,7 @@ import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ChangeRegisterIndexEvent;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
+import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
 import com.squareup.otto.Produce;
 
 import java.util.ArrayList;
@@ -38,6 +40,7 @@ public class RegisterCardOneView extends RegisterCardBaseView implements View.On
 
     //按类筛选
     private TextView classification_tv;
+    private ScreenPopupWindow screenPopupWindow;
     private RecyclerView classification_rv;
     private RegisterCardOneAdapter adapter;
     private List<SelectClassificationCheckBean> list;
@@ -107,7 +110,7 @@ public class RegisterCardOneView extends RegisterCardBaseView implements View.On
         switch (view.getId()) {
             case R.id.register_card_one_classification_tv:
                 //按类筛选
-                getClassification();
+                getClassification(view);
                 break;
             case R.id.register_card_one_next_tv:
                 //下一步
@@ -144,14 +147,21 @@ public class RegisterCardOneView extends RegisterCardBaseView implements View.On
     /**
      * 获取注册类别列表
      */
-    private void getClassification() {
+    private void getClassification(final View view) {
         SearchModel.getSelectClassificationList(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    SelectClassificationListBean bean = (SelectClassificationListBean) mData;
-                    List<ClassificationBean> list = bean.getClassification();
+                    ScreenBean bean = (ScreenBean) mData;
+                    List<ScreenlistBean> list = bean.getScreenlist();
                     //选择注册类别,更新数据
+                    screenPopupWindow = new ScreenPopupWindow((Activity) context, list, new InterfaceManager.OnScreenItemClickListener() {
+                        @Override
+                        public void onItemClickListener(View view, ClassificationBean bean) {
+                            ALog.i("bean", bean.getClassificationid() + "-" + bean.getClassificationname());
+                        }
+                    });
+                    screenPopupWindow.showPopupWindow(view);
                 }
             }
         });

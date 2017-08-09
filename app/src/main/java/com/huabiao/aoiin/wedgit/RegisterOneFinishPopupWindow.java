@@ -2,15 +2,12 @@ package com.huabiao.aoiin.wedgit;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 
@@ -63,7 +60,7 @@ public class RegisterOneFinishPopupWindow extends PopupWindow {
         setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         setAnimationStyle(R.style.bottom_enter_anim);
-        setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(R.color.popup_main_background)));
+        setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(R.color.popup_bg_b0000000)));
         setFocusable(true);
     }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
+import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.bean.SelectClassificationListBean;
@@ -19,15 +20,15 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 public class SearchModel {
 
     /**
-     * 获取查询结果可注册类别列表
+     * 获取查询结果筛选条件列表
      *
      * @param context
      * @param callback
      */
     public static void getSelectClassificationList(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "selecctclassificationlist.json");
+        String jsonString = GetJsonToName.getJson(context, "screenlist.json");
         Gson gson = new Gson();
-        SelectClassificationListBean bean = gson.fromJson(jsonString, SelectClassificationListBean.class);
+        ScreenBean bean = gson.fromJson(jsonString, ScreenBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }
@@ -37,10 +38,10 @@ public class SearchModel {
      * 获取查询结果
      *
      * @param context
-     * @param classification 类型
+     * @param classificationId 类型
      * @param callback
      */
-    public static void getSearchResult(Context context, String classification, final InterfaceManager.CallBackCommon callback) {
+    public static void getSearchResult(Context context, String classificationId, final InterfaceManager.CallBackCommon callback) {
         String jsonString = GetJsonToName.getJson(context, "searchresultregistered.json");
         Gson gson = new Gson();
         SearchResultBean bean = gson.fromJson(jsonString, SearchResultBean.class);

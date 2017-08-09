@@ -32,7 +32,7 @@
         android:visibility="gone" />
 
     <ImageView
-        android:id="@+id/iv_right"
+        android:id="@+id/screen_item_right_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"

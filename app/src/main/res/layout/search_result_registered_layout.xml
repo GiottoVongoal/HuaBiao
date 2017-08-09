@@ -8,26 +8,25 @@
     <include layout="@layout/view_title" />
 
     <LinearLayout
-        android:id="@+id/search_result_menu_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/search_result_menu_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="选择分类"
-            android:textSize="14dp" />
+            android:padding="10dp"
+            android:text="为您找到的未注册相关结果" />
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@mipmap/icon_arrow_down" />
+        <TextView
+            android:id="@+id/search_result_screen_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="筛选" />
     </LinearLayout>
 
     <View style="@style/GrayLine" />
