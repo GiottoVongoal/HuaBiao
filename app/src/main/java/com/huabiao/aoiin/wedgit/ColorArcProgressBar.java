@@ -42,7 +42,7 @@ public class ColorArcProgressBar extends View {
 
     private ValueAnimator progressAnimator;
 
-    private float startAngle = 270;
+    private float startAngle = 0;
     private float sweepAngle = 270;
     private float currentAngle = 0;
     private float lastAngle;
