@@ -1,9 +1,9 @@
 package com.huabiao.aoiin.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CustomerServiceListBean;
@@ -32,14 +32,13 @@ public class Customerservicelist extends BaseFragment {
                 if (mData != null) {
                     CustomerServiceListBean cb = (CustomerServiceListBean) mData;
                     cAdapter = new CustomerservicelistAdapter(cb.getCustomerservicelist());
-                    customerservice_recyclerview.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-                    LinearLayoutManager manager = new LinearLayoutManager(getContext());
-                    manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                    customerservice_recyclerview.setLayoutManager(manager);
-//                    customerservice_recyclerview.setLayoutManager(new HotSearchWordLayoutManager());
-//                    SnapHelper snapHelper=new LinearSnapHelper();
-//                    snapHelper.attachToRecyclerView(customerservice_recyclerview);
+                    customerservice_recyclerview.setItemAnimator(new DefaultItemAnimator());
                     customerservice_recyclerview.setAdapter(cAdapter);
+                    CustomerServiceCallback callback = new CustomerServiceCallback(customerservice_recyclerview.getAdapter(), cb.getCustomerservicelist());
+                    final ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+                    final CustomerServiceLayoutManager cardLayoutManager = new CustomerServiceLayoutManager(customerservice_recyclerview, touchHelper);
+                    customerservice_recyclerview.setLayoutManager(cardLayoutManager);
+                    touchHelper.attachToRecyclerView(customerservice_recyclerview);
                 }
             }
         });

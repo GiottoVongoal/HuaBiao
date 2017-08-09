@@ -4,7 +4,7 @@
     android:id="@+id/customer_service_rl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_margin="10dp"
     android:background="@drawable/bg_round_gray">
 
     <LinearLayout
