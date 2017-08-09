@@ -6,7 +6,6 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.bean.TestBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -30,8 +29,6 @@ public class LineChartFragment extends BaseFragment {
 
     @Bind(R.id.line_chart)
     DrawLineChartView line_chart;
-    @Bind(R.id.line_chart2)
-    DrawLineChartView line_chart2;
 
     @Bind(R.id.column_chart)
     DrawColumnChartView column_chart;
@@ -52,19 +49,6 @@ public class LineChartFragment extends BaseFragment {
                     LineChartBean linechart = bean.getLinechart();
                     if (linechart != null) {
                         line_chart.setLineChartBean(linechart);
-                    }
-                }
-            }
-        });
-
-        SearchModel.getSearchUnregisterResult(getContext(), "", "", new InterfaceManager.CallBackCommon() {
-            @Override
-            public void getCallBackCommon(Object mData) {
-                if (mData != null) {
-                    SearchResultUnregisteredAndCreatNameBean bean2 = (SearchResultUnregisteredAndCreatNameBean) mData;
-                    LineChartBean lineChart2 = bean2.getLinechart();
-                    if (lineChart2 != null) {
-                        line_chart2.setLineChartBean(lineChart2);
                     }
                 }
             }

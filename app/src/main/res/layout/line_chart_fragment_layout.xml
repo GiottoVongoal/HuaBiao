@@ -11,13 +11,6 @@
         android:layout_height="wrap_content"
         android:background="@color/white" />
 
-    <com.huabiao.aoiin.wedgit.DrawLineChartView
-        android:id="@+id/line_chart2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white" />
-
     <com.huabiao.aoiin.wedgit.DrawColumnChartView
         android:id="@+id/column_chart"
         android:layout_width="match_parent"

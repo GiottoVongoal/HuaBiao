@@ -6,8 +6,6 @@ import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
-import com.huabiao.aoiin.bean.SelectClassificationListBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 
 /**
@@ -45,23 +43,6 @@ public class SearchModel {
         String jsonString = GetJsonToName.getJson(context, "searchresultregistered.json");
         Gson gson = new Gson();
         SearchResultBean bean = gson.fromJson(jsonString, SearchResultBean.class);
-        if (callback != null) {
-            callback.getCallBackCommon(bean);
-        }
-    }
-
-    /**
-     * 获取查询结果--未注册
-     *
-     * @param context
-     * @param tradeName 商标名
-     * @param goodsName 商品名
-     * @param callback
-     */
-    public static void getSearchUnregisterResult(Context context, String tradeName, String goodsName, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "searchresultunregisteredandcreatname.json");
-        Gson gson = new Gson();
-        SearchResultUnregisteredAndCreatNameBean bean = gson.fromJson(jsonString, SearchResultUnregisteredAndCreatNameBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

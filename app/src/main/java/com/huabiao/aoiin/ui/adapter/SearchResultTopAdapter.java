@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean;
 import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean.ClassficationsmalltypeBean;
-import com.huabiao.aoiin.wedgit.ShowRegisteredTypePopupWindow;
 
 import java.util.List;
 
@@ -61,18 +60,9 @@ public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTop
                 break;
         }
         holder.item_right_tv.setText(statusString);
-
 //        holder.item_ll.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                //点击显示小分类和注册状态
-//                int direction = (position % 2 == 0) ? 1 : 2;
-//                ShowRegisteredTypePopupWindow popupWindow = new ShowRegisteredTypePopupWindow(
-//                        context, bean.getDetailed(), direction, bean.getTrademarkstatus());
-//                if (direction == 1)
-//                    popupWindow.showAtDropDownLeft(view);
-//                else
-//                    popupWindow.showAtDropDownRight(view);
 //            }
 //        });
     }

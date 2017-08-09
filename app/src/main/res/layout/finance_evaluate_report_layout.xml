@@ -163,8 +163,7 @@
                 android:id="@+id/finance_evaluate_report_trends_info_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="安塞乐米塔尔：到2021年将提升日化品产量25% 07-18 10:07\n国家统计局：6月全国日化用品均产量244.1万吨 07-18 09:58" />
+                android:padding="15dp" />
         </LinearLayout>
     </ScrollView>
 
@@ -177,5 +176,6 @@
         android:background="@color/white"
         android:gravity="center"
         android:padding="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="资讯专业人员获取精准评估结果" />
 </LinearLayout>

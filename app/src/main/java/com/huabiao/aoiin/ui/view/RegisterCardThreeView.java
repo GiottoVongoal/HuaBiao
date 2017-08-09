@@ -50,7 +50,7 @@ public class RegisterCardThreeView extends RegisterCardBaseView {
 
     public RegisterCardThreeView(Context context) {
         super(context);
-        view = inflate(context, R.layout.register_card_four_layout, this);
+        view = inflate(context, R.layout.register_card_three_layout, this);
         this.context = context;
         title_tv = (TextView) view.findViewById(R.id.register_card_four_title_tv);
         trade_logo_iv = (ImageView) view.findViewById(R.id.register_data_preview_trade_logo_iv);

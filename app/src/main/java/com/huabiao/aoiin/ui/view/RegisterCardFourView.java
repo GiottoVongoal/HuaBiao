@@ -7,14 +7,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
-import com.huabiao.aoiin.ui.ottobus.ChangeRegisterIndexEvent;
 import com.huabiao.aoiin.ui.ottobus.ToNextPageEvent;
 import com.squareup.otto.Produce;
-import com.ywy.mylibs.utils.ToastUtils;
 
 /**
  * @author 杨丽亚.
@@ -35,7 +32,7 @@ public class RegisterCardFourView extends RegisterCardBaseView implements View.O
 
     public RegisterCardFourView(Context context) {
         super(context);
-        view = inflate(context, R.layout.register_card_five_layout, this);
+        view = inflate(context, R.layout.register_card_four_layout, this);
         this.context = context;
         service_mode_rg = (RadioGroup) view.findViewById(R.id.register_card_five_service_mode_rg);
         general_rb = (RadioButton) view.findViewById(R.id.register_card_five_general_rb);

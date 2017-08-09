@@ -5,16 +5,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="text_editStyle">
-        <item name="android:layout_height">43dp</item>
-        <item name="android:layout_width">43dp</item>
-        <item name="android:background">@mipmap/bg_verify</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/blue_0090FF</item>
-        <item name="android:textSize">15sp</item>
-
-    </style>
-
     <!-- 灰色的线 -->
     <style name="GrayLine">
         <item name="android:layout_width">match_parent</item>
@@ -66,16 +56,6 @@
     <style name="popwin_anim_style">
         <item name="android:windowEnterAnimation">@anim/still</item>
         <item name="android:windowExitAnimation">@anim/still</item>
-    </style>
-    <!--查询已注册列表的小项PopupWindow-->
-    <style name="PopupRightAnimation" mce_bogus="1" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@anim/popwindow_right_in</item>
-        <item name="android:windowExitAnimation">@anim/popwindow_right_out</item>
-    </style>
-
-    <style name="PopupleftAnimation" mce_bogus="1" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@anim/popwindow_left_in</item>
-        <item name="android:windowExitAnimation">@anim/popwindow_left_out</item>
     </style>
     <!--日历相关-->
     <declare-styleable name="WeekBarView">
