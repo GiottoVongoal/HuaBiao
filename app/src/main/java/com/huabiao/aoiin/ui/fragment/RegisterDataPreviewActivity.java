@@ -11,6 +11,12 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterBean;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
+import com.huabiao.aoiin.bean.TradeFormBean;
+import com.huabiao.aoiin.bean.TradeFormBean.FormBean;
+import com.huabiao.aoiin.bean.TradeFormBean.FormBean.ImgInfoBean;
+import com.huabiao.aoiin.bean.TradeFormBean.FormBean.PersonTypeInfoBean;
+import com.huabiao.aoiin.bean.TradeFormBean.FormBean.UserBasicInfoBean;
+import com.huabiao.aoiin.model.MeModel;
 import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.picview.BitmapUtil;
 import com.huabiao.aoiin.tools.ActivityCollector;
@@ -21,6 +27,7 @@ import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.ClickUtil;
 import com.ywy.mylibs.utils.JumpUtils;
 
@@ -30,7 +37,7 @@ import butterknife.Bind;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
  * @date 2017-08-04 14:37
- * @description 注册资料预览页面
+ * @description 注册资料预览页面/商标注册表单预览
  */
 public class RegisterDataPreviewActivity extends BaseActivity implements View.OnClickListener {
     @Bind(R.id.register_data_preview_tradename_tv)
@@ -80,14 +87,112 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     TextView commit_tv;
 
     private RegisterCommitBean commitBean;
+    private FormBean formbean;
+
+    private int index;//1 商标注册表单; 2 注册资料预览
+    private String tradeid;// 商标注册表单的ID
+
+    @Override
+    public void getIntentValue() {
+        super.getIntentValue();
+        Bundle bundle = getIntent().getExtras();
+        index = bundle.getInt("index", 1);
+        tradeid = bundle.getString("tradeid");
+    }
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        setTitle("资料预览");
         setBackEnable();
-        commitBean = RegisterCommitBean.getInstance();
-        ActivityCollector.addActivity(this);
+        switch (index) {
+            case 1:
+                //商标注册表单
+                setTitle("商标注册表单预览");
+                MeModel.getTradeFormBean(this, tradeid, new InterfaceManager.CallBackCommon() {
+                    @Override
+                    public void getCallBackCommon(Object mData) {
+                        if (mData != null) {
+                            TradeFormBean bean = (TradeFormBean) mData;
+                            formbean = bean.getTraderegisterform();
+                            showFormData(formbean);
+                        }
+                    }
+                });
+                break;
+            case 2:
+                //注册资料预览
+                setTitle("资料预览");
+                commitBean = RegisterCommitBean.getInstance();
+                ActivityCollector.addActivity(this);
+                showRegisterData(commitBean);
+                break;
+        }
+        setOnclick();
+    }
 
+    /**
+     * 商标注册表单预览
+     */
+    private void showFormData(FormBean bean) {
+        tradename_tv.setText("注册商标:" + bean.getLinechart().getTradename());
+        tradetype_tv.setText("分类:" + bean.getLinechart().getTrademarkclassification());
+        linechart.setLineChartBean(bean.getLinechart());
+
+        mAdapter = new RegisterDataPreviewAdapter(this, bean.getClassification());
+        classification_rv.setLayoutManager(new FullyGridLayoutManager(this, 2));
+        classification_rv.setAdapter(mAdapter);
+
+        UserBasicInfoBean userBean = bean.getUserbasicinfo();
+        username_tv.setText("客户姓名:" + userBean.getUsername());
+        userphone_tv.setText("联系电话:" + userBean.getUserphone());
+        contract_address_tv.setText("合同地址:" + userBean.getContractaddress());
+        code_tv.setText("邮政编码:" + userBean.getCode());
+
+        PersonTypeInfoBean personBean = bean.getPersontypeinfo();
+        int person_type = personBean.getPersontype();
+        switch (person_type) {
+            case 1:
+                person_type_tv.setText("法人或其他组织");
+                legal_or_id_tv.setText("法人姓名:" + personBean.getLegalname());
+                break;
+            case 2:
+                person_type_tv.setText("个体工商户");
+                legal_or_id_tv.setText("法人姓名:" + personBean.getLegalname());
+                break;
+            case 3:
+                person_type_tv.setText("自然人");
+                legal_or_id_tv.setText("身份证件文件号码:" + personBean.getCertificatesid());
+                break;
+        }
+        person_name_tv.setText("申请人姓名:" + personBean.getPersonname());
+        person_address_tv.setText("行政区划:" + personBean.getPersonaddress());
+
+        ImgInfoBean imgbean = bean.getImginfo();
+        BitmapLoader.ins().loadImage(imgbean.getLogoimg(), R.mipmap.ic_launcher, trade_logo_iv);
+        BitmapLoader.ins().loadImage(imgbean.getProxyimg(), R.mipmap.ic_launcher, proxy_iv);
+        BitmapLoader.ins().loadImage(imgbean.getBusinesslicenceimg(), R.mipmap.ic_launcher, business_licence_iv);
+
+        int serviceMode = bean.getServicemode();
+        switch (serviceMode) {
+            case 1:
+                service_mode_tv.setText("普通注册");
+                break;
+            case 2:
+                service_mode_tv.setText("加急注册");
+                break;
+            case 3:
+                service_mode_tv.setText("注册 + 预审 + 退费担保");
+                break;
+        }
+        back_tv.setVisibility(View.GONE);
+        commit_tv.setText("下载表单");
+    }
+
+    /**
+     * 注册内容数据预览
+     *
+     * @param bean
+     */
+    private void showRegisterData(RegisterCommitBean bean) {
         //获取基本信息
         RegisterModel.getRegisterData(this, new InterfaceManager.CallBackCommon() {
             @Override
@@ -101,38 +206,38 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
             }
         });
 
-        mAdapter = new RegisterDataPreviewAdapter(this, commitBean.getClaList());
+        mAdapter = new RegisterDataPreviewAdapter(this, bean.getClaList());
         classification_rv.setLayoutManager(new FullyGridLayoutManager(this, 2));
         classification_rv.setAdapter(mAdapter);
 
-        username_tv.setText("客户姓名:" + commitBean.getUsername());
-        userphone_tv.setText("联系电话:" + commitBean.getUserphone());
-        contract_address_tv.setText("合同地址:" + commitBean.getContractSelectAddress() + commitBean.getContractAddress());
-        code_tv.setText("邮政编码:" + commitBean.getCode());
+        username_tv.setText("客户姓名:" + bean.getUsername());
+        userphone_tv.setText("联系电话:" + bean.getUserphone());
+        contract_address_tv.setText("合同地址:" + bean.getContractSelectAddress() + bean.getContractAddress());
+        code_tv.setText("邮政编码:" + bean.getCode());
 
-        int person_type = commitBean.getPersonType();
+        int person_type = bean.getPersonType();
         switch (person_type) {
             case 1:
                 person_type_tv.setText("法人或其他组织");
-                legal_or_id_tv.setText("法人姓名:" + commitBean.getLegalPersonName());
+                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
                 break;
             case 2:
                 person_type_tv.setText("个体工商户");
-                legal_or_id_tv.setText("法人姓名:" + commitBean.getLegalPersonName());
+                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
                 break;
             case 3:
                 person_type_tv.setText("自然人");
-                legal_or_id_tv.setText("身份证件文件号码:" + commitBean.getCertificatesID());
+                legal_or_id_tv.setText("身份证件文件号码:" + bean.getCertificatesID());
                 break;
         }
-        person_name_tv.setText("申请人姓名:" + commitBean.getPersonName());
-        person_address_tv.setText("行政区划:" + commitBean.getCollectAddress());
+        person_name_tv.setText("申请人姓名:" + bean.getPersonName());
+        person_address_tv.setText("行政区划:" + bean.getCollectAddress());
 
-        trade_logo_iv.setImageBitmap(BitmapUtil.createImageThumbnail(commitBean.getLogoImg()));
-        proxy_iv.setImageBitmap(BitmapUtil.createImageThumbnail(commitBean.getProxyImg()));
-        business_licence_iv.setImageBitmap(BitmapUtil.createImageThumbnail(commitBean.getBusinessLicenceImg()));
+        trade_logo_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getLogoImg()));
+        proxy_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getProxyImg()));
+        business_licence_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getBusinessLicenceImg()));
 
-        int serviceMode = commitBean.getServiceMode();
+        int serviceMode = bean.getServiceMode();
         switch (serviceMode) {
             case 1:
                 service_mode_tv.setText("普通注册");
@@ -144,39 +249,51 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
                 service_mode_tv.setText("注册 + 预审 + 退费担保");
                 break;
         }
+        back_tv.setVisibility(View.VISIBLE);
+        commit_tv.setText("立即申请");
+    }
 
+    private void setOnclick() {
         trade_logo_iv.setOnClickListener(this);
         proxy_iv.setOnClickListener(this);
         business_licence_iv.setOnClickListener(this);
 
         back_tv.setOnClickListener(this);
         commit_tv.setOnClickListener(this);
+
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.register_data_preview_trade_logo_iv:
-                showLargeImg(trade_logo_iv, commitBean.getLogoImg());
+                showLargeImg(trade_logo_iv, index == 1 ? formbean.getImginfo().getLogoimg() : commitBean.getLogoImg());
                 break;
             case R.id.register_data_preview_proxy_iv:
-                showLargeImg(proxy_iv, commitBean.getProxyImg());
+                showLargeImg(proxy_iv, index == 1 ? formbean.getImginfo().getProxyimg() : commitBean.getProxyImg());
                 break;
             case R.id.register_data_preview_business_licence_iv:
-                showLargeImg(business_licence_iv, commitBean.getBusinessLicenceImg());
+                showLargeImg(business_licence_iv, index == 1 ? formbean.getImginfo().getBusinesslicenceimg() : commitBean.getBusinessLicenceImg());
                 break;
             case R.id.register_data_preview_back_tv:
                 ClickUtil.onBackClick();
                 break;
             case R.id.register_data_preview_commit_tv:
-                JumpUtils.startFragmentByName(this, PayInfoDetailFragment.class);
-                ActivityCollector.finishAll();
-                commitBean.emptyBean();
+                if (index == 1) {
+                    showToast("下载表单");
+                } else {
+                    JumpUtils.startFragmentByName(this, PayInfoDetailFragment.class);
+                    ActivityCollector.finishAll();
+                    commitBean.emptyBean();
+                }
                 break;
         }
     }
 
+
     //显示大图
+
     private void showLargeImg(ImageView iv, String path) {
         Intent i = new Intent(this, ShowLargeImageActivity.class);
         i.putExtra("path", path);

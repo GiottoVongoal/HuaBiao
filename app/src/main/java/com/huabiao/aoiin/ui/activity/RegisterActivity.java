@@ -179,7 +179,9 @@ public class RegisterActivity extends BaseActivity {
     @Subscribe
     public void toNextPage(ToNextPageEvent event) {
         if (!commitBean.isNull()) {
-            JumpUtils.startActivity(this, RegisterDataPreviewActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("index", 2);
+            JumpUtils.startActivity(this, RegisterDataPreviewActivity.class, bundle);
         }
     }
 

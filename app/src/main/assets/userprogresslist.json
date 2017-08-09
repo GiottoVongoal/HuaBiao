@@ -8,19 +8,37 @@
       "progressimg": "https://www.materialui.co/materialIcons/action/aspect_ratio_black_144x144.png",
       "progresscontent": "提交",
       "progressstatustext": "提交成功",
-      "progresstime": "2017年1月1日"
+      "progresstime": "2017年5月1日"
     },
     {
       "progressimg": "https://www.materialui.co/materialIcons/action/hourglass_empty_black_144x144.png",
       "progresscontent": "审核",
       "progressstatustext": "审核中",
-      "progresstime": "2017年1月8日"
+      "progresstime": "2017年6月8日"
     },
     {
       "progressimg": "https://www.materialui.co/materialIcons/action/compare_arrows_black_144x144.png",
       "progresscontent": "初审公告",
       "progressstatustext": "审核被驳回",
       "progresstime": "2017年07月26日"
+    },
+    {
+      "progressimg": "https://www.materialui.co/materialIcons/action/compare_arrows_black_144x144.png",
+      "progresscontent": "初审公告",
+      "progressstatustext": "重新提交",
+      "progresstime": "2017年7月26日"
+    },
+    {
+      "progressimg": "https://www.materialui.co/materialIcons/action/compare_arrows_black_144x144.png",
+      "progresscontent": "初审公告",
+      "progressstatustext": "审核中",
+      "progresstime": "2017年8月20日"
+    },
+    {
+      "progressimg": "https://www.materialui.co/materialIcons/action/compare_arrows_black_144x144.png",
+      "progresscontent": "初审公告",
+      "progressstatustext": "审核成功",
+      "progresstime": ""
     },
     {
       "progressimg": "https://www.materialui.co/materialIcons/action/done_black_144x144.png",

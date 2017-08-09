@@ -100,7 +100,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                 showToast("头像");
                 break;
             case me_trademark_registered_form_cv:
-                showToast("商标注册表单");
+                JumpUtils.startFragmentByName(getContext(), TradeFormListFragment.class);
                 break;
             case R.id.me_remind_progress_cv:
                 //进度提醒

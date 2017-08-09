@@ -1,0 +1,95 @@
+{
+  "traderegisterform": {
+    "linechart": {
+      "tradename": "飘柔",
+      "trademarkclassification": "日化用品",
+      "classificationid": "03",
+      "Xaxistag": [
+        "周一",
+        "周二",
+        "周三",
+        "周四",
+        "周五",
+        "周六",
+        "周日"
+      ],
+      "lines": [
+        {
+          "linename": "京东",
+          "linecolor": "#FF4300",
+          "linevalue": [
+            7,
+            7,
+            6,
+            7,
+            5,
+            6,
+            8
+          ]
+        },
+        {
+          "linename": "亚马逊",
+          "linecolor": "#FFEA00",
+          "linevalue": [
+            2,
+            2,
+            5,
+            4,
+            7,
+            7,
+            3
+          ]
+        }
+      ]
+    },
+    "classification": [
+      {
+        "classificationname": "氙",
+        "classificationid": "010551"
+      },
+      {
+        "classificationname": "氡",
+        "classificationid": "010457"
+      },
+      {
+        "classificationname": "氧",
+        "classificationid": "010413"
+      },
+      {
+        "classificationname": "氖",
+        "classificationid": "010401"
+      },
+      {
+        "classificationname": "氪",
+        "classificationid": "010372"
+      },
+      {
+        "classificationname": "氢",
+        "classificationid": "010359"
+      },
+      {
+        "classificationname": "氨",
+        "classificationid": "010061"
+      }
+    ],
+    "userbasicinfo": {
+      "username": "张安",
+      "userphone": "13266667777",
+      "contractaddress": "上海市闵行区城开中心中庚集团TI 3F",
+      "code": "200000"
+    },
+    "persontypeinfo": {
+      "persontype": 1,
+      "personname": "申",
+      "legalname": "法",
+      "personaddress": "上海市闵行区",
+      "certificatesid": ""
+    },
+    "imginfo": {
+      "logoimg": "http://img.sj33.cn/uploads/allimg/201402/7_021Z0060Y912.png",
+      "proxyimg": "http://pic27.nipic.com/20130316/6793504_173507408119_2.jpg",
+      "businesslicenceimg": "http://www.wenzhou.gov.cn/picture/0/140121073609521.JPG"
+    },
+    "servicemode": 1
+  }
+}
