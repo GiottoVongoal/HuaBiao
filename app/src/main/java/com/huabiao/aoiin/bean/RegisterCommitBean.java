@@ -21,8 +21,12 @@ public class RegisterCommitBean {
     }
 
     public static RegisterCommitBean getInstance() {
-        if (null == instance) {
-            instance = new RegisterCommitBean();
+        if (instance == null) {
+            synchronized (RegisterCommitBean.class) {
+                if (instance == null) {
+                    instance = new RegisterCommitBean();
+                }
+            }
         }
         return instance;
     }
