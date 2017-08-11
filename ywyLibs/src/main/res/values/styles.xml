@@ -11,7 +11,9 @@
     </style>
 
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
+        <item name="colorPrimary">@color/color_my_libs_0090ff</item>
+        <item name="colorPrimaryDark">@color/color_my_libs_0090ff</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 
