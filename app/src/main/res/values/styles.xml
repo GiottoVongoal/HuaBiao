@@ -35,7 +35,7 @@
         <!--没有获取焦点时的颜色-->
         <item name="colorControlNormal">@color/black3</item>
         <!--获取焦点时的颜色-->
-        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/blue_0090FF</item>
     </style>
     <!--TextInputLayout输入框的错误提示样式-->
     <style name="errorAppearance" parent="TextAppearance.AppCompat">
@@ -50,7 +50,7 @@
     <!--浮动标签-->
     <style name="hintAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/blue_0090FF</item>
     </style>
     <!--下拉筛选菜单-->
     <style name="popwin_anim_style">
