@@ -100,6 +100,8 @@ public class Buying extends BaseFragment implements View.OnClickListener {
         //bundle传递数据，最下方按钮的文字变化，case123是表示页面id
         Bundle bundle = getActivity().getIntent().getExtras();
         n = bundle.getInt("pageid", 1);
+        setTitle("商标详情页");
+        setBackEnable();
         switch (n) {
             case 1:
                 buying1_tv.setText("咨询客服");
@@ -190,26 +192,26 @@ public class Buying extends BaseFragment implements View.OnClickListener {
             case R.id.buying1_tv:
                 switch (n) {
                     case 1:
-                        showToast("求购详情页的咨询");
+                        showToast("求购详情页的咨询按钮");
                         break;
                     case 2:
-                        showToast("异议详情页的阻止");
+                        showToast("异议详情页的阻止按钮");
                         break;
                     case 3:
-                        showToast("抢注详情页的咨询");
+                        showToast("抢注详情页的咨询按钮");
                         break;
                 }
                 break;
             case R.id.buying2_tv:
                 switch (n) {
                     case 1:
-                        showToast("求购详情页的求购");
+                        showToast("求购详情页的求购按钮");
                         break;
                     case 2:
-                        showToast("异议详情页的求购");
+                        showToast("异议详情页的求购按钮");
                         break;
                     case 3:
-                        showToast("抢注详情页的抢注");
+                        showToast("抢注详情页的抢注按钮");
                         break;
                 }
                 break;

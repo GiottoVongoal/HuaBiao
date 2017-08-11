@@ -30,7 +30,7 @@ public class CustomerServiceCallback <T>  extends ItemTouchHelper.Callback{
         }
         return t;
     }
-
+    //建立监听器设置回调
 //    public void setOnSwipedListener(OnSwipeListener<T> mListener) {
 //        this.mListener = mListener;
 //    }
