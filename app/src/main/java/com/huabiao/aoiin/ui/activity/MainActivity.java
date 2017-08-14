@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
-    Fragment HomePageFragment, Mall, MeFragment,Customerservicelist;
+    Fragment HomePageFragment, Mall, MeFragment, Customerservicelist;
 
     @Override
     public BasePresenter getPresenter() {
@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
         BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
         HomePageFragment = new HomePageFragment();
         Mall = new Mall();
-        Customerservicelist=new Customerservicelist();
+        Customerservicelist = new Customerservicelist();
         MeFragment = new MeFragment();
 
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");

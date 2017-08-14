@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/view_title" />
+
+            <View
+                style="@style/GrayLine"
+                android:background="@color/black3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:id="@+id/details_tv1"
+                    android:text="可注册分类" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:id="@+id/details_tv2"
+                    android:text="筛选"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <View
+                style="@style/GrayLine"
+                android:background="@color/black3" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/denominate_details_rcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"  />
+            <View
+                style="@style/GrayLine"
+                android:background="@color/black3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:text="热度指数" />
+
+            <com.huabiao.aoiin.wedgit.DrawLineChartView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/details_linechart"/>
+
+            <View
+                style="@style/GrayLine"
+                android:layout_below="@+id/mall_listitem_imageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:text="释义："
+                android:textColor="@color/black3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/details_content"
+                android:text="释义的内容" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        style="@style/GrayLine"
+        android:background="@color/black3" />
+
+    <TextView
+        android:id="@+id/details_register_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="注册"
+        android:textSize="18dp" />
+</LinearLayout>

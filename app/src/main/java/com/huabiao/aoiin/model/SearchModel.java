@@ -168,4 +168,5 @@ public class SearchModel {
             callback.getCallBackCommon(bean);
         }
     }
+
 }

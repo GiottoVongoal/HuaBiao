@@ -1,7 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
@@ -10,23 +9,17 @@ import android.widget.TextView;
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CheckTypeResult;
-import com.huabiao.aoiin.bean.ClassificationBean;
-import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.LineChartBean;
-import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.bean.SearchResultUnRegisterCheckBean;
 import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultUnRegisteredAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
-import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
-import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
-import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,40 +81,6 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
     }
 
     private void showData(SearchResultUnregisteredAndCreatNameBean bean) {
-        //相关分类
-        relevantList = getList(bean.getClassification());
-        relevant_rv.setLayoutManager(new FullyGridLayoutManager(getContext(), 2));
-        relevantAdapter = new SearchResultUnRegisteredAdapter(getContext(), relevantList);
-        relevant_rv.setAdapter(relevantAdapter);
-        relevantAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
-            @Override
-            public void onItemClickListener(View view, final int position) {
-                Bundle bundle = new Bundle();
-                bundle.putString("tradename", tradename);
-                bundle.putString("classificationname", relevantList.get(position).getClassificationid() + " - " + relevantList.get(position).getClassificationname());
-                bundle.putInt("type", 1);//测试数据变化使用
-                JumpUtils.startFragmentByName(getContext(), CheckTypeListFragment.class, bundle);
-                Position = position;
-                Type = 1;
-            }
-        });
-        //其他分类
-        otherList = getList(bean.getOtherclassification());
-        other_rv.setLayoutManager(new FullyGridLayoutManager(getContext(), 2));
-        otherAdapter = new SearchResultUnRegisteredAdapter(getContext(), otherList);
-        other_rv.setAdapter(otherAdapter);
-        otherAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
-            @Override
-            public void onItemClickListener(View view, int position) {
-                Bundle bundle = new Bundle();
-                bundle.putString("tradename", tradename);
-                bundle.putString("classificationname", otherList.get(position).getClassificationid() + " - " + otherList.get(position).getClassificationname());
-                bundle.putInt("type", 2);//测试数据变化使用
-                JumpUtils.startFragmentByName(getContext(), CheckTypeListFragment.class, bundle);
-                Position = position;
-                Type = 2;
-            }
-        });
         //折线图
         LineChartBean linechart = bean.getLinechart();
         if (linechart != null) {
@@ -181,57 +140,9 @@ public class SearchResultUnRegisteredFragment extends BaseFragment implements Vi
         finishPopupWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
     }
 
-    private List<SearchResultUnRegisterCheckBean> getList(List<ClassificationBean> list) {
-        List<SearchResultUnRegisterCheckBean> resultList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            SearchResultUnRegisterCheckBean bean = new SearchResultUnRegisterCheckBean();
-            bean.setClassificationid(list.get(i).getClassificationid());
-            bean.setClassificationname(list.get(i).getClassificationname());
-            bean.setCheck(false);
-            resultList.add(bean);
-        }
-        return resultList;
-    }
-
     @Override
     public void onResume() {
         super.onResume();
-        if (checkTypeResult.isChange()) {
-            switch (Type) {
-                case 1:
-                    //选择了相关推荐item,把其他分类的都取消选中
-                    for (int i = 0; i < relevantList.size(); i++) {
-                        if (i == Position) {
-                            relevantList.get(i).setCheck(true);
-                            selectClassify = relevantList.get(i).getClassificationid() + " - " + relevantList.get(i).getClassificationname();
-                        } else {
-                            relevantList.get(i).setCheck(false);
-                        }
-                    }
-                    relevantAdapter.updateListView(relevantList);
-                    for (int i = 0; i < otherList.size(); i++) {
-                        otherList.get(i).setCheck(false);
-                    }
-                    otherAdapter.updateListView(otherList);
-                    break;
-                case 2:
-                    //选择了其他分类item,把相关推荐的都取消选中
-                    for (int i = 0; i < otherList.size(); i++) {
-                        if (i == Position) {
-                            otherList.get(i).setCheck(true);
-                            selectClassify = otherList.get(i).getClassificationid() + " - " + otherList.get(i).getClassificationname();
-                        } else {
-                            otherList.get(i).setCheck(false);
-                        }
-                    }
-                    otherAdapter.updateListView(otherList);
-                    for (int i = 0; i < relevantList.size(); i++) {
-                        relevantList.get(i).setCheck(false);
-                    }
-                    relevantAdapter.updateListView(relevantList);
-                    break;
-            }
-        }
     }
 
     @Override

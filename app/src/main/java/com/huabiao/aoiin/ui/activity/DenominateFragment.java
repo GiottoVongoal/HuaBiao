@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.blankj.ALog;
@@ -15,12 +16,14 @@ import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.model.AnalysisJson;
 import com.huabiao.aoiin.model.RegisterModel;
+import com.huabiao.aoiin.ui.fragment.DenominateDetailsFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.view.DenominateRotatePanLayout;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +55,9 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
 
     @Bind(R.id.denominate_industry_btn)
     Button denominate_industry_btn;//选择行业
+//跳转到详情页面的layout id
+    @Bind(R.id.denominate_layout)
+    LinearLayout denominate_layout;
 
     private List<CreatNameBean.RecommendnamelistBean> list;
     private IndustryPopupWindow industryWindow;
@@ -67,6 +73,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     public void bindView(Bundle savedInstanceState) {
         refreshView(false);
         denominate_industry_btn.setOnClickListener(this);
+        denominate_layout.setOnClickListener(this);
     }
 
     private void refreshView(final boolean isFirst) {
@@ -143,6 +150,9 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                         }
                     }
                 });
+                break;
+            case R.id.denominate_layout:
+                JumpUtils.startFragmentByName(getContext(),DenominateDetailsFragment.class);
                 break;
         }
     }
