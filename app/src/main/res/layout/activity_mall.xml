@@ -36,7 +36,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_marginTop="10dp"
         android:background="@color/grey_f2f2f2"
         android:orientation="horizontal">
@@ -46,28 +46,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="全部"
+            android:gravity="center"
             android:id="@+id/mall_all_tv"
             android:textColor="@color/black3"
             android:textSize="18dp" />
-
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="在售"
-            android:id="@+id/mall_forsale_tv"
-            android:textColor="@color/black3"
-            android:textSize="18dp" />
-
-
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="可求购"
+            android:gravity="center"
             android:id="@+id/mall_canbuy_tv"
             android:textColor="@color/black3"
             android:textSize="18dp" />
@@ -78,17 +67,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="可抢注"
+            android:gravity="center"
             android:id="@+id/mall_cancybersquatting_tv"
             android:textColor="@color/black3"
             android:textSize="18dp" />
-
-
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="可异议"
+            android:gravity="center"
             android:id="@+id/mall_canyiyi_tv"
             android:textColor="@color/black3"
             android:textSize="18dp" />

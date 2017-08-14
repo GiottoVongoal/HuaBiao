@@ -145,8 +145,25 @@ public class SearchModel {
         }
     }
 
-    public static void getShoppingMallList(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "shoppingmalllist.json");
+    /*
+    获取商城列表全部
+     */
+    public static void getShoppingMallList(Context context, int index, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = "";
+        switch (index) {
+            case 1:
+                jsonString = getJson(context, "shoppingmalllist.json");
+                break;
+            case 2:
+                jsonString = getJson(context, "canbuy.json");
+                break;
+            case 3:
+                jsonString = getJson(context, "cancybersquatting.json");
+                break;
+            case 4:
+                jsonString = getJson(context, "canyiyi.json");
+                break;
+        }
         Gson gson = new Gson();
         MallBean bean = gson.fromJson(jsonString, MallBean.class);
         if (callback != null) {
