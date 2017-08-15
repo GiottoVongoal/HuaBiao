@@ -31,7 +31,7 @@ public class Customerservicelist extends BaseFragment {
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     CustomerServiceListBean cb = (CustomerServiceListBean) mData;
-                    cAdapter = new CustomerservicelistAdapter(cb.getCustomerservicelist());
+                    cAdapter = new CustomerservicelistAdapter(getContext(),cb.getCustomerservicelist());
                     customerservice_recyclerview.setItemAnimator(new DefaultItemAnimator());
                     customerservice_recyclerview.setAdapter(cAdapter);
                     CustomerServiceCallback callback = new CustomerServiceCallback(customerservice_recyclerview.getAdapter(), cb.getCustomerservicelist());

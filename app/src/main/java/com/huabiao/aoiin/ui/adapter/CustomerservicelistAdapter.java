@@ -1,11 +1,13 @@
 package com.huabiao.aoiin.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CustomerServiceListBean.CustomerservicelistBean;
@@ -17,16 +19,18 @@ import java.util.List;
  * Created by Aoiin-9 on 2017/8/8.
  */
 
-public class CustomerservicelistAdapter extends RecyclerView.Adapter<CustomerservicelistAdapter.CustomerServiceVH> {
+public class CustomerservicelistAdapter extends RecyclerView.Adapter<CustomerservicelistAdapter.CustomerServiceVH> implements View.OnClickListener{
 
+    private Context context;
     private List<CustomerservicelistBean> customerservicelist;
 
-    public CustomerservicelistAdapter(List<CustomerservicelistBean> customerservicelist) {
+    public CustomerservicelistAdapter(Context context, List<CustomerservicelistBean> customerservicelist) {
+        this.context = context;
         this.customerservicelist = customerservicelist;
     }
 
     public CustomerServiceVH onCreateViewHolder(ViewGroup viewGroup, int position) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_customerservicelist, viewGroup,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_customerservicelist, viewGroup,false);
         CustomerServiceVH customerServiceVH = new CustomerServiceVH(view);
         return customerServiceVH;
     }
@@ -42,11 +46,22 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
         holder.customer_service_number.setText(customerservicelistBean.getCustomerserviceid());
         holder.customer_successrate_rate.setText(customerservicelistBean.getSuccessrate());
         holder.customer_service_servicerate.setText(customerservicelistBean.getService());
+        holder.customer_service_call.setOnClickListener(this);
         BitmapLoader.ins().loadImage(customerservicelistBean.getCustomerserviceimg(), R.mipmap.perter_portrait,holder.customer_service_img);    }
 
     @Override
     public int getItemCount() {
         return customerservicelist.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.customer_service_call:
+                Toast toast=Toast.makeText(context,"咨询客服",Toast.LENGTH_LONG);
+                toast.show();
+                break;
+        }
     }
 
     class CustomerServiceVH extends RecyclerView.ViewHolder {
@@ -68,7 +83,8 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
         private TextView customer_service_servicerate;
         //咨询量
         private TextView customer_service_consult;
-
+        //拨号图片
+        private  ImageView customer_service_call;
         public CustomerServiceVH(View view) {
             super(view);
             customer_service_name = (TextView) view.findViewById(R.id.customer_service_name);
@@ -80,6 +96,8 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
             customer_service_servicerate = (TextView) view.findViewById(R.id.customer_service_servicerate);
             customer_service_consult = (TextView) view.findViewById(R.id.customer_service_consult);
             customer_service_img = (ImageView) view.findViewById(R.id.customer_service_img);
+            customer_service_call=(ImageView)view.findViewById(R.id.customer_service_call);
+
         }
     }
 }

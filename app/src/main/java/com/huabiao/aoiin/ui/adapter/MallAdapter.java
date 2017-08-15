@@ -68,7 +68,7 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
         MallViewHolder mallViewHolder;
         if (view == null) {
             mallViewHolder = new MallViewHolder();
-            view = LayoutInflater.from(context).inflate(R.layout.layout_mall_list_item, null);
+            view = LayoutInflater.from(context).inflate(R.layout.layout_mall_list_item, viewGroup, false);
             //商标图片
             mallViewHolder.imageView = (ImageView) view.findViewById(R.id.mall_listitem_imageView);
             //商标名
@@ -88,7 +88,7 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
             //求购按钮
             mallViewHolder.mall_listitem_buy = (TextView) view.findViewById(R.id.mall_listitem_buy);
             view.setTag(mallViewHolder);
-
+s
         } else {
             mallViewHolder = (MallViewHolder) view.getTag();
         }
@@ -98,7 +98,7 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
         mallViewHolder.show_TextView.setText(mb.getStatus());
         mallViewHolder.register_TextView.setText("注册号：" + mb.getRegnumber());
         mallViewHolder.applicant_TexView.setText("申请人：" + mb.getApplicantname());
-        mallViewHolder.classfication_TextView.setText(mb.getClassificationid() + "类" + "-" + mb.getClassificationname());
+        mallViewHolder.classfication_TextView.setText(mb.getClassificationid() + "-" + mb.getClassificationname());
         BitmapLoader.ins().loadImage(mb.getGoodsimg(), R.mipmap.perter_portrait, mallViewHolder.imageView);
         String statusString = mb.getStatus();
         if (!StringUtil.isEmpty(statusString)) {
@@ -135,23 +135,24 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
         mallViewHolder.mall_listitem_yiyi.setOnClickListener(this);
         return view;
     }
+
     //设置pageid 1--求购详情页，2--异议详情页，3--抢注详情页，传到下一页面根据id设置值
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.mall_listitem_buy:
-                Bundle bundle1=new Bundle();
-                bundle1.putInt("pageid",1);
-                JumpUtils.startFragmentByName(context, Buying.class,bundle1);
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("pageid", 1);
+                JumpUtils.startFragmentByName(context, Buying.class, bundle1);
                 break;
             case R.id.mall_listitem_yiyi:
                 Bundle bundle2 = new Bundle();
-                bundle2.putInt("pageid",2);
+                bundle2.putInt("pageid", 2);
                 JumpUtils.startFragmentByName(context, Buying.class, bundle2);
                 break;
             case mall_listitem_Cybersquatting:
                 Bundle bundle3 = new Bundle();
-                bundle3.putInt("pageid",3);
+                bundle3.putInt("pageid", 3);
                 JumpUtils.startFragmentByName(context, Buying.class, bundle3);
                 break;
         }

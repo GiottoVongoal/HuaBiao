@@ -22,7 +22,7 @@ public class Mall extends BaseFragment implements View.OnClickListener {
     private MallAdapter mallAapter;
     //当前页面的页数，1是首页
     private int page = 1;
-    //m是传的标志位，1234代表的是四个按钮的页面
+    //m是传的标志位，1234代表的是全部、可求购、可抢注、可异议的页面
     private int m = 1;
     @Bind(R.id.Mall_listView)
     ListView mall_listview;
