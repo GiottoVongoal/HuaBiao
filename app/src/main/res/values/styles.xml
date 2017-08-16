@@ -9,13 +9,13 @@
     <style name="GrayLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">@color/grey_e8e8e8</item>
+        <item name="android:background">@color/grey_f8f8f8</item>
     </style>
     <!-- 灰色的竖线 -->
     <style name="GrayLine_shu">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">1dp</item>
-        <item name="android:background">@color/grey_e8e8e8</item>
+        <item name="android:background">@color/grey_f8f8f8</item>
     </style>
     <!--屏幕底部弹出PopupWindow效果-->
     <style name="bottom_enter_anim" parent="android:Animation">
@@ -36,6 +36,7 @@
         <item name="colorControlNormal">@color/black3</item>
         <!--获取焦点时的颜色-->
         <item name="colorControlActivated">@color/yellow_fdd400</item>
+        <item name="android:background">@null</item>
     </style>
     <!--TextInputLayout输入框的错误提示样式-->
     <style name="errorAppearance" parent="TextAppearance.AppCompat">

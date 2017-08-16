@@ -38,7 +38,8 @@
                     android:layout_height="wrap_content"
                     android:background="@mipmap/leibei_weixuanzhong"
                     android:gravity="center"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:text="自然人"
                     android:textColor="@color/grey_8E8E8E" />
 
@@ -48,7 +49,8 @@
                     android:layout_height="wrap_content"
                     android:background="@mipmap/leibei_weixuanzhong"
                     android:gravity="center"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:text="个体工商户"
                     android:textColor="@color/grey_8E8E8E" />
 
@@ -58,7 +60,8 @@
                     android:layout_height="wrap_content"
                     android:background="@mipmap/leibei_weixuanzhong"
                     android:gravity="center"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:text="公司或其他组织"
                     android:textColor="@color/grey_8E8E8E" />
 
@@ -71,12 +74,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
                     android:text="联系方式"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
@@ -85,6 +89,7 @@
                     android:id="@+id/register_card_two_username_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:theme="@style/TextInputLayoutLineColor"
                     app:hintAnimationEnabled="true"
                     app:hintTextAppearance="@style/hintAppearance"
@@ -96,6 +101,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:hint="申请人姓名"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
@@ -104,7 +110,7 @@
                     android:id="@+id/register_card_two_userphone_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:theme="@style/TextInputLayoutLineColor"
                     app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
                     app:errorEnabled="true"
@@ -116,6 +122,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:hint="联系电话"
                         android:inputType="phone"
                         android:maxLines="1"
@@ -126,6 +133,7 @@
                     android:id="@+id/register_card_two_address_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:theme="@style/TextInputLayoutLineColor"
                     app:hintAnimationEnabled="true"
                     app:hintTextAppearance="@style/hintAppearance">
@@ -133,6 +141,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:hint="合同地址"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
@@ -141,7 +150,7 @@
                     android:id="@+id/register_card_two_code_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:theme="@style/TextInputLayoutLineColor"
                     app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
                     app:errorEnabled="true"
@@ -151,6 +160,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:hint="邮政编码"
                         android:inputType="number" />
                 </android.support.design.widget.TextInputLayout>
