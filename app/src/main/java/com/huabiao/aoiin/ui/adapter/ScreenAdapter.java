@@ -66,7 +66,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_hint_popupwindow, parent, false);
             groupHolder = new ViewHolderGroup();
             groupHolder.tv_content = (TextView) convertView.findViewById(R.id.screen_item_content_tv);
-            groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.title_right_iv);
+            groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.screen_item_right_iv);
             convertView.setTag(groupHolder);
         } else {
             groupHolder = (ViewHolderGroup) convertView.getTag();
@@ -90,7 +90,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_hint_popupwindow, parent, false);
             groupHolder = new ViewHolderItem();
             groupHolder.tv_content = (TextView) convertView.findViewById(R.id.screen_item_content_tv);
-            groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.title_right_iv);
+            groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.screen_item_right_iv);
             convertView.setTag(groupHolder);
         } else {
             groupHolder = (ViewHolderItem) convertView.getTag();
