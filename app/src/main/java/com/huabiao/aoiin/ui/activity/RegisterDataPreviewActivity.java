@@ -52,6 +52,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     @Bind(R.id.register_data_preview_classification_rv)
     RecyclerView classification_rv;//注册类别
     private RegisterDataPreviewAdapter mAdapter;
+    private FullyLinearLayoutManager layoutManager;
 
     @Bind(R.id.register_data_preview_linechart)
     DrawLineChartView linechart;//折线图
@@ -150,7 +151,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
         linechart.setLineChartBean(bean.getLinechart());
 
         mAdapter = new RegisterDataPreviewAdapter(this, bean.getClassification());
-        FullyLinearLayoutManager layoutManager = new FullyLinearLayoutManager(this);
+          layoutManager = new FullyLinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         classification_rv.setLayoutManager(layoutManager);
         classification_rv.setAdapter(mAdapter);
@@ -221,7 +222,9 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
         });
 
         mAdapter = new RegisterDataPreviewAdapter(this, bean.getClaList());
-        classification_rv.setLayoutManager(new FullyGridLayoutManager(this, 2));
+          layoutManager = new FullyLinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        classification_rv.setLayoutManager(layoutManager);
         classification_rv.setAdapter(mAdapter);
 
         username_tv.setText("客户姓名:" + bean.getUsername());

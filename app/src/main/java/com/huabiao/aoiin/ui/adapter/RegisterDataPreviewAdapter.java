@@ -35,6 +35,7 @@ public class RegisterDataPreviewAdapter extends RecyclerView.Adapter<RegisterDat
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.item_top_tv.setText(mList.get(position).getClassificationid());
         holder.item_tv.setText(mList.get(position).getClassificationname());
     }
 
@@ -44,10 +45,11 @@ public class RegisterDataPreviewAdapter extends RecyclerView.Adapter<RegisterDat
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView item_tv;
+        private TextView item_top_tv, item_tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            item_top_tv = (TextView) itemView.findViewById(R.id.register_data_preview_item_top_tv);
             item_tv = (TextView) itemView.findViewById(R.id.register_data_preview_item_tv);
         }
     }
