@@ -11,17 +11,15 @@ import java.util.List;
  * Created by Aoiin-9 on 2017/8/9.
  */
 
-public class CustomerServiceCallback <T>  extends ItemTouchHelper.Callback{
+public class CustomerServiceCallback<T> extends ItemTouchHelper.Callback {
 
     private final RecyclerView.Adapter adapter;
     private List<T> dataList;
     private List<T> removeList;
-//    private OnSwipeListener<T> mListener;
-
     public CustomerServiceCallback(@NonNull RecyclerView.Adapter adapter, @NonNull List<T> dataList) {
         this.adapter = checkIsNull(adapter);
         this.dataList = checkIsNull(dataList);
-        removeList=new ArrayList<>();
+        removeList = new ArrayList<>();
     }
 
     private <T> T checkIsNull(T t) {
@@ -30,10 +28,6 @@ public class CustomerServiceCallback <T>  extends ItemTouchHelper.Callback{
         }
         return t;
     }
-    //建立监听器设置回调
-//    public void setOnSwipedListener(OnSwipeListener<T> mListener) {
-//        this.mListener = mListener;
-//    }
 
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
@@ -57,21 +51,25 @@ public class CustomerServiceCallback <T>  extends ItemTouchHelper.Callback{
         viewHolder.itemView.setOnTouchListener(null);
         int layoutPosition = viewHolder.getLayoutPosition();
         T remove;
-        if(direction==ItemTouchHelper.LEFT){
-            removeList.add(0,dataList.get(layoutPosition));
+        if (direction == ItemTouchHelper.LEFT) {
+            if(dataList.size()==1){
+                adapter.notifyDataSetChanged();
+                return;
+            }
+            removeList.add(0, dataList.get(layoutPosition));
             remove = dataList.remove(layoutPosition);
-        }else{
-            if(removeList.size()==0){
+        } else {
+            if (removeList.size() == 0) {
+                adapter.notifyDataSetChanged();
                 return;
             }
             remove = removeList.get(0);
-            if(!dataList.contains(remove)){
-                dataList.add(0,remove);
+            if (!dataList.contains(remove)) {
+                dataList.add(0, remove);
                 removeList.remove(0);
             }
         }
         adapter.notifyDataSetChanged();
-
     }
 
     @Override

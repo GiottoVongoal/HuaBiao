@@ -88,7 +88,6 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
             //求购按钮
             mallViewHolder.mall_listitem_buy = (TextView) view.findViewById(R.id.mall_listitem_buy);
             view.setTag(mallViewHolder);
-s
         } else {
             mallViewHolder = (MallViewHolder) view.getTag();
         }
