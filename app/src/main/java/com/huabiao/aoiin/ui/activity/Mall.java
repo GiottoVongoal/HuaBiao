@@ -20,24 +20,34 @@ import butterknife.Bind;
 public class Mall extends BaseFragment implements View.OnClickListener {
     private boolean isLast;     //是否滑动到底部的标志位
     private MallAdapter mallAapter;
+    //将下划线放入一个数组
+    View[] lines = new View[4];
     //当前页面的页数，1是首页
     private int page = 1;
     //m是传的标志位，1234代表的是全部、可求购、可抢注、可异议的页面
     private int m = 1;
     @Bind(R.id.Mall_listView)
     ListView mall_listview;
-    //可求购按钮
+    //可求购按钮and line
     @Bind(R.id.mall_canbuy_tv)
     TextView mall_canbuy_tv;
-    //可异议按钮
+    @Bind(R.id.mall_canbuy_tv_line)
+    View mall_canbuy_tv_line;
+    //可异议按钮 and line
     @Bind(R.id.mall_canyiyi_tv)
     TextView mall_canyiyi_tv;
-    //可抢注按钮
+    @Bind(R.id.mall_canyiyi_tv_line)
+    View mall_canyiyi_tv_line;
+    //可抢注按钮 and line
     @Bind(R.id.mall_cancybersquatting_tv)
     TextView mall_cancybersquatting_tv;
-    //全部
+    @Bind(R.id.mall_cancybersquatting_tv_line)
+    View mall_cancybersquatting_tv_line;
+    //全部 and line
     @Bind(R.id.mall_all_tv)
     TextView mall_all_tv;
+    @Bind(R.id.mall_all_tv_line)
+    View mall_all_tv_line;
     //筛选图片
     @Bind(R.id.mall_img)
     ImageView mall_img;
@@ -45,7 +55,7 @@ public class Mall extends BaseFragment implements View.OnClickListener {
     @Override
     public void bindView(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getList(1, 1);
+        getList(page, m);
         //五个按钮以及筛选图片按钮的的监听事件
         mall_cancybersquatting_tv.setOnClickListener(this);
         mall_canbuy_tv.setOnClickListener(this);
@@ -86,30 +96,42 @@ public class Mall extends BaseFragment implements View.OnClickListener {
                 }
             }
         });
+        //设置线的显示隐藏
+        lines[0] = mall_all_tv_line;
+        lines[1] = mall_canbuy_tv_line;
+        lines[2] = mall_cancybersquatting_tv_line;
+        lines[3] = mall_canyiyi_tv_line;
+        for (int i = 0; i < lines.length; i++) {
+            lines[i].setVisibility(View.INVISIBLE);
+            if (i == (m - 1)) {
+                lines[i].setVisibility(View.VISIBLE);
+            }
+        }
+
     }
 
-    //五个按钮的监听事件实例化
+    //五个按钮的监听事件实例化，点击显示不同页面，解析不同的json.
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.mall_canbuy_tv:
                 m = 2;
-                page=1;
+                page = 1;
                 getList(page, m);
                 break;
             case R.id.mall_cancybersquatting_tv:
                 m = 3;
-                page=1;
+                page = 1;
                 getList(page, m);
                 break;
             case R.id.mall_canyiyi_tv:
                 m = 4;
-                page=1;
+                page = 1;
                 getList(page, m);
                 break;
             case R.id.mall_all_tv:
                 m = 1;
-                page=1;
+                page = 1;
                 getList(page, m);
                 break;
             case R.id.mall_img:

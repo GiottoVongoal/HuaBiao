@@ -97,8 +97,9 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
         mallViewHolder.show_TextView.setText(mb.getStatus());
         mallViewHolder.register_TextView.setText("注册号：" + mb.getRegnumber());
         mallViewHolder.applicant_TexView.setText("申请人：" + mb.getApplicantname());
-        mallViewHolder.classfication_TextView.setText(mb.getClassificationid() + "-" + mb.getClassificationname());
+        mallViewHolder.classfication_TextView.setText(mb.getClassificationid() + " - " + mb.getClassificationname());
         BitmapLoader.ins().loadImage(mb.getGoodsimg(), R.mipmap.perter_portrait, mallViewHolder.imageView);
+        //根据json中的status设置文字显示状态。1-注册成功，2-待审核中，3-商标无效，4-初审公告
         String statusString = mb.getStatus();
         if (!StringUtil.isEmpty(statusString)) {
             int status = Integer.parseInt(statusString);
@@ -122,6 +123,7 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
                     mallViewHolder.show_TextView.setText("商标无效");
                     break;
                 case 4:
+                    mallViewHolder.mall_listitem_Cybersquatting.setVisibility(View.GONE);
                     mallViewHolder.mall_listitem_buy.setVisibility(View.VISIBLE);
                     mallViewHolder.mall_listitem_yiyi.setVisibility(View.VISIBLE);
                     mallViewHolder.show_TextView.setText("初审公告");
