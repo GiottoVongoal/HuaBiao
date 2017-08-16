@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.HomeBannarBean;
+import com.huabiao.aoiin.bean.HomeInfomationBean;
 import com.huabiao.aoiin.bean.HotWordsListBean;
 import com.huabiao.aoiin.bean.UserProgressDateBean;
 import com.huabiao.aoiin.bean.UserProgressListBean;
@@ -31,6 +32,19 @@ public class HomeModel {
         }
     }
 
+    /**
+     * @param context
+     * @param callback
+     * @describe 获取首页资讯List
+     */
+    public static void getInfoList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "homeinfomationlist.json");
+        Gson gson = new Gson();
+        HomeInfomationBean bean = gson.fromJson(jsonString, HomeInfomationBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
     /**
      * @param context
      * @param callback

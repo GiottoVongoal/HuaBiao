@@ -16,6 +16,8 @@
     <color name="grey_EEEEEE">#eeeeee</color>
     <color name="grey_d8d8d8">#d8d8d8</color>
     <color name="grey_8E8E8E">#8E8E8E</color>
+    <color name="grey_848484">#848484</color>
+    <color name="grey_e8e8e8">#e8e8e8</color>
     <color name="grey_5000">#5000</color>
     <color name="grey_FFF5F5F9">#FFF5F5F9</color>
     <!--黑色-->
@@ -31,12 +33,11 @@
     <color name="red_e74c3c">#e74c3c</color>
 
     <color name="purple_9082BD">#9082BD</color>
-    <color name="select_circle_color">#FF8594</color>
 
     <color name="widget_circlerange_extra_color">#999999</color>
     <color name="wdiget_circlerange_border_color">#B9E2FB</color>
     <color name="wdiget_circlerange_cursor_color">#356CDB</color>
 
-    <color name="yellow_ffff00">#ffff00</color>
+    <color name="yellow_fdd400">#fdd400</color>
     <color name="green_aed79b">#AED79B</color>
 </resources>

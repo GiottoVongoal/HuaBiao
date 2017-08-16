@@ -1,46 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="20dp"
-        android:text="查询"
-        android:textSize="20sp" />
+    <include
+        android:id="@+id/include2"
+        layout="@layout/view_title" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/bg_round_gray"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include2"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingBottom="70dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:paddingTop="30dp">
-
+        android:padding="30dp">
         <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
         <android.support.design.widget.TextInputLayout
             android:id="@+id/search_tradename_tl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
             android:theme="@style/TextInputLayoutLineColor"
             app:hintAnimationEnabled="true"
             app:hintTextAppearance="@style/hintAppearance"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <EditText
                 android:layout_width="match_parent"
@@ -66,19 +53,20 @@
                 android:layout_height="wrap_content"
                 android:hint="商品名"
                 android:inputType="text" />
+
         </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/search_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btn_yellow"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="查询" />
     </LinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/search_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-25dp"
-        app:borderWidth="0dp"
-        app:backgroundTint="@color/blue_0090FF"
-        app:fabSize="normal"
-        app:srcCompat="@mipmap/ic_launcher" />
-
 </RelativeLayout>

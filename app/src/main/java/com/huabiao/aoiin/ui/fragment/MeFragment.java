@@ -44,7 +44,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     LinearLayout me_add_item_ll;
     private ViewTools viewTools;
 
-    private int[] img = new int[]{R.mipmap.v2_shouye_bqdj, R.mipmap.v2_shouye_gjzc, R.mipmap.v2_shouye_sbzc, R.mipmap.v2_shouye_zc};
+    private int[] img = new int[]{R.mipmap.jindutixin_icon, R.mipmap.jindutixin_icon, R.mipmap.jindutixin_icon, R.mipmap.jindutixin_icon};
     private String[] text = {"我的收藏", "我的足记", "我的消息", "设置"};
 
     @Override
@@ -57,7 +57,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void showView() {
-        BitmapLoader.ins().loadImage("https://b-ssl.duitang.com/uploads/blog/201509/29/20150929164702_KMUBn.thumb.700_0.jpeg", R.mipmap.perter_portrait, me_user_photo);
+        BitmapLoader.ins().loadImage("https://b-ssl.duitang.com/uploads/blog/201509/29/20150929164702_KMUBn.thumb.700_0.jpeg", R.mipmap.touxiang, me_user_photo);
         me_user_name.setText("我是用户名");
 
         viewTools = new ViewTools(getContext());

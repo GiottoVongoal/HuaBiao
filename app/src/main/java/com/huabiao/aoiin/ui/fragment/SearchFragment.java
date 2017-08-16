@@ -27,7 +27,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     @Bind(R.id.search_goodsname_tl)
     TextInputLayout search_goodsname_tl;//商品名
     @Bind(R.id.search_tv)
-    FloatingActionButton search_tv;//查询按钮
+    TextView search_tv;//查询按钮
 
     String tradename = "", goodsname = "";
 
@@ -38,6 +38,9 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void bindView(Bundle savedInstanceState) {
+        setTitle("查询");
+        setBackEnable();
+
         search_tradename_tl.getEditText().setText("我是商标名(查询)");
         search_goodsname_tl.getEditText().setText("我是商品名(查询)");
         search_tv.setOnClickListener(this);

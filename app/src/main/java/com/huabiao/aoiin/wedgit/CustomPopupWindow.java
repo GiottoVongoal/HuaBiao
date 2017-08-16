@@ -45,7 +45,7 @@ public class CustomPopupWindow extends PopupWindow {
             usedtime_tv.setText(bean.getUsedtime());
             service_tv.setText(bean.getService());
 
-            BitmapLoader.ins().loadImage(bean.getCustomerserviceimg(), R.mipmap.perter_portrait, circle_photo_iv);
+            BitmapLoader.ins().loadImage(bean.getCustomerserviceimg(), R.mipmap.touxiang, circle_photo_iv);
             next_tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -74,6 +74,19 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
         });
     }
 
+    //下拉筛选菜单相关
+    private void initPopMenu(final List<ScreenlistBean> list) {
+        //默认获取第一类数据
+        initData(list.get(0).getSlist().get(0).getClassificationid());
+        screenPopupWindow = new ScreenPopupWindow(getActivity(), list, new InterfaceManager.OnScreenItemClickListener() {
+            @Override
+            public void onItemClickListener(View view, ClassificationBean bean) {
+                ALog.i("bean", bean.getClassificationid() + "-" + bean.getClassificationname());
+                initData(bean.getClassificationid());
+            }
+        });
+    }
+
     //获取展示数据
     private void initData(String classificationid) {
         SearchModel.getSearchResult(getContext(), classificationid, new InterfaceManager.CallBackCommon() {
@@ -110,19 +123,6 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
                 screenPopupWindow.showPopupWindow(view);
                 break;
         }
-    }
-
-    //下拉筛选菜单相关
-    private void initPopMenu(final List<ScreenlistBean> list) {
-        //默认获取第一类数据
-        initData(list.get(0).getSlist().get(0).getClassificationid());
-        screenPopupWindow = new ScreenPopupWindow(getActivity(), list, new InterfaceManager.OnScreenItemClickListener() {
-            @Override
-            public void onItemClickListener(View view, ClassificationBean bean) {
-                ALog.i("bean", bean.getClassificationid() + "-" + bean.getClassificationname());
-                initData(bean.getClassificationid());
-            }
-        });
     }
 
     @Override

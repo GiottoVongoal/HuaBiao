@@ -17,10 +17,11 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:padding="10dp"
                 android:visibility="visible">
@@ -45,6 +46,8 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
+
+            <View style="@style/GrayLine" />
 
             <com.huabiao.aoiin.dateview.WeekBarView
                 android:layout_width="match_parent"
@@ -81,7 +84,7 @@
                                 android:overScrollMode="never"
                                 app:month_day_text_size="13"
                                 app:month_holiday_color="@color/purple_9082BD"
-                                app:month_selected_circle_color="@color/select_circle_color"
+                                app:month_selected_circle_color="@color/yellow_fdd400"
                                 app:month_show_holiday_hint="true"
                                 app:month_show_lunar="true"
                                 app:month_show_task_hint="true" />
@@ -96,18 +99,22 @@
                             android:visibility="gone"
                             app:week_day_text_size="13"
                             app:week_holiday_color="@color/purple_9082BD"
-                            app:week_selected_circle_color="@color/select_circle_color"
+                            app:week_selected_circle_color="@color/yellow_fdd400"
                             app:week_show_holiday_hint="true"
                             app:week_show_lunar="true"
                             app:week_show_task_hint="true" />
 
                     </RelativeLayout>
 
+                    <View
+                        style="@style/GrayLine"
+                        android:layout_marginTop="10dp" />
+
                     <RelativeLayout
                         android:id="@+id/rlScheduleList"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white">
+                        android:background="@color/backgroundwhite">
 
                         <View
                             android:layout_width="1dp"

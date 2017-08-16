@@ -28,7 +28,7 @@ public class RegisterOneFinishPopupWindow extends PopupWindow {
     public RegisterOneFinishPopupWindow(Context context, final DialogClickListener listener) {
         super(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mMenuView = inflater.inflate(R.layout.register_one_finish_dialog, null);
+        mMenuView = inflater.inflate(R.layout.register_fragment_finish_dialog, null);
         dialog_default_rl = (RelativeLayout) mMenuView.findViewById(R.id.register_one_finish_dialog_default_rl);
         dialog_recommand_rl = (RelativeLayout) mMenuView.findViewById(R.id.register_one_finish_dialog_recommand_rl);
         dialog_default_rl.setOnClickListener(new View.OnClickListener() {

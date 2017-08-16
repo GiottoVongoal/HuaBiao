@@ -13,7 +13,6 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ActivityCollector;
 import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
-import com.huabiao.aoiin.ui.fragment.RegisterDataPreviewActivity;
 import com.huabiao.aoiin.ui.ottobus.ToNextPageEvent;
 import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
 import com.huabiao.aoiin.ui.view.RegisterCardFourView;

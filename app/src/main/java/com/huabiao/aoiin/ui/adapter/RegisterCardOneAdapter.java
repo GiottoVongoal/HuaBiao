@@ -46,9 +46,14 @@ public class RegisterCardOneAdapter extends RecyclerView.Adapter<RegisterCardOne
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         SelectClassificationCheckBean bean = list.get(position);
-        holder.item_tv.setText(bean.getClassificationid() + " - " + bean.getClassificationname());
+        holder.top_tv.setText(bean.getClassificationid());
+        holder.bottom_tv.setText(bean.getClassificationname());
         boolean ischeck = bean.isCheck();
-        holder.item_cb.setChecked(ischeck);
+        if (ischeck) {
+            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.leibei_xuanzhong));
+        } else {
+            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.leibei_weixuanzhong));
+        }
         holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,14 +69,14 @@ public class RegisterCardOneAdapter extends RecyclerView.Adapter<RegisterCardOne
 
     class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout item_ll;
-        CheckBox item_cb;
-        TextView item_tv;
+        TextView top_tv;
+        TextView bottom_tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
             item_ll = (LinearLayout) itemView.findViewById(R.id.select_classification_item);
-            item_cb = (CheckBox) itemView.findViewById(R.id.select_classification_item_cb);
-            item_tv = (TextView) itemView.findViewById(R.id.select_classification_item_tv);
+            top_tv = (TextView) itemView.findViewById(R.id.select_classification_item_top_tv);
+            bottom_tv = (TextView) itemView.findViewById(R.id.select_classification_item_bottom_tv);
         }
     }
 }

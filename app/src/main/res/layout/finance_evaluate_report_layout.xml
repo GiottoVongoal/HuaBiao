@@ -77,7 +77,7 @@
                     android:layout_height="100dp"
                     android:layout_gravity="center"
                     app:back_width="4dp"
-                    app:front_color1="@color/yellow_ffff00"
+                    app:front_color1="@color/yellow_fdd400"
                     app:front_width="4dp"
                     app:is_need_content="true"
                     app:is_need_unit="true"

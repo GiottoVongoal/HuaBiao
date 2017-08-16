@@ -34,22 +34,22 @@ public class RegisterCommitBean {
     private List<ClassificationBean> claList;//可注册类别
     private String username;//客户姓名
     private String userphone;//客户电话
-    private String contractSelectAddress;//合同地址
+    //    private String contractSelectAddress;//合同地址
     private String contractAddress;//合同地址
     private String code;//邮政编码
 
     //公有
-    private String personName;//申请人姓名
-    private String collectAddress;//选择行政区
+//    private String personName;//申请人姓名
+//    private String collectAddress;//选择行政区
     //私有
-    private String legalPersonName;//法人姓名(法人1/个体2)
-    private String certificatesID;//身份证件文件号码(自然人3)
+//    private String legalPersonName;//法人姓名(法人1/个体2)
+//    private String certificatesID;//身份证件文件号码(自然人3)
     //申请人类型标识
-    private int personType;
+    private int personType = -1;
 
-    private String logoImg;//商标图样
-    private String proxyImg;//委托书
-    private String businessLicenceImg;//营业执照
+//    private String logoImg;//商标图样
+//    private String proxyImg;//委托书
+//    private String businessLicenceImg;//营业执照
 
     private int serviceMode;//服务方式
 
@@ -67,10 +67,10 @@ public class RegisterCommitBean {
             ToastUtils.getInstance().showToast("请输入联系电话");
             return true;
         }
-        if (StringUtil.isEmpty(contractSelectAddress)) {
-            ToastUtils.getInstance().showToast("请选择合同地址行政区划");
-            return true;
-        }
+//        if (StringUtil.isEmpty(contractSelectAddress)) {
+//            ToastUtils.getInstance().showToast("请选择合同地址行政区划");
+//            return true;
+//        }
         if (StringUtil.isEmpty(contractAddress)) {
             ToastUtils.getInstance().showToast("请输入合同地址");
             return true;
@@ -79,39 +79,39 @@ public class RegisterCommitBean {
             ToastUtils.getInstance().showToast("请输入邮政编码");
             return true;
         }
-        if (personType == 0) {
+        if (personType == -1) {
             ToastUtils.getInstance().showToast("请选择申请人类型");
             return true;
         }
-        if (StringUtil.isEmpty(personName)) {
-            ToastUtils.getInstance().showToast("请输入申请人姓名");
-            return true;
-        }
-        if ((personType == 1 || personType == 2) && StringUtil.isEmpty(legalPersonName)) {
-            ToastUtils.getInstance().showToast("请输入法人姓名");
-            return true;
-        }
-        if (StringUtil.isEmpty(collectAddress)) {
-            ToastUtils.getInstance().showToast("请选择申请人地址行政区划");
-            return true;
-        }
-        if (personType == 3 && StringUtil.isEmpty(certificatesID)) {
-            ToastUtils.getInstance().showToast("请输入身份证号码");
-            return true;
-        }
-        if (!(new File(logoImg).exists())) {
-            ToastUtils.getInstance().showToast("请上传商标图样");
-            return true;
-        }
-        if (!(new File(proxyImg).exists())) {
-            ToastUtils.getInstance().showToast("请上传委托书");
-            return true;
-        }
-        if (!(new File(businessLicenceImg).exists())) {
-            ToastUtils.getInstance().showToast("请上传营业执照");
-            return true;
-        }
-        if (serviceMode == 0) {
+//        if (StringUtil.isEmpty(personName)) {
+//            ToastUtils.getInstance().showToast("请输入申请人姓名");
+//            return true;
+//        }
+//        if ((personType == 1 || personType == 2) && StringUtil.isEmpty(legalPersonName)) {
+//            ToastUtils.getInstance().showToast("请输入法人姓名");
+//            return true;
+//        }
+//        if (StringUtil.isEmpty(collectAddress)) {
+//            ToastUtils.getInstance().showToast("请选择申请人地址行政区划");
+//            return true;
+//        }
+//        if (personType == 3 && StringUtil.isEmpty(certificatesID)) {
+//            ToastUtils.getInstance().showToast("请输入身份证号码");
+//            return true;
+//        }
+//        if (!(new File(logoImg).exists())) {
+//            ToastUtils.getInstance().showToast("请上传商标图样");
+//            return true;
+//        }
+//        if (!(new File(proxyImg).exists())) {
+//            ToastUtils.getInstance().showToast("请上传委托书");
+//            return true;
+//        }
+//        if (!(new File(businessLicenceImg).exists())) {
+//            ToastUtils.getInstance().showToast("请上传营业执照");
+//            return true;
+//        }
+        if (serviceMode == -1) {
             ToastUtils.getInstance().showToast("请选择服务方式");
             return true;
         }
@@ -120,24 +120,25 @@ public class RegisterCommitBean {
 
     //所有值清空
     public void emptyBean() {
-        claList.clear();
+        if (claList != null)
+            claList.clear();
         username = "";
         userphone = "";
-        contractSelectAddress = "";
+//        contractSelectAddress = "";
         contractAddress = "";
         code = "";
-        personType = 0;
-        personName = "";
-        legalPersonName = "";
-        collectAddress = "";
-        certificatesID = "";
-        BitmapUtil.deleteFile(logoImg);
-        BitmapUtil.deleteFile(proxyImg);
-        BitmapUtil.deleteFile(businessLicenceImg);
-        logoImg = "";
-        proxyImg = "";
-        businessLicenceImg = "";
-        serviceMode = 0;
+        personType = -1;
+//        personName = "";
+//        legalPersonName = "";
+//        collectAddress = "";
+//        certificatesID = "";
+//        BitmapUtil.deleteFile(logoImg);
+//        BitmapUtil.deleteFile(proxyImg);
+//        BitmapUtil.deleteFile(businessLicenceImg);
+//        logoImg = "";
+//        proxyImg = "";
+//        businessLicenceImg = "";
+        serviceMode = -1;
     }
 
     public List<ClassificationBean> getClaList() {
@@ -164,14 +165,6 @@ public class RegisterCommitBean {
         this.userphone = userphone;
     }
 
-    public String getContractSelectAddress() {
-        return contractSelectAddress;
-    }
-
-    public void setContractSelectAddress(String contractSelectAddress) {
-        this.contractSelectAddress = contractSelectAddress;
-    }
-
     public String getContractAddress() {
         return contractAddress;
     }
@@ -188,68 +181,12 @@ public class RegisterCommitBean {
         this.code = code;
     }
 
-    public String getPersonName() {
-        return personName;
-    }
-
-    public void setPersonName(String personName) {
-        this.personName = personName;
-    }
-
-    public String getCollectAddress() {
-        return collectAddress;
-    }
-
-    public void setCollectAddress(String collectAddress) {
-        this.collectAddress = collectAddress;
-    }
-
-    public String getLegalPersonName() {
-        return legalPersonName;
-    }
-
-    public void setLegalPersonName(String legalPersonName) {
-        this.legalPersonName = legalPersonName;
-    }
-
-    public String getCertificatesID() {
-        return certificatesID;
-    }
-
-    public void setCertificatesID(String certificatesID) {
-        this.certificatesID = certificatesID;
-    }
-
     public int getPersonType() {
         return personType;
     }
 
     public void setPersonType(int personType) {
         this.personType = personType;
-    }
-
-    public String getLogoImg() {
-        return logoImg;
-    }
-
-    public void setLogoImg(String logoImg) {
-        this.logoImg = logoImg;
-    }
-
-    public String getProxyImg() {
-        return proxyImg;
-    }
-
-    public void setProxyImg(String proxyImg) {
-        this.proxyImg = proxyImg;
-    }
-
-    public String getBusinessLicenceImg() {
-        return businessLicenceImg;
-    }
-
-    public void setBusinessLicenceImg(String businessLicenceImg) {
-        this.businessLicenceImg = businessLicenceImg;
     }
 
     public int getServiceMode() {
@@ -268,14 +205,7 @@ public class RegisterCommitBean {
                 ", userphone='" + userphone + '\'' +
                 ", contractAddress='" + contractAddress + '\'' +
                 ", code='" + code + '\'' +
-                ", personName='" + personName + '\'' +
-                ", collectAddress='" + collectAddress + '\'' +
-                ", legalPersonName='" + legalPersonName + '\'' +
-                ", certificatesID='" + certificatesID + '\'' +
                 ", personType=" + personType +
-                ", logoImg='" + logoImg + '\'' +
-                ", proxyImg='" + proxyImg + '\'' +
-                ", businessLicenceImg='" + businessLicenceImg + '\'' +
                 ", serviceMode=" + serviceMode +
                 '}';
     }

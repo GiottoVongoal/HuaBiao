@@ -1,11 +1,13 @@
-package com.huabiao.aoiin.ui.fragment;
+package com.huabiao.aoiin.ui.activity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -22,9 +24,11 @@ import com.huabiao.aoiin.picview.BitmapUtil;
 import com.huabiao.aoiin.tools.ActivityCollector;
 import com.huabiao.aoiin.ui.activity.ShowLargeImageActivity;
 import com.huabiao.aoiin.ui.adapter.RegisterDataPreviewAdapter;
+import com.huabiao.aoiin.ui.fragment.PayInfoDetailFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
+import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
@@ -52,7 +56,6 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     @Bind(R.id.register_data_preview_linechart)
     DrawLineChartView linechart;//折线图
 
-
     @Bind(R.id.register_data_preview_username_tv)
     TextView username_tv;//客户姓名
     @Bind(R.id.register_data_preview_userphone_tv)
@@ -71,6 +74,8 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     @Bind(R.id.register_data_preview_person_address_tv)
     TextView person_address_tv;//地址
 
+    @Bind(R.id.register_data_preview_logo_ll)
+    LinearLayout logo_ll;//图片展示Layout
     @Bind(R.id.register_data_preview_trade_logo_iv)
     ImageView trade_logo_iv;//商标图样
     @Bind(R.id.register_data_preview_proxy_iv)
@@ -103,6 +108,13 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     @Override
     public void bindView(Bundle savedInstanceState) {
         setBackEnable();
+        setRightIvResourse(getResources().getDrawable(R.mipmap.kefu_icon));
+        setRightIvOnclick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToast("客服");
+            }
+        });
         switch (index) {
             case 1:
                 //商标注册表单
@@ -120,7 +132,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
                 break;
             case 2:
                 //注册资料预览
-                setTitle("资料预览");
+                setTitle("预览");
                 commitBean = RegisterCommitBean.getInstance();
                 ActivityCollector.addActivity(this);
                 showRegisterData(commitBean);
@@ -133,12 +145,14 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
      * 商标注册表单预览
      */
     private void showFormData(FormBean bean) {
-        tradename_tv.setText("注册商标:" + bean.getLinechart().getTradename());
-        tradetype_tv.setText("分类:" + bean.getLinechart().getTrademarkclassification());
+        tradename_tv.setText("注册商标\t" + bean.getLinechart().getTradename());
+        tradetype_tv.setText("分类\t" + bean.getLinechart().getTrademarkclassification());
         linechart.setLineChartBean(bean.getLinechart());
 
         mAdapter = new RegisterDataPreviewAdapter(this, bean.getClassification());
-        classification_rv.setLayoutManager(new FullyGridLayoutManager(this, 2));
+        FullyLinearLayoutManager layoutManager = new FullyLinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        classification_rv.setLayoutManager(layoutManager);
         classification_rv.setAdapter(mAdapter);
 
         UserBasicInfoBean userBean = bean.getUserbasicinfo();
@@ -212,30 +226,34 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
 
         username_tv.setText("客户姓名:" + bean.getUsername());
         userphone_tv.setText("联系电话:" + bean.getUserphone());
-        contract_address_tv.setText("合同地址:" + bean.getContractSelectAddress() + bean.getContractAddress());
+        contract_address_tv.setText("合同地址:" + bean.getContractAddress());//bean.getContractSelectAddress() +
         code_tv.setText("邮政编码:" + bean.getCode());
 
         int person_type = bean.getPersonType();
         switch (person_type) {
             case 1:
                 person_type_tv.setText("法人或其他组织");
-                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
+//                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
                 break;
             case 2:
                 person_type_tv.setText("个体工商户");
-                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
+//                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
                 break;
             case 3:
                 person_type_tv.setText("自然人");
-                legal_or_id_tv.setText("身份证件文件号码:" + bean.getCertificatesID());
+//                legal_or_id_tv.setText("身份证件文件号码:" + bean.getCertificatesID());
                 break;
         }
-        person_name_tv.setText("申请人姓名:" + bean.getPersonName());
-        person_address_tv.setText("行政区划:" + bean.getCollectAddress());
+//        person_name_tv.setText("申请人姓名:" + bean.getPersonName());
+//        person_address_tv.setText("行政区划:" + bean.getCollectAddress());
+        legal_or_id_tv.setVisibility(View.GONE);
+        person_name_tv.setVisibility(View.GONE);
+        person_address_tv.setVisibility(View.GONE);
 
-        trade_logo_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getLogoImg()));
-        proxy_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getProxyImg()));
-        business_licence_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getBusinessLicenceImg()));
+//        trade_logo_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getLogoImg()));
+//        proxy_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getProxyImg()));
+//        business_licence_iv.setImageBitmap(BitmapUtil.createImageThumbnail(bean.getBusinessLicenceImg()));
+        logo_ll.setVisibility(View.GONE);
 
         int serviceMode = bean.getServiceMode();
         switch (serviceMode) {
@@ -268,13 +286,13 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.register_data_preview_trade_logo_iv:
-                showLargeImg(trade_logo_iv, index == 1 ? formbean.getImginfo().getLogoimg() : commitBean.getLogoImg());
+                showLargeImg(trade_logo_iv, index == 1 ? formbean.getImginfo().getLogoimg() : "");//commitBean.getLogoImg()
                 break;
             case R.id.register_data_preview_proxy_iv:
-                showLargeImg(proxy_iv, index == 1 ? formbean.getImginfo().getProxyimg() : commitBean.getProxyImg());
+                showLargeImg(proxy_iv, index == 1 ? formbean.getImginfo().getProxyimg() : "");//commitBean.getProxyImg()
                 break;
             case R.id.register_data_preview_business_licence_iv:
-                showLargeImg(business_licence_iv, index == 1 ? formbean.getImginfo().getBusinesslicenceimg() : commitBean.getBusinessLicenceImg());
+                showLargeImg(business_licence_iv, index == 1 ? formbean.getImginfo().getBusinesslicenceimg() : "");//commitBean.getBusinessLicenceImg()
                 break;
             case R.id.register_data_preview_back_tv:
                 ClickUtil.onBackClick();

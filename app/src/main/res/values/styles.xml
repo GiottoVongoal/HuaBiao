@@ -9,13 +9,13 @@
     <style name="GrayLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">@color/grey_5000</item>
+        <item name="android:background">@color/grey_e8e8e8</item>
     </style>
     <!-- 灰色的竖线 -->
     <style name="GrayLine_shu">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">1dp</item>
-        <item name="android:background">@color/grey_DDDDDD</item>
+        <item name="android:background">@color/grey_e8e8e8</item>
     </style>
     <!--屏幕底部弹出PopupWindow效果-->
     <style name="bottom_enter_anim" parent="android:Animation">

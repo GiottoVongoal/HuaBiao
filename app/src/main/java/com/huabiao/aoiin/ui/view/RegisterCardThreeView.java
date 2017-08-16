@@ -168,9 +168,9 @@ public class RegisterCardThreeView extends RegisterCardBaseView {
     public void save() {
         super.save();
         //保存图片地址
-        commitBean.setLogoImg(Path + folderName + File.separator + folderName + FlagBase.TRADE_LOGO + ".jpg");
-        commitBean.setProxyImg(Path + folderName + File.separator + folderName + FlagBase.PROXY + ".jpg");
-        commitBean.setBusinessLicenceImg(Path + folderName + File.separator + folderName + FlagBase.BUSINESS_LICENCE + ".jpg");
+//        commitBean.setLogoImg(Path + folderName + File.separator + folderName + FlagBase.TRADE_LOGO + ".jpg");
+//        commitBean.setProxyImg(Path + folderName + File.separator + folderName + FlagBase.PROXY + ".jpg");
+//        commitBean.setBusinessLicenceImg(Path + folderName + File.separator + folderName + FlagBase.BUSINESS_LICENCE + ".jpg");
     }
 
     //开启拍照选照弹框

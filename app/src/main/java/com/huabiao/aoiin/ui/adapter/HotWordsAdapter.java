@@ -38,7 +38,8 @@ public class HotWordsAdapter extends RecyclerView.Adapter<HotWordsAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         HotwordsBean bean = mList.get(position);
-        holder.top_tv.setText(bean.getIndustrytype() + ":" + bean.getName());
+        holder.top_tv.setText(bean.getName());
+        holder.industrytype_tv.setText(bean.getIndustrytype());
         holder.line_chart.setLineChartBean(bean.getLinechart());
         holder.means_tv.setText(bean.getInterpretation());
     }
@@ -49,13 +50,14 @@ public class HotWordsAdapter extends RecyclerView.Adapter<HotWordsAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView top_tv;
+        private TextView top_tv, industrytype_tv;
         private DrawLineChartView line_chart;
         private TextView means_tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
             top_tv = (TextView) itemView.findViewById(R.id.hot_words_item_top_tv);
+            industrytype_tv = (TextView) itemView.findViewById(R.id.hot_words_item_industrytype_tv);
             line_chart = (DrawLineChartView) itemView.findViewById(R.id.hot_words_item_line_chart);
             means_tv = (TextView) itemView.findViewById(R.id.hot_words_item_means_tv);
         }

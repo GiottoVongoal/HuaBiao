@@ -1,10 +1,10 @@
 package com.huabiao.aoiin.ui.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.wedgit.CircleTextView;
@@ -28,8 +28,8 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
     @Bind(R.id.finance_tradeid_tl)
     TextInputLayout tradeid_tl;//商标编号
 
-    @Bind(R.id.finance_evaluate_circle_tv)
-    CircleTextView evaluate_circle_tv;//评估
+    @Bind(R.id.finance_evaluate_tv)
+    TextView evaluate_circle_tv;//评估
 
     @Bind(R.id.finance_trade_pledge_ll)
     LinearLayout trade_pledge_ll;//商标质押
@@ -40,8 +40,6 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-
-        evaluate_circle_tv.setBackgroundColor(getContext().getResources().getColor(R.color.white));
 
         tradename_tl.getEditText().setText("商标名");
         tradeid_tl.getEditText().setText("商标编号");
@@ -56,7 +54,7 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.finance_evaluate_circle_tv:
+            case R.id.finance_evaluate_tv:
                 //评估
                 if (StringUtil.isEmpty(tradename_tl.getEditText().getText().toString().toString())) {
                     showToast("请输入商标名");

@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.ui.activity.RegisterActivity;
+import com.huabiao.aoiin.ui.activity.RegisterOneActivity;
 import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -24,23 +26,24 @@ import butterknife.Bind;
  * @date 2017-07-12 09:36
  * @description Tab中的注册输入页面
  */
-public class RegisterOneFragment extends BaseFragment implements View.OnClickListener {
+public class RegisterFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.register_one_tradename_et)
     TextInputLayout tradename_et;//商标名
     @Bind(R.id.register_one_goodsname_et)
     TextInputLayout goodsname_et;//商品名
+
     @Bind(R.id.register_one_register_tv)
-    FloatingActionButton register_tv;//注册按钮
+    TextView register_tv;//注册按钮
+    @Bind(R.id.register_one_register_custom_tv)
+    TextView custom_tv;//咨询客服
+    private TextView[] tvs = new TextView[2];
+
     private String tradename = "", goodsname = "";
 
     //选择客服弹出框
     private RegisterOneFinishPopupWindow finishPopupWindow;
 
-    @Bind(R.id.btn_left)
-    TextView btn_left;
-    @Bind(R.id.btn_right)
-    TextView btn_right;
-    private boolean isOpen = false;
+    private RegisterCommitBean commitBean;
 
     @Override
     public BasePresenter getPresenter() {
@@ -49,11 +52,28 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     public void bindView(Bundle savedInstanceState) {
+        setTitle("注册");
+        setBackEnable();
+
         tradename_et.getEditText().setText("我是商标名(注册)");
         goodsname_et.getEditText().setText("我是商品名(注册)");
         register_tv.setOnClickListener(this);
-        hide(btn_left);
-        hide(btn_right);
+        custom_tv.setOnClickListener(this);
+        commitBean = RegisterCommitBean.getInstance();
+        commitBean.emptyBean();
+
+        tvs[0] = register_tv;
+        tvs[1] = custom_tv;
+        setSelect(0);
+    }
+
+    public void setSelect(int position) {
+        for (int i = 0; i < tvs.length; i++) {
+            tvs[i].setBackgroundResource(R.drawable.btn_white);
+            if (i == position) {
+                tvs[i].setBackground(getResources().getDrawable(R.drawable.btn_yellow));
+            }
+        }
     }
 
     @Override
@@ -72,7 +92,9 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
                     showToast("请输入商品名");
                     return;
                 }
-                showFinishPopupWindow(view);
+                setSelect(0);
+                JumpUtils.startActivity(getContext(), RegisterOneActivity.class);
+//                showFinishPopupWindow(view);
 //                if (isOpen) {
 //                    hide(btn_left);
 //                    hide(btn_right);
@@ -83,6 +105,10 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
 //                    isOpen = true;
 //                }
                 break;
+            case R.id.register_one_register_custom_tv:
+                setSelect(1);
+                JumpUtils.startFragmentByName(getContext(), CustomerServiceListFragment.class);
+                break;
         }
     }
 
@@ -92,7 +118,8 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
             @Override
             public void selectDefault() {
                 showToast("默认注册\n" + tradename + "\n" + goodsname);
-                JumpUtils.startActivity(getContext(), RegisterActivity.class);
+//                JumpUtils.startActivity(getContext(), RegisterActivity.class);
+                JumpUtils.startActivity(getContext(), RegisterOneActivity.class);
                 finishPopupWindow.dismiss();
             }
 
@@ -156,6 +183,6 @@ public class RegisterOneFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     public int getContentLayout() {
-        return R.layout.register_one_layout;
+        return R.layout.register_fragment_layout;
     }
 }

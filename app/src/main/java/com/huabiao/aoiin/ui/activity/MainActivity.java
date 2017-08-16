@@ -2,6 +2,7 @@ package com.huabiao.aoiin.ui.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;

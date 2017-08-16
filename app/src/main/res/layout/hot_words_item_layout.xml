@@ -12,14 +12,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="热搜词:"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/hot_words_item_top_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="25sp" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/hot_words_item_top_tv"
-            android:layout_width="match_parent"
+            android:id="@+id/hot_words_item_industrytype_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"/>
+            android:background="@drawable/bg_round_gray"
+            android:padding="5dp"
+            android:textSize="13sp" />
 
         <com.huabiao.aoiin.wedgit.DrawLineChartView
             android:id="@+id/hot_words_item_line_chart"

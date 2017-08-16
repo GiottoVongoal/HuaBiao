@@ -27,7 +27,7 @@
                     android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_margin="15dp"
-                    android:src="@mipmap/perter_portrait" />
+                    android:src="@mipmap/touxiang" />
 
                 <TextView
                     android:id="@+id/me_user_name"
@@ -59,7 +59,7 @@
                         android:id="@+id/me_trademark_registered_form_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/v2_me_icon_jindu" />
+                        android:src="@mipmap/biaodan_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
                         android:id="@+id/me_remind_progress_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/v2_me_icon_jindu" />
+                        android:src="@mipmap/jindutixin_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
                         android:id="@+id/me_order_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/v2_me_icon_jindu" />
+                        android:src="@mipmap/dingdan_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"

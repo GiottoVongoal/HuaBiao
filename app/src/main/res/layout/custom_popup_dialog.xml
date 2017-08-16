@@ -133,7 +133,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
-            app:srcCompat="@mipmap/perter_portrait" />
+            app:srcCompat="@mipmap/touxiang" />
 
         <ImageView
             android:id="@+id/custom_popup_rate_iv"

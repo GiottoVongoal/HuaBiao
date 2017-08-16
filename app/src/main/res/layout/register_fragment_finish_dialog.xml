@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                app:srcCompat="@mipmap/v2_me_icon_jindu" />
+                app:srcCompat="@mipmap/touxiang" />
 
             <TextView
                 android:id="@+id/register_one_finish_dialog_default_tv"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                app:srcCompat="@mipmap/v2_me_icon_jindu" />
+                app:srcCompat="@mipmap/touxiang" />
 
             <TextView
                 android:id="@+id/register_one_finish_dialog_recommand_tv"

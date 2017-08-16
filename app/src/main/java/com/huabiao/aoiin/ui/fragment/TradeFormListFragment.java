@@ -9,6 +9,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.TradeFormListBean;
 import com.huabiao.aoiin.bean.TradeFormListBean.TradeFormItemBean;
 import com.huabiao.aoiin.model.MeModel;
+import com.huabiao.aoiin.ui.activity.RegisterDataPreviewActivity;
 import com.huabiao.aoiin.ui.adapter.TradeFormListAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;

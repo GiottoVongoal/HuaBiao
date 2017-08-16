@@ -1,6 +1,5 @@
 package com.huabiao.aoiin.ui.activity;
 
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -23,11 +22,11 @@ import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.adapter.UserProgressAdapter;
 import com.huabiao.aoiin.ui.fragment.UserProgressDateFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
-import com.huabiao.aoiin.wedgit.CircleTextView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+import com.ywy.mylibs.utils.StatusBarUtils;
 import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.ArrayList;
@@ -60,8 +59,8 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
     CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     //展示数据
-    @Bind(R.id.user_progress_circle_tv)
-    CircleTextView circle_tv;
+    @Bind(R.id.user_progress_tv)
+    TextView progress_tv;
     @Bind(R.id.user_progress_rv)
     RecyclerView user_progress_rv;
     private UserProgressAdapter mAdapter;
@@ -73,6 +72,9 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         //透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        //设置状态栏颜色
+        StatusBarUtils.setWindowStatusBarColor(this, R.color.yellow_fdd400);
+
         //设置Toolbar
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -107,10 +109,8 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     bean = (UserProgressListBean) mData;
-                    circle_tv.setText(bean.getLatestprogress());
-                    circle_tv.setTextColor(Color.WHITE);
-                    circle_tv.setBackgroundColor(getResources().getColor(R.color.blue_0090FF));
-                    circle_tv.setOnClickListener(UserProgressActivity.this);
+                    progress_tv.setText(bean.getLatestprogress());
+                    progress_tv.setOnClickListener(UserProgressActivity.this);
                     user_progress_rv.setLayoutManager(new FullyLinearLayoutManager(UserProgressActivity.this));
                     final List<ProgresslistBean> l = bean.getUserprogresslist();
                     mAdapter = new UserProgressAdapter(UserProgressActivity.this, l);
@@ -121,6 +121,7 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                             if (!StringUtil.isEmpty(l.get(position).getProgresstime())) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("time", l.get(position).getProgresstime());
+                                bundle.putString("status", l.get(position).getProgressstatustext());
                                 JumpUtils.startFragmentByName(UserProgressActivity.this, UserProgressDateFragment.class, bundle);
                             }
                         }
@@ -180,7 +181,7 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                 popRecyclerView.setAdapter(menuAdapter);
                 popMenu.showAsDropDown(toolbar_title, 0, 2);
                 break;
-            case R.id.user_progress_circle_tv:
+            case R.id.user_progress_tv:
                 //最新进度
                 Bundle bundle = new Bundle();
                 bundle.putString("time", bean.getLatestime());

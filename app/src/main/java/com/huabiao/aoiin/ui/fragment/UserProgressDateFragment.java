@@ -46,10 +46,11 @@ public class UserProgressDateFragment extends BaseFragment {
     TextView tvTitleDay;
 
     private String[] mMonthText;
+    private String status;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        setTitle("进度");
+        setTitle(status);
         setBackEnable();
     }
 
@@ -58,6 +59,7 @@ public class UserProgressDateFragment extends BaseFragment {
         super.getIntentValue();
         Bundle bundle = getActivity().getIntent().getExtras();
         String time = bundle.getString("time");
+        status = bundle.getString("status");
         string2Date(time);
     }
 

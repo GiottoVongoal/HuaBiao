@@ -131,28 +131,28 @@ public class RegisterPersonTypeFragment extends BaseFragment implements View.OnC
                 }
                 break;
         }
-        bean.setPersonName(name_et.getEditText().getText().toString().trim());
-        bean.setCollectAddress(select_address_tv.getText().toString().trim());
-        switch (type) {
-            case 1:
-                //法人或其他组织
-                bean.setLegalPersonName(legal_name_et.getEditText().getText().toString().trim());
-                bean.setCertificatesID("");
-                bean.setPersonType(1);
-                break;
-            case 2:
-                //个体工商户
-                bean.setLegalPersonName(legal_name_et.getEditText().getText().toString().trim());
-                bean.setCertificatesID("");
-                bean.setPersonType(2);
-                break;
-            case 3:
-                //自然人
-                bean.setLegalPersonName("");
-                bean.setCertificatesID(certificates_id_et.getEditText().getText().toString().trim());
-                bean.setPersonType(3);
-                break;
-        }
+//        bean.setPersonName(name_et.getEditText().getText().toString().trim());
+//        bean.setCollectAddress(select_address_tv.getText().toString().trim());
+//        switch (type) {
+//            case 1:
+//                //法人或其他组织
+//                bean.setLegalPersonName(legal_name_et.getEditText().getText().toString().trim());
+//                bean.setCertificatesID("");
+//                bean.setPersonType(1);
+//                break;
+//            case 2:
+//                //个体工商户
+//                bean.setLegalPersonName(legal_name_et.getEditText().getText().toString().trim());
+//                bean.setCertificatesID("");
+//                bean.setPersonType(2);
+//                break;
+//            case 3:
+//                //自然人
+//                bean.setLegalPersonName("");
+//                bean.setCertificatesID(certificates_id_et.getEditText().getText().toString().trim());
+//                bean.setPersonType(3);
+//                break;
+//        }
         ALog.i("申请人数据-->" + bean.toString());
         ClickUtil.onBackClick();
     }

@@ -17,17 +17,17 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.HomeBannarBean;
 import com.huabiao.aoiin.bean.HomeBannarBean.BannarlistBean;
+import com.huabiao.aoiin.bean.HomeInfomationBean;
+import com.huabiao.aoiin.bean.HomeInfomationBean.HomeinfolistBean;
 import com.huabiao.aoiin.bean.HotWordsListBean;
 import com.huabiao.aoiin.bean.HotWordsListBean.HotwordsBean;
 import com.huabiao.aoiin.model.HomeModel;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
-import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
 import com.huabiao.aoiin.ui.adapter.HotWordsAdapter;
+import com.huabiao.aoiin.ui.adapter.InfomationAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
-import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
-import com.huabiao.aoiin.wedgit.ShadowTransformer;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
@@ -64,17 +64,19 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     //输入框
     @Bind(R.id.home_search_et)
     EditText home_search_et;
-    @Bind(R.id.home_search_do_tv)
-    TextView home_search_do_tv;
     //按钮
-    @Bind(R.id.home_search_cv)
-    CardView home_search_tv;
-    @Bind(R.id.home_register_cv)
-    CardView home_register_tv;
-    @Bind(R.id.home_creat_name_cv)
-    CardView home_creat_name_tv;
-    @Bind(R.id.home_progress_cv)
-    CardView home_progress_tv;
+    @Bind(R.id.home_search_ll)
+    LinearLayout home_search_ll;
+    @Bind(R.id.home_creat_name_ll)
+    LinearLayout home_creat_name_ll;
+    @Bind(R.id.home_register_ll)
+    LinearLayout home_register_ll;
+    @Bind(R.id.home_progress_ll)
+    LinearLayout home_progress_ll;
+    //资讯
+    @Bind(R.id.home_information_rv)
+    RecyclerView home_information_rv;
+    private InfomationAdapter infomationAdapter;
     //热搜词
     @Bind(R.id.home_hot_words_rv)
     RecyclerView home_hot_words_rv;
@@ -88,12 +90,11 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 
         home_search_et.setOnClickListener(this);
-        home_search_do_tv.setOnClickListener(this);
 
-        home_search_tv.setOnClickListener(this);
-        home_register_tv.setOnClickListener(this);
-        home_creat_name_tv.setOnClickListener(this);
-        home_progress_tv.setOnClickListener(this);
+        home_search_ll.setOnClickListener(this);
+        home_creat_name_ll.setOnClickListener(this);
+        home_register_ll.setOnClickListener(this);
+        home_progress_ll.setOnClickListener(this);
 
         HomeModel.getBannarList(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
@@ -103,10 +104,28 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                     bannarList = bean.getBannarlist();
                     initBannar();
                     showHotWords();
+                    showInfo();
                 }
             }
         });
+    }
 
+    //获取资讯
+    private void showInfo() {
+        HomeModel.getInfoList(getContext(), new InterfaceManager.CallBackCommon() {
+            @Override
+            public void getCallBackCommon(Object mData) {
+                if (mData != null) {
+                    HomeInfomationBean bean = (HomeInfomationBean) mData;
+                    List<HomeinfolistBean> infoList = bean.getHomeinfolist();
+                    infomationAdapter = new InfomationAdapter(getContext(), infoList);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                    linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                    home_information_rv.setLayoutManager(linearLayoutManager);
+                    home_information_rv.setAdapter(infomationAdapter);
+                }
+            }
+        });
     }
 
     //获取热搜词
@@ -138,7 +157,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             ImageView imageView = new ImageView(getContext());
             imageView.setLayoutParams(new LayoutParams(ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT));
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            BitmapLoader.ins().loadImage(bannarList.get(i).getPageUrl(), R.mipmap.perter_portrait, imageView);
+            BitmapLoader.ins().loadImage(bannarList.get(i).getPageUrl(), R.mipmap.touxiang, imageView);
             mlist.add(imageView);
             // 设置圆圈点
             view = new View(getContext());
@@ -186,23 +205,22 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_search_et:
-            case R.id.home_search_do_tv:
                 //输入框
                 ((MainActivity) getContext()).setItem(1);
                 break;
-            case R.id.home_search_cv:
+            case R.id.home_search_ll:
                 //查询
                 JumpUtils.startFragmentByName(getContext(), SearchFragment.class);
                 break;
-            case R.id.home_register_cv:
-                //注册
-                JumpUtils.startFragmentByName(getContext(), RegisterOneFragment.class);
-                break;
-            case R.id.home_creat_name_cv:
+            case R.id.home_creat_name_ll:
                 //取名
                 JumpUtils.startFragmentByName(getContext(), TestFragment.class);
                 break;
-            case R.id.home_progress_cv:
+            case R.id.home_register_ll:
+                //注册
+                JumpUtils.startFragmentByName(getContext(), RegisterFragment.class);
+                break;
+            case R.id.home_progress_ll:
                 //进度
                 JumpUtils.startActivity(getContext(), UserProgressActivity.class);
                 break;

@@ -47,11 +47,35 @@ public class UserProgressAdapter extends RecyclerView.Adapter<UserProgressAdapte
 
     @Override
     public void onBindViewHolder(UserProgressViewHolder holder, final int position) {
+        if (position == 0) {
+            holder.line1.setVisibility(View.GONE);
+            holder.line2.setVisibility(View.VISIBLE);
+            holder.line3.setVisibility(View.VISIBLE);
+            holder.item_iv.setBackground(context.getResources().getDrawable(R.mipmap.point_gray));
+            holder.item_status_tv.setBackground(context.getResources().getDrawable(R.mipmap.jindu_weixuan));
+        } else if (position == list.size() - 1) {
+            holder.line1.setVisibility(View.VISIBLE);
+            holder.line2.setVisibility(View.GONE);
+            holder.line3.setVisibility(View.GONE);
+            holder.item_iv.setBackground(context.getResources().getDrawable(R.mipmap.point_yellow));
+            holder.item_status_tv.setBackground(context.getResources().getDrawable(R.mipmap.jindu_yixuan));
+        } else {
+            holder.line1.setVisibility(View.VISIBLE);
+            holder.line2.setVisibility(View.VISIBLE);
+            holder.line3.setVisibility(View.VISIBLE);
+            holder.item_iv.setBackground(context.getResources().getDrawable(R.mipmap.point_gray));
+            holder.item_status_tv.setBackground(context.getResources().getDrawable(R.mipmap.jindu_weixuan));
+        }
         ProgresslistBean bean = list.get(position);
-        BitmapLoader.ins().loadImage(bean.getProgressimg(), R.mipmap.ic_launcher, holder.item_iv);
+//        BitmapLoader.ins().loadImage(bean.getProgressimg(), R.mipmap.ic_launcher, holder.item_iv);
         holder.item_content_tv.setText(bean.getProgresscontent());
-        holder.item_status_tv.setText(StringUtil.isEmpty(bean.getProgressstatustext()) ? "" : bean.getProgressstatustext());
         holder.item_time_tv.setText(StringUtil.isEmpty(bean.getProgresstime()) ? "" : bean.getProgresstime());
+        String statustext = bean.getProgressstatustext();
+        if (StringUtil.isEmpty(statustext)) {
+            holder.item_status_tv.setVisibility(View.INVISIBLE);
+        } else {
+            holder.item_status_tv.setText(statustext);
+        }
         holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,13 +90,17 @@ public class UserProgressAdapter extends RecyclerView.Adapter<UserProgressAdapte
     }
 
     public class UserProgressViewHolder extends RecyclerView.ViewHolder {
-        RelativeLayout item_ll;
+        LinearLayout item_ll;
         ImageView item_iv;
         TextView item_content_tv, item_status_tv, item_time_tv;
+        View line1, line2, line3;
 
         public UserProgressViewHolder(View itemView) {
             super(itemView);
-            item_ll = (RelativeLayout) itemView.findViewById(R.id.user_progress_item_ll);
+            item_ll = (LinearLayout) itemView.findViewById(R.id.user_progress_item_ll);
+            line1 = itemView.findViewById(R.id.user_progress_item_line1);
+            line2 = itemView.findViewById(R.id.user_progress_item_line2);
+            line3 = itemView.findViewById(R.id.user_progress_item_line3);
             item_iv = (ImageView) itemView.findViewById(R.id.user_progress_item_iv);
             item_content_tv = (TextView) itemView.findViewById(R.id.user_progress_item_content_tv);
             item_status_tv = (TextView) itemView.findViewById(R.id.user_progress_item_status_tv);

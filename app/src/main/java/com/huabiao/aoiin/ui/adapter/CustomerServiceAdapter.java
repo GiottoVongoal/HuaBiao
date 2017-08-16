@@ -52,7 +52,7 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
         holder.item_address_tv.setText(bean.getCustomerservicecompany());
         holder.item_rb.setIsIndicator(true);//显示作用,无法进行交互
         holder.item_rb.setRating(bean.getCustomerservicerank());
-        BitmapLoader.ins().loadImage(bean.getCustomerserviceimg(), R.mipmap.perter_portrait, holder.item_photo_iv);
+        BitmapLoader.ins().loadImage(bean.getCustomerserviceimg(), R.mipmap.touxiang, holder.item_photo_iv);
 
         holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override
