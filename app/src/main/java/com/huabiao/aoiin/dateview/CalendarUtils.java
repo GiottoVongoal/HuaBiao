@@ -8,8 +8,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,6 +22,7 @@ public class CalendarUtils {
 
     private static CalendarUtils sUtils;
     private Map<String, int[]> sAllHolidays = new HashMap<>();
+    private Map<String, List<Integer>> sMonthTaskHint = new HashMap<>();
 
     public static synchronized CalendarUtils getInstance(Context context) {
         if (sUtils == null) {
@@ -41,6 +45,84 @@ public class CalendarUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Integer> addTaskHints(int year, int month, List<Integer> days) {
+        String key = hashKey(year, month);
+        List<Integer> hints = sUtils.sMonthTaskHint.get(key);
+        if (hints == null) {
+            hints = new ArrayList<>();
+            hints.removeAll(days); // 避免重复
+            hints.addAll(days);
+            sUtils.sMonthTaskHint.put(key, hints);
+        } else {
+            hints.addAll(days);
+        }
+        return hints;
+    }
+
+    public List<Integer> removeTaskHints(int year, int month, List<Integer> days) {
+        String key = hashKey(year, month);
+        List<Integer> hints = sUtils.sMonthTaskHint.get(key);
+        if (hints == null) {
+            hints = new ArrayList<>();
+            sUtils.sMonthTaskHint.put(key, hints);
+        } else {
+            hints.removeAll(days);
+        }
+        return hints;
+    }
+
+    public boolean addTaskHint(int year, int month, int day) {
+        String key = hashKey(year, month);
+        List<Integer> hints = sUtils.sMonthTaskHint.get(key);
+        if (hints == null) {
+            hints = new ArrayList<>();
+            hints.add(day);
+            sUtils.sMonthTaskHint.put(key, hints);
+            return true;
+        } else {
+            if (!hints.contains(day)) {
+                hints.add(day);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public boolean removeTaskHint(int year, int month, int day) {
+        String key = hashKey(year, month);
+        List<Integer> hints = sUtils.sMonthTaskHint.get(key);
+        if (hints == null) {
+            hints = new ArrayList<>();
+            sUtils.sMonthTaskHint.put(key, hints);
+        } else {
+            if (hints.contains(day)) {
+                Iterator<Integer> i = hints.iterator();
+                while (i.hasNext()) {
+                    Integer next = i.next();
+                    if (next == day) {
+                        i.remove();
+                        break;
+                    }
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public List<Integer> getTaskHints(int year, int month) {
+        String key = hashKey(year, month);
+        List<Integer> hints = sUtils.sMonthTaskHint.get(key);
+        if (hints == null) {
+            hints = new ArrayList<>();
+            sUtils.sMonthTaskHint.put(key, hints);
+        }
+        return hints;
     }
 
     private static String hashKey(int year, int month) {

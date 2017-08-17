@@ -3,6 +3,7 @@ package com.huabiao.aoiin.dateview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -104,8 +105,8 @@ public class WeekView extends View {
             mIsShowHolidayHint = true;
         }
         mStartDate = dateTime;
-//        mRestBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_rest_day);
-//        mWorkBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_work_day);
+        mRestBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_rest_day);
+        mWorkBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_work_day);
         int holidays[] = CalendarUtils.getInstance(getContext()).getHolidays(mStartDate.getYear(), mStartDate.getMonthOfYear());
         int row = CalendarUtils.getWeekRow(mStartDate.getYear(), mStartDate.getMonthOfYear() - 1, mStartDate.getDayOfMonth());
         mHolidays = new int[7];
@@ -188,6 +189,8 @@ public class WeekView extends View {
         clearData();
         int selected = drawThisWeek(canvas);
         drawLunarText(canvas, selected);
+        drawHintCircle(canvas);
+        drawHoliday(canvas);
     }
 
     private void clearData() {
@@ -277,6 +280,55 @@ public class WeekView extends View {
                 int startY = (int) (mRowSize * 0.72 - (mLunarPaint.ascent() + mLunarPaint.descent()) / 2);
                 canvas.drawText(dayString, startX, startY, mLunarPaint);
                 day++;
+            }
+        }
+    }
+
+    private void drawHoliday(Canvas canvas) {
+        if (mIsShowHolidayHint) {
+            Rect rect = new Rect(0, 0, mRestBitmap.getWidth(), mRestBitmap.getHeight());
+            Rect rectF = new Rect();
+            int distance = (int) (mSelectCircleSize / 2.5);
+            for (int i = 0; i < mHolidays.length; i++) {
+                int column = i % 7;
+                rectF.set(mColumnSize * (column + 1) - mRestBitmap.getWidth() - distance, distance, mColumnSize * (column + 1) - distance, mRestBitmap.getHeight() + distance);
+                if (mHolidays[i] == 1) {
+                    canvas.drawBitmap(mRestBitmap, rect, rectF, null);
+                } else if (mHolidays[i] == 2) {
+                    canvas.drawBitmap(mWorkBitmap, rect, rectF, null);
+                }
+            }
+        }
+    }
+
+    /**
+     * 绘制圆点提示
+     *
+     * @param canvas
+     */
+    private void drawHintCircle(Canvas canvas) {
+        if (mIsShowHint) {
+            mPaint.setColor(mHintCircleColor);
+            int startMonth = mStartDate.getMonthOfYear();
+            int endMonth = mStartDate.plusDays(7).getMonthOfYear();
+            int startDay = mStartDate.getDayOfMonth();
+            if (startMonth == endMonth) {
+                List<Integer> hints = CalendarUtils.getInstance(getContext()).getTaskHints(mStartDate.getYear(), mStartDate.getMonthOfYear() - 1);
+                for (int i = 0; i < 7; i++) {
+                    drawHintCircle(hints, startDay + i, i, canvas);
+                }
+            } else {
+                for (int i = 0; i < 7; i++) {
+                    List<Integer> hints = CalendarUtils.getInstance(getContext()).getTaskHints(mStartDate.getYear(), mStartDate.getMonthOfYear() - 1);
+                    List<Integer> nextHints = CalendarUtils.getInstance(getContext()).getTaskHints(mStartDate.getYear(), mStartDate.getMonthOfYear());
+                    DateTime date = mStartDate.plusDays(i);
+                    int month = date.getMonthOfYear();
+                    if (month == startMonth) {
+                        drawHintCircle(hints, date.getDayOfMonth(), i, canvas);
+                    } else {
+                        drawHintCircle(nextHints, date.getDayOfMonth(), i, canvas);
+                    }
+                }
             }
         }
     }

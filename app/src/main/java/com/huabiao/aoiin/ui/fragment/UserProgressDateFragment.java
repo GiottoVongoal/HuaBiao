@@ -23,8 +23,6 @@ import com.ywy.mylibs.base.BasePresenter;
 
 import butterknife.Bind;
 
-import static java.lang.Integer.parseInt;
-
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
@@ -78,7 +76,7 @@ public class UserProgressDateFragment extends BaseFragment {
         monthStr = monthStr == "" ? Integer.toString(1) : monthStr;
         dateStr = dateStr == "" ? Integer.toString(1) : dateStr;
 
-        int year = parseInt(yearStr.trim());
+        int year = Integer.parseInt(yearStr.trim());
         int month = Integer.parseInt(monthStr.trim());
         int day = Integer.parseInt(dateStr.trim());
 
@@ -104,7 +102,6 @@ public class UserProgressDateFragment extends BaseFragment {
 
             }
         });
-
         list = new ArrayList<>();
         rvScheduleList.setLayoutManager(new LinearLayoutManager(getContext()));
         adapder = new UserProgressDateAdapter(getActivity(), list);
