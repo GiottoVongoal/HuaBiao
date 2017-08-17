@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/bg_round_bannar"
+            android:background="@drawable/bg_round_edittext_bg"
             android:drawableLeft="@mipmap/back_cut"
             android:drawablePadding="5dp"
             android:gravity="center_vertical"

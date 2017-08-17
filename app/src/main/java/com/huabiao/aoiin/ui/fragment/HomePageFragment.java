@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.HomeBannarBean;
 import com.huabiao.aoiin.bean.HomeBannarBean.BannarlistBean;
@@ -23,6 +24,7 @@ import com.huabiao.aoiin.bean.HomeInfomationBean.HomeinfolistBean;
 import com.huabiao.aoiin.bean.HotWordsListBean;
 import com.huabiao.aoiin.bean.HotWordsListBean.HotwordsBean;
 import com.huabiao.aoiin.model.HomeModel;
+import com.huabiao.aoiin.picview.BitmapUtil;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
@@ -32,6 +34,7 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.DeviceUtils;
 import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.ArrayList;
@@ -94,6 +97,8 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         home_creat_name_ll.setOnClickListener(this);
         home_register_ll.setOnClickListener(this);
         home_progress_ll.setOnClickListener(this);
+
+        ALog.i("28--->" + DeviceUtils.px2sp(getContext(), 28));
 
         HomeModel.getBannarList(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
