@@ -1,7 +1,6 @@
 package com.huabiao.aoiin.ui.adapter;
 
 import android.content.Context;
-import android.os.UserManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,9 +50,7 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
         holder.item_name_tv.setText(bean.getCustomerservicename());
         holder.item_address_tv.setText(bean.getCustomerservicecompany());
         holder.item_rb.setIsIndicator(true);//显示作用,无法进行交互
-        holder.item_rb.setRating(bean.getCustomerservicerank());
         BitmapLoader.ins().loadImage(bean.getCustomerserviceimg(), R.mipmap.touxiang, holder.item_photo_iv);
-
         holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

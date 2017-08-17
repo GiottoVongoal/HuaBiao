@@ -5,6 +5,10 @@
     <string name="me_remind_progress_string">进度提醒</string>
     <string name="me_order_string">我的订单</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_denominate">Denominate</string>
+
     <!--menu-->
     <string name="menu_title_one">首页</string>
     <string name="menu_title_two">商城</string>

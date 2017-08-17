@@ -3,7 +3,8 @@
     {
       "customerservicename": "客服1",
       "customerservicecompany": "上海商标公司",
-      "customerservicerank": 5,
+      "reputablenumber":"6643",
+      "consultnumber":"564",
       "customerserviceid": "001",
       "successrate": "98%",
       "usedtime": "30分钟",
@@ -13,7 +14,8 @@
     {
       "customerservicename": "客服2",
       "customerservicecompany": "上海商标公司",
-      "customerservicerank": 4,
+      "reputablenumber":"1543",
+      "consultnumber":"564",
       "customerserviceid": "002",
       "successrate": "99%",
       "usedtime": "30分钟",
@@ -23,7 +25,8 @@
     {
       "customerservicename": "客服3",
       "customerservicecompany": "上海商标公司",
-      "customerservicerank": 5,
+      "reputablenumber":"2123",
+      "consultnumber":"331",
       "customerserviceid": "003",
       "successrate": "90%",
       "usedtime": "50分钟",
@@ -33,7 +36,8 @@
     {
       "customerservicename": "客服4",
       "customerservicecompany": "上海商标公司",
-      "customerservicerank": 3,
+      "reputablenumber":"43",
+      "consultnumber":"464",
       "customerserviceid": "004",
       "successrate": "99%",
       "usedtime": "30分钟",
@@ -43,7 +47,8 @@
     {
       "customerservicename": "客服5",
       "customerservicecompany": "上海商标公司",
-      "customerservicerank": 5,
+      "reputablenumber":"21543",
+      "consultnumber":"574",
       "customerserviceid": "005",
       "successrate": "98%",
       "usedtime": "27分钟",
@@ -53,7 +58,8 @@
     {
       "customerservicename": "客服6",
       "customerservicecompany": "上海商标公司",
-      "customerservicerank": 5,
+      "reputablenumber":"15323",
+      "consultnumber":"5655",
       "customerserviceid": "006",
       "successrate": "96%",
       "usedtime": "34分钟",

@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -22,6 +23,7 @@ import com.huabiao.aoiin.bean.HomeInfomationBean.HomeinfolistBean;
 import com.huabiao.aoiin.bean.HotWordsListBean;
 import com.huabiao.aoiin.bean.HotWordsListBean.HotwordsBean;
 import com.huabiao.aoiin.model.HomeModel;
+import com.huabiao.aoiin.ui.activity.DenominateFragment;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
@@ -32,8 +34,6 @@ import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.JumpUtils;
-
-import android.widget.LinearLayout.LayoutParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -214,7 +214,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.home_creat_name_ll:
                 //取名
-                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
+                JumpUtils.startFragmentByName(getContext(), DenominateFragment.class);
                 break;
             case R.id.home_register_ll:
                 //注册
@@ -226,7 +226,6 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 break;
         }
     }
-
     //实现VierPager监听器接口
     class BannerListener implements ViewPager.OnPageChangeListener {
 

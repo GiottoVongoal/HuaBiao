@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/view_title" />
+    <View
+        android:id="@+id/buying_listitem_line"
+        style="@style/GrayLine" />
+    <ImageView
+        android:id="@+id/buying_view_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商标名"
+        android:id="@+id/buying_view_trademarkname"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text_size_20"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商标类型"
+        android:padding="10dp"
+        android:id="@+id/buying_view_classfication"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上面的变化"
+        android:id="@+id/buying_view_trademarkstatus"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"/>
+</LinearLayout>

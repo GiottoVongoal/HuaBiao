@@ -2,8 +2,6 @@ package com.huabiao.aoiin.ui.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.content.res.ColorStateList;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -20,7 +18,6 @@ import android.widget.Toast;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
 import com.huabiao.aoiin.ui.fragment.FinanceFragment;
 import com.huabiao.aoiin.ui.fragment.HomePageFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
@@ -42,7 +39,7 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
-    Fragment homePageFragment, financeFragment, meFragment;
+    Fragment homePageFragment, Mall, financeFragment, meFragment;
 
     @Override
     public BasePresenter getPresenter() {
@@ -55,6 +52,7 @@ public class MainActivity extends BaseActivity {
         homePageFragment = new HomePageFragment();
         financeFragment = new FinanceFragment();
         meFragment = new MeFragment();
+        Mall = new Mall();
 
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
@@ -71,7 +69,7 @@ public class MainActivity extends BaseActivity {
                 ALog.i("fis!=null");
             }
         } else {
-            ALog.i("!newFile.exists()");
+//            ALog.i("!newFile.exists()");
         }
         botton_navi_view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -105,7 +103,7 @@ public class MainActivity extends BaseActivity {
                 addFragment(homePageFragment);
                 break;
             case 1:
-                addFragment(BottonNavigationViewFragment.newInstance("商城"));
+                addFragment(Mall);
                 break;
             case 2:
                 addFragment(financeFragment);
@@ -114,7 +112,6 @@ public class MainActivity extends BaseActivity {
                 addFragment(meFragment);
                 break;
         }
-        botton_navi_view.getMenu().getItem(index).setChecked(true);
     }
 
     private void addFragment(Fragment fragment) {

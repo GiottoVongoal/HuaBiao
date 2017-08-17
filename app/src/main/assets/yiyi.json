@@ -1,0 +1,69 @@
+{
+  "img": "https://static.ttpp.com/brandlogo/0-3728946.jpg?v=1",
+  "name": "思美",
+  "classificationid": "06",
+  "classifictiontype": "金属材料",
+  "status": "3",
+  "baseinfo": {
+    "trademarkname": "思美",
+    "registrationnumber": "16404103",
+    "classificationid": "06",
+    "applicantname": "广州美思古智能家居有限公司",
+    "applicantaddress": "安徽省安庆市同安路西区1栋1单元1楼",
+    "proxycompany": "安庆华诚商标事务有限公司"
+  },
+  "registerinfo": {
+    "applicationdate": "2014-04-28",
+    "registerdate": "",
+    "preliminarynoticedate": "2017-06-06",
+    "registrationnoticedate": "",
+    "dedicatedterm": ""
+  },
+  "servicelist": [
+    {
+      "id": "0601",
+      "classname": "铝"
+    },
+    {
+      "id": "0602",
+      "classname": "金属管道"
+    },
+    {
+      "id": "0603",
+      "classname": "金属门;金属窗"
+    },
+    {
+      "id": "0601",
+      "classname": "铝"
+    },
+    {
+      "id": "0602",
+      "classname": "金属管道"
+    },
+    {
+      "id": "0603",
+      "classname": "金属门；金属窗"
+    }
+  ],"notice": [
+  {
+    "title": "商标注册申请等待受理中",
+    "time": "",
+    "isvisible": 0
+  },
+  {
+    "title": "送达公告第1545期",
+    "time": "2014-02-28",
+    "isvisible": 1
+  },
+  {
+    "title": "商标初步审定公告第1554期",
+    "time": "2014-03-28",
+    "isvisible": 1
+  }
+
+]
+}
+
+
+
+

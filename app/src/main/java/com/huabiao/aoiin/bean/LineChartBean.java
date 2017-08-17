@@ -97,5 +97,25 @@ public class LineChartBean {
         public void setLinevalue(List<Integer> linevalue) {
             this.linevalue = linevalue;
         }
+
+        @Override
+        public String toString() {
+            return "LinesBean{" +
+                    "linename='" + linename + '\'' +
+                    ", linecolor='" + linecolor + '\'' +
+                    ", linevalue=" + linevalue +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "LineChartBean{" +
+                "tradename='" + tradename + '\'' +
+                ", trademarkclassification='" + trademarkclassification + '\'' +
+                ", classificationid='" + classificationid + '\'' +
+                ", Xaxistag=" + Xaxistag +
+                ", lines=" + lines +
+                '}';
     }
 }

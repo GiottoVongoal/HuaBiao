@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="zhuanpan">
+        <attr name="pannum"  format="integer"/>
+        <attr name="names" format="reference"/>
+        <attr name="icons"  format="reference"/>
+    </declare-styleable>
     <!--日历相关-->
     <declare-styleable name="MonthCalendarView">
         <attr name="month_selected_text_color" format="color" />
