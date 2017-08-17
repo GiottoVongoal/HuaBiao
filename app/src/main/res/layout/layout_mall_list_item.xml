@@ -112,7 +112,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:drawableLeft="@mipmap/common_nav_icon_sq"
+        android:drawableLeft="@mipmap/ic_launcher"
         android:drawablePadding="5dp"
         android:padding="15dp"
         android:text="aaa" />

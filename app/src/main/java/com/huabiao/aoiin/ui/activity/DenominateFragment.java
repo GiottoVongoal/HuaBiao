@@ -35,19 +35,19 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     //转盘
     @Bind(R.id.rp_layout)
     DenominateRotatePanLayout rp;
-//中心的点击图片
+    //中心的点击图片
     @Bind(R.id.go)
     ImageView goBtn;
-//商品名
+    //商品名
     @Bind(R.id.tv_name)
     TextView name;
-//商品类型
+    //商品类型
     @Bind(R.id.tv_trademarkclassification)
     TextView trademarkclassification;
-//释义的内容
+    //释义的内容
     @Bind(R.id.tv_means)
     TextView means;
-//折线图
+    //折线图
     @Bind(R.id.creat_name_line_chart)
     DrawLineChartView creat_name_line_chart;
     //输入商品名
@@ -56,7 +56,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     //选择行业
     @Bind(R.id.denominate_industry_btn)
     Button denominate_industry_btn;
-//跳转到详情页面的layout id
+    //跳转到详情页面的layout id
     @Bind(R.id.denominate_layout)
     LinearLayout denominate_layout;
 
@@ -83,7 +83,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     CreatNameBean bean = (CreatNameBean) mData;
-                    ALog.i("CreatNameBean-->" +bean.toString());
+                    ALog.i("CreatNameBean-->" + bean.toString());
                     list = bean.getRecommendnamelist();
                     if (list.size() > 0) {
                         setData();
@@ -116,7 +116,6 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
         trademarkclassification.setText(classificationString);
         creat_name_line_chart.setLineChartBean(list.get(position).getLinechart());
-
     }
 
     @Override
@@ -137,7 +136,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                 });
                 break;
             case R.id.denominate_layout:
-                JumpUtils.startFragmentByName(getContext(),DenominateDetailsFragment.class);
+                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class);
                 break;
         }
     }

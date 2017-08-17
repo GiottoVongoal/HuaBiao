@@ -72,7 +72,7 @@ public class DenominateRotatePanLayout extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // TODO Auto-generated method stub
+        //   Auto-generated method stub
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int mHeight = Util.dip2px(context, 300);
@@ -177,7 +177,7 @@ public class DenominateRotatePanLayout extends View {
         long time = (lap + angle / 360) * ONE_WHEEL_TIME;
         int DesRotate = increaseDegree + InitAngle;
 
-        //TODO 为了每次都能旋转到转盘的中间位置
+        //  为了每次都能旋转到转盘的中间位置
         int offRotate = DesRotate % 360 % verPanRadius;
         DesRotate -= offRotate;
         DesRotate += diffRadius;
@@ -238,7 +238,7 @@ public class DenominateRotatePanLayout extends View {
     }
 
 
-    // TODO =============================== 手势处理 ======================================
+    //   =============================== 手势处理 ======================================
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -307,7 +307,7 @@ public class DenominateRotatePanLayout extends View {
         }
     }
 
-    //TODO 判断滑动的方向
+    //  判断滑动的方向
     private float vectorToScalarScroll(float dx, float dy, float x, float y) {
 
         float l = (float) Math.sqrt(dx * dx + dy * dy);

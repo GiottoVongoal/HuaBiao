@@ -14,8 +14,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.huabiao.aoiin.model.GetJsonToName.getJson;
-
 /**
  * Created by Aoiin-9 on 2017/8/1.
  */
@@ -23,7 +21,7 @@ import static com.huabiao.aoiin.model.GetJsonToName.getJson;
 public class AnalysisJson {
 
     public static void getDenominateName(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = getJson(context, "getcreatnamelist.json");//解析第一层object
+        String jsonString = GetJsonToName.getJson(context, "getcreatnamelist.json");//解析第一层object
         List<RecommendnamelistBean> list = new ArrayList<>();
         CreatNameBean bean = new CreatNameBean();
         try {

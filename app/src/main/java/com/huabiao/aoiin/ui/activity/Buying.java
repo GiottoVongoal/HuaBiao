@@ -125,7 +125,7 @@ public class Buying extends BaseFragment implements View.OnClickListener {
                 if (mData != null) {
                     //获取整个模型类的数据
                     BuyingInfoBean buyingInfoBean = (BuyingInfoBean) mData;
-                    BitmapLoader.ins().loadImage(buyingInfoBean.getImg(), R.mipmap.perter_portrait, view_img);
+                    BitmapLoader.ins().loadImage(buyingInfoBean.getImg(), R.mipmap.touxiang, view_img);
                     view_trademarkname.setText(buyingInfoBean.getName());
                     view_classfication.setText(buyingInfoBean.getClassificationid() + "类" + "-" + buyingInfoBean.getClassifictiontype());
                     view_trademarkstatus.setText(buyingInfoBean.getStatus());
