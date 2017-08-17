@@ -4,7 +4,7 @@ package com.huabiao.aoiin.bean;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-07-07 18:58
- * @description
+ * @description 画柱状图测试Bean
  */
 public class TestBean {
     private String name;

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/buying_left_ll"
+        android:layout_width="50dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/user_progress_date_item_spot_iv1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/point_gray" />
+
+        <View
+            android:id="@+id/buying_rcv2_linear"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/user_progress_date_item_spot_iv1"
+            android:layout_centerHorizontal="true"
+            android:background="@color/grey_d7d7d7" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/buying_left_ll">
+
+        <TextView
+            android:id="@+id/buying_rcv2_status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="4dp"
+            android:text="商标注册申请中"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/buying_rcv2_noticevisable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/buying_rcv2_status1"
+            android:background="@drawable/bg_round_gray"
+            android:text="公告" />
+
+        <TextView
+            android:id="@+id/buying_rcv2_status1_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buying_rcv2_status1"
+            android:layout_margin="4dp"
+            android:text="20170201" />
+    </RelativeLayout>
+</LinearLayout>

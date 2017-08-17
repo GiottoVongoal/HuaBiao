@@ -1,8 +1,79 @@
 <resources>
     <string name="app_name">商标助手</string>
 
-    <string name="me_progress_reminder_string">进度提醒</string>
-    <string name="me_my_news">我的消息</string>
-    <string name="me_string">专业 · 服务</string>
+    <string name="me_trademark_registered_form_string">注册表单</string>
+    <string name="me_remind_progress_string">进度提醒</string>
+    <string name="me_order_string">我的订单</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_denominate">Denominate</string>
+
+    <!--menu-->
+    <string name="menu_title_one">首页</string>
+    <string name="menu_title_two">商城</string>
+    <string name="menu_title_three">金融</string>
+    <string name="menu_title_my">我的</string>
+
+    <!--日历相关-->
+    <string-array name="calendar_week">
+        <item>日</item>
+        <item>一</item>
+        <item>二</item>
+        <item>三</item>
+        <item>四</item>
+        <item>五</item>
+        <item>六</item>
+    </string-array>
+
+    <string-array name="calendar_month">
+        <item>一月</item>
+        <item>二月</item>
+        <item>三月</item>
+        <item>四月</item>
+        <item>五月</item>
+        <item>六月</item>
+        <item>七月</item>
+        <item>八月</item>
+        <item>九月</item>
+        <item>十月</item>
+        <item>十一月</item>
+        <item>十二月</item>
+    </string-array>
+    <string name="calendar_day">%d 日</string>
+    <string name="calendar_year">%d-</string>
+
+    <!--拍照选照相关-->
+    <string name="select_image_format">请选择JPG/JPEG/PNG格式的图片！</string>
+    <string name="select_image_size">请选择5MB以内的图片！</string>
+
+    <string-array name="circlerangeview_colors">
+        <item>#008C8C</item>
+        <item>#4DA6FF</item>
+        <item>#4DC433</item>
+        <item>#A4C433</item>
+        <item>#FF944D</item>
+        <item>#FF4D4D</item>
+        <item>#C30C0C</item>
+    </string-array>
+
+    <string-array name="circlerangeview_values">
+        <item>BP_PURE_PERIOD_HBP</item>
+        <item>BP_LOW</item>
+        <item>BP_NORMAL</item>
+        <item>BP_NORMAL_HIGH</item>
+        <item>BP_MILD_HYPERTENSION</item>
+        <item>BP_MIDDLE_HYPERTENSION</item>
+        <item>BP_SEVERE_HYPERTENSION</item>
+    </string-array>
+
+    <string-array name="circlerangeview_txts">
+        <item>单纯收缩期</item>
+        <item>偏低</item>
+        <item>理想</item>
+        <item>正常</item>
+        <item>轻度</item>
+        <item>中度</item>
+        <item>重度</item>
+    </string-array>
 
 </resources>

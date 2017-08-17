@@ -1,18 +1,26 @@
 package com.huabiao.aoiin.ui.activity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.ui.fragment.BottonNavigationViewFragment;
+import com.huabiao.aoiin.ui.fragment.FinanceFragment;
+import com.huabiao.aoiin.ui.fragment.HomePageFragment;
+import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -20,16 +28,18 @@ import com.ywy.mylibs.base.BasePresenter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.Bind;
 
 public class MainActivity extends BaseActivity {
-
-//    private MenuItem menuItem;
-//    @Bind(R.id.botton_navi_view)
+    @Bind(R.id.botton_navi_view)
     BottomNavigationView botton_navi_view;
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
+
+    Fragment homePageFragment, Mall, financeFragment, meFragment;
 
     @Override
     public BasePresenter getPresenter() {
@@ -39,6 +49,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public void bindView(Bundle savedInstanceState) {
         BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
+        homePageFragment = new HomePageFragment();
+        financeFragment = new FinanceFragment();
+        meFragment = new MeFragment();
+        Mall = new Mall();
+
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
             ALog.i("newFile.exists()");
@@ -54,79 +69,49 @@ public class MainActivity extends BaseActivity {
                 ALog.i("fis!=null");
             }
         } else {
-            ALog.i("!newFile.exists()");
+//            ALog.i("!newFile.exists()");
         }
         botton_navi_view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_item_one:
-//                        botton_viewpager.setCurrentItem(0);
-                        addFragment(BottonNavigationViewFragment.newInstance("拨号"));
+                        setItem(0);
                         break;
                     case R.id.menu_item_two:
-//                        botton_viewpager.setCurrentItem(1);
-                        addFragment(BottonNavigationViewFragment.newInstance("信息"));
+                        setItem(1);
                         break;
                     case R.id.menu_item_three:
-//                        botton_viewpager.setCurrentItem(2);
-                        addFragment(BottonNavigationViewFragment.newInstance("联系人"));
+                        setItem(2);
                         break;
                     case R.id.menu_item_four:
-//                        botton_viewpager.setCurrentItem(3);
-                        addFragment(BottonNavigationViewFragment.newInstance("查询"));
-                        break;
-                    case R.id.menu_item_five:
-//                        botton_viewpager.setCurrentItem(4);
-                        addFragment(BottonNavigationViewFragment.newInstance("我的"));
+                        setItem(3);
                         break;
                 }
                 return true;//返回 true 使点击有效
             }
         });
-        //默认进来选中第三个
-        addFragment(BottonNavigationViewFragment.newInstance("联系人"));
-        botton_navi_view.getMenu().getItem(2).setChecked(true);
+        setItem(0);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+        }
+    }
 
-//        botton_viewpager = (ViewPager) findViewById(botton_viewpager);
-//        botton_viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                if (menuItem != null) {
-//                    menuItem.setChecked(false);
-//                } else {
-//                    botton_navi_view.getMenu().getItem(0).setChecked(false);
-//                }
-//                botton_navi_view.getMenu().getItem(position).setChecked(true);
-//                menuItem = botton_navi_view.getMenu().getItem(position);
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
-//        // 如果想滑动，可以把下面的代码注释掉
-//        botton_viewpager.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                return true;
-//            }
-//        });
-//
-//        ViewpagerAdapter adapter = new ViewpagerAdapter(getSupportFragmentManager());
-//        adapter.addFragment(BottonNavigationViewFragment.newInstance("拨号"));
-//        adapter.addFragment(BottonNavigationViewFragment.newInstance("信息"));
-//        adapter.addFragment(BottonNavigationViewFragment.newInstance("联系人"));
-//        adapter.addFragment(BottonNavigationViewFragment.newInstance("查询"));
-//        adapter.addFragment(BottonNavigationViewFragment.newInstance("我的"));
-//        botton_viewpager.setAdapter(adapter);
-
+    public void setItem(int index) {
+        switch (index) {
+            case 0:
+                addFragment(homePageFragment);
+                break;
+            case 1:
+                addFragment(Mall);
+                break;
+            case 2:
+                addFragment(financeFragment);
+                break;
+            case 3:
+                addFragment(meFragment);
+                break;
+        }
     }
 
     private void addFragment(Fragment fragment) {
@@ -135,30 +120,35 @@ public class MainActivity extends BaseActivity {
         tran.replace(R.id.botton_fl, fragment);
         tran.commit();
     }
-//    class ViewpagerAdapter extends FragmentPagerAdapter {
-//        private final List<Fragment> list = new ArrayList<>();
-//
-//        public ViewpagerAdapter(FragmentManager fragmentManager) {
-//            super(fragmentManager);
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return list.size();
-//        }
-//
-//        @Override
-//        public Fragment getItem(int position) {
-//            return list.get(position);
-//        }
-//
-//        public void addFragment(Fragment fragment) {
-//            list.add(fragment);
-//        }
-//    }
 
     @Override
     public int getContentLayout() {
         return R.layout.activity_main;
+    }
+
+    private static Boolean isExit = false;// 退出
+
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN
+                && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            // finish();
+            // System.exit(0);
+            Timer tExit = null;
+            if (isExit == false) {
+                isExit = true;
+                Toast.makeText(this, "再次点击退出程序", Toast.LENGTH_SHORT).show();
+                tExit = new Timer();
+                tExit.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        isExit = false; // 取消退出
+                    }
+                }, 2000);
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 }

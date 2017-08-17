@@ -1,22 +1,24 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.CheckTypeResult;
 import com.huabiao.aoiin.bean.ClassificationItemBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.model.SearchModel;
-import com.huabiao.aoiin.selecttool.AddressSelector;
+import com.huabiao.aoiin.selecttool.ClassificationTypeSelector;
 import com.huabiao.aoiin.selecttool.DataProvider;
 import com.huabiao.aoiin.selecttool.SelectedListener;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.ClickUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -25,26 +27,72 @@ import butterknife.Bind;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
  * @date 2017-07-10 13:19
- * @description
+ * @description 查询结果未注册中选择分类页面
  */
 
 public class CheckTypeListFragment extends BaseFragment {
-//    @Bind(R.id.check_type_list_rv)
-//    RecyclerView check_type_list_rv;
 
-    @Bind(R.id.frameLayout)
+    @Bind(R.id.check_type_list_tradename)
+    TextView tradename;
+    @Bind(R.id.check_type_list_classificationname)
+    TextView classificationname;
+    @Bind(R.id.check_type_list_confirm)
+    TextView confirm;
+
+    @Bind(R.id.person_type_select_address_fl)
     FrameLayout frameLayout;
-    int deep = 3;
-    String typeId = "0";
+    int deep = 2;
+    ClassificationTypeSelector selector;
 
-    @Override
-    public BasePresenter getPresenter() {
-        return null;
-    }
+    private int type;//测试数据变化使用
+
+    private CheckTypeResult checkTypeResult;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        getJsonObj("classificationlist1.json");
+        setTitle("服务小项");
+        setBackEnable();
+        Bundle bundle = getActivity().getIntent().getExtras();
+        tradename.setText(bundle.getString("tradename"));
+        classificationname.setText(bundle.getString("classificationname"));
+        checkTypeResult = CheckTypeResult.getInstance(deep);
+        checkTypeResult.setChange(false);
+
+        type = bundle.getInt("type");
+        getJsonObj(type == 1 ? "classificationlist01.json" : "classificationlist02.json");
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getResult();
+            }
+        });
+    }
+
+    private void getResult() {
+        if (selector != null) {
+            selector.callbackInternal(new SelectedListener() {
+                @Override
+                public void onAddressSelected(List<List<ClassificationItemBean>> selectAbles) {
+                    if (selectAbles.get(deep - 1).size() > 0) {
+                        ALog.i("selectAbles = " + selectAbles);
+                        String string = "";
+                        for (int i = 0; i < selectAbles.size(); i++) {
+                            for (int j = 0; j < selectAbles.get(i).size(); j++) {
+                                ClassificationItemBean resultBean = selectAbles.get(i).get(j);
+                                string += resultBean.getClassificationname() + ",";
+                            }
+                        }
+                        checkTypeResult.setSelectList(selectAbles);
+                        checkTypeResult.setChange(true);
+                        ALog.i("result = " + string);
+                        ClickUtil.onBackClick();
+                    } else {
+                        showToast("请选择小项");
+                    }
+                }
+            });
+        }
     }
 
     private void getJsonObj(String string) {
@@ -54,47 +102,30 @@ public class CheckTypeListFragment extends BaseFragment {
                 if (mData != null) {
                     ClassificationListBean bean = (ClassificationListBean) mData;
                     List<ClassificationItemBean> list = bean.getClassificationlist();
-                    show(typeId, list);
+                    show(list);
                 }
             }
         });
     }
 
-    AddressSelector selector;
-
-    private void show(String id, final List<ClassificationItemBean> list) {
-        if (typeId.equals("0")) {
-            selector = new AddressSelector(getContext(), deep);
-            selector.setDataProvider(id, list, new DataProvider() {
-                @Override
-                public void provideData(int currentDeep, String preId, DataReceiver receiver) {
-                    //根据tab的深度和前一项选择的id，获取下一级菜单项
-                    Log.i(TAG, "provideData: currentDeep >>> " + currentDeep + " preId >>> " + preId);
-//                receiver.send(list);
-                    receiver.send();
-                }
-
-                @Override
-                public void getNext(String id) {
-                    typeId = id;
-                    getJsonObj("classificationlist" + typeId + ".json");
-                }
-            });
-            frameLayout.addView(selector.getView());
-        } else {
-            selector.getNextData(typeId, list);
-        }
-        selector.setSelectedListener(new SelectedListener() {
+    private void show(final List<ClassificationItemBean> list) {
+        selector = new ClassificationTypeSelector(getContext(), deep);
+        selector.setDataProvider(list, new DataProvider() {
             @Override
-            public void onAddressSelected(ArrayList<ClassificationItemBean> selectAbles) {
-                String result = "";
-                for (ClassificationItemBean selectAble : selectAbles) {
-                    result += selectAble.getClassificationname() + " ";
-                }
-                Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+            public void provideData(int currentDeep, DataReceiver receiver) {
+                //根据tab的深度和前一项选择的id，获取下一级菜单项
+                receiver.send();
             }
         });
-//        selector.setAddressProvider(new TestAddressProvider());
+        frameLayout.addView(selector.getView());
+//        BottomDialog dialog = new BottomDialog(getContext());
+//        dialog.init(getContext(), selector);
+//        dialog.show();
+    }
+
+    @Override
+    public BasePresenter getPresenter() {
+        return null;
     }
 
     @Override

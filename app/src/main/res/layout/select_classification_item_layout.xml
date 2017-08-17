@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/select_classification_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@mipmap/leibei_weixuanzhong"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/select_classification_item_top_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="aaa" />
+
+    <TextView
+        android:id="@+id/select_classification_item_bottom_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="aaa" />
+</LinearLayout>

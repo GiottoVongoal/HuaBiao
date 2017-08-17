@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/x88"
-    android:background="@color/color_my_libs_0090ff">
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/iv_left"
@@ -32,7 +32,7 @@
         android:visibility="gone" />
 
     <ImageView
-        android:id="@+id/iv_right"
+        android:id="@+id/title_right_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
@@ -40,4 +40,10 @@
         android:layout_marginRight="@dimen/x20"
         android:layout_toLeftOf="@+id/tv_right"
         android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey_f8f8f8" />
 </RelativeLayout>

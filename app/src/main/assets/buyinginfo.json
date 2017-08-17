@@ -1,0 +1,75 @@
+{
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9HrJrTb1_vagmDY_szyKvC4Ijq-hc5ZSFgLPILiDFZEnCHgK0tA",
+  "name": "海飞丝",
+  "classificationid": "06",
+  "classifictiontype": "金属材料",
+  "status": "1",
+  "baseinfo": {
+    "trademarkname": "海飞丝",
+    "registrationnumber": "16404103",
+    "classificationid": "06",
+    "applicantname": "上海宝洁日化有限公司",
+    "applicantaddress": "安徽省安庆市同安路西区1栋1单元1楼",
+    "proxycompany": "安庆华诚商标事务有限公司"
+  },
+  "registerinfo": {
+    "applicationdate": "2014-04-28",
+    "registerdate": "2014-01-28",
+    "preliminarynoticedate": "2013-10-27",
+    "registrationnoticedate": "2014-01-28",
+    "dedicatedterm": "2014-01-28~2024-01-27"
+  },
+  "servicelist": [
+    {
+      "id": "0601",
+      "classname": "铝"
+    },
+    {
+      "id": "0602",
+      "classname": "金属管道"
+    },
+    {
+      "id": "0603",
+      "classname": "金属门;金属窗"
+    },
+    {
+      "id": "0601",
+      "classname": "铝"
+    },
+    {
+      "id": "0602",
+      "classname": "金属管道"
+    },
+    {
+      "id": "0603",
+      "classname": "金属门；金属窗"
+    }
+  ],
+  "notice": [
+    {
+      "title": "商标注册申请中",
+      "time": "2014-04-28",
+      "isvisible": 0
+    },
+    {
+      "title": "商标注册申请等待受理通知书发文",
+      "time": "2014-05-28",
+      "isvisible": 0
+    },
+    {
+      "title": "商标初步审定公告第1493期",
+      "time": "2014-06-28",
+      "isvisible": 1
+    },
+    {
+      "title": "商标注册公告（一）第1505期",
+      "time": "2014-07-28",
+      "isvisible": 1
+    },
+    {
+      "title": "商标转让/转移公告第1518期",
+      "time": "2014-08-28",
+      "isvisible": 1
+    }
+  ]
+}

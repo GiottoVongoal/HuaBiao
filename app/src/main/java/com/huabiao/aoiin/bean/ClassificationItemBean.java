@@ -1,33 +1,25 @@
 package com.huabiao.aoiin.bean;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-07-10 11:13
- * @description
+ * @description 分类--小类bean
  */
-public class ClassificationItemBean {
+public class ClassificationItemBean extends ClassificationBean {
 
-    private String classificationname;
-    private String classificationid;
     private boolean nextlevel;
+    private boolean isChecked = false;
 
-    public String getClassificationname() {
-        return classificationname;
+    public boolean isChecked() {
+        return isChecked;
     }
 
-    public void setClassificationname(String classificationname) {
-        this.classificationname = classificationname;
-    }
-
-    public String getClassificationid() {
-        return classificationid;
-    }
-
-    public void setClassificationid(String classificationid) {
-        this.classificationid = classificationid;
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
     public boolean isNextlevel() {
@@ -36,5 +28,13 @@ public class ClassificationItemBean {
 
     public void setNextlevel(boolean nextlevel) {
         this.nextlevel = nextlevel;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassificationItemBean{" +
+                "nextlevel=" + nextlevel +
+                ", isChecked=" + isChecked +
+                '}';
     }
 }

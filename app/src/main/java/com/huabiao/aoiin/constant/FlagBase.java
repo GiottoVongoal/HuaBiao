@@ -1,5 +1,9 @@
 package com.huabiao.aoiin.constant;
 
+import android.os.Environment;
+
+import java.io.File;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.constant
@@ -8,16 +12,22 @@ package com.huabiao.aoiin.constant;
  */
 public class FlagBase {
 
+    //设置页面
+    public static final int SETTING_ACCOUNT_SAFE = 0;// 账户安全
+    public static final int SETTING_ADDRESS = 1;// 地址管理
+    public static final int SETTING_FEEDBACK = 2;// 建议反馈
+    public static final int SETTING_ABOUT_US = 3;// 关于我们
+    public static final int SETTING__AGREEMENT = 4;// 服务与隐私协议
+    public static final int SETTING_CLEAR_CACHE = 5;// 清除缓存
 
-    //我的页面
-    public static final int ME_TRADEMARK_SEARCH = 1;// 注册前查询
-    public static final int ME_TRADEMARK_REGISTRATION = 2;// 商标注册
-    public static final int ME_LOGG_COPYRIGHT = 3;// LOGO版权
-    public static final int ME_BUG_TRADEMARK = 4;// 商标购买
-    public static final int ME_INTERMARK_REGISTRATION = 5;// 国际商标注册
-    public static final int ME_IS_APPLY_FOR_A_PATENT = 6;// 查专利能否申请
-    public static final int ME_TRADEMARK_REVIEW = 7;// 商标驳回复审
-    public static final int ME_TRADEMARK_TORT = 8;// 商标侵权检测
+    //拍照选照相关
+    //移动端存放头像的本地路径，即attachment
+    public static final String SDCARD_FJ_PATH = Environment.getExternalStorageDirectory() + File.separator;
+    public static final int MEDIA_PHOTO = 10061;// 拍照标识
+    public static final int MEDIA_SPHOTO = 10062;// 选照标识
 
-
+    public static final int REGISTER_PHOTO = 10070;// 注册页面标识
+    public static final int TRADE_LOGO = 10071;// 商标图样标识
+    public static final int PROXY = 10072;// 委托书标识
+    public static final int BUSINESS_LICENCE = 10073;// 营业执照标识
 }

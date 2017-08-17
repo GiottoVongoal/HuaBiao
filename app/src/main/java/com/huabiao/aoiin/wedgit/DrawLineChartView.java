@@ -37,7 +37,7 @@ public class DrawLineChartView extends RelativeLayout {
     List<Line> lines = new ArrayList<>();
 
     TextView line_chart_trademark_name;
-    TextView line_chart_trademark_classification;
+//    TextView line_chart_trademark_classification;
 
     LineChartBean bean;
 
@@ -63,19 +63,21 @@ public class DrawLineChartView extends RelativeLayout {
         line_chart_ll = (LinearLayout) lineChartView.findViewById(R.id.line_chart_ll);
         chart = (LineChartView) lineChartView.findViewById(R.id.chart);
         line_chart_trademark_name = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_name);
-        line_chart_trademark_classification = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_classification);
+//        line_chart_trademark_classification = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_classification);
     }
 
 
     //显示
     private void setTextString() {
-        if (!(TextUtils.isEmpty(bean.getTrademarkname())) && !(TextUtils.isEmpty(bean.getTrademarkclassification()))) {
-            line_chart_trademark_name.setText(bean.getTrademarkname());
-            line_chart_trademark_classification.setText(bean.getTrademarkclassification());
+        if (!(TextUtils.isEmpty(bean.getTradename())) && !(TextUtils.isEmpty(bean.getTrademarkclassification()))) {
+            line_chart_trademark_name.setText(bean.getTradename());
+//            line_chart_trademark_classification.setText(bean.getTrademarkclassification());
         }
     }
 
     private void drawLineChart() {
+        line_chart_ll.removeAllViews();
+        lines.clear();
         if (bean.getLines() != null && bean.getLines().size() > 0) {
             for (int i = 0; i < bean.getLines().size(); i++) {
                 LineChartBean.LinesBean data = bean.getLines().get(i);
@@ -94,12 +96,12 @@ public class DrawLineChartView extends RelativeLayout {
                 Line line = new Line(mPointValues).setColor(Color.parseColor(data.getLinecolor())).setCubic(false).setStrokeWidth(1);  //折线的颜色,粗细
                 line.setShape(ValueShape.CIRCLE);//折线图上每个数据点的形状  这里是圆形 （有三种 ：ValueShape.DIAMOND  ValueShape.CIRCLE  ValueShape.SQUARE）
                 line.setCubic(true);//曲线是否平滑
-                line.setFilled(false);//是否填充曲线的面积
-//      line.setHasLabels(true);//曲线的数据坐标是否加上备注
+                line.setFilled(true);//是否填充曲线的面积
+                // line.setHasLabels(true);//曲线的数据坐标是否加上备注
                 line.setPointRadius(1);//设置坐标点大小
                 line.setHasLabelsOnlyForSelected(true);//点击数据坐标提示数据（设置了这个line.setHasLabels(true);就无效）
                 line.setHasLines(true);//是否用直线显示。如果为false 则没有曲线只有点显示
-//        line.setHasPoints(true);//是否显示圆点 如果为false 则没有原点只有点显示
+                // line.setHasPoints(true);//是否显示圆点 如果为false 则没有原点只有点显示
                 lines.add(line);
             }
         }

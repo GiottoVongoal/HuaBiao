@@ -2,6 +2,7 @@ package com.ywy.mylibs.base;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ import com.ywy.mylibs.manager.AppManager;
 import com.ywy.mylibs.manager.SystemBarTintManager;
 import com.ywy.mylibs.utils.ClickUtil;
 import com.ywy.mylibs.utils.ContextUtils;
+import com.ywy.mylibs.utils.StatusBarUtils;
 import com.ywy.mylibs.utils.StringUtil;
 
 import butterknife.ButterKnife;
@@ -88,6 +91,8 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
 
     protected TextView tv_title;
     protected ImageView iv_left;
+    protected TextView tv_right;
+    protected ImageView title_right_iv;
 
     /**
      * 初始化title
@@ -95,6 +100,8 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     private void initTitleBar(View mRootView) {
         tv_title = (TextView) mRootView.findViewById(R.id.tv_title);
         iv_left = (ImageView) mRootView.findViewById(R.id.iv_left);
+        tv_right = (TextView) mRootView.findViewById(R.id.tv_right);
+        title_right_iv = (ImageView) mRootView.findViewById(R.id.title_right_iv);
     }
 
     /**
@@ -119,6 +126,16 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
             tv_title.setText(title);
     }
 
+    /**
+     * 设置右边文字
+     */
+    public void setRightText(String right) {
+        if (!StringUtil.isEmpty(right) && tv_right != null) {
+            tv_right.setVisibility(View.VISIBLE);
+            tv_right.setText(right);
+        }
+    }
+
     public void setTitle(int titleId) {
         setTitle(getResources().getString(titleId));
     }
@@ -136,6 +153,26 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
             iv_left.setBackgroundResource(backId);
     }
 
+    /**
+     * 设置右边图片
+     */
+    public void setRightIvResourse(Drawable back) {
+        if (back != null && title_right_iv != null) {
+            title_right_iv.setVisibility(View.VISIBLE);
+            title_right_iv.setBackgroundDrawable(back);
+        }
+    }
+
+    public void setRightIvResourse(int backId) {
+        if (title_right_iv != null) {
+            title_right_iv.setVisibility(View.VISIBLE);
+            title_right_iv.setBackgroundResource(backId);
+        }
+    }
+
+    public void setRightIvOnclick(View.OnClickListener click) {
+        title_right_iv.setOnClickListener(click);
+    }
 
 //    public abstract int getToolBarId();
 //

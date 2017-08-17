@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
 
     <color name="transparent">#00000000</color>
     <color name="blue_0090FF">#0090FF</color>
-    <color name="black_080C31">#080C31</color>
-    <color name="gray_E9E7E7">#E9E7E7</color>
+    <color name="color_33000000">#33000000</color>
+    <color name="color_55000000">#55000000</color>
+    <color name="color_AAFFFFFF">#AAFFFFFF</color>
 
     <!-- 灰色 -->
+    <color name="grey_E9E7E7">#E9E7E7</color>
     <color name="grey_DDDDDD">#DDDDDD</color>
+    <color name="grey_DBDBDB">#DBDBDB</color>
+    <color name="grey_d7d7d7">#d7d7d7</color>
+    <color name="grey_f2f2f2">#f2f2f2</color>
+    <color name="grey_EEEEEE">#eeeeee</color>
+    <color name="grey_d8d8d8">#d8d8d8</color>
+    <color name="grey_8E8E8E">#8E8E8E</color>
+    <color name="grey_848484">#848484</color>
+    <color name="grey_e8e8e8">#e8e8e8</color>
+    <color name="grey_f8f8f8">#f8f8f8</color>
+    <color name="grey_5000">#5000</color>
+    <color name="grey_FFF5F5F9">#FFF5F5F9</color>
+    <!--黑色-->
+    <color name="black_5a5959">#5a5959</color>
+    <color name="black_080C31">#080C31</color>
     <color name="black3">#333333</color>
     <!-- 背景灰白 -->
     <color name="backgroundwhite">#efeff4</color>
+    <color name="popup_bg_b0000000">#b0000000</color>
+    <color name="popup_bg_66333333">#66333333</color>
+    <!--红色-->
+    <color name="red_ff0000">#ff0000</color>
+    <color name="red_e74c3c">#e74c3c</color>
+
+    <color name="purple_9082BD">#9082BD</color>
+
+    <color name="widget_circlerange_extra_color">#999999</color>
+    <color name="wdiget_circlerange_border_color">#B9E2FB</color>
+    <color name="wdiget_circlerange_cursor_color">#356CDB</color>
+
+    <color name="yellow_fdd400">#fdd400</color>
+    <color name="green_aed79b">#AED79B</color>
 </resources>

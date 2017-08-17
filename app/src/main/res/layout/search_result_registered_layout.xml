@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundwhite"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="为您找到的未注册相关结果" />
+
+        <TextView
+            android:id="@+id/search_result_screen_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="筛选" />
+    </LinearLayout>
+
+    <View style="@style/GrayLine" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <com.huabiao.aoiin.wedgit.MaxRecyclerView
+                android:id="@+id/search_result_top_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View style="@style/GrayLine" />
+
+            <com.huabiao.aoiin.wedgit.DrawLineChartView
+                android:id="@+id/search_result_line_chart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white" />
+
+            <View style="@style/GrayLine" />
+
+            <com.huabiao.aoiin.wedgit.MaxRecyclerView
+                android:id="@+id/search_result_bottom_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

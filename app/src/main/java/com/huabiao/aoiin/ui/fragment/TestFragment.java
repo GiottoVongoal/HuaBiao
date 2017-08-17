@@ -44,28 +44,6 @@ public class TestFragment extends BaseFragment {
                 startActivity(CameraUtils.getCameraIntent(filePath));
             }
         });
-        TextView tv1 = new TextView(getContext());
-        tv1.setPadding(10, 10, 10, 10);
-        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        main_ll.addView(tv1, lp1);
-        tv1.setText("点我去输入验证码页面");
-        tv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JumpUtils.startFragmentByName(getContext(), VerificationCodeFragment.class);
-            }
-        });
-        TextView tv2 = new TextView(getContext());
-        tv2.setPadding(10, 10, 10, 10);
-        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        main_ll.addView(tv2, lp2);
-        tv2.setText("点我去检查控件是否划出屏幕页面");
-        tv2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JumpUtils.startActivity(getContext(), CheckViewIsShowActivity.class);
-            }
-        });
         TextView tv3 = new TextView(getContext());
         tv3.setPadding(10, 10, 10, 10);
         LinearLayout.LayoutParams lp3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

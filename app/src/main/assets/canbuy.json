@@ -1,0 +1,94 @@
+{
+  "shoppingmalllist": [
+    {
+      "goodsname": "海飞丝",
+      "goodsimg": "",
+      "regnumber": "16404103",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "1"
+    },
+    {
+      "goodsname": "Lee",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205853_txaH3.thumb.700_0.jpeg",
+      "regnumber": "16404205",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "3"
+    },
+    {
+      "goodsname": "CK",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205843_CMzAV.thumb.700_0.jpeg",
+      "regnumber": "16406103",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "2"
+    },
+    {
+      "goodsname": "chanel",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205813_nxUmk.thumb.700_0.jpeg",
+      "regnumber": "16654103",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "4"
+    },
+    {
+      "goodsname": "StarbucksCoffee",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205357_EcWfu.thumb.700_0.jpeg",
+      "regnumber": "16374103",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "1"
+    },
+    {
+      "goodsname": "LV",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210247_e2Nds.thumb.700_0.jpeg",
+      "regnumber": "16403503",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "1"
+    },
+    {
+      "goodsname": "D&G",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210228_mYkie.thumb.700_0.jpeg",
+      "regnumber": "16408503",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "2"
+    },
+    {
+      "goodsname": "gucci",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210208_xNedz.thumb.700_0.jpeg",
+      "regnumber": "16404903",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "2"
+    },
+    {
+      "goodsname": "美国队长",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210055_YRMw4.thumb.700_0.jpeg",
+      "regnumber": "16344103",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "1"
+    },
+    {
+      "goodsname": "耐克",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "regnumber": "19474103",
+      "applicantname": "广州美思古智能家居有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "4"
+    }
+  ]
+}

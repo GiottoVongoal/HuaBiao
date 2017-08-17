@@ -10,20 +10,25 @@ import java.util.List;
  */
 public class LineChartBean {
     /**
-     * linechart : {"trademarkname":"海飞丝","trademarkclassification":"日化用品、洗护、香料","classificationid":"03","Xaxistag":["周一","周二","周三","周四","周五","周六","周日"],"lines":[{"linename":"百度","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]},{"linename":"淘宝","linecolor":"#FF4081","linevalue":[2,5,7,4,4,8,6]}]}
+     * tradename : 海飞丝
+     * trademarkclassification : 日化用品
+     * classificationid : 03
+     * Xaxistag : ["周一","周二","周三","周四","周五","周六","周日"]
+     * lines : [{"linename":"百度","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]},{"linename":"阿里","linecolor":"#FF4081","linevalue":[2,5,7,4,4,8,6]}]
      */
-    private String trademarkname;
+
+    private String tradename;
     private String trademarkclassification;
     private String classificationid;
     private List<String> Xaxistag;
     private List<LinesBean> lines;
 
-    public String getTrademarkname() {
-        return trademarkname;
+    public String getTradename() {
+        return tradename;
     }
 
-    public void setTrademarkname(String trademarkname) {
-        this.trademarkname = trademarkname;
+    public void setTradename(String tradename) {
+        this.tradename = tradename;
     }
 
     public String getTrademarkclassification() {
@@ -106,7 +111,7 @@ public class LineChartBean {
     @Override
     public String toString() {
         return "LineChartBean{" +
-                "trademarkname='" + trademarkname + '\'' +
+                "tradename='" + tradename + '\'' +
                 ", trademarkclassification='" + trademarkclassification + '\'' +
                 ", classificationid='" + classificationid + '\'' +
                 ", Xaxistag=" + Xaxistag +

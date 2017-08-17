@@ -1,0 +1,70 @@
+{
+  "customerservicelist": [
+    {
+      "customerservicename": "客服1",
+      "customerservicecompany": "上海商标公司",
+      "reputablenumber":"6643",
+      "consultnumber":"564",
+      "customerserviceid": "001",
+      "successrate": "98%",
+      "usedtime": "30分钟",
+      "service": "满意",
+      "customerserviceimg": "https://b-ssl.duitang.com/uploads/blog/201403/30/20140330105846_aKVfH.thumb.700_0.jpeg"
+    },
+    {
+      "customerservicename": "客服2",
+      "customerservicecompany": "上海商标公司",
+      "reputablenumber":"1543",
+      "consultnumber":"564",
+      "customerserviceid": "002",
+      "successrate": "99%",
+      "usedtime": "30分钟",
+      "service": "满意",
+      "customerserviceimg": "https://b-ssl.duitang.com/uploads/item/201504/13/20150413H0446_QtsWJ.thumb.700_0.jpeg"
+    },
+    {
+      "customerservicename": "客服3",
+      "customerservicecompany": "上海商标公司",
+      "reputablenumber":"2123",
+      "consultnumber":"331",
+      "customerserviceid": "003",
+      "successrate": "90%",
+      "usedtime": "50分钟",
+      "service": "满意",
+      "customerserviceimg": "https://b-ssl.duitang.com/uploads/item/201504/11/20150411H1602_cJrTG.thumb.700_0.jpeg"
+    },
+    {
+      "customerservicename": "客服4",
+      "customerservicecompany": "上海商标公司",
+      "reputablenumber":"43",
+      "consultnumber":"464",
+      "customerserviceid": "004",
+      "successrate": "99%",
+      "usedtime": "30分钟",
+      "service": "满意",
+      "customerserviceimg": "https://b-ssl.duitang.com/uploads/item/201410/05/20141005125427_Y4uun.thumb.700_0.jpeg"
+    },
+    {
+      "customerservicename": "客服5",
+      "customerservicecompany": "上海商标公司",
+      "reputablenumber":"21543",
+      "consultnumber":"574",
+      "customerserviceid": "005",
+      "successrate": "98%",
+      "usedtime": "27分钟",
+      "service": "满意",
+      "customerserviceimg": "https://b-ssl.duitang.com/uploads/item/201408/16/20140816233004_LYZdW.thumb.700_0.jpeg"
+    },
+    {
+      "customerservicename": "客服6",
+      "customerservicecompany": "上海商标公司",
+      "reputablenumber":"15323",
+      "consultnumber":"5655",
+      "customerserviceid": "006",
+      "successrate": "96%",
+      "usedtime": "34分钟",
+      "service": "满意",
+      "customerserviceimg": "https://a-ssl.duitang.com/uploads/item/201207/11/20120711165941_2VTc4.thumb.700_0.jpeg"
+    }
+  ]
+}

@@ -2,6 +2,8 @@ package com.huabiao.aoiin.ui.interfaces;
 
 import android.view.View;
 
+import com.huabiao.aoiin.bean.ClassificationBean;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.interfaces
@@ -14,6 +16,10 @@ public class InterfaceManager {
     public interface OnItemClickListener {
         void onItemClickListener(View view, int position);
     }
+    //创建查询结果筛选条件的Item点击事件
+    public interface OnScreenItemClickListener {
+        void onItemClickListener(View view, ClassificationBean position);
+    }
 
     /**
      * 公共的回调方法
@@ -21,5 +27,6 @@ public class InterfaceManager {
     public interface CallBackCommon {
         void getCallBackCommon(Object mData);
     }
+
 
 }

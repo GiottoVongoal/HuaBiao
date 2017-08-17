@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/mall_search_et_l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/mall_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_round_bannar"
+            android:drawableLeft="@mipmap/back_cut"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:hint="搜索"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/mall_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+    <View
+        style="@style/GrayLine"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mall_all_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="全部"
+                android:textColor="@color/black3"
+                android:textSize="18dp" />
+
+            <View
+                android:id="@+id/mall_all_tv_line"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_underline" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mall_canbuy_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="可求购"
+                android:textColor="@color/black3"
+                android:textSize="18dp" />
+
+            <View
+                android:id="@+id/mall_canbuy_tv_line"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_underline" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mall_cancybersquatting_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="可抢注"
+                android:textColor="@color/black3"
+                android:textSize="18dp" />
+
+            <View
+                android:id="@+id/mall_cancybersquatting_tv_line"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_underline" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mall_canyiyi_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="可异议"
+                android:textColor="@color/black3"
+                android:textSize="18dp" />
+
+            <View
+                android:id="@+id/mall_canyiyi_tv_line"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_underline" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        style="@style/GrayLine"
+        android:background="@color/black" />
+
+    <ListView
+        android:id="@+id/Mall_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/grey_E9E7E7"
+        android:dividerHeight="6dp"
+        android:scrollbars="none" />
+</LinearLayout>

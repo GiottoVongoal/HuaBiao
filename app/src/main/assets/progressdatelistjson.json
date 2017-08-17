@@ -1,0 +1,19 @@
+{
+  "userprogressdatelist": [
+    {
+      "progressdatetime": "11:00",
+      "progressdatecontent": "暂未受到任何驳回通知",
+      "progressdateimg": "https://b-ssl.duitang.com/uploads/item/201504/30/20150430230912_tiAms.thumb.700_0.jpeg"
+    },
+    {
+      "progressdatetime": "14:45",
+      "progressdatecontent": "007正在审核您的商标",
+      "progressdateimg": "https://b-ssl.duitang.com/uploads/item/201201/18/20120118161034_xY8ut.thumb.700_0.jpg"
+    },
+    {
+      "progressdatetime": "17:00",
+      "progressdatecontent": "审核被驳回",
+      "progressdateimg": "https://b-ssl.duitang.com/uploads/item/201207/21/20120721171344_eEEQw.thumb.700_0.jpeg"
+    }
+  ]
+}

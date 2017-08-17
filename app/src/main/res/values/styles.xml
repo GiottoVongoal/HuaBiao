@@ -1,25 +1,66 @@
 <resources>
 
-    <style name="text_editStyle">
-        <item name="android:layout_height">43dp</item>
-        <item name="android:layout_width">43dp</item>
-        <item name="android:background">@mipmap/bg_verify</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/blue_0090FF</item>
-        <item name="android:textSize">15sp</item>
-
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- 灰色的线 -->
     <style name="GrayLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">@color/grey_DDDDDD</item>
+        <item name="android:background">@color/grey_f8f8f8</item>
     </style>
     <!-- 灰色的竖线 -->
     <style name="GrayLine_shu">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">1dp</item>
-        <item name="android:background">@color/grey_DDDDDD</item>
+        <item name="android:background">@color/grey_f8f8f8</item>
     </style>
+    <!--屏幕底部弹出PopupWindow效果-->
+    <style name="bottom_enter_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
+    </style>
+    <!--推荐客服星级评分条-->
+    <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/customer_service_ratingbar</item>
+        <item name="android:numStars">5</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+        <item name="android:stepSize">0.1</item>
+    </style>
+    <!--EditText的主題 Start-->
+    <style name="TextInputLayoutLineColor" parent="Theme.AppCompat.Light">
+        <!--没有获取焦点时的颜色-->
+        <item name="colorControlNormal">@color/black3</item>
+        <!--获取焦点时的颜色-->
+        <item name="colorControlActivated">@color/yellow_fdd400</item>
+        <item name="android:background">@null</item>
+    </style>
+    <!--TextInputLayout输入框的错误提示样式-->
+    <style name="errorAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/red_ff0000</item>
+    </style>
+
+    <style name="counterOverflowTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/red_ff0000</item>
+    </style>
+    <!--浮动标签-->
+    <style name="hintAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/yellow_fdd400</item>
+    </style>
+    <!--下拉筛选菜单-->
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/still</item>
+        <item name="android:windowExitAnimation">@anim/still</item>
+    </style>
+    <!--日历相关-->
+    <declare-styleable name="WeekBarView">
+        <attr name="week_text_color" format="color" />
+        <attr name="week_text_size" format="integer" />
+    </declare-styleable>
 </resources>
