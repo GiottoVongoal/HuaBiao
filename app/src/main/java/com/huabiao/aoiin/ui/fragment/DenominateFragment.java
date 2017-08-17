@@ -16,7 +16,6 @@ import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.model.AnalysisJson;
 import com.huabiao.aoiin.model.RegisterModel;
-import com.huabiao.aoiin.ui.fragment.DenominateDetailsFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.view.DenominateRotatePanLayout;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
@@ -39,16 +38,16 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     DenominateRotatePanLayout rp;
     //中心的点击图片
     @Bind(R.id.go)
-    ImageView goBtn;
+    ImageView goBtnIV;
     //商品名
     @Bind(R.id.tv_name)
-    TextView name;
+    TextView nameTv;
     //商品类型
     @Bind(R.id.tv_trademarkclassification)
-    TextView trademarkclassification;
+    TextView trademarkclassificationTv;
     //释义的内容
     @Bind(R.id.tv_means)
-    TextView means;
+    TextView meansTV;
     //折线图
     @Bind(R.id.creat_name_line_chart)
     DrawLineChartView creat_name_line_chart;
@@ -62,13 +61,14 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     @Bind(R.id.denominate_layout)
     LinearLayout denominate_layout;
 
+    //用于传值的nameString
+    private String nameString;
     private List<CreatNameBean.RecommendnamelistBean> list;
     private IndustryPopupWindow industryWindow;
     private int place = 0;
     private String industry = "";
-
     public void endAnimation(int position) {
-        goBtn.setEnabled(true);
+        goBtnIV.setEnabled(true);
         setCreatNameData(position);
     }
 
@@ -92,7 +92,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                     }
                     rp.startRotate(-1);
                     if (isFirst) {
-                        goBtn.setEnabled(false);
+                        goBtnIV.setEnabled(false);
                     }
                 }
             }
@@ -109,14 +109,15 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
         ALog.i(nameList.toString());
         rp.setStr(nameList);
         rp.setAnimationEndListener(this);
-        goBtn.setOnClickListener(this);
+        goBtnIV.setOnClickListener(this);
     }
 
     private void setCreatNameData(int position) {
-        name.setText(list.get(position).getLinechart().getTradename());
-        means.setText(list.get(position).getMeans());
+        nameString = list.get(position).getLinechart().getTradename();
+        nameTv.setText(nameString);
+        meansTV.setText(list.get(position).getMeans());
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
-        trademarkclassification.setText(classificationString);
+        trademarkclassificationTv.setText(classificationString);
         creat_name_line_chart.setLineChartBean(list.get(position).getLinechart());
     }
 
@@ -138,7 +139,9 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                 });
                 break;
             case R.id.denominate_layout:
-                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("nameString",nameString);
+                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class,bundle);
                 break;
         }
     }

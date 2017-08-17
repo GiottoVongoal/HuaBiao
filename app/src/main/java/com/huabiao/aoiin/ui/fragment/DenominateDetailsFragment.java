@@ -42,10 +42,19 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
     //注册按钮
     @Bind(R.id.details_register_tv)
     TextView details_register_tv;
+    //用来传递标题的nameString
+    private String nameString;
 
     @Override
     public BasePresenter getPresenter() {
         return null;
+    }
+
+    @Override
+    public void getIntentValue() {
+        super.getIntentValue();
+        Bundle bundle = getActivity().getIntent().getExtras();
+        nameString = bundle.getString("nameString");
     }
 
     @Override
@@ -54,6 +63,15 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
         details_tv1.setOnClickListener(this);
         details_tv2.setOnClickListener(this);
         details_register_tv.setOnClickListener(this);
+        //标题的右边图片以及监听事件
+        setTitle(nameString);
+        setRightIvResourse(getResources().getDrawable(R.mipmap.ic_launcher));
+        setRightIvOnclick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToast("收藏");
+            }
+        });
         SearchModel.getSearchUnregisterResult(getContext(), "", "", new InterfaceManager.CallBackCommon() {
 
             @Override
