@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#fdd400</color>
     <!--主题色-->
     <color name="color_my_libs_f7f7f7">#f7f7f7</color>
 
