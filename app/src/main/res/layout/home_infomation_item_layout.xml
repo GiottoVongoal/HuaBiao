@@ -7,6 +7,6 @@
 
     <com.huabiao.aoiin.wedgit.XCRoundRectImageView
         android:id="@+id/home_infomation_item_iv"
-        android:layout_width="300dp"
-        android:layout_height="170dp" />
+        android:layout_width="@dimen/x486"
+        android:layout_height="@dimen/x216" />
 </LinearLayout>
