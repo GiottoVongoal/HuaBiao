@@ -156,7 +156,8 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             ImageView imageView = new ImageView(getContext());
             imageView.setLayoutParams(new LayoutParams(ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT));
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            BitmapLoader.ins().loadImage(bannarList.get(i).getPageUrl(), R.mipmap.touxiang, imageView);
+//            BitmapLoader.ins().loadImage(bannarList.get(i).getPageUrl(), R.mipmap.touxiang, imageView);
+            imageView.setBackground(getContext().getResources().getDrawable(R.mipmap.banner));
             mlist.add(imageView);
             // 设置圆圈点
             view = new View(getContext());

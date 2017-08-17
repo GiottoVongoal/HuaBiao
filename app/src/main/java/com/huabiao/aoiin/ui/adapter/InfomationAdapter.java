@@ -37,8 +37,8 @@ public class InfomationAdapter extends RecyclerView.Adapter<InfomationAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        BitmapLoader.ins().loadImage(list.get(position).getHomeinfoUrl(), R.mipmap.ic_launcher, holder.item_iv);
-
+//        BitmapLoader.ins().loadImage(list.get(position).getHomeinfoUrl(), R.mipmap.ic_launcher, holder.item_iv);
+        holder.item_iv.setBackground(context.getResources().getDrawable(R.mipmap.zhixun_bg));
     }
 
     @Override
