@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.activity;
+package com.huabiao.aoiin.wedgit;
 
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.huabiao.aoiin.constant.CustomerCardConfig;
 
 /**
  * Created by Aoiin-9 on 2017/8/9.

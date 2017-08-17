@@ -1,7 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
-import com.huabiao.aoiin.ui.activity.RegisterActivity;
 import com.huabiao.aoiin.ui.activity.RegisterOneActivity;
 import com.huabiao.aoiin.wedgit.RegisterOneFinishPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;

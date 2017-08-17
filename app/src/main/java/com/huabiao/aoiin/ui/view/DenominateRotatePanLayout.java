@@ -18,6 +18,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.huabiao.aoiin.picview.BitmapUtil;
+
 import java.util.List;
 
 
@@ -65,7 +67,7 @@ public class DenominateRotatePanLayout extends View {
             dPaint.setColor(Color.rgb(200, 220, 205));
             sPaint.setColor(Color.rgb(205, 108, 105));
             textPaint.setColor(Color.BLACK);
-            textPaint.setTextSize(Util.dip2px(context, 16));
+            textPaint.setTextSize(BitmapUtil.dip2px(context, 16));
             setClickable(true);
         }
     }
@@ -75,8 +77,8 @@ public class DenominateRotatePanLayout extends View {
         //   Auto-generated method stub
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int mHeight = Util.dip2px(context, 300);
-        int mWidth = Util.dip2px(context, 300);
+        int mHeight = BitmapUtil.dip2px(context, 300);
+        int mWidth = BitmapUtil.dip2px(context, 300);
 
         int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);

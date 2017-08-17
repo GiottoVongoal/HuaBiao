@@ -24,7 +24,7 @@
             android:id="@+id/register_card_five_service_mode_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <RadioButton
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
-                android:paddingTop="15dp"
+                android:paddingTop="20dp"
                 android:text="加急注册"
                 android:textColor="@color/grey_8E8E8E" />
 
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
-                android:paddingTop="15dp"
+                android:paddingTop="20dp"
                 android:text="注册 + 预审 + 退费担保"
                 android:textColor="@color/grey_8E8E8E" />
         </RadioGroup>
@@ -66,14 +66,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="15dp"
-            android:text="总费用" />
+            android:layout_marginTop="20dp"
+            android:text="总费用"
+            android:textColor="@color/black3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="(注册不成功，翻倍全额退款)"
             android:textSize="12sp" />
 

@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.activity;
+package com.huabiao.aoiin.ui.fragment;
 
 
 import android.os.Bundle;
@@ -30,7 +30,9 @@ import java.util.List;
 
 import butterknife.Bind;
 
-
+/**
+ * 取名
+ */
 public class DenominateFragment extends BaseFragment implements DenominateRotatePanLayout.AnimationEndListener, View.OnClickListener {
     //转盘
     @Bind(R.id.rp_layout)

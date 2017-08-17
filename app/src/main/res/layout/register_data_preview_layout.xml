@@ -16,7 +16,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -28,21 +29,58 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="商标基本信息"
+                    android:textColor="@color/black3"
                     android:textSize="17sp" />
 
-                <TextView
-                    android:id="@+id/register_data_preview_tradename_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="注册商标  海飞丝" />
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
 
-                <TextView
-                    android:id="@+id/register_data_preview_tradetype_tv"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="分类  清洁" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="注册商标"
+                        android:textColor="@color/black3"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/register_data_preview_tradename_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text=" 海飞丝" />
+                </LinearLayout>
+
+                <View
+                    style="@style/GrayLine"
+                    android:layout_marginTop="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分类"
+                        android:textColor="@color/black3"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/register_data_preview_tradetype_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="清洁" />
+                </LinearLayout>
 
                 <View
                     style="@style/GrayLine"
@@ -53,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="注册类别"
+                    android:textColor="@color/black3"
                     android:textSize="17sp" />
 
                 <android.support.v7.widget.RecyclerView
@@ -70,24 +109,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="热度指数"
+                    android:textColor="@color/black3"
                     android:textSize="17sp" />
 
                 <com.huabiao.aoiin.wedgit.DrawLineChartView
                     android:id="@+id/register_data_preview_linechart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_margin="15dp"
                     android:background="@drawable/bg_round_gray" />
 
-                <View
-                    style="@style/GrayLine"
-                    android:layout_marginTop="10dp" />
+                <View style="@style/GrayLine" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="联系方式"
+                    android:textColor="@color/black3"
                     android:textSize="17sp" />
 
                 <TextView
@@ -127,6 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="申请人类型"
+                    android:textColor="@color/black3"
                     android:textSize="17sp" />
 
                 <TextView
@@ -175,6 +215,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="资料提交"
+                        android:textColor="@color/black3"
                         android:textSize="17sp" />
 
                     <LinearLayout
@@ -265,6 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="服务方式"
+                    android:textColor="@color/black3"
                     android:textSize="17sp" />
 
                 <TextView
@@ -276,10 +318,14 @@
             </LinearLayout>
         </ScrollView>
 
+        <View
+            style="@style/GrayLine"
+            android:background="@color/black_5a5959" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/backgroundwhite"
+            android:background="@color/white"
             android:orientation="horizontal">
 
             <TextView
@@ -292,7 +338,6 @@
                 android:padding="15dp"
                 android:text="编辑" />
 
-            <View style="@style/GrayLine_shu" />
 
             <TextView
                 android:id="@+id/register_data_preview_commit_tv"
