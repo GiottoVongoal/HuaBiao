@@ -185,6 +185,7 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                 //最新进度
                 Bundle bundle = new Bundle();
                 bundle.putString("time", bean.getLatestime());
+                bundle.putString("status", bean.getLatestprogress());
                 JumpUtils.startFragmentByName(this, UserProgressDateFragment.class, bundle);
                 break;
         }
