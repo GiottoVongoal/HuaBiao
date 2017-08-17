@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/bg_round_gray"
+            android:drawableLeft="@mipmap/fangdajing"
             android:gravity="center"
             android:hint="商品名"
             android:padding="10dp" />
