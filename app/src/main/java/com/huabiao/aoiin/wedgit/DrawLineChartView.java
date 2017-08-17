@@ -62,6 +62,7 @@ public class DrawLineChartView extends RelativeLayout {
     private void initView(View lineChartView) {
         line_chart_ll = (LinearLayout) lineChartView.findViewById(R.id.line_chart_ll);
         chart = (LineChartView) lineChartView.findViewById(R.id.chart);
+        chart.setVisibility(INVISIBLE);
         line_chart_trademark_name = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_name);
 //        line_chart_trademark_classification = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_classification);
     }

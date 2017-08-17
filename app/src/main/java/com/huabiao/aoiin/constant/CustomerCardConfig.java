@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.activity;
+package com.huabiao.aoiin.constant;
 
 /**
  * Created by Aoiin-9 on 2017/8/9.

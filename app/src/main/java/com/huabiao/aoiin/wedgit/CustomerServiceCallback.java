@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.activity;
+package com.huabiao.aoiin.wedgit;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

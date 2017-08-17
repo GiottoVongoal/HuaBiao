@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MallBean.ShoppingmalllistBean;
-import com.huabiao.aoiin.ui.activity.Buying;
+import com.huabiao.aoiin.ui.fragment.BuyingFragment;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.StringUtil;
@@ -140,22 +140,18 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
     //设置pageid 1--求购详情页，2--异议详情页，3--抢注详情页，传到下一页面根据id设置值
     @Override
     public void onClick(View view) {
+        Bundle bundle = new Bundle();
         switch (view.getId()) {
             case R.id.mall_listitem_buy:
-                Bundle bundle1 = new Bundle();
-                bundle1.putInt("pageid", 1);
-                JumpUtils.startFragmentByName(context, Buying.class, bundle1);
+                bundle.putInt("pageid", 1);
                 break;
             case R.id.mall_listitem_yiyi:
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("pageid", 2);
-                JumpUtils.startFragmentByName(context, Buying.class, bundle2);
+                bundle.putInt("pageid", 2);
                 break;
             case mall_listitem_Cybersquatting:
-                Bundle bundle3 = new Bundle();
-                bundle3.putInt("pageid", 3);
-                JumpUtils.startFragmentByName(context, Buying.class, bundle3);
+                bundle.putInt("pageid", 3);
                 break;
         }
+        JumpUtils.startFragmentByName(context,  BuyingFragment.class, bundle);
     }
 }

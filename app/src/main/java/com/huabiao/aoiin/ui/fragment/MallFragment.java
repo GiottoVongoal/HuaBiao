@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.activity;
+package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +17,10 @@ import com.ywy.mylibs.base.BasePresenter;
 
 import butterknife.Bind;
 
-public class Mall extends BaseFragment implements View.OnClickListener {
+/**
+ * 商城列表
+ */
+public class MallFragment extends BaseFragment implements View.OnClickListener {
     private boolean isLast;     //是否滑动到底部的标志位
     private MallAdapter mallAapter;
     //将下划线放入一个数组

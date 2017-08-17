@@ -29,7 +29,7 @@ import static java.lang.Integer.parseInt;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
  * @date 2017-07-24 18:35
- * @description 测试日历
+ * @description 进度详情页 -- 日历
  */
 public class UserProgressDateFragment extends BaseFragment {
     @Bind(R.id.user_progress_date_schedule_layout)

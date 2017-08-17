@@ -23,7 +23,6 @@ import com.huabiao.aoiin.bean.HomeInfomationBean.HomeinfolistBean;
 import com.huabiao.aoiin.bean.HotWordsListBean;
 import com.huabiao.aoiin.bean.HotWordsListBean.HotwordsBean;
 import com.huabiao.aoiin.model.HomeModel;
-import com.huabiao.aoiin.ui.activity.DenominateFragment;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;

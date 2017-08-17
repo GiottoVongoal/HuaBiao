@@ -22,7 +22,7 @@ import java.util.List;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.adapter
  * @date 2017-07-26 13:11
- * @description
+ * @description 商标进度Adapter
  */
 public class UserProgressAdapter extends RecyclerView.Adapter<UserProgressAdapter.UserProgressViewHolder> {
     private Context context;

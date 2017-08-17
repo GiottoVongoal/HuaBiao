@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.activity;
+package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +21,10 @@ import butterknife.Bind;
 
 /**
  * Created by Aoiin-9 on 2017/8/1.
+ * 商城详情页
  */
 
-public class Buying extends BaseFragment implements View.OnClickListener {
+public class BuyingFragment extends BaseFragment implements View.OnClickListener {
     private BuyingAdapter1 buyingAdapter1;
     private BuyingAdapter2 buyingAdapter2;
     //商标无效
@@ -167,10 +168,10 @@ public class Buying extends BaseFragment implements View.OnClickListener {
                     /*商标公告与状态
                      商标服务列表RecyclerView1,adpter数据获取
                      "商标无效"是否可见，有数据时不可见，无数据时可见*/
-                        buying_recyclerview2.setLayoutManager(new FullyLinearLayoutManager(getContext()));
-                        buyingAdapter2 = new BuyingAdapter2(buyingInfoBean.getNotice());
-                        buying_recyclerview2.setAdapter(buyingAdapter2);
-                    if ( buyingInfoBean.getNotice()!=null&&buyingInfoBean.getNotice().size()>0) {
+                    buying_recyclerview2.setLayoutManager(new FullyLinearLayoutManager(getContext()));
+                    buyingAdapter2 = new BuyingAdapter2(buyingInfoBean.getNotice());
+                    buying_recyclerview2.setAdapter(buyingAdapter2);
+                    if (buyingInfoBean.getNotice() != null && buyingInfoBean.getNotice().size() > 0) {
                         buying_recyclerview2.setAdapter(buyingAdapter2);
                         trademarkuseless.setVisibility(View.GONE);
                     } else {

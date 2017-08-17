@@ -20,6 +20,7 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.ui.fragment.FinanceFragment;
 import com.huabiao.aoiin.ui.fragment.HomePageFragment;
+import com.huabiao.aoiin.ui.fragment.MallFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.ywy.mylibs.base.BaseActivity;
@@ -39,7 +40,7 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
-    Fragment homePageFragment, Mall, financeFragment, meFragment;
+    Fragment homePageFragment, mallFragment, financeFragment, meFragment;
 
     @Override
     public BasePresenter getPresenter() {
@@ -52,7 +53,7 @@ public class MainActivity extends BaseActivity {
         homePageFragment = new HomePageFragment();
         financeFragment = new FinanceFragment();
         meFragment = new MeFragment();
-        Mall = new Mall();
+        mallFragment = new MallFragment();
 
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
@@ -103,7 +104,7 @@ public class MainActivity extends BaseActivity {
                 addFragment(homePageFragment);
                 break;
             case 1:
-                addFragment(Mall);
+                addFragment(mallFragment);
                 break;
             case 2:
                 addFragment(financeFragment);
