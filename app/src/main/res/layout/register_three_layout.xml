@@ -86,7 +86,7 @@
             android:layout_margin="30dp"
             android:background="@drawable/btn_yellow"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="确定" />
 
         <TextView

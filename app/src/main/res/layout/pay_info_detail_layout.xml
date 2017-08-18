@@ -185,8 +185,8 @@
                         android:id="@+id/pay_info_detail_company_rb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
                         android:button="@null"
                         android:checked="true"
                         android:drawableLeft="@drawable/checkbox_select_type"
@@ -205,6 +205,7 @@
                     app:hintTextAppearance="@style/hintAppearance">
 
                     <EditText
+                        style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="发票抬头"
@@ -223,6 +224,7 @@
                     app:hintTextAppearance="@style/hintAppearance">
 
                     <EditText
+                        style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="纳税人识别号"

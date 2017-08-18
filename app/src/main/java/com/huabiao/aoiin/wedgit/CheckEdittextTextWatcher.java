@@ -63,6 +63,15 @@ public class CheckEdittextTextWatcher implements TextWatcher {
                     textInputLayout.setError(errorStr);
                 }
                 break;
+            case 4://验证密码(暂定长度为6)
+                if (textInputLayout.getEditText().getText().toString().length() <= 6) {
+                    textInputLayout.setErrorEnabled(false);
+                } else {
+                    textInputLayout.setErrorEnabled(true);
+                    //设置错误提示的信息
+                    textInputLayout.setError(errorStr);
+                }
+                break;
         }
     }
 }

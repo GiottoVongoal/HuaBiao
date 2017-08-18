@@ -32,6 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--登录-->
+        <activity android:name=".ui.activity.LoginActivity" />
         <!-- 进度页面(测试圆弧进度条) -->
         <activity
             android:name=".ui.activity.UserProgressActivity"
