@@ -112,4 +112,13 @@
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/user_address_add_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_yellow"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="保存" />
 </LinearLayout>

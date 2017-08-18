@@ -9,6 +9,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.ClickUtil;
 
 import butterknife.Bind;
 import chihane.jdaddressselector.BottomDialog;
@@ -38,12 +39,13 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
     @Bind(R.id.user_address_add_code_et)
     TextInputLayout add_code_et;
 
+    @Bind(R.id.user_address_add_tv)
+    TextView add_tv;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
         setTitle("新增地址");
         setBackEnable();
-
 
         add_phone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(add_phone_et, "请输入正确的手机号!", 1));
         add_phone_et.setCounterEnabled(true);
@@ -54,6 +56,7 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
         add_code_et.setCounterMaxLength(6);
 
         add_area_et.setOnClickListener(this);
+        add_tv.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +64,10 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
         switch (view.getId()) {
             case R.id.user_address_add_area_et:
                 getAddress();
+                break;
+            case R.id.user_address_add_tv:
+                showToast("保存");
+                ClickUtil.onBackClick();
                 break;
         }
     }
