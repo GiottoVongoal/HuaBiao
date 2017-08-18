@@ -41,11 +41,6 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        //透明状态栏
-        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //透明导航栏
-        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
         tradename_tl.getEditText().setText("商标名");
         tradeid_tl.getEditText().setText("商标编号");
 

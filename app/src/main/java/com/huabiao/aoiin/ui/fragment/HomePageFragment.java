@@ -86,11 +86,6 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        //透明状态栏
-        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //透明导航栏
-        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
         home_search_et.setOnClickListener(this);
 
         home_search_ll.setOnClickListener(this);

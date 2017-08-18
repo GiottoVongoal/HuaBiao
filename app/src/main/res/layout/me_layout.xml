@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundwhite"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <ScrollView
@@ -18,13 +17,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="15dp">
+                android:orientation="horizontal"
+                android:padding="@dimen/x5">
 
                 <com.ywy.mylibs.wedgit.wedgit.CircleView
                     android:id="@+id/me_user_photo"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/x100"
+                    android:layout_height="@dimen/x100"
                     android:layout_gravity="center"
                     android:layout_margin="15dp"
                     android:src="@mipmap/touxiang" />
@@ -36,6 +35,8 @@
                     android:layout_gravity="center"
                     android:text="用户" />
             </LinearLayout>
+
+            <View style="@style/GrayLine" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,8 +113,12 @@
                         android:gravity="center"
                         android:text="@string/me_order_string" />
                 </LinearLayout>
-
             </LinearLayout>
+
+            <View
+                style="@style/GrayLine"
+                android:layout_height="@dimen/x20"
+                android:background="@color/grey_f8f8f8" />
 
             <LinearLayout
                 android:id="@+id/me_add_item_ll"
