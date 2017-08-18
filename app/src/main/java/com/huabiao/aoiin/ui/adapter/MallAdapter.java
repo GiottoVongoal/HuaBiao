@@ -37,9 +37,9 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
         public TextView register_TextView;
         public TextView applicant_TexView;
         public TextView classfication_TextView;
-        public TextView mall_listitem_buy;
-        public TextView mall_listitem_Cybersquatting;
-        public TextView mall_listitem_yiyi;
+        public TextView mall_listitem_buy_tv;
+        public TextView mall_listitem_Cybersquatting_tv;
+        public TextView mall_listitem_yiyi_tv;
     }
 
     public void addList(List<ShoppingmalllistBean> list) {
@@ -82,11 +82,11 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
             //分类id
             mallViewHolder.classfication_TextView = (TextView) view.findViewById(R.id.mall_classficationid_TextView);
             //异议按钮
-            mallViewHolder.mall_listitem_yiyi = (TextView) view.findViewById(R.id.mall_listitem_yiyi);
+            mallViewHolder.mall_listitem_yiyi_tv = (TextView) view.findViewById(R.id.mall_listitem_yiyi);
             //抢注按钮
-            mallViewHolder.mall_listitem_Cybersquatting = (TextView) view.findViewById(R.id.mall_listitem_Cybersquatting);
+            mallViewHolder.mall_listitem_Cybersquatting_tv = (TextView) view.findViewById(R.id.mall_listitem_Cybersquatting);
             //求购按钮
-            mallViewHolder.mall_listitem_buy = (TextView) view.findViewById(R.id.mall_listitem_buy);
+            mallViewHolder.mall_listitem_buy_tv = (TextView) view.findViewById(R.id.mall_listitem_buy);
             view.setTag(mallViewHolder);
         } else {
             mallViewHolder = (MallViewHolder) view.getTag();
@@ -105,35 +105,35 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
             int status = Integer.parseInt(statusString);
             switch (status) {
                 case 1:
-                    mallViewHolder.mall_listitem_buy.setVisibility(View.VISIBLE);
-                    mallViewHolder.mall_listitem_yiyi.setVisibility(View.INVISIBLE);
-                    mallViewHolder.mall_listitem_Cybersquatting.setVisibility(View.GONE);
+                    mallViewHolder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
+                    mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
+                    mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     mallViewHolder.show_TextView.setText("注册成功");
                     break;
                 case 2:
-                    mallViewHolder.mall_listitem_buy.setVisibility(View.VISIBLE);
-                    mallViewHolder.mall_listitem_yiyi.setVisibility(View.INVISIBLE);
-                    mallViewHolder.mall_listitem_Cybersquatting.setVisibility(View.GONE);
+                    mallViewHolder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
+                    mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
+                    mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     mallViewHolder.show_TextView.setText("待审核中");
                     break;
                 case 3:
-                    mallViewHolder.mall_listitem_buy.setVisibility(View.GONE);
-                    mallViewHolder.mall_listitem_yiyi.setVisibility(View.INVISIBLE);
-                    mallViewHolder.mall_listitem_Cybersquatting.setVisibility(View.VISIBLE);
+                    mallViewHolder.mall_listitem_buy_tv.setVisibility(View.GONE);
+                    mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
+                    mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.VISIBLE);
                     mallViewHolder.show_TextView.setText("商标无效");
                     break;
                 case 4:
-                    mallViewHolder.mall_listitem_Cybersquatting.setVisibility(View.GONE);
-                    mallViewHolder.mall_listitem_buy.setVisibility(View.VISIBLE);
-                    mallViewHolder.mall_listitem_yiyi.setVisibility(View.VISIBLE);
+                    mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
+                    mallViewHolder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
+                    mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.VISIBLE);
                     mallViewHolder.show_TextView.setText("初审公告");
                     break;
             }
         }
         //抢注、求购、异议按钮监听事件
-        mallViewHolder.mall_listitem_Cybersquatting.setOnClickListener(this);
-        mallViewHolder.mall_listitem_buy.setOnClickListener(this);
-        mallViewHolder.mall_listitem_yiyi.setOnClickListener(this);
+        mallViewHolder.mall_listitem_Cybersquatting_tv.setOnClickListener(this);
+        mallViewHolder.mall_listitem_buy_tv.setOnClickListener(this);
+        mallViewHolder.mall_listitem_yiyi_tv.setOnClickListener(this);
         return view;
     }
 

@@ -33,16 +33,16 @@ public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
     @Override
     public void onBindViewHolder(BuyingAdapter2.VH2 holder, int position) {
         BuyingInfoBean.NoticeBean noticeBean = noticedata.get(position);
-            holder.noticeitem.setText(noticeBean.getTitle());
-            holder.noticeitemtime.setText(noticeBean.getTime());
+            holder.noticeitem_tv.setText(noticeBean.getTitle());
+            holder.noticeitemtime_tv.setText(noticeBean.getTime());
         //公告是否可见
         int status = noticeBean.getIsvisible();
         switch (status) {
             case 0:
-                holder.noticevisable.setVisibility(View.INVISIBLE);
+                holder.noticevisable_tv.setVisibility(View.INVISIBLE);
                 break;
             case 1:
-                holder.noticevisable.setVisibility(View.VISIBLE);
+                holder.noticevisable_tv.setVisibility(View.VISIBLE);
                 break;
         }
         //布局中最后一条线不可见
@@ -60,16 +60,16 @@ public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
 
     class VH2 extends RecyclerView.ViewHolder {
         //公告与状态
-        private TextView noticeitem;
-        private TextView noticeitemtime;
-        private TextView noticevisable;
+        private TextView noticeitem_tv;
+        private TextView noticeitemtime_tv;
+        private TextView noticevisable_tv;
         private View buying_rcv2_linear;
 
         public VH2(View itemView) {
             super(itemView);
-            noticeitem = (TextView) itemView.findViewById(R.id.buying_rcv2_status1);
-            noticeitemtime = (TextView) itemView.findViewById(R.id.buying_rcv2_status1_date);
-            noticevisable = (TextView) itemView.findViewById(R.id.buying_rcv2_noticevisable);
+            noticeitem_tv = (TextView) itemView.findViewById(R.id.buying_rcv2_status1);
+            noticeitemtime_tv = (TextView) itemView.findViewById(R.id.buying_rcv2_status1_date);
+            noticevisable_tv = (TextView) itemView.findViewById(R.id.buying_rcv2_noticevisable);
             buying_rcv2_linear = itemView.findViewById(R.id.buying_rcv2_linear);
         }
     }
