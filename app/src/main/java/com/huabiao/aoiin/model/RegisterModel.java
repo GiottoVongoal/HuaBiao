@@ -31,21 +31,6 @@ public class RegisterModel {
     }
 
     /**
-     * 获取推荐客服列表
-     *
-     * @param context
-     * @param callBack
-     */
-    public static void getCustomerServiceList(Context context, final InterfaceManager.CallBackCommon callBack) {
-        String json = GetJsonToName.getJson(context, "customerservicelist.json");
-        Gson gson = new Gson();
-        CustomerServiceListBean bean = gson.fromJson(json, CustomerServiceListBean.class);
-        if (callBack != null) {
-            callBack.getCallBackCommon(bean);
-        }
-    }
-
-    /**
      * 获取注册页面数据
      *
      * @param context

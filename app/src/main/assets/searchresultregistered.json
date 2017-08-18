@@ -51,7 +51,7 @@
     "lines": [
       {
         "linename": "百度",
-        "linecolor": "#419BF9",
+        "linecolor": "#fdd400",
         "linevalue": [
           9,
           7,
@@ -64,7 +64,7 @@
       },
       {
         "linename": "阿里",
-        "linecolor": "#FF4081",
+        "linecolor": "#AED79B",
         "linevalue": [
           2,
           5,

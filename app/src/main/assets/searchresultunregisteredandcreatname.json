@@ -52,7 +52,7 @@
     "lines": [
       {
         "linename": "京东",
-        "linecolor": "#FF4300",
+        "linecolor": "#fdd400",
         "linevalue": [
           7,
           7,
@@ -65,7 +65,7 @@
       },
       {
         "linename": "亚马逊",
-        "linecolor": "#FFEA00",
+        "linecolor": "#AED79B",
         "linevalue": [
           2,
           2,

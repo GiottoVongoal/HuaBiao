@@ -18,7 +18,7 @@
         "lines": [
           {
             "linename": "京东",
-            "linecolor": "#FF4300",
+            "linecolor": "#fdd400",
             "linevalue": [
               7,
               7,
@@ -31,7 +31,7 @@
           },
           {
             "linename": "亚马逊",
-            "linecolor": "#FFEA00",
+            "linecolor": "#AED79B",
             "linevalue": [
               2,
               2,
@@ -64,7 +64,7 @@
         "lines": [
           {
             "linename": "清风",
-            "linecolor": "#0090FF",
+            "linecolor": "#fdd400",
             "linevalue": [
               7,
               7,
@@ -77,7 +77,7 @@
           },
           {
             "linename": "相印",
-            "linecolor": "#333333",
+            "linecolor": "#AED79B",
             "linevalue": [
               2,
               2,
@@ -109,7 +109,7 @@
         "lines": [
           {
             "linename": "美团",
-            "linecolor": "#3F51B5",
+            "linecolor": "#fdd400",
             "linevalue": [
               7,
               7,
@@ -122,7 +122,7 @@
           },
           {
             "linename": "饿了么",
-            "linecolor": "#080C31",
+            "linecolor": "#AED79B",
             "linevalue": [
               2,
               2,
@@ -154,7 +154,7 @@
         "lines": [
           {
             "linename": "百度",
-            "linecolor": "#FF4300",
+            "linecolor": "#fdd400",
             "linevalue": [
               7,
               7,
@@ -167,7 +167,7 @@
           },
           {
             "linename": "淘宝",
-            "linecolor": "#FF4081",
+            "linecolor": "#AED79B",
             "linevalue": [
               2,
               2,

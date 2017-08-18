@@ -89,31 +89,6 @@ public class SearchModel {
     }
 
     /**
-     * 获取热搜词数据
-     *
-     * @param context
-     * @param callback
-     */
-    public static void getHotWords(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "hotwords.json");
-        Gson gson = new Gson();
-        HotSearchWordsBean bean = gson.fromJson(jsonString, HotSearchWordsBean.class);
-        if (callback != null) {
-            callback.getCallBackCommon(bean);
-        }
-    }
-
-    public static void getCreatName(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "getcreatnamelist.json");
-        Gson gson = new Gson();
-        CreatNameBean bean = gson.fromJson(jsonString, CreatNameBean.class);
-        if (callback != null) {
-            callback.getCallBackCommon(bean);
-        }
-
-    }
-
-    /**
      * 获取求购详情页面的数据
      * 以及获取抢注页面和可异议页面的数据
      *
