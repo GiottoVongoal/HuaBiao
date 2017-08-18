@@ -66,6 +66,7 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
         //标题的右边图片以及监听事件
         setTitle(nameString);
         setRightIvResourse(getResources().getDrawable(R.mipmap.ic_launcher));
+        setBackEnable();
         setRightIvOnclick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

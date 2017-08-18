@@ -77,6 +77,8 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
         refreshView(false);
         denominate_industry_btn.setOnClickListener(this);
         denominate_layout.setOnClickListener(this);
+        setTitle("商标取名");
+        setBackEnable();
     }
 
     private void refreshView(final boolean isFirst) {

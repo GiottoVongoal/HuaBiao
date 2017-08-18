@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.picview.BitmapUtil;
 
 import java.util.List;
@@ -45,7 +46,8 @@ public class DenominateRotatePanLayout extends View {
     public static final int FLING_VELOCITY_DOWNSCALE = 4;
     private GestureDetectorCompat mDetector;
     private ScrollerCompat scroller;
-// 自定义的 View 组件, 一般需要实现 三个构造方法, 分别有 一个, 两个, 三个参数;
+
+    // 自定义的 View 组件, 一般需要实现 三个构造方法, 分别有 一个, 两个, 三个参数;
     public DenominateRotatePanLayout(Context context) {
         this(context, null);
     }
@@ -67,23 +69,24 @@ public class DenominateRotatePanLayout extends View {
         if (list != null && list.size() != 0) {
             panNum = list.size();
             if (360 % panNum != 0)
-             InitAngle = 360 / panNum;
+                InitAngle = 360 / panNum;
             verPanRadius = 360 / panNum;
             diffRadius = verPanRadius / 2;
             //两个盘的颜色
-            dPaint.setColor(Color.rgb(255, 200, 100));
-            sPaint.setColor(Color.rgb(205, 108, 105));
+            dPaint.setColor(Color.parseColor("#AED79B"));
+            sPaint.setColor(context.getResources().getColor(R.color.yellow_fdd400));
             //盘上文字大小和颜色
             textPaint.setColor(Color.BLACK);
             textPaint.setTextSize(BitmapUtil.dip2px(context, 16));
             setClickable(true);
         }
     }
-/*组件宽高计算   模式简介：
- MeasureSpec.UNSPECIFIED, 未指定模式
- MeasureSpec.EXACTLY, 精准模式
-  MeasureSpec.AT_MOST, 最大模式;
-    */
+
+    /*组件宽高计算   模式简介：
+     MeasureSpec.UNSPECIFIED, 未指定模式
+     MeasureSpec.EXACTLY, 精准模式
+      MeasureSpec.AT_MOST, 最大模式;
+        */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -142,16 +145,17 @@ public class DenominateRotatePanLayout extends View {
     }
 
 
-        //DrawText函数的作用很简单，就是在指定的区域内输出格式化的文本。这里是自定义的drawText方法。
+    //DrawText函数的作用很简单，就是在指定的区域内输出格式化的文本。这里是自定义的drawText方法。
     private void drawText(float startAngle, String string, int mRadius, Paint mTextPaint, Canvas mCanvas, RectF mRange) {
         Path path = new Path();
         path.addArc(mRange, startAngle, verPanRadius);
         //drawTextOnPath沿着路径绘制文本，hOffset参数指定水平偏移、vOffset指定垂直偏移
         float textWidth = mTextPaint.measureText(string);
         float hOffset = (float) (mRadius * Math.PI / panNum - textWidth / 2);
-        float vOffset = mRadius /4;
+        float vOffset = mRadius / 4;
         mCanvas.drawTextOnPath(string, path, hOffset, vOffset, mTextPaint);
     }
+
     public void setStr(List<String> list) {
         this.list = list;
         refreshPan(context);
