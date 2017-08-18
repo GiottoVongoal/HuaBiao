@@ -58,11 +58,16 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
         register_tv.setOnClickListener(this);
         custom_tv.setOnClickListener(this);
         commitBean = RegisterCommitBean.getInstance();
-        commitBean.emptyBean();
 
         tvs[0] = register_tv;
         tvs[1] = custom_tv;
         setSelect(0);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        commitBean.emptyBean();
     }
 
     public void setSelect(int position) {
