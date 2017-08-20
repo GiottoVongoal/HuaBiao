@@ -3,6 +3,7 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -33,7 +34,7 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
     @Bind(R.id.user_address_add_phone_et)
     TextInputLayout add_phone_et;
     @Bind(R.id.user_address_add_area_et)
-    TextInputLayout add_area_et;
+    EditText add_area_et;
     @Bind(R.id.user_address_add_address_et)
     TextInputLayout add_address_et;
     @Bind(R.id.user_address_add_code_et)
@@ -55,6 +56,7 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
         add_code_et.setCounterEnabled(true);
         add_code_et.setCounterMaxLength(6);
 
+        add_area_et.setFocusable(false);
         add_area_et.setOnClickListener(this);
         add_tv.setOnClickListener(this);
     }
@@ -84,7 +86,7 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
                         (city == null ? "" : "\t" + city.name) +
                         (county == null ? "" : "\t" + county.name) +
                         (street == null ? "" : "\t" + street.name);
-                add_area_et.getEditText().setText(address.trim());
+                add_area_et.setText(address.trim());
                 dialog.dismiss();
             }
         });
