@@ -5,18 +5,17 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <include layout="@layout/view_title" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <include layout="@layout/view_title" />
 
             <View
                 style="@style/GrayLine"
@@ -28,19 +27,19 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/details_tv1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:id="@+id/details_tv1"
                     android:text="可注册分类" />
 
                 <TextView
+                    android:id="@+id/details_tv2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:id="@+id/details_tv2"
                     android:text="筛选"
                     android:textAlignment="textEnd" />
             </LinearLayout>
@@ -52,7 +51,8 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/denominate_details_rcv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"  />
+                android:layout_height="wrap_content" />
+
             <View
                 style="@style/GrayLine"
                 android:background="@color/black3" />
@@ -65,9 +65,9 @@
                 android:text="热度指数" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
+                android:id="@+id/details_linechart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/details_linechart"/>
+                android:layout_height="wrap_content" />
 
             <View
                 style="@style/GrayLine"
@@ -82,10 +82,10 @@
                 android:textColor="@color/black3" />
 
             <TextView
+                android:id="@+id/details_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:id="@+id/details_content"
                 android:text="释义的内容" />
         </LinearLayout>
     </ScrollView>

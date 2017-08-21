@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.picview.BitmapUtil;
 
 import java.util.List;
@@ -28,19 +29,25 @@ import java.util.List;
  */
 
 public class DenominateRotatePanLayout extends View {
+    //上下文对象
     private Context context;
+    //转盘数目
     private int panNum = 0;
+    //
     private Paint dPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint sPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int InitAngle = 0;
+    //累加度数
     private int verPanRadius;
     private int diffRadius;
+    //
     private List<String> list;
     public static final int FLING_VELOCITY_DOWNSCALE = 4;
     private GestureDetectorCompat mDetector;
     private ScrollerCompat scroller;
 
+    // 自定义的 View 组件, 一般需要实现 三个构造方法, 分别有 一个, 两个, 三个参数;
     public DenominateRotatePanLayout(Context context) {
         this(context, null);
     }
@@ -58,28 +65,35 @@ public class DenominateRotatePanLayout extends View {
     }
 
     private void refreshPan(Context context) {
+        //根据list来确定盘的数目
         if (list != null && list.size() != 0) {
             panNum = list.size();
             if (360 % panNum != 0)
-             InitAngle = 360 / panNum;
+                InitAngle = 360 / panNum;
             verPanRadius = 360 / panNum;
             diffRadius = verPanRadius / 2;
-            dPaint.setColor(Color.rgb(200, 220, 205));
-            sPaint.setColor(Color.rgb(205, 108, 105));
+            //两个盘的颜色
+            dPaint.setColor(Color.parseColor("#AED79B"));
+            sPaint.setColor(context.getResources().getColor(R.color.yellow_fdd400));
+            //盘上文字大小和颜色
             textPaint.setColor(Color.BLACK);
             textPaint.setTextSize(BitmapUtil.dip2px(context, 16));
             setClickable(true);
         }
     }
 
+    /*组件宽高计算   模式简介：
+     MeasureSpec.UNSPECIFIED, 未指定模式
+     MeasureSpec.EXACTLY, 精准模式
+      MeasureSpec.AT_MOST, 最大模式;
+        */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //   Auto-generated method stub
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int mHeight = BitmapUtil.dip2px(context, 300);
         int mWidth = BitmapUtil.dip2px(context, 300);
-
+//MeasureSpec.getMode(int) : 获取模式;MeasureSpec.getSize(int) : 获取大小;
         int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -97,24 +111,26 @@ public class DenominateRotatePanLayout extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        //与父容器上下左右的距离
         final int paddingLeft = getPaddingLeft();
         final int paddingRight = getPaddingRight();
         final int paddingTop = getPaddingTop();
         final int paddingBottom = getPaddingBottom();
-
+        //宽度等于父容器的宽度减去左padding减去右padding，高度也是一样
         int width = getWidth() - paddingLeft - paddingRight;
         int height = getHeight() - paddingTop - paddingBottom;
 
         int MinValue = Math.min(width, height);
-
+        //半径等于宽高最小值除以2
         int radius = MinValue / 2;
+        //创建圆弧对象
         RectF rectF = new RectF(getPaddingLeft(), getPaddingTop(), width, height);
 
         int angle = InitAngle;
 
         for (int i = 0; i < panNum; i++) {
             if (i % 2 == 0) {
+                //绘制圆弧 参数介绍 : 圆弧, 开始度数, 累加度数, 是否闭合圆弧, 画笔
                 canvas.drawArc(rectF, angle, verPanRadius, true, dPaint);
             } else {
                 canvas.drawArc(rectF, angle, verPanRadius, true, sPaint);
@@ -129,17 +145,17 @@ public class DenominateRotatePanLayout extends View {
     }
 
 
-
+    //DrawText函数的作用很简单，就是在指定的区域内输出格式化的文本。这里是自定义的drawText方法。
     private void drawText(float startAngle, String string, int mRadius, Paint mTextPaint, Canvas mCanvas, RectF mRange) {
         Path path = new Path();
-
         path.addArc(mRange, startAngle, verPanRadius);
+        //drawTextOnPath沿着路径绘制文本，hOffset参数指定水平偏移、vOffset指定垂直偏移
         float textWidth = mTextPaint.measureText(string);
-
         float hOffset = (float) (mRadius * Math.PI / panNum - textWidth / 2);
-        float vOffset = mRadius /4;
+        float vOffset = mRadius / 4;
         mCanvas.drawTextOnPath(string, path, hOffset, vOffset, mTextPaint);
     }
+
     public void setStr(List<String> list) {
         this.list = list;
         refreshPan(context);
@@ -173,7 +189,6 @@ public class DenominateRotatePanLayout extends View {
             } else {
             }
         }
-
 
         int increaseDegree = lap * 360 + angle;
         long time = (lap + angle / 360) * ONE_WHEEL_TIME;
@@ -240,7 +255,7 @@ public class DenominateRotatePanLayout extends View {
     }
 
 
-    //   =============================== 手势处理 ======================================
+    // ====================== 手势处理 ======================================
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -270,7 +285,7 @@ public class DenominateRotatePanLayout extends View {
     }
 
     private class RotatePanGestureListener extends GestureDetector.SimpleOnGestureListener {
-
+        //手势识别，点击，双击，滑动，拖动，
         @Override
         public boolean onDown(MotionEvent e) {
             return super.onDown(e);

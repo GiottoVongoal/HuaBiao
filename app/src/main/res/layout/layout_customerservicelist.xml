@@ -27,7 +27,7 @@
             android:background="@color/white">
 
             <TextView
-                android:id="@+id/customer_service_name"
+                android:id="@+id/customer_service_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -37,38 +37,38 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/customer_service_company"
+                android:id="@+id/customer_service_company_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="上海商标有限公司"
-                app:layout_constraintBottom_toTopOf="@+id/customer_service_number"
+                app:layout_constraintBottom_toTopOf="@+id/customer_service_number_tv"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/customer_service_name"
+                app:layout_constraintTop_toTopOf="@+id/customer_service_name_tv"
                 app:layout_constraintVertical_bias="0.6" />
 
             <TextView
-                android:id="@+id/customer_service_number"
+                android:id="@+id/customer_service_number_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
                 android:text="编号"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_name" />
+                app:layout_constraintTop_toBottomOf="@+id/customer_service_name_tv" />
 
             <TextView
-                android:id="@+id/customer_service_usedtime"
+                android:id="@+id/customer_service_usedtime_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:text="用时"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_number" />
+                app:layout_constraintTop_toBottomOf="@+id/customer_service_number_tv" />
 
             <TextView
-                android:id="@+id/customer_service_successrate"
+                android:id="@+id/customer_service_successrate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -76,12 +76,12 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:text="成功率"
-                app:layout_constraintBottom_toBottomOf="@+id/customer_service_usedtime"
+                app:layout_constraintBottom_toBottomOf="@+id/customer_service_usedtime_tv"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/customer_service_usedtime" />
+                app:layout_constraintRight_toLeftOf="@+id/customer_service_usedtime_tv" />
 
             <TextView
-                android:id="@+id/customer_service_service"
+                android:id="@+id/customer_service_service_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -89,12 +89,12 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:text="服务"
-                app:layout_constraintBottom_toBottomOf="@+id/customer_service_usedtime"
-                app:layout_constraintLeft_toRightOf="@+id/customer_service_usedtime"
+                app:layout_constraintBottom_toBottomOf="@+id/customer_service_usedtime_tv"
+                app:layout_constraintLeft_toRightOf="@+id/customer_service_usedtime_tv"
                 app:layout_constraintRight_toRightOf="parent" />
 
             <TextView
-                android:id="@+id/customer_service_reputable"
+                android:id="@+id/customer_service_reputable_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -106,7 +106,7 @@
                 android:layout_marginBottom="16dp" />
 
             <TextView
-                android:id="@+id/customer_service_consult"
+                android:id="@+id/customer_service_consult_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -117,37 +117,37 @@
                 android:layout_marginBottom="16dp" />
 
             <TextView
-                android:id="@+id/customer_successrate_rate"
+                android:id="@+id/customer_successrate_rate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="50%"
                 app:layout_constraintHorizontal_bias="0.437"
-                app:layout_constraintLeft_toLeftOf="@+id/customer_service_successrate"
-                app:layout_constraintRight_toRightOf="@+id/customer_service_successrate"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_successrate" />
+                app:layout_constraintLeft_toLeftOf="@+id/customer_service_successrate_tv"
+                app:layout_constraintRight_toRightOf="@+id/customer_service_successrate_tv"
+                app:layout_constraintTop_toBottomOf="@+id/customer_service_successrate_tv" />
 
             <TextView
-                android:id="@+id/customer_usedtime_time"
+                android:id="@+id/customer_usedtime_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="1小时"
                 app:layout_constraintHorizontal_bias="0.25"
-                app:layout_constraintLeft_toLeftOf="@+id/customer_service_usedtime"
-                app:layout_constraintRight_toRightOf="@+id/customer_service_usedtime"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_usedtime" />
+                app:layout_constraintLeft_toLeftOf="@+id/customer_service_usedtime_tv"
+                app:layout_constraintRight_toRightOf="@+id/customer_service_usedtime_tv"
+                app:layout_constraintTop_toBottomOf="@+id/customer_service_usedtime_tv" />
 
             <TextView
-                android:id="@+id/customer_service_servicerate"
+                android:id="@+id/customer_service_servicerate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="满意"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="@+id/customer_service_service"
-                app:layout_constraintRight_toRightOf="@+id/customer_service_service"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_service" />
+                app:layout_constraintLeft_toLeftOf="@+id/customer_service_service_tv"
+                app:layout_constraintRight_toRightOf="@+id/customer_service_service_tv"
+                app:layout_constraintTop_toBottomOf="@+id/customer_service_service_tv" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 

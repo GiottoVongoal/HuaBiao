@@ -16,7 +16,6 @@ import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.model.AnalysisJson;
 import com.huabiao.aoiin.model.RegisterModel;
-import com.huabiao.aoiin.ui.fragment.DenominateDetailsFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.view.DenominateRotatePanLayout;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
@@ -24,6 +23,7 @@ import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+import com.ywy.mylibs.utils.KeyboardUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,16 +39,16 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     DenominateRotatePanLayout rp;
     //中心的点击图片
     @Bind(R.id.go)
-    ImageView goBtn;
+    ImageView goBtnIV;
     //商品名
     @Bind(R.id.tv_name)
-    TextView name;
+    TextView nameTv;
     //商品类型
     @Bind(R.id.tv_trademarkclassification)
-    TextView trademarkclassification;
+    TextView trademarkclassificationTv;
     //释义的内容
     @Bind(R.id.tv_means)
-    TextView means;
+    TextView meansTV;
     //折线图
     @Bind(R.id.creat_name_line_chart)
     DrawLineChartView creat_name_line_chart;
@@ -62,21 +62,25 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     @Bind(R.id.denominate_layout)
     LinearLayout denominate_layout;
 
+    //用于传值的nameString
+    private String nameString;
     private List<CreatNameBean.RecommendnamelistBean> list;
     private IndustryPopupWindow industryWindow;
     private int place = 0;
     private String industry = "";
 
     public void endAnimation(int position) {
-        goBtn.setEnabled(true);
+        goBtnIV.setEnabled(true);
         setCreatNameData(position);
     }
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        refreshView(false);
+        refreshView(false);//flase不可点击，true可点击
         denominate_industry_btn.setOnClickListener(this);
         denominate_layout.setOnClickListener(this);
+        setTitle("商标取名");
+        setBackEnable();
     }
 
     private void refreshView(final boolean isFirst) {
@@ -85,20 +89,22 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     CreatNameBean bean = (CreatNameBean) mData;
-                    ALog.i("CreatNameBean-->" + bean.toString());
+                    ALog.i("CreatNameBean-->"
+                            + bean.toString());
                     list = bean.getRecommendnamelist();
                     if (list.size() > 0) {
                         setData();
                     }
                     rp.startRotate(-1);
                     if (isFirst) {
-                        goBtn.setEnabled(false);
+                        goBtnIV.setEnabled(false);
                     }
                 }
             }
         });
     }
 
+    //将商品名取出来set到转盘上
     private void setData() {
         List<String> nameList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
@@ -109,24 +115,34 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
         ALog.i(nameList.toString());
         rp.setStr(nameList);
         rp.setAnimationEndListener(this);
-        goBtn.setOnClickListener(this);
+        goBtnIV.setOnClickListener(this);
     }
 
+    //写入数据
     private void setCreatNameData(int position) {
-        name.setText(list.get(position).getLinechart().getTradename());
-        means.setText(list.get(position).getMeans());
+        nameString = list.get(position).getLinechart().getTradename();
+        nameTv.setText(nameString);
+        meansTV.setText(list.get(position).getMeans());
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
-        trademarkclassification.setText(classificationString);
+        trademarkclassificationTv.setText(classificationString);
         creat_name_line_chart.setLineChartBean(list.get(position).getLinechart());
     }
 
     @Override
     public void onClick(final View view) {
         switch (view.getId()) {
+            //判断editview是否有值，有值的话点击go有效,没有值则无效
             case R.id.go:
+//                if (denominate_trade_name_et.getText().equals("")) {
+//                    refreshView(false);
+//                    showToast("请输入商品名");
+//                } else {
                 refreshView(true);
+//                }
                 break;
+            //点击行业按钮弹出选择弹窗
             case R.id.denominate_industry_btn:
+                KeyboardUtils.hideSoftInput(getActivity());
                 RegisterModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
                     @Override
                     public void getCallBackCommon(Object mData) {
@@ -137,12 +153,16 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                     }
                 });
                 break;
+            //点击跳到详情页，并传了一个nameString的bundle过去
             case R.id.denominate_layout:
-                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("nameString", nameString);
+                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class, bundle);
                 break;
         }
     }
 
+    //行业选择弹框
     private void showIndustryWindow(View view, final List<RegisterOneIndustryBean.IndustrylistBean> industryList) {
         industryWindow = new IndustryPopupWindow(getContext(), "标题", industryList, place, new InterfaceManager.OnItemClickListener() {
             @Override

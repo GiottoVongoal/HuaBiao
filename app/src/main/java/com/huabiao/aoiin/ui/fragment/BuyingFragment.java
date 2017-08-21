@@ -102,6 +102,7 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
         Bundle bundle = getActivity().getIntent().getExtras();
         n = bundle.getInt("pageid", 1);
         setTitle("商标详情页");
+        setRightIvResourse(getResources().getDrawable(R.mipmap.ic_launcher));
         setBackEnable();
         switch (n) {
             case 1:
