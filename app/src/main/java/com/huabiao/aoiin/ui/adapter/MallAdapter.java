@@ -40,6 +40,7 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
         public TextView mall_listitem_buy_tv;
         public TextView mall_listitem_Cybersquatting_tv;
         public TextView mall_listitem_yiyi_tv;
+        public ImageView mall_status_img;
     }
 
     public void addList(List<ShoppingmalllistBean> list) {
@@ -83,6 +84,8 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
             mallViewHolder.classfication_TextView = (TextView) view.findViewById(R.id.mall_classficationid_TextView);
             //异议按钮
             mallViewHolder.mall_listitem_yiyi_tv = (TextView) view.findViewById(R.id.mall_listitem_yiyi);
+            //状态图片
+            mallViewHolder.mall_status_img=(ImageView)view.findViewById( R.id.mall_status_img);
             //抢注按钮
             mallViewHolder.mall_listitem_Cybersquatting_tv = (TextView) view.findViewById(R.id.mall_listitem_Cybersquatting);
             //求购按钮
@@ -109,12 +112,14 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
                     mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
                     mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     mallViewHolder.show_TextView.setText("注册成功");
+                    mallViewHolder.mall_status_img.setImageResource(R.mipmap.chenggong);
                     break;
                 case 2:
                     mallViewHolder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
                     mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
                     mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     mallViewHolder.show_TextView.setText("待审核中");
+                    mallViewHolder.mall_status_img.setImageResource(R.mipmap.shenghezhong);
                     break;
                 case 3:
                     mallViewHolder.mall_listitem_buy_tv.setVisibility(View.GONE);

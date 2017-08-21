@@ -23,6 +23,7 @@ import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+import com.ywy.mylibs.utils.KeyboardUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     private IndustryPopupWindow industryWindow;
     private int place = 0;
     private String industry = "";
+
     public void endAnimation(int position) {
         goBtnIV.setEnabled(true);
         setCreatNameData(position);
@@ -74,7 +76,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        refreshView(false);
+        refreshView(false);//flase不可点击，true可点击
         denominate_industry_btn.setOnClickListener(this);
         denominate_layout.setOnClickListener(this);
         setTitle("商标取名");
@@ -87,7 +89,8 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     CreatNameBean bean = (CreatNameBean) mData;
-                    ALog.i("CreatNameBean-->" + bean.toString());
+                    ALog.i("CreatNameBean-->"
+                            + bean.toString());
                     list = bean.getRecommendnamelist();
                     if (list.size() > 0) {
                         setData();
@@ -101,6 +104,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
         });
     }
 
+    //将商品名取出来set到转盘上
     private void setData() {
         List<String> nameList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
@@ -114,6 +118,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
         goBtnIV.setOnClickListener(this);
     }
 
+    //写入数据
     private void setCreatNameData(int position) {
         nameString = list.get(position).getLinechart().getTradename();
         nameTv.setText(nameString);
@@ -126,10 +131,18 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     @Override
     public void onClick(final View view) {
         switch (view.getId()) {
+            //判断editview是否有值，有值的话点击go有效,没有值则无效
             case R.id.go:
+//                if (denominate_trade_name_et.getText().equals("")) {
+//                    refreshView(false);
+//                    showToast("请输入商品名");
+//                } else {
                 refreshView(true);
+//                }
                 break;
+            //点击行业按钮弹出选择弹窗
             case R.id.denominate_industry_btn:
+                KeyboardUtils.hideSoftInput(getActivity());
                 RegisterModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
                     @Override
                     public void getCallBackCommon(Object mData) {
@@ -140,14 +153,16 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                     }
                 });
                 break;
+            //点击跳到详情页，并传了一个nameString的bundle过去
             case R.id.denominate_layout:
                 Bundle bundle = new Bundle();
-                bundle.putString("nameString",nameString);
-                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class,bundle);
+                bundle.putString("nameString", nameString);
+                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class, bundle);
                 break;
         }
     }
 
+    //行业选择弹框
     private void showIndustryWindow(View view, final List<RegisterOneIndustryBean.IndustrylistBean> industryList) {
         industryWindow = new IndustryPopupWindow(getContext(), "标题", industryList, place, new InterfaceManager.OnItemClickListener() {
             @Override
