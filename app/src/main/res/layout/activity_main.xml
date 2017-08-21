@@ -24,8 +24,7 @@
     <!--app:itemIconTint="@color/seletor_bottom_navi"-->
 
     <View
-        style="@style/GrayLine"
-        android:background="@color/grey_f8f8f8" />
+        style="@style/GrayLine"  />
 
     <RadioGroup
         android:id="@+id/home_rg"

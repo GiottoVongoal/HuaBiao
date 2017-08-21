@@ -36,8 +36,6 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
     LinearLayout trade_pledge_ll;//商标质押
     @Bind(R.id.finance_trade_sale_ll)
     LinearLayout trade_sale_ll;//商标拍卖
-    @Bind(R.id.finance_trade_assure_ll)
-    LinearLayout trade_assure_ll;//商标担保
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -47,7 +45,6 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
         evaluate_circle_tv.setOnClickListener(this);
         trade_pledge_ll.setOnClickListener(this);
         trade_sale_ll.setOnClickListener(this);
-        trade_assure_ll.setOnClickListener(this);
 
     }
 
@@ -74,10 +71,6 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
             case R.id.finance_trade_sale_ll:
                 //商标拍卖
                 showToast("商标拍卖");
-                break;
-            case R.id.finance_trade_assure_ll:
-                //商标担保
-                showToast("商标担保");
                 break;
         }
     }

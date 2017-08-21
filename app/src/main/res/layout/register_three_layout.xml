@@ -11,20 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingLeft="@dimen/x28"
+        android:paddingRight="@dimen/x65">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x56"
             android:text="服务方式"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_16" />
 
         <RadioGroup
             android:id="@+id/register_card_five_service_mode_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/x56"
             android:orientation="vertical">
 
             <RadioButton
@@ -34,7 +36,8 @@
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
                 android:text="普通注册"
-                android:textColor="@color/grey_8E8E8E" />
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
 
             <RadioButton
                 android:id="@+id/register_card_five_urgent_rb"
@@ -44,7 +47,8 @@
                 android:drawableRight="@drawable/checkbox_select_type"
                 android:paddingTop="20dp"
                 android:text="加急注册"
-                android:textColor="@color/grey_8E8E8E" />
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
 
             <RadioButton
                 android:id="@+id/register_card_five_guarantee_rb"
@@ -54,46 +58,44 @@
                 android:drawableRight="@drawable/checkbox_select_type"
                 android:paddingTop="20dp"
                 android:text="注册 + 预审 + 退费担保"
-                android:textColor="@color/grey_8E8E8E" />
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
         </RadioGroup>
 
         <View
             style="@style/GrayLine"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="15dp"  />
 
         <TextView
             android:id="@+id/register_card_five_total_cost_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/x95"
             android:text="总费用"
-            android:textColor="@color/black3" />
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_15" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/x25"
             android:text="(注册不成功，翻倍全额退款)"
-            android:textSize="12sp" />
-
+            android:textColor="@color/grey_999999"
+            android:textSize="@dimen/text_size_12" />
 
         <TextView
             android:id="@+id/register_card_five_finish_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:background="@drawable/btn_yellow"
-            android:gravity="center"
-            android:padding="15dp"
+            style="@style/text_btn_style"
+            android:layout_marginTop="@dimen/x265"
             android:text="确定" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x66"
             android:gravity="center"
-            android:padding="10dp"
             android:text="3/3" />
     </LinearLayout>
 </LinearLayout>

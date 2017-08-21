@@ -9,7 +9,7 @@
     <style name="GrayLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">@color/grey_f8f8f8</item>
+        <item name="android:background">@color/grey_efefef</item>
     </style>
     <!-- 灰色的竖线 -->
     <style name="GrayLine_shu">
@@ -30,17 +30,20 @@
         <item name="android:maxHeight">20dip</item>
         <item name="android:stepSize">0.1</item>
     </style>
+    <!--按钮style-->
+    <style name="text_btn_style">
+        <item name="android:layout_width">@dimen/x534</item>
+        <item name="android:layout_height">@dimen/x100</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textColor">@color/black3</item>
+        <item name="android:background">@mipmap/btn_yellow</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
     <!--设置EditText输入框背景为空白-->
     <style name="edittext_no_bg">
-        <item name="android:background">@mipmap/jindu_weixuan</item>
-    </style>
-    <!--TextInputLayout的主題 Start-->
-    <style name="TextInputLayoutLineColor" parent="Theme.AppCompat.Light">
-        <!--没有获取焦点时的颜色-->
-        <item name="colorControlNormal">@color/black3</item>
-        <!--获取焦点时的颜色-->
-        <item name="colorControlActivated">@color/yellow_fdd400</item>
-        <item name="android:background">@null</item>
+        <item name="android:background">@mipmap/edittext_bg_line</item>
+        <item name="android:textColorHint">@color/grey_848484</item>
     </style>
     <!--TextInputLayout输入框的错误提示样式-->
     <style name="errorAppearance" parent="TextAppearance.AppCompat">
@@ -51,11 +54,6 @@
     <style name="counterOverflowTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/red_ff0000</item>
-    </style>
-    <!--浮动标签-->
-    <style name="hintAppearance" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/yellow_fdd400</item>
     </style>
     <!--下拉筛选菜单-->
     <style name="popwin_anim_style">

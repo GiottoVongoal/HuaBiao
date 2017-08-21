@@ -3,7 +3,6 @@
     android:id="@+id/user_progress_item_ll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,7 +11,7 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="40dp"
+            android:layout_width="@dimen/x50"
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
@@ -56,15 +55,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="content_tv"
-                android:textColor="@color/black3" />
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_14" />
 
             <TextView
                 android:id="@+id/user_progress_item_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="@dimen/x12"
                 android:text="time_tv"
-                android:textColor="@color/grey_848484" />
+                android:textColor="@color/grey_999999"
+                android:textSize="@dimen/text_size_12" />
         </LinearLayout>
 
         <TextView
@@ -72,18 +73,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="@dimen/x37"
             android:background="@mipmap/jindu_weixuan"
             android:gravity="center"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:text="status_tv"
-            android:textColor="@color/grey_848484" />
+            android:textColor="@color/grey_999999"
+            android:textSize="@dimen/text_size_12" />
     </LinearLayout>
 
     <View
         android:id="@+id/user_progress_item_line3"
         style="@style/GrayLine"
-        android:layout_height="1dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_height="@dimen/x1"
+        android:layout_marginLeft="@dimen/x30"  />
 </LinearLayout>

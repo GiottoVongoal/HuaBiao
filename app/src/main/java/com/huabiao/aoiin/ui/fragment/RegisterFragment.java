@@ -72,9 +72,9 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 
     public void setSelect(int position) {
         for (int i = 0; i < tvs.length; i++) {
-            tvs[i].setBackgroundResource(R.drawable.btn_white);
+            tvs[i].setBackgroundResource(R.mipmap.btn_white);
             if (i == position) {
-                tvs[i].setBackground(getResources().getDrawable(R.drawable.btn_yellow));
+                tvs[i].setBackground(getResources().getDrawable(R.mipmap.btn_yellow));
             }
         }
     }

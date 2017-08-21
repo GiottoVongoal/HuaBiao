@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,14 +22,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="15dp">
+                android:paddingLeft="@dimen/x30"
+                android:paddingRight="@dimen/x30">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="商标基本信息"
                     android:textColor="@color/black3"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <View
                     style="@style/GrayLine"
@@ -38,8 +39,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/x110"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <TextView
@@ -47,24 +48,22 @@
                         android:layout_height="wrap_content"
                         android:text="注册商标"
                         android:textColor="@color/black3"
-                        android:textSize="17sp" />
+                        android:textSize="@dimen/text_size_16" />
 
                     <TextView
                         android:id="@+id/register_data_preview_tradename_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text=" 海飞丝" />
+                        android:textSize="@dimen/text_size_15" />
                 </LinearLayout>
 
-                <View
-                    style="@style/GrayLine"
-                    android:layout_marginTop="10dp" />
+                <View style="@style/GrayLine" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/x96"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <TextView
@@ -72,51 +71,49 @@
                         android:layout_height="wrap_content"
                         android:text="分类"
                         android:textColor="@color/black3"
-                        android:textSize="17sp" />
+                        android:textSize="@dimen/text_size_16" />
 
                     <TextView
                         android:id="@+id/register_data_preview_tradetype_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="清洁" />
+                        android:textSize="@dimen/text_size_15" />
                 </LinearLayout>
 
-                <View
-                    style="@style/GrayLine"
-                    android:layout_marginTop="10dp" />
+                <View style="@style/GrayLine" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="注册类别"
                     android:textColor="@color/black3"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/register_data_preview_classification_rv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="@dimen/x34" />
 
                 <View
                     style="@style/GrayLine"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="@dimen/x40" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="热度指数"
                     android:textColor="@color/black3"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <com.huabiao.aoiin.wedgit.DrawLineChartView
                     android:id="@+id/register_data_preview_linechart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_marginTop="@dimen/x43"
                     android:background="@drawable/bg_round_gray" />
 
                 <View style="@style/GrayLine" />
@@ -124,56 +121,56 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="联系方式"
                     android:textColor="@color/black3"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <TextView
                     android:id="@+id/register_data_preview_username_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="客户姓名" />
 
                 <TextView
                     android:id="@+id/register_data_preview_userphone_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="联系电话" />
 
                 <TextView
                     android:id="@+id/register_data_preview_contract_address_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="合同地址" />
 
                 <TextView
                     android:id="@+id/register_data_preview_code_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="邮政编码" />
 
                 <View
                     style="@style/GrayLine"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="@dimen/x30" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="申请人类型"
                     android:textColor="@color/black3"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <TextView
                     android:id="@+id/register_data_preview_person_type_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:background="@drawable/bg_round_gray"
                     android:padding="5dp"
                     android:text="类型" />
@@ -182,23 +179,22 @@
                     android:id="@+id/register_data_preview_person_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="申请人姓名" />
 
                 <TextView
                     android:id="@+id/register_data_preview_legal_or_id_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="法人姓名/ID" />
 
                 <TextView
                     android:id="@+id/register_data_preview_person_address_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="地址" />
-
 
                 <LinearLayout
                     android:id="@+id/register_data_preview_logo_ll"
@@ -208,20 +204,20 @@
 
                     <View
                         style="@style/GrayLine"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="@dimen/x30" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/x30"
                         android:text="资料提交"
                         android:textColor="@color/black3"
-                        android:textSize="17sp" />
+                        android:textSize="@dimen/text_size_16" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="@dimen/x30"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -275,9 +271,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="@dimen/x30"
                         android:orientation="vertical">
-
 
                         <ImageView
                             android:id="@+id/register_data_preview_business_licence_iv"
@@ -299,21 +294,21 @@
 
                 <View
                     style="@style/GrayLine"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="@dimen/x30" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="服务方式"
                     android:textColor="@color/black3"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <TextView
                     android:id="@+id/register_data_preview_service_mode_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/x30"
                     android:text="方式" />
             </LinearLayout>
         </ScrollView>
@@ -324,8 +319,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/x95"
             android:background="@color/white"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -335,9 +331,7 @@
                 android:layout_weight="1"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
-                android:padding="15dp"
                 android:text="编辑" />
-
 
             <TextView
                 android:id="@+id/register_data_preview_commit_tv"
@@ -346,7 +340,6 @@
                 android:layout_weight="1"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
-                android:padding="15dp"
                 android:text="立即申请" />
         </LinearLayout>
     </LinearLayout>

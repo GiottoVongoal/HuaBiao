@@ -21,14 +21,8 @@
             android:id="@+id/register_one_tradename_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:theme="@style/TextInputLayoutLineColor"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintAppearance"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="@dimen/x190"
+            app:hintAnimationEnabled="true">
 
             <EditText
                 style="@style/edittext_no_bg"
@@ -42,14 +36,8 @@
             android:id="@+id/register_one_goodsname_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:theme="@style/TextInputLayoutLineColor"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintAppearance"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="@dimen/x78"
+            app:hintAnimationEnabled="true">
 
             <EditText
                 style="@style/edittext_no_bg"
@@ -61,26 +49,16 @@
 
         <TextView
             android:id="@+id/register_one_register_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/btn_white"
-            android:gravity="center"
-            android:padding="15dp"
+            style="@style/text_btn_style"
+            android:layout_marginTop="@dimen/x165"
+            android:background="@mipmap/btn_white"
             android:text="自助注册" />
 
         <TextView
             android:id="@+id/register_one_register_custom_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/btn_white"
-            android:gravity="center"
-            android:padding="15dp"
+            style="@style/text_btn_style"
+            android:layout_marginTop="@dimen/x47"
+            android:background="@mipmap/btn_white"
             android:text="咨询客服" />
     </LinearLayout>
 
