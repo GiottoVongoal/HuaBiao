@@ -101,6 +101,7 @@
             android:layout_marginRight="@dimen/x37"
             android:background="@mipmap/jindu_weixuan"
             android:text="求购"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:textAlignment="center"
             android:textSize="@dimen/text_size_11" />
@@ -113,6 +114,7 @@
             android:layout_marginRight="@dimen/x37"
             android:background="@mipmap/jindu_weixuan"
             android:text="抢注"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:textAlignment="center"
             android:textColor="#848484"
@@ -126,6 +128,7 @@
             android:layout_marginRight="@dimen/x162"
             android:layout_marginTop="10dp"
             android:text="异议"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignRight="@+id/mall_listitem_Cybersquatting"
             android:textAlignment="center"
