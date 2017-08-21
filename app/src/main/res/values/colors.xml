@@ -6,7 +6,8 @@
     <color name="color_33000000">#33000000</color>
     <color name="color_55000000">#55000000</color>
     <color name="color_AAFFFFFF">#AAFFFFFF</color>
-
+    <!--白色-->
+    <color name="white_f6f6f6">#f6f6f6</color>
     <!-- 灰色 -->
     <color name="grey_313131">#313131</color>
     <color name="grey_E9E7E7">#E9E7E7</color>
@@ -21,7 +22,9 @@
     <color name="grey_e8e8e8">#e8e8e8</color>
     <color name="grey_f8f8f8">#f8f8f8</color>
     <color name="grey_b2b2b2">#b2b2b2</color>
+    <color name="grey_efefef">#efefef</color>
     <color name="grey_eeedef">#eeedef</color>
+    <color name="grey_999999">#999999</color>
     <color name="grey_5000">#5000</color>
     <color name="grey_FFF5F5F9">#FFF5F5F9</color>
     <!--黑色-->

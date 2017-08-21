@@ -17,19 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_marginTop="@dimen/x53"
                 android:text="申请人类型"
                 android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textSize="@dimen/text_size_16" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x30"
                 android:orientation="horizontal">
 
                 <TextView
@@ -38,65 +40,57 @@
                     android:layout_height="wrap_content"
                     android:background="@mipmap/leibei_weixuanzhong"
                     android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:text="自然人"
-                    android:textColor="@color/grey_8E8E8E" />
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_15" />
 
                 <TextView
                     android:id="@+id/register_card_five_individual_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x28"
                     android:background="@mipmap/leibei_weixuanzhong"
                     android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:text="个体工商户"
-                    android:textColor="@color/grey_8E8E8E" />
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_15" />
 
                 <TextView
                     android:id="@+id/register_card_five_company_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x28"
                     android:background="@mipmap/leibei_weixuanzhong"
                     android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:text="公司或其他组织"
-                    android:textColor="@color/grey_8E8E8E" />
-
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_15" />
             </LinearLayout>
 
             <View
                 style="@style/GrayLine"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="@dimen/x25" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:layout_marginTop="@dimen/x25"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
+                    android:layout_marginTop="@dimen/x25"
                     android:text="联系方式"
                     android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/register_card_two_username_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:theme="@style/TextInputLayoutLineColor"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextAppearance="@style/hintAppearance"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginTop="@dimen/x36"
+                    app:hintAnimationEnabled="true">
 
                     <EditText
                         style="@style/edittext_no_bg"
@@ -110,8 +104,7 @@
                     android:id="@+id/register_card_two_userphone_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:theme="@style/TextInputLayoutLineColor"
+                    android:layout_marginTop="@dimen/x36"
                     app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
                     app:errorEnabled="true"
                     app:errorTextAppearance="@style/errorAppearance"
@@ -133,10 +126,8 @@
                     android:id="@+id/register_card_two_address_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:theme="@style/TextInputLayoutLineColor"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextAppearance="@style/hintAppearance">
+                    android:layout_marginTop="@dimen/x36"
+                    app:hintAnimationEnabled="true">
 
                     <EditText
                         style="@style/edittext_no_bg"
@@ -150,8 +141,7 @@
                     android:id="@+id/register_card_two_code_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:theme="@style/TextInputLayoutLineColor"
+                    android:layout_marginTop="@dimen/x36"
                     app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
                     app:errorEnabled="true"
                     app:errorTextAppearance="@style/errorAppearance"
@@ -168,17 +158,14 @@
 
             <TextView
                 android:id="@+id/register_card_two_next_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:background="@drawable/btn_yellow"
-                android:gravity="center"
-                android:padding="15dp"
-                android:text="下一步" />
+                style="@style/text_btn_style"
+                android:layout_marginTop="@dimen/x76"
+                android:text="确定" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x66"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="2/3" />

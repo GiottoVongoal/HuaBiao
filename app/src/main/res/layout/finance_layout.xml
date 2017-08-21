@@ -14,7 +14,8 @@
         android:padding="15dp"
         android:text="金融" />
 
-    <View style="@style/GrayLine" />
+    <View
+        style="@style/GrayLine"  />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,14 +33,8 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="80dp"
-                android:theme="@style/TextInputLayoutLineColor"
-                app:hintAnimationEnabled="true"
-                app:hintTextAppearance="@style/hintAppearance"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginTop="@dimen/x180"
+                app:hintAnimationEnabled="true">
 
                 <EditText
                     style="@style/edittext_no_bg"
@@ -54,12 +49,8 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:theme="@style/TextInputLayoutLineColor"
+                android:layout_marginTop="@dimen/x76"
                 app:hintAnimationEnabled="true"
-                app:hintTextAppearance="@style/hintAppearance"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/finance_tradename_tl">
 
                 <EditText
@@ -72,23 +63,19 @@
 
             <TextView
                 android:id="@+id/finance_evaluate_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:background="@drawable/btn_yellow"
-                android:gravity="center"
-                android:padding="15dp"
+                style="@style/text_btn_style"
+                android:layout_marginTop="@dimen/x158"
                 android:text="评估" />
 
             <View
                 style="@style/GrayLine"
-                android:layout_height="10dp"
-                android:background="@color/grey_f8f8f8" />
+                android:layout_height="@dimen/x18"
+                android:layout_marginTop="@dimen/x78"  />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/x93"
                 android:orientation="horizontal"
                 android:paddingBottom="15dp"
                 android:paddingLeft="10dp"
@@ -113,7 +100,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:gravity="center"
-                        android:text="商标质押" />
+                        android:text="商标质押"
+                        android:textColor="@color/black3"
+                        android:textSize="@dimen/text_size_14" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -134,28 +123,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:gravity="center"
-                        android:text="商标拍卖" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/finance_trade_assure_ll"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/home_jindu" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:gravity="center"
-                        android:text="商标担保" />
+                        android:text="商标拍卖"
+                        android:textColor="@color/black3"
+                        android:textSize="@dimen/text_size_14" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

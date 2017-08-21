@@ -95,16 +95,6 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    public void setPersonTypeSelect(int position) {
-        for (int i = 0; i < tvs.length; i++) {
-            tvs[i].setBackgroundResource(R.mipmap.leibei_weixuanzhong);
-            tvs[i].setTextColor(getResources().getColor(R.color.grey_8E8E8E));
-            if (i == position) {
-                tvs[i].setBackground(getResources().getDrawable(R.mipmap.leibei_xuanzhong));
-                tvs[i].setTextColor(getResources().getColor(R.color.black3));
-            }
-        }
-    }
 
     @Override
     public void onClick(View view) {
@@ -141,6 +131,16 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
         commitBean.setCode(code_et.getEditText().getText().toString());
     }
 
+    public void setPersonTypeSelect(int position) {
+        for (int i = 0; i < tvs.length; i++) {
+            tvs[i].setBackgroundResource(R.mipmap.leibei_weixuanzhong);
+            tvs[i].setTextColor(getResources().getColor(R.color.grey_999999));
+            if (i == position) {
+                tvs[i].setBackground(getResources().getDrawable(R.mipmap.leibei_xuanzhong));
+                tvs[i].setTextColor(getResources().getColor(R.color.black3));
+            }
+        }
+    }
 
     @Override
     public int getContentLayout() {

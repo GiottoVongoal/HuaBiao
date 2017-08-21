@@ -132,6 +132,7 @@ public class DrawLineChartView extends RelativeLayout {
         axisY.setTextColor(Color.BLACK);
 //        axisY.setName("温度");//y轴标注
         axisY.setTextSize(7);//设置字体大小
+        axisY.setHasLines(true);
         axisY.setMaxLabelChars(7); //默认是3，只能看最后三个数字
         data.setAxisYLeft(axisY);  //Y轴设置在左边
 //      data.setAxisYRight(axisY);  //y轴设置在右边

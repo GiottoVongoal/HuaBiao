@@ -31,6 +31,7 @@ import com.huabiao.aoiin.ui.fragment.MallFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.DeviceUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

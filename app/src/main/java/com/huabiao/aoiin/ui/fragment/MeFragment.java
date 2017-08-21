@@ -47,7 +47,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     LinearLayout me_add_item_ll;
     private ViewTools viewTools;
 
-    private int[] img = new int[]{R.mipmap.jindutixin_icon, R.mipmap.jindutixin_icon, R.mipmap.jindutixin_icon, R.mipmap.jindutixin_icon};
     private String[] text = {"我的收藏", "我的足记", "我的消息", "设置"};
 
     @Override

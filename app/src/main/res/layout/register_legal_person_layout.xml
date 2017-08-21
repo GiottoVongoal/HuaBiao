@@ -18,9 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:theme="@style/TextInputLayoutLineColor"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintAppearance">
+            app:hintAnimationEnabled="true" >
 
             <EditText
                 android:layout_width="match_parent"
@@ -34,9 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:theme="@style/TextInputLayoutLineColor"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintAppearance">
+            app:hintAnimationEnabled="true" >
 
             <EditText
                 android:layout_width="match_parent"
@@ -50,7 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:theme="@style/TextInputLayoutLineColor"
             android:visibility="gone"
             app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
             app:errorEnabled="true"

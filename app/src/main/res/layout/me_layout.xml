@@ -15,8 +15,7 @@
         android:text="我的" />
 
     <View
-        style="@style/GrayLine"
-        android:background="@color/grey_848484" />
+        style="@style/GrayLine" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,10 +36,10 @@
 
                 <com.ywy.mylibs.wedgit.wedgit.CircleView
                     android:id="@+id/me_user_photo"
-                    android:layout_width="@dimen/x100"
-                    android:layout_height="@dimen/x100"
+                    android:layout_width="@dimen/x146"
+                    android:layout_height="@dimen/x146"
                     android:layout_gravity="center"
-                    android:layout_margin="15dp"
+                    android:layout_margin="@dimen/x32"
                     android:src="@mipmap/touxiang" />
 
                 <TextView
@@ -48,13 +47,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="登录/注册" />
+                    android:text="登录/注册"
+                    android:textSize="@dimen/text_size_13" />
             </LinearLayout>
+
+            <View
+                style="@style/GrayLine"  />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x2"
                 android:background="@color/white"
                 android:orientation="horizontal"
                 android:paddingBottom="15dp"
@@ -81,7 +83,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="@string/me_trademark_registered_form_string" />
+                        android:text="@string/me_trademark_registered_form_string"
+                        android:textSize="@dimen/text_size_13" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -103,7 +106,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="@string/me_remind_progress_string" />
+                        android:text="@string/me_remind_progress_string"
+                        android:textSize="@dimen/text_size_13" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,7 +129,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="@string/me_order_string" />
+                        android:text="@string/me_order_string"
+                        android:textSize="@dimen/text_size_13" />
                 </LinearLayout>
             </LinearLayout>
 

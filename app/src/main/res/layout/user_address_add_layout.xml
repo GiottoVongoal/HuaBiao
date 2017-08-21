@@ -19,13 +19,7 @@
             android:id="@+id/user_address_add_name_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextInputLayoutLineColor"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintAppearance"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:hintAnimationEnabled="true" >
 
             <EditText
                 style="@style/edittext_no_bg"
@@ -40,11 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:theme="@style/TextInputLayoutLineColor"
             app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
             app:errorEnabled="true"
-            app:errorTextAppearance="@style/errorAppearance"
-            app:hintAnimationEnabled="true">
+            app:errorTextAppearance="@style/errorAppearance" >
             <!--app:errorEnabled="true"时，开启错误提示-->
             <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
 
@@ -82,9 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:theme="@style/TextInputLayoutLineColor"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintAppearance">
+            app:hintAnimationEnabled="true" >
 
             <EditText
                 style="@style/edittext_no_bg"
@@ -99,7 +89,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:theme="@style/TextInputLayoutLineColor"
             app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
             app:errorEnabled="true"
             app:errorTextAppearance="@style/errorAppearance"
@@ -119,7 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@drawable/btn_yellow"
+        android:background="@mipmap/btn_yellow"
         android:gravity="center"
         android:padding="15dp"
         android:text="保存" />
