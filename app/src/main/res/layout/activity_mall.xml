@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:fitsSystemWindows="true"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/mall_search_et"
@@ -20,8 +19,9 @@
             android:layout_weight="1"
             android:background="@drawable/bg_round_edittext_bg"
             android:drawableLeft="@mipmap/fangdajing"
-            android:drawablePadding="@dimen/x29"
+            android:drawablePadding="@dimen/x43"
             android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x29"
             android:hint="搜索"
             android:maxLines="1"
             android:layout_marginLeft="@dimen/x23"
@@ -31,7 +31,7 @@
             android:id="@+id/mall_img"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginLeft="@dimen/text_size_10"
             android:src="@mipmap/shaixuan" />
     </LinearLayout>
 
@@ -60,11 +60,11 @@
                 android:padding="7dp"
                 android:text="全部"
                 android:textColor="#333333"
-                android:textSize="@dimen/x26" />
+                android:textSize="@dimen/text_size_13" />
 
             <View
                 android:id="@+id/mall_all_tv_line"
-                android:layout_width="@dimen/x29"
+                android:layout_width="@dimen/text_size_15"
                 android:layout_height="3dp"
                 android:layout_gravity="center"
                 android:background="@drawable/bg_underline" />
@@ -84,11 +84,11 @@
                 android:padding="7dp"
                 android:text="可求购"
                 android:textColor="@color/black3"
-                android:textSize="@dimen/x26" />
+                android:textSize="@dimen/text_size_13" />
 
             <View
                 android:id="@+id/mall_canbuy_tv_line"
-                android:layout_width="@dimen/x29"
+                android:layout_width="@dimen/text_size_15"
                 android:layout_height="3dp"
                 android:layout_gravity="center"
                 android:background="@drawable/bg_underline" />
@@ -109,11 +109,11 @@
                 android:padding="7dp"
                 android:text="可抢注"
                 android:textColor="@color/black3"
-                android:textSize="@dimen/x26" />
+                android:textSize="@dimen/text_size_13" />
 
             <View
                 android:id="@+id/mall_cancybersquatting_tv_line"
-                android:layout_width="@dimen/x29"
+                android:layout_width="@dimen/text_size_15"
                 android:layout_height="3dp"
                 android:layout_gravity="center"
                 android:background="@drawable/bg_underline" />
@@ -133,11 +133,11 @@
                 android:padding="7dp"
                 android:text="可异议"
                 android:textColor="@color/black3"
-                android:textSize="@dimen/x26" />
+                android:textSize="@dimen/text_size_13" />
 
             <View
                 android:id="@+id/mall_canyiyi_tv_line"
-                android:layout_width="@dimen/x29"
+                android:layout_width="@dimen/text_size_15"
                 android:layout_height="3dp"
                 android:layout_gravity="center"
                 android:background="@drawable/bg_underline" />
