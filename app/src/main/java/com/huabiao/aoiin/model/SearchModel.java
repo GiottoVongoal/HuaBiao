@@ -7,11 +7,9 @@ import com.huabiao.aoiin.bean.BuyingInfoBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
-import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.CustomerServiceListBean;
-import com.huabiao.aoiin.bean.HotSearchWordsBean;
 import com.huabiao.aoiin.bean.MallBean;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
+import com.huabiao.aoiin.bean.SearchResult;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 
 /**
@@ -66,7 +64,7 @@ public class SearchModel {
     public static void getSearchUnregisterResult(Context context, String tradeName, String goodsName, final InterfaceManager.CallBackCommon callback) {
         String jsonString = GetJsonToName.getJson(context, "searchresultunregisteredandcreatname.json");
         Gson gson = new Gson();
-        SearchResultUnregisteredAndCreatNameBean bean = gson.fromJson(jsonString, SearchResultUnregisteredAndCreatNameBean.class);
+        SearchResult bean = gson.fromJson(jsonString, SearchResult.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

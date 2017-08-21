@@ -1,4 +1,29 @@
 {
+  "bannarlist": [
+    {
+      "pageUrl": "https://b-ssl.duitang.com/uploads/item/201706/19/20170619141204_ErF2i.thumb.700_0.jpeg",
+      "pagetitle": "我是第一张广告图"
+    },
+    {
+      "pageUrl": "https://b-ssl.duitang.com/uploads/item/201706/19/20170619141219_iwdQ4.thumb.700_0.jpeg",
+      "pagetitle": "我是第二张广告图"
+    },
+    {
+      "pageUrl": "https://b-ssl.duitang.com/uploads/item/201706/19/20170619141233_ujEQB.thumb.700_0.jpeg",
+      "pagetitle": "我是第三张广告图"
+    }
+  ],
+  "homeinfolist": [
+    {
+      "homeinfoUrl": "https://b-ssl.duitang.com/uploads/blog/201509/29/20150929164702_KMUBn.thumb.700_0.jpeg"
+    },
+    {
+      "homeinfoUrl": "https://b-ssl.duitang.com/uploads/item/201509/29/20150929153050_v28ne.thumb.700_0.jpeg"
+    },
+    {
+      "homeinfoUrl": "https://b-ssl.duitang.com/uploads/blog/201405/28/20140528090935_fWPFa.thumb.700_0.jpeg"
+    }
+  ],
   "hotwordslist": [
     {
       "name": "舒肤佳",

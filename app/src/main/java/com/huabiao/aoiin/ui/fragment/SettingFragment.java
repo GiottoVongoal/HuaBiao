@@ -12,6 +12,7 @@ import com.huabiao.aoiin.ui.adapter.SettingRecyclerViewAdapder;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import butterknife.Bind;
 
@@ -51,7 +52,8 @@ public class SettingFragment extends BaseFragment {
                         break;
                     case FlagBase.SETTING_ADDRESS:
                         // 地址管理
-                        showToast(position + "地址管理");
+//                        showToast(position + "地址管理");
+                        JumpUtils.startFragmentByName(getContext(), UserAddressListFragment.class);
                         break;
                     case FlagBase.SETTING_FEEDBACK:
                         // 建议反馈

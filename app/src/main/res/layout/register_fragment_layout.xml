@@ -31,6 +31,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
+                style="@style/edittext_no_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="商标名"
@@ -51,6 +52,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
+                style="@style/edittext_no_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="商品名"
@@ -66,7 +68,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/btn_white"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="自助注册" />
 
         <TextView
@@ -78,7 +80,7 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/btn_white"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="咨询客服" />
     </LinearLayout>
 

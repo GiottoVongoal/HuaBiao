@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.HotWordsListBean;
-import com.huabiao.aoiin.bean.HotWordsListBean.HotwordsBean;
+import com.huabiao.aoiin.bean.HomeBean;
+import com.huabiao.aoiin.bean.HomeBean.HotwordslistBean;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 
 import java.util.List;
@@ -22,9 +22,9 @@ import java.util.List;
  */
 public class HotWordsAdapter extends RecyclerView.Adapter<HotWordsAdapter.ViewHolder> {
     private Context context;
-    private List<HotwordsBean> mList;
+    private List<HotwordslistBean> mList;
 
-    public HotWordsAdapter(Context context, List<HotwordsBean> mList) {
+    public HotWordsAdapter(Context context, List<HotwordslistBean> mList) {
         this.context = context;
         this.mList = mList;
     }
@@ -37,7 +37,7 @@ public class HotWordsAdapter extends RecyclerView.Adapter<HotWordsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        HotwordsBean bean = mList.get(position);
+        HotwordslistBean bean = mList.get(position);
         holder.top_tv.setText(bean.getName());
         holder.industrytype_tv.setText(bean.getIndustrytype());
         holder.line_chart.setLineChartBean(bean.getLinechart());

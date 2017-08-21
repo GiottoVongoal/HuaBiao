@@ -30,7 +30,11 @@
         <item name="android:maxHeight">20dip</item>
         <item name="android:stepSize">0.1</item>
     </style>
-    <!--EditText的主題 Start-->
+    <!--设置EditText输入框背景为空白-->
+    <style name="edittext_no_bg">
+        <item name="android:background">@mipmap/jindu_weixuan</item>
+    </style>
+    <!--TextInputLayout的主題 Start-->
     <style name="TextInputLayoutLineColor" parent="Theme.AppCompat.Light">
         <!--没有获取焦点时的颜色-->
         <item name="colorControlNormal">@color/black3</item>

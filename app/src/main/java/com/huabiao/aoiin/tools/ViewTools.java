@@ -36,7 +36,9 @@ public class ViewTools {
 
         ImageView imageview_geren_icon = (ImageView) child
                 .findViewById(R.id.view_me_left_iv);
-        imageview_geren_icon.setImageResource(img);
+        if (img != null) {
+            imageview_geren_icon.setImageResource(img);
+        }
         TextView left = (TextView) child.findViewById(R.id.view_me_tv);
         left.setText(textleft);
         View view_other = (View) child.findViewById(R.id.view_geren);
@@ -66,7 +68,9 @@ public class ViewTools {
 
         ImageView imageview_geren_icon = (ImageView) child
                 .findViewById(R.id.view_me_left_iv);
-        imageview_geren_icon.setImageResource(img);
+        if (img != null) {
+            imageview_geren_icon.setImageResource(img);
+        }
 
         TextView left = (TextView) child.findViewById(R.id.view_me_tv);
         left.setText(textleft);

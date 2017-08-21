@@ -99,9 +99,9 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <EditText
+                        style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@null"
                         android:hint="申请人姓名"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
@@ -120,9 +120,9 @@
                     <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
 
                     <EditText
+                        style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@null"
                         android:hint="联系电话"
                         android:inputType="phone"
                         android:maxLines="1"
@@ -139,9 +139,9 @@
                     app:hintTextAppearance="@style/hintAppearance">
 
                     <EditText
+                        style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@null"
                         android:hint="合同地址"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
@@ -158,9 +158,9 @@
                     app:hintAnimationEnabled="true">
 
                     <EditText
+                        style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@null"
                         android:hint="邮政编码"
                         android:inputType="number" />
                 </android.support.design.widget.TextInputLayout>
@@ -173,7 +173,7 @@
                 android:layout_margin="30dp"
                 android:background="@drawable/btn_yellow"
                 android:gravity="center"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:text="下一步" />
 
             <TextView

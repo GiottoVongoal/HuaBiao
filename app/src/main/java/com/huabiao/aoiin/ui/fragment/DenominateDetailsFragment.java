@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean;
+import com.huabiao.aoiin.bean.SearchResult;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.DenominateDetailsAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -78,7 +78,7 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    SearchResultUnregisteredAndCreatNameBean bean = (SearchResultUnregisteredAndCreatNameBean) mData;
+                    SearchResult bean = (SearchResult) mData;
                     denominate_details_rcv.setLayoutManager(new FullyLinearLayoutManager(getContext()));
                     detailsAdapter = new DenominateDetailsAdapter(bean.getClassification());
                     denominate_details_rcv.setAdapter(detailsAdapter);

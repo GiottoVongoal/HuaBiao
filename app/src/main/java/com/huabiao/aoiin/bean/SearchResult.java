@@ -8,7 +8,7 @@ import java.util.List;
  * @date 2017-07-07 13:21
  * @description 查询结果--未注册Bean
  */
-public class SearchResultUnregisteredAndCreatNameBean {
+public class SearchResult {
 
     /**
      * means : 我是这个商标名的含义,美丽的思考

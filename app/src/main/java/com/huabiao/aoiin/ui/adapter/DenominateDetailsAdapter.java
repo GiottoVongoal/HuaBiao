@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultUnregisteredAndCreatNameBean.ClassificationBean;
+import com.huabiao.aoiin.bean.SearchResult.ClassificationBean;
 
 /**
  * Created by Aoiin-9 on 2017/8/11.

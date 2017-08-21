@@ -4,11 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,14 +15,11 @@ import android.widget.TextView;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.HomeBannarBean;
-import com.huabiao.aoiin.bean.HomeBannarBean.BannarlistBean;
-import com.huabiao.aoiin.bean.HomeInfomationBean;
-import com.huabiao.aoiin.bean.HomeInfomationBean.HomeinfolistBean;
-import com.huabiao.aoiin.bean.HotWordsListBean;
-import com.huabiao.aoiin.bean.HotWordsListBean.HotwordsBean;
+import com.huabiao.aoiin.bean.HomeBean;
+import com.huabiao.aoiin.bean.HomeBean.HotwordslistBean;
+import com.huabiao.aoiin.bean.HomeBean.HomeinfolistBean;
+import com.huabiao.aoiin.bean.HomeBean.BannarlistBean;
 import com.huabiao.aoiin.model.HomeModel;
-import com.huabiao.aoiin.picview.BitmapUtil;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
@@ -33,7 +28,6 @@ import com.huabiao.aoiin.ui.adapter.InfomationAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.DeviceUtils;
 import com.ywy.mylibs.utils.JumpUtils;
 
@@ -95,54 +89,38 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
         ALog.i("28--->" + DeviceUtils.px2sp(getContext(), 28));
 
-        HomeModel.getBannarList(getContext(), new InterfaceManager.CallBackCommon() {
+        HomeModel.getHomeData(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    HomeBannarBean bean = (HomeBannarBean) mData;
+                    HomeBean bean = (HomeBean) mData;
                     bannarList = bean.getBannarlist();
                     initBannar();
-                    showHotWords();
-                    showInfo();
+                    showHotWords(bean);
+                    showInfo(bean);
                 }
             }
         });
     }
 
     //获取资讯
-    private void showInfo() {
-        HomeModel.getInfoList(getContext(), new InterfaceManager.CallBackCommon() {
-            @Override
-            public void getCallBackCommon(Object mData) {
-                if (mData != null) {
-                    HomeInfomationBean bean = (HomeInfomationBean) mData;
-                    List<HomeinfolistBean> infoList = bean.getHomeinfolist();
-                    infomationAdapter = new InfomationAdapter(getContext(), infoList);
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-                    linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                    home_information_rv.setLayoutManager(linearLayoutManager);
-                    home_information_rv.setAdapter(infomationAdapter);
-                }
-            }
-        });
+    private void showInfo(HomeBean bean) {
+        List<HomeinfolistBean> infoList = bean.getHomeinfolist();
+        infomationAdapter = new InfomationAdapter(getContext(), infoList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        home_information_rv.setLayoutManager(linearLayoutManager);
+        home_information_rv.setAdapter(infomationAdapter);
     }
 
     //获取热搜词
-    private void showHotWords() {
-        HomeModel.getHotWordsList(getContext(), new InterfaceManager.CallBackCommon() {
-            @Override
-            public void getCallBackCommon(Object mData) {
-                if (mData != null) {
-                    HotWordsListBean bean = (HotWordsListBean) mData;
-                    List<HotwordsBean> howWordList = bean.getHotwordslist();
-                    hotWordsAdapter = new HotWordsAdapter(getContext(), howWordList);
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-                    linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                    home_hot_words_rv.setLayoutManager(linearLayoutManager);
-                    home_hot_words_rv.setAdapter(hotWordsAdapter);
-                }
-            }
-        });
+    private void showHotWords(HomeBean bean) {
+        List<HotwordslistBean> howWordList = bean.getHotwordslist();
+        hotWordsAdapter = new HotWordsAdapter(getContext(), howWordList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        home_hot_words_rv.setLayoutManager(linearLayoutManager);
+        home_hot_words_rv.setAdapter(hotWordsAdapter);
     }
 
     private void initBannar() {

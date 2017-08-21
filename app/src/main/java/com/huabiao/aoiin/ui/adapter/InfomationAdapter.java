@@ -7,10 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.HomeInfomationBean;
-import com.huabiao.aoiin.bean.HomeInfomationBean.HomeinfolistBean;
+import com.huabiao.aoiin.bean.HomeBean;
+import com.huabiao.aoiin.bean.HomeBean.HomeinfolistBean;
 import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
-import com.ywy.mylibs.utils.BitmapLoader;
 
 import java.util.List;
 
