@@ -24,6 +24,7 @@ import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.KeyboardUtils;
+import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +69,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     private IndustryPopupWindow industryWindow;
     private int place = 0;
     private String industry = "";
+    private String str = "";
 
     public void endAnimation(int position) {
         goBtnIV.setEnabled(true);
@@ -131,14 +133,18 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     @Override
     public void onClick(final View view) {
         switch (view.getId()) {
-            //判断editview是否有值，有值的话点击go有效,没有值则无效
+            //判断editview是否有值，有值的话点击go有效,没有值则输出弹框提示
             case R.id.go:
-//                if (denominate_trade_name_et.getText().equals("")) {
-//                    refreshView(false);
-//                    showToast("请输入商品名");
-//                } else {
+                str = denominate_trade_name_et.getText().toString();
+                if (StringUtil.isEmpty(str)) {
+                    showToast("请输入商品名");
+                    return;
+                }
+                if (StringUtil.isEmpty(industry)) {
+                    showToast("请选择行业");
+                    return;
+                }
                 refreshView(true);
-//                }
                 break;
             //点击行业按钮弹出选择弹窗
             case R.id.denominate_industry_btn:
