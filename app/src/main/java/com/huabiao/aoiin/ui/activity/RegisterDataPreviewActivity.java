@@ -146,12 +146,12 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
      * 商标注册表单预览
      */
     private void showFormData(FormBean bean) {
-        tradename_tv.setText("注册商标\t" + bean.getLinechart().getTradename());
-        tradetype_tv.setText("分类\t" + bean.getLinechart().getTrademarkclassification());
+        tradename_tv.setText(bean.getLinechart().getTradename());
+        tradetype_tv.setText(bean.getLinechart().getTrademarkclassification());
         linechart.setLineChartBean(bean.getLinechart());
 
         mAdapter = new RegisterDataPreviewAdapter(this, bean.getClassification());
-          layoutManager = new FullyLinearLayoutManager(this);
+        layoutManager = new FullyLinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         classification_rv.setLayoutManager(layoutManager);
         classification_rv.setAdapter(mAdapter);
@@ -214,15 +214,15 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     RegisterBean bean = (RegisterBean) mData;
-                    tradename_tv.setText("注册商标:" + bean.getLinechart().getTradename());
-                    tradetype_tv.setText("分类:" + bean.getLinechart().getTrademarkclassification());
+                    tradename_tv.setText(bean.getLinechart().getTradename());
+                    tradetype_tv.setText(bean.getLinechart().getTrademarkclassification());
                     linechart.setLineChartBean(bean.getLinechart());
                 }
             }
         });
 
         mAdapter = new RegisterDataPreviewAdapter(this, bean.getClaList());
-          layoutManager = new FullyLinearLayoutManager(this);
+        layoutManager = new FullyLinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         classification_rv.setLayoutManager(layoutManager);
         classification_rv.setAdapter(mAdapter);

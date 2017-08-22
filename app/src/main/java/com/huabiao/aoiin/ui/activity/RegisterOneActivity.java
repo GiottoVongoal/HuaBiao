@@ -45,9 +45,8 @@ public class RegisterOneActivity extends BaseActivity implements View.OnClickLis
     @Bind(R.id.register_card_one_tradetype_tv)
     TextView tradetype_tv;//分类
 
-
     //    @Bind(R.id.register_card_one_classification_tv)
-//    TextView classification_tv;//按类筛选
+    //    TextView classification_tv;//按类筛选
     ScreenPopupWindow screenPopupWindow;
     @Bind(R.id.register_card_one_classification_rv)
     RecyclerView classification_rv;

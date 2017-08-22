@@ -135,15 +135,19 @@ public class MainActivity extends BaseActivity {
     public void setItem(int index) {
         switch (index) {
             case 0:
+                home_rg.check(home_shouye_rb.getId());
                 addFragment(homePageFragment);
                 break;
             case 1:
+                home_rg.check(home_mall_rb.getId());
                 addFragment(mallFragment);
                 break;
             case 2:
+                home_rg.check(home_finance_rb.getId());
                 addFragment(financeFragment);
                 break;
             case 3:
+                home_rg.check(home_me_rb.getId());
                 addFragment(meFragment);
                 break;
         }

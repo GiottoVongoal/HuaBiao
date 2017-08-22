@@ -73,7 +73,7 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
                 showToast("收藏");
             }
         });
-        SearchModel.getSearchUnregisterResult(getContext(), "", "", new InterfaceManager.CallBackCommon() {
+        SearchModel.getCreatName(getContext(), "", "", new InterfaceManager.CallBackCommon() {
 
             @Override
             public void getCallBackCommon(Object mData) {

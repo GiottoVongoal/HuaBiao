@@ -65,6 +65,7 @@
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/x32" />
+            android:layout_marginRight="@dimen/x32"
+            android:background="@mipmap/touxiang" />
     </RelativeLayout>
 </LinearLayout>

@@ -28,7 +28,7 @@
                 android:paddingTop="@dimen/x100"
                 android:text="aaa"
                 android:textColor="@color/white_f6f6f6"
-                android:textSize="@dimen/text_size_17"
+                android:textSize="@dimen/text_size_25"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7" />
 

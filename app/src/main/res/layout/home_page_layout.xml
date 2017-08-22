@@ -195,6 +195,7 @@
 
             <View
                 style="@style/GrayLine"
+                android:background="@color/grey_f8f8f8"
                 android:layout_height="@dimen/x20"  />
 
             <TextView
@@ -226,8 +227,6 @@
                 android:text="热搜词"
                 android:textColor="@color/black3"
                 android:textSize="18sp" />
-
-            <View style="@style/GrayLine" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/home_hot_words_rv"

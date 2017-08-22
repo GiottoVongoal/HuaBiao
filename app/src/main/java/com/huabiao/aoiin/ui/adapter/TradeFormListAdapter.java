@@ -48,7 +48,7 @@ public class TradeFormListAdapter extends RecyclerView.Adapter<TradeFormListAdap
     public void onBindViewHolder(ViewHolder holder, final int position) {
         TradeFormItemBean bean = mList.get(position);
         holder.item_tv.setText(bean.getTradename());
-        BitmapLoader.ins().loadImage(bean.getLogoimg(), R.mipmap.ic_launcher, holder.item_iv);
+        BitmapLoader.ins().loadImage(bean.getLogoimg(), R.mipmap.logobg, holder.item_iv);
         holder.item_rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

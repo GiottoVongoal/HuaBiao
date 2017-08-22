@@ -55,7 +55,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void showView() {
-        BitmapLoader.ins().loadImage("https://b-ssl.duitang.com/uploads/blog/201509/29/20150929164702_KMUBn.thumb.700_0.jpeg", R.mipmap.touxiang, me_user_photo);
+//        BitmapLoader.ins().loadImage("https://b-ssl.duitang.com/uploads/blog/201509/29/20150929164702_KMUBn.thumb.700_0.jpeg", R.mipmap.touxiang, me_user_photo);
         me_user_name.setText("登录/注册");
 
         viewTools = new ViewTools(getContext());

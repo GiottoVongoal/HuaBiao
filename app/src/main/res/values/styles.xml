@@ -9,13 +9,13 @@
     <style name="GrayLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">@color/grey_efefef</item>
+        <item name="android:background">@color/grey_e1e1e1</item>
     </style>
     <!-- 灰色的竖线 -->
     <style name="GrayLine_shu">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">1dp</item>
-        <item name="android:background">@color/grey_f8f8f8</item>
+        <item name="android:background">@color/grey_e1e1e1</item>
     </style>
     <!--屏幕底部弹出PopupWindow效果-->
     <style name="bottom_enter_anim" parent="android:Animation">
@@ -44,6 +44,8 @@
     <style name="edittext_no_bg">
         <item name="android:background">@mipmap/edittext_bg_line</item>
         <item name="android:textColorHint">@color/grey_848484</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textColor">@color/black3</item>
     </style>
     <!--TextInputLayout输入框的错误提示样式-->
     <style name="errorAppearance" parent="TextAppearance.AppCompat">

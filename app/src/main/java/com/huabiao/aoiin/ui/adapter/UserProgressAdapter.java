@@ -59,6 +59,7 @@ public class UserProgressAdapter extends RecyclerView.Adapter<UserProgressAdapte
             holder.line3.setVisibility(View.GONE);
             holder.item_iv.setBackground(context.getResources().getDrawable(R.mipmap.point_yellow));
             holder.item_status_tv.setBackground(context.getResources().getDrawable(R.mipmap.jindu_yixuan));
+            holder.item_status_tv.setTextColor(context.getResources().getColor(R.color.black3));
         } else {
             holder.line1.setVisibility(View.VISIBLE);
             holder.line2.setVisibility(View.VISIBLE);

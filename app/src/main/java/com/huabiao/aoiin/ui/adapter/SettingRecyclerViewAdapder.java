@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -56,12 +57,12 @@ public class SettingRecyclerViewAdapder extends RecyclerView.Adapter<SettingRecy
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView me_recyclerview_item_tv;
-        public CardView me_recyclerview_item;
+        public LinearLayout me_recyclerview_item;
 
         public ViewHolder(View itemView) {
             super(itemView);
             me_recyclerview_item_tv = (TextView) itemView.findViewById(R.id.me_recyclerview_item_tv);
-            me_recyclerview_item = (CardView) itemView.findViewById(R.id.me_recyclerview_item);
+            me_recyclerview_item = (LinearLayout) itemView.findViewById(R.id.me_recyclerview_item);
         }
     }
 }

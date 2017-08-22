@@ -29,11 +29,10 @@
             android:text="筛选" />
     </LinearLayout>
 
-    <View style="@style/GrayLine" />
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,16 +45,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <View style="@style/GrayLine" />
-
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/search_result_line_chart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/white" />
-
-            <View style="@style/GrayLine" />
 
             <com.huabiao.aoiin.wedgit.MaxRecyclerView
                 android:id="@+id/search_result_bottom_rv"

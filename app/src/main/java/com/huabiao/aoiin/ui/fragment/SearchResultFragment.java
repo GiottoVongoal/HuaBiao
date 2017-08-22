@@ -1,12 +1,8 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
@@ -17,9 +13,7 @@ import com.huabiao.aoiin.bean.ScreenBean.ScreenlistBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
 import com.huabiao.aoiin.bean.SearchResultBean.RecommendBean;
 import com.huabiao.aoiin.model.SearchModel;
-import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.adapter.SearchResultBottomAdapter;
-import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.adapter.SearchResultTopAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
@@ -127,7 +121,7 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     public int getContentLayout() {
-        return R.layout.search_result_registered_layout;
+        return R.layout.search_result_layout;
     }
 
     @Override
