@@ -229,7 +229,7 @@
                                 android:layout_width="150dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
-                                android:background="@mipmap/ic_launcher"
+                                android:background="@mipmap/logobg"
                                 android:scaleType="centerCrop" />
 
                             <TextView
@@ -252,7 +252,7 @@
                                 android:layout_width="150dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
-                                android:background="@mipmap/ic_launcher"
+                                android:background="@mipmap/logobg"
                                 android:scaleType="centerCrop" />
 
                             <TextView
@@ -277,7 +277,7 @@
                             android:layout_width="200dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center"
-                            android:background="@mipmap/ic_launcher"
+                            android:background="@mipmap/logobg"
                             android:scaleType="centerCrop" />
 
                         <TextView
@@ -306,6 +306,7 @@
                     android:id="@+id/register_data_preview_service_mode_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/x30"
                     android:layout_marginTop="@dimen/x30"
                     android:text="方式" />
             </LinearLayout>
@@ -325,7 +326,7 @@
             <TextView
                 android:id="@+id/register_data_preview_back_tv"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
@@ -334,7 +335,7 @@
             <TextView
                 android:id="@+id/register_data_preview_commit_tv"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
