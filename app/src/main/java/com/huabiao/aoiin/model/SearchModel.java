@@ -44,7 +44,7 @@ public class SearchModel {
      * @param callback
      */
     public static void getSearchResult(Context context, String classificationId, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "searchresultregistered.json");
+        String jsonString = GetJsonToName.getJson(context, "searchresult.json");
         Gson gson = new Gson();
         SearchResultBean bean = gson.fromJson(jsonString, SearchResultBean.class);
         if (callback != null) {
@@ -61,8 +61,8 @@ public class SearchModel {
      * @param callback
      */
 
-    public static void getSearchUnregisterResult(Context context, String tradeName, String goodsName, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "searchresultunregisteredandcreatname.json");
+    public static void getCreatName(Context context, String tradeName, String goodsName, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "creatname.json");
         Gson gson = new Gson();
         SearchResult bean = gson.fromJson(jsonString, SearchResult.class);
         if (callback != null) {

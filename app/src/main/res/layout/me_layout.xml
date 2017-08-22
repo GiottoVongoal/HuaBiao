@@ -12,10 +12,12 @@
         android:fitsSystemWindows="true"
         android:gravity="center"
         android:padding="15dp"
-        android:text="我的" />
+        android:text="我的"
+        android:textSize="@dimen/text_size_17" />
 
     <View
-        style="@style/GrayLine" />
+        style="@style/GrayLine"
+        android:background="@color/grey_c2c2c2" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -51,8 +53,7 @@
                     android:textSize="@dimen/text_size_13" />
             </LinearLayout>
 
-            <View
-                style="@style/GrayLine"  />
+            <View style="@style/GrayLine" />
 
             <LinearLayout
                 android:layout_width="match_parent"

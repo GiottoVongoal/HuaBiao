@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -50,9 +49,9 @@ public class RegisterCardOneAdapter extends RecyclerView.Adapter<RegisterCardOne
         holder.bottom_tv.setText(bean.getClassificationname());
         boolean ischeck = bean.isCheck();
         if (ischeck) {
-            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.leibei_xuanzhong));
+            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.xuanzhong));
         } else {
-            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.leibei_weixuanzhong));
+            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.weixuanzhong));
         }
         holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override

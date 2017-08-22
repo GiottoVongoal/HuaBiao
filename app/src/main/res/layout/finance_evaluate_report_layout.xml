@@ -163,6 +163,7 @@
                 android:id="@+id/finance_evaluate_report_trends_info_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/x14"
                 android:padding="15dp" />
         </LinearLayout>
     </ScrollView>
@@ -174,8 +175,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center"
         android:padding="15dp"
-        android:foreground="?android:attr/selectableItemBackground"
         android:text="资讯专业人员获取精准评估结果" />
 </LinearLayout>

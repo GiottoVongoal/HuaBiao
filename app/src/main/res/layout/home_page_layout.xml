@@ -195,6 +195,7 @@
 
             <View
                 style="@style/GrayLine"
+                android:background="@color/grey_f8f8f8"
                 android:layout_height="@dimen/x20"  />
 
             <TextView

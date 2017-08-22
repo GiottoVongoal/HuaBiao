@@ -3,7 +3,8 @@
     android:layout_width="@dimen/x500"
     android:layout_height="match_parent"
     android:layout_marginBottom="@dimen/x20"
-    android:layout_marginLeft="@dimen/x20"
+    android:layout_marginLeft="@dimen/x18"
+    android:layout_marginRight="@dimen/x18"
     android:background="@drawable/bg_round_white"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:text="热搜词:"
             android:textColor="@color/black3"
-            android:textSize="13sp" />
+            android:textSize="@dimen/text_size_12" />
 
         <TextView
             android:id="@+id/hot_words_item_top_tv"
@@ -29,17 +30,20 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black3"
-            android:textSize="28sp" />
+            android:textSize="@dimen/text_size_17" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/hot_words_item_industrytype_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_round_gray"
-        android:padding="5dp"
+        android:layout_marginTop="@dimen/x18"
+        android:background="@mipmap/jindu_weixuan"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:textColor="@color/black3"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_size_12" />
 
     <com.huabiao.aoiin.wedgit.DrawLineChartView
         android:id="@+id/hot_words_item_line_chart"
@@ -50,6 +54,8 @@
         android:id="@+id/hot_words_item_means_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        android:textColor="@color/black3" />
+        android:lineSpacingExtra="@dimen/x14"
+        android:padding="@dimen/x27"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_13" />
 </LinearLayout>

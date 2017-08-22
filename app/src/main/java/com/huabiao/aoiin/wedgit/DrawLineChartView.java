@@ -61,6 +61,7 @@ public class DrawLineChartView extends RelativeLayout {
 
     private void initView(View lineChartView) {
         line_chart_ll = (LinearLayout) lineChartView.findViewById(R.id.line_chart_ll);
+        line_chart_ll.setVisibility(GONE);
         chart = (LineChartView) lineChartView.findViewById(R.id.chart);
         chart.setVisibility(INVISIBLE);
         line_chart_trademark_name = (TextView) lineChartView.findViewById(R.id.line_chart_trademark_name);
@@ -83,18 +84,18 @@ public class DrawLineChartView extends RelativeLayout {
             for (int i = 0; i < bean.getLines().size(); i++) {
                 LineChartBean.LinesBean data = bean.getLines().get(i);
                 //增加折线标注
-                TextView tv = new TextView(getContext());
-                tv.setPadding(0, 10, 0, 0);
-                LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                line_chart_ll.addView(tv, lp);
-                tv.setTextSize(11);
-                tv.setTextColor(Color.parseColor(data.getLinecolor()));
-                tv.setText(data.getLinename());
+//                TextView tv = new TextView(getContext());
+//                tv.setPadding(0, 10, 0, 0);
+//                LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//                line_chart_ll.addView(tv, lp);
+//                tv.setTextSize(11);
+//                tv.setTextColor(Color.parseColor(data.getLinecolor()));
+//                tv.setText(data.getLinename());
                 List<PointValue> mPointValues = new ArrayList<>();
                 for (int j = 0; j < data.getLinevalue().size(); j++) {
                     mPointValues.add(new PointValue(j, data.getLinevalue().get(j)));
                 }
-                Line line = new Line(mPointValues).setColor(Color.parseColor(data.getLinecolor())).setCubic(false).setStrokeWidth(1);  //折线的颜色,粗细
+                Line line = new Line(mPointValues).setColor(Color.parseColor(data.getLinecolor())).setCubic(false).setStrokeWidth(2);  //折线的颜色,粗细
                 line.setShape(ValueShape.CIRCLE);//折线图上每个数据点的形状  这里是圆形 （有三种 ：ValueShape.DIAMOND  ValueShape.CIRCLE  ValueShape.SQUARE）
                 line.setCubic(true);//曲线是否平滑
                 line.setFilled(true);//是否填充曲线的面积

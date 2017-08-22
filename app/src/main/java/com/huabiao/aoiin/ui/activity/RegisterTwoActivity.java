@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ActivityCollector;
-import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -133,10 +132,10 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
 
     public void setPersonTypeSelect(int position) {
         for (int i = 0; i < tvs.length; i++) {
-            tvs[i].setBackgroundResource(R.mipmap.leibei_weixuanzhong);
+            tvs[i].setBackgroundResource(R.mipmap.weixuanzhong);
             tvs[i].setTextColor(getResources().getColor(R.color.grey_999999));
             if (i == position) {
-                tvs[i].setBackground(getResources().getDrawable(R.mipmap.leibei_xuanzhong));
+                tvs[i].setBackground(getResources().getDrawable(R.mipmap.xuanzhong));
                 tvs[i].setTextColor(getResources().getColor(R.color.black3));
             }
         }

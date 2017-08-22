@@ -55,19 +55,6 @@
               6,
               8
             ]
-          },
-          {
-            "linename": "阿里",
-            "linecolor": "#AED79B",
-            "linevalue": [
-              2,
-              5,
-              7,
-              4,
-              4,
-              8,
-              6
-            ]
           }
         ]
       }
@@ -91,21 +78,8 @@
         ],
         "lines": [
           {
-            "linename": "百度",
-            "linecolor": "#fdd400",
-            "linevalue": [
-              9,
-              7,
-              6,
-              7,
-              8,
-              6,
-              8
-            ]
-          },
-          {
             "linename": "阿里",
-            "linecolor": "#AED79B",
+            "linecolor": "#fdd400",
             "linevalue": [
               2,
               5,
@@ -141,26 +115,13 @@
             "linename": "百度",
             "linecolor": "#fdd400",
             "linevalue": [
-              9,
+              4,
               7,
               6,
               7,
               8,
               6,
-              8
-            ]
-          },
-          {
-            "linename": "阿里",
-            "linecolor": "#AED79B",
-            "linevalue": [
-              2,
-              5,
-              7,
-              4,
-              4,
-              8,
-              6
+              9
             ]
           }
         ]
@@ -188,26 +149,13 @@
             "linename": "百度",
             "linecolor": "#fdd400",
             "linevalue": [
+              10,
+              13,
               9,
               7,
-              6,
-              7,
-              8,
+              10,
               6,
               8
-            ]
-          },
-          {
-            "linename": "阿里",
-            "linecolor": "#AED79B",
-            "linevalue": [
-              2,
-              5,
-              7,
-              4,
-              4,
-              8,
-              6
             ]
           }
         ]

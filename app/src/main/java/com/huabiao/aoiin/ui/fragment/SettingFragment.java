@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.constant.FlagBase;
+import com.huabiao.aoiin.tools.DataCleanManager;
 import com.huabiao.aoiin.ui.adapter.SettingRecyclerViewAdapder;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
@@ -39,6 +40,11 @@ public class SettingFragment extends BaseFragment {
         adapder = new SettingRecyclerViewAdapder(getActivity(), text);
         setting_rv.setAdapter(adapder);
         setOnClickListener();
+        String totalSize = "0(MB)";
+        try {
+            totalSize = DataCleanManager.getTotalCacheSize(getActivity());
+        } catch (Exception e) {
+        }
     }
 
     private void setOnClickListener() {
@@ -69,7 +75,9 @@ public class SettingFragment extends BaseFragment {
                         break;
                     case FlagBase.SETTING_CLEAR_CACHE:
                         // 清除缓存
+                        //增加进度条
                         showToast(position + "清除缓存");
+                        DataCleanManager.clearAllCache(getActivity());
                         break;
                 }
             }

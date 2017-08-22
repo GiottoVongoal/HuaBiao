@@ -44,6 +44,8 @@
     <style name="edittext_no_bg">
         <item name="android:background">@mipmap/edittext_bg_line</item>
         <item name="android:textColorHint">@color/grey_848484</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textColor">@color/black3</item>
     </style>
     <!--TextInputLayout输入框的错误提示样式-->
     <style name="errorAppearance" parent="TextAppearance.AppCompat">
