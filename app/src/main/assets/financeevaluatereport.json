@@ -3,71 +3,17 @@
   "tradename": "海飞丝",
   "trademarkclassification": "日化用品",
   "classificationid": "03",
+  "regnumber": "115521315",
   "tradestatus": 1,
   "tradegrade": 84,
-  "linechart": {
+  "monthsales": "5645",
+  "hotrank": "23",
+  "similarproduct": {
     "tradename": "海飞丝",
     "trademarkclassification": "日化用品",
     "classificationid": "03",
-    "Xaxistag": [
-      "周一",
-      "周二",
-      "周三",
-      "周四",
-      "周五",
-      "周六",
-      "周日"
-    ],
-    "lines": [
-      {
-        "linename": "亚马逊",
-        "linecolor": "#fdd400",
-        "linevalue": [
-          9,
-          7,
-          6,
-          7,
-          8,
-          6,
-          8
-        ]
-      }
-    ]
-  },
-  "timelimit": "2014-01-28~2024-01-27",
-  "servicearealist": [
-    {
-      "classificationname": "铝",
-      "classificationid": "0601"
-    },
-    {
-      "classificationname": "金属管道",
-      "classificationid": "0602"
-    },
-    {
-      "classificationname": "金属门；金属窗",
-      "classificationid": "0603"
-    },
-    {
-      "classificationname": "金属门；金属窗",
-      "classificationid": "0605"
-    },
-    {
-      "classificationname": "铝",
-      "classificationid": "0601"
-    },
-    {
-      "classificationname": "金属管道",
-      "classificationid": "0602"
-    },
-    {
-      "classificationname": "金属门；金属窗",
-      "classificationid": "0603"
-    },
-    {
-      "classificationname": "金属门；金属窗",
-      "classificationid": "0605"
-    }
-  ],
-  "trendsinfo": "安塞乐米塔尔：到2021年将提升日化品产量25% 07-18 10:07\n国家统计局：6月全国日化用品均产量244.1万吨 07-18 09:58"
+    "tradegrade": 84,
+    "monthsales": "5645",
+    "hotrank": "23"
+  }
 }

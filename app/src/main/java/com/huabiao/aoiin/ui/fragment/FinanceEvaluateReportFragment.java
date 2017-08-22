@@ -8,20 +8,16 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.FinanceEvakuateReportBean;
+import com.huabiao.aoiin.bean.FinanceEvakuateReportBean.SimilarproductBean;
 import com.huabiao.aoiin.model.FinanceModel;
-import com.huabiao.aoiin.ui.adapter.ServiceAreaAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
-import com.huabiao.aoiin.wedgit.CircleTextView;
 import com.huabiao.aoiin.wedgit.ColorArcProgressBar;
-import com.huabiao.aoiin.wedgit.DrawLineChartView;
-import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
 
 import butterknife.Bind;
 
-import static com.umeng.analytics.a.p;
 
 /**
  * @author 杨丽亚.
@@ -29,7 +25,7 @@ import static com.umeng.analytics.a.p;
  * @date 2017-08-08 12:12
  * @description 商标评估报告
  */
-public class FinanceEvaluateReportFragment extends BaseFragment implements View.OnClickListener {
+public class FinanceEvaluateReportFragment extends BaseFragment {
     @Bind(R.id.finance_evaluate_report_trade_iv)
     ImageView trade_iv;
     @Bind(R.id.finance_evaluate_report_tradename_tv)
@@ -38,27 +34,28 @@ public class FinanceEvaluateReportFragment extends BaseFragment implements View.
     TextView tradetype_tv;
     @Bind(R.id.finance_evaluate_report_tradestatus_tv)
     TextView tradestatus_tv;
+    @Bind(R.id.finance_evaluate_report_regnumber_tv)
+    TextView regnumber_tv;//注册号
 
     @Bind(R.id.finance_evaluate_report_circle_bar)
     ColorArcProgressBar circle_bar;
 
-    @Bind(R.id.finance_evaluate_report_linechart)
-    DrawLineChartView linechart;
+    @Bind(R.id.finance_evaluate_report_monthsales_tv)
+    TextView monthsales_tv;//月销量
+    @Bind(R.id.finance_evaluate_report_hotrank_tv)
+    TextView hotrank_tv;//月品牌热门排行榜
 
-    @Bind(R.id.finance_evaluate_report_time_limit_tv)
-    TextView time_limit_tv;
-
-    @Bind(R.id.finance_evaluate_report_service_area_rv)
-    RecyclerView service_area_rv;
-    private ServiceAreaAdapter serviceAdapter;
-
-    @Bind(R.id.finance_evaluate_report_trends_info_tv)
-    TextView trends_info_tv;
-    @Bind(R.id.finance_evaluate_report_trends_more_tv)
-    TextView trends_more_tv;
-
-    @Bind(R.id.finance_evaluate_report_to_next_tv)
-    TextView to_next_tv;
+    //相似产品数据
+    @Bind(R.id.finance_evaluate_report_similarproduct_tradename_tv)
+    TextView similarproduct_tradename_tv;
+    @Bind(R.id.finance_evaluate_report_similarproduct_tradetype_tv)
+    TextView similarproduct_tradetype_tv;
+    @Bind(R.id.finance_evaluate_report_similarproduct_circle_bar)
+    ColorArcProgressBar similarproduct_circle_bar;
+    @Bind(R.id.finance_evaluate_report_similarproduct_monthsales_tv)
+    TextView similarproduct_monthsales_tv;//月销量
+    @Bind(R.id.finance_evaluate_report_similarproduct_hotrank_tv)
+    TextView similarproduct_hotrank_tv;//月品牌热门排行榜
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -77,48 +74,36 @@ public class FinanceEvaluateReportFragment extends BaseFragment implements View.
     }
 
     private void showData(FinanceEvakuateReportBean bean) {
-        BitmapLoader.ins().loadImage(bean.getTradeimg(), R.mipmap.ic_launcher, trade_iv);
+        BitmapLoader.ins().loadImage(bean.getTradeimg(), R.mipmap.logobg, trade_iv);
         tradename_tv.setText(bean.getTradename());
-        tradetype_tv.setText(bean.getClassificationid() + "类 - " + bean.getTrademarkclassification());
+        tradetype_tv.setText(bean.getClassificationid() + " - " + bean.getTrademarkclassification());
         switch (bean.getTradestatus()) {
             case 1:
-                tradestatus_tv.setText("商标已注册");
+                tradestatus_tv.setText("已注册");
                 break;
             case 2:
                 tradestatus_tv.setText("商标无效");
                 break;
             case 3:
-                tradestatus_tv.setText("商标注册申请等待受理中");
+                tradestatus_tv.setText("受理中");
                 break;
             case 4:
                 tradestatus_tv.setText("初审公告");
                 break;
         }
+        regnumber_tv.setText("注册号 : " + bean.getRegnumber());
         circle_bar.setCurrentValues(bean.getTradegrade());
+        monthsales_tv.setText(bean.getMonthsales());
+        hotrank_tv.setText(bean.getHotrank());
+
+        //相似产品数据
+        SimilarproductBean similarproductBean = bean.getSimilarproduct();
+        similarproduct_tradename_tv.setText(similarproductBean.getTradename());
+        similarproduct_tradetype_tv.setText(similarproductBean.getClassificationid() + " - " + similarproductBean.getTrademarkclassification());
+        similarproduct_circle_bar.setCurrentValues(similarproductBean.getTradegrade());
+        similarproduct_monthsales_tv.setText(similarproductBean.getMonthsales());
+        similarproduct_hotrank_tv.setText(similarproductBean.getHotrank());
 //        circle_bar.setContent(String.valueOf(bean.getTradegrade()));
-        linechart.setLineChartBean(bean.getLinechart());
-        time_limit_tv.setText("专用期限：" + bean.getTimelimit());
-        serviceAdapter = new ServiceAreaAdapter(getContext(), bean.getServicearealist());
-        service_area_rv.setLayoutManager(new FullyLinearLayoutManager(getContext()));
-        service_area_rv.setAdapter(serviceAdapter);
-        trends_info_tv.setText(bean.getTrendsinfo());
-
-        trends_more_tv.setOnClickListener(this);
-        to_next_tv.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.finance_evaluate_report_trends_more_tv:
-                //相关动态更多
-                showToast("更多");
-                break;
-            case R.id.finance_evaluate_report_to_next_tv:
-                //资讯专业人员获取精准评估结果
-                showToast("资讯专业人员获取精准评估结果");
-                break;
-        }
     }
 
     @Override

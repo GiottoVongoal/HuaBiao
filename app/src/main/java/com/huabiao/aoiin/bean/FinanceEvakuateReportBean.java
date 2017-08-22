@@ -1,12 +1,10 @@
 package com.huabiao.aoiin.bean;
 
-import java.util.List;
-
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.bean
  * @date 2017-08-08 13:20
- * @description
+ * @description 金融评估数据展示Bean
  */
 public class FinanceEvakuateReportBean {
 
@@ -15,25 +13,24 @@ public class FinanceEvakuateReportBean {
      * tradename : 海飞丝
      * trademarkclassification : 日化用品
      * classificationid : 03
+     * regnumber : 115521315
      * tradestatus : 1
-     * tradegrade : 98
-     * linechart : {"tradename":"海飞丝","trademarkclassification":"日化用品","classificationid":"03","Xaxistag":["周一","周二","周三","周四","周五","周六","周日"],"lines":[{"linename":"亚马逊","linecolor":"#419BF9","linevalue":[9,7,6,7,8,6,8]}]}
-     * timelimit : 2014-01-28~2024-01-27
-     * servicearealist : [{"classificationname":"铝","classificationid":"0601"},{"classificationname":"金属管道","classificationid":"0602"},{"classificationname":"金属门；金属窗","classificationid":"0603"},{"classificationname":"金属门；金属窗","classificationid":"0605"},{"classificationname":"铝","classificationid":"0601"},{"classificationname":"金属管道","classificationid":"0602"},{"classificationname":"金属门；金属窗","classificationid":"0603"},{"classificationname":"金属门；金属窗","classificationid":"0605"}]
-     * trendsinfo : 安塞乐米塔尔：到2021年将提升日化品产量25% 07-18 10:07
-     * 国家统计局：6月全国日化用品均产量244.1万吨 07-18 09:58
+     * tradegrade : 84
+     * monthsales : 5645
+     * hotrank : 23
+     * similarproduct : {"tradename":"海飞丝","trademarkclassification":"日化用品","classificationid":"03","tradegrade":84,"monthsales":"5645","hotrank":"23"}
      */
 
     private String tradeimg;
     private String tradename;
     private String trademarkclassification;
     private String classificationid;
+    private String regnumber;
     private int tradestatus;
     private int tradegrade;
-    private LineChartBean linechart;
-    private String timelimit;
-    private String trendsinfo;
-    private List<ClassificationBean> servicearealist;
+    private String monthsales;
+    private String hotrank;
+    private SimilarproductBean similarproduct;
 
     public String getTradeimg() {
         return tradeimg;
@@ -67,6 +64,14 @@ public class FinanceEvakuateReportBean {
         this.classificationid = classificationid;
     }
 
+    public String getRegnumber() {
+        return regnumber;
+    }
+
+    public void setRegnumber(String regnumber) {
+        this.regnumber = regnumber;
+    }
+
     public int getTradestatus() {
         return tradestatus;
     }
@@ -83,35 +88,93 @@ public class FinanceEvakuateReportBean {
         this.tradegrade = tradegrade;
     }
 
-    public LineChartBean getLinechart() {
-        return linechart;
+    public String getMonthsales() {
+        return monthsales;
     }
 
-    public void setLinechart(LineChartBean linechart) {
-        this.linechart = linechart;
+    public void setMonthsales(String monthsales) {
+        this.monthsales = monthsales;
     }
 
-    public String getTimelimit() {
-        return timelimit;
+    public String getHotrank() {
+        return hotrank;
     }
 
-    public void setTimelimit(String timelimit) {
-        this.timelimit = timelimit;
+    public void setHotrank(String hotrank) {
+        this.hotrank = hotrank;
     }
 
-    public String getTrendsinfo() {
-        return trendsinfo;
+    public SimilarproductBean getSimilarproduct() {
+        return similarproduct;
     }
 
-    public void setTrendsinfo(String trendsinfo) {
-        this.trendsinfo = trendsinfo;
+    public void setSimilarproduct(SimilarproductBean similarproduct) {
+        this.similarproduct = similarproduct;
     }
 
-    public List<ClassificationBean> getServicearealist() {
-        return servicearealist;
-    }
+    public static class SimilarproductBean {
+        /**
+         * tradename : 海飞丝
+         * trademarkclassification : 日化用品
+         * classificationid : 03
+         * tradegrade : 84
+         * monthsales : 5645
+         * hotrank : 23
+         */
 
-    public void setServicearealist(List<ClassificationBean> servicearealist) {
-        this.servicearealist = servicearealist;
+        private String tradename;
+        private String trademarkclassification;
+        private String classificationid;
+        private int tradegrade;
+        private String monthsales;
+        private String hotrank;
+
+        public String getTradename() {
+            return tradename;
+        }
+
+        public void setTradename(String tradename) {
+            this.tradename = tradename;
+        }
+
+        public String getTrademarkclassification() {
+            return trademarkclassification;
+        }
+
+        public void setTrademarkclassification(String trademarkclassification) {
+            this.trademarkclassification = trademarkclassification;
+        }
+
+        public String getClassificationid() {
+            return classificationid;
+        }
+
+        public void setClassificationid(String classificationid) {
+            this.classificationid = classificationid;
+        }
+
+        public int getTradegrade() {
+            return tradegrade;
+        }
+
+        public void setTradegrade(int tradegrade) {
+            this.tradegrade = tradegrade;
+        }
+
+        public String getMonthsales() {
+            return monthsales;
+        }
+
+        public void setMonthsales(String monthsales) {
+            this.monthsales = monthsales;
+        }
+
+        public String getHotrank() {
+            return hotrank;
+        }
+
+        public void setHotrank(String hotrank) {
+            this.hotrank = hotrank;
+        }
     }
 }
