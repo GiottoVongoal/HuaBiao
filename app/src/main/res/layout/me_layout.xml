@@ -17,7 +17,7 @@
 
     <View
         style="@style/GrayLine"
-        android:background="@color/grey_c2c2c2" />
+        android:background="@color/grey_c2c2c2"/>
 
     <ScrollView
         android:layout_width="match_parent"

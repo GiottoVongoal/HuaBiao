@@ -52,7 +52,7 @@ public class UserProgressDateAdapter extends RecyclerView.Adapter<UserProgressDa
         holder.item_spot_iv.setVisibility(View.VISIBLE);
         holder.item_time_tv.setText(bean.getProgressdatetime());
         holder.item_content_tv.setText(bean.getProgressdatecontent());
-        BitmapLoader.ins().loadImage(bean.getProgressdateimg(), R.mipmap.ic_launcher, holder.item_right_iv);
+//        BitmapLoader.ins().loadImage(bean.getProgressdateimg(), R.mipmap.touxiang, holder.item_right_iv);
         if (position == mList.size() - 1) {
             holder.item_spot_iv.setBackground(context.getResources().getDrawable(R.mipmap.point_yellow));
         } else {

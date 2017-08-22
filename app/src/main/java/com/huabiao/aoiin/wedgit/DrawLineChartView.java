@@ -120,7 +120,7 @@ public class DrawLineChartView extends RelativeLayout {
         //坐标轴
         Axis axisX = new Axis(); //X轴
         axisX.setHasTiltedLabels(true);
-        axisX.setTextColor(Color.BLACK);  //设置字体颜色
+        axisX.setTextColor(getResources().getColor(R.color.grey_282828));  //设置字体颜色
 //        axisX.setName("未来几天的天气");  //表格名称
         axisX.setTextSize(7);//设置字体大小
         axisX.setMaxLabelChars(7);  //最多几个X轴坐标
@@ -130,7 +130,7 @@ public class DrawLineChartView extends RelativeLayout {
 //      data.setAxisXTop(axisX);  //x 轴在顶部
 
         Axis axisY = new Axis();  //Y轴
-        axisY.setTextColor(Color.BLACK);
+        axisY.setTextColor(getResources().getColor(R.color.grey_282828));
 //        axisY.setName("温度");//y轴标注
         axisY.setTextSize(7);//设置字体大小
         axisY.setHasLines(true);
