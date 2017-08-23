@@ -29,6 +29,8 @@ public class CustomerServiceListFragment extends BaseFragment {
 
     @Override
     public void bindView(Bundle savedInstanceState) {
+        setTitle("客服列表");
+        setBackEnable();
         SearchModel.getCustomerSerCustomerServiceList(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
