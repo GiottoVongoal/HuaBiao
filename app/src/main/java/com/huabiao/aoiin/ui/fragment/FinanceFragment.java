@@ -3,12 +3,10 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.wedgit.CircleTextView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
@@ -66,7 +64,7 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
                 break;
             case R.id.finance_trade_pledge_ll:
                 //商标质押
-                showToast("商标质押");
+                JumpUtils.startFragmentByName(getContext(),PledgeFragment.class);
                 break;
             case R.id.finance_trade_sale_ll:
                 //商标拍卖

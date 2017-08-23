@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/pledgercv_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/logobg" />
+
+        <LinearLayout
+            android:id="@+id/pledge_linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:layout_toEndOf="@+id/pledgercv_img"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/pledgercv_bankname_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="银行名称"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/pledgercv_phonenumber_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/pledge_linearLayout"
+                android:drawableLeft="@mipmap/chenggong"
+                android:paddingTop="8dp"
+                android:text="手机号码"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pledgercv_connect_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/jindu_weixuan"
+            android:padding="5dp"
+            android:text="立即联系"
+            android:layout_marginRight="10dp"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <View style="@style/GrayLine" />
+</LinearLayout>

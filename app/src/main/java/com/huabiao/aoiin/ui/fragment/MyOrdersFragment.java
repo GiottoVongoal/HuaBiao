@@ -1,5 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.ywy.mylibs.base.BaseFragment;
@@ -10,6 +11,7 @@ import com.ywy.mylibs.base.BasePresenter;
  */
 
 public class MyOrdersFragment extends BaseFragment {
+    private Context context;
     @Override
     public BasePresenter getPresenter() {
         return null;

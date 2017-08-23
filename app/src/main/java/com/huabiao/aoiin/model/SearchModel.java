@@ -5,6 +5,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.BuyingInfoBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
+import com.huabiao.aoiin.bean.PledgeBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
 import com.huabiao.aoiin.bean.CustomerServiceListBean;
@@ -154,5 +155,18 @@ public class SearchModel {
             callback.getCallBackCommon(bean);
         }
     }
-
+    /**
+     * 商标质押列表
+     *
+     * @param context
+     * @param callback
+     */
+    public static void getPledgeList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "pledge.json");
+        Gson gson = new Gson();
+       PledgeBean bean = gson.fromJson(jsonString, PledgeBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
 }

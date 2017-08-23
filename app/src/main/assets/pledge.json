@@ -1,0 +1,39 @@
+{
+  "pledgelist": [
+    {
+      "img": "https://tse1-mm.cn.bing.net/th?id=OIP.xguCW8y3OC_7_HYgA87p2gEsBj&w=300&h=300&p=0&pid=1.7",
+      "bankname": "渤海银行",
+      "phonenumber": "18720180683"
+    },
+    {
+      "img": "http://pic22.nipic.com/20120715/10531090_114905148123_2.jpg",
+      "bankname": "中国银行",
+      "phonenumber": "15401803683"
+    },
+    {
+      "img": "http://pic3.nipic.com/20090708/1246691_220022013_2.jpg",
+      "bankname": "工商银行",
+      "phonenumber": "18650182313"
+    },
+    {
+      "img": "",
+      "bankname": "民生银行",
+      "phonenumber": "1396180683"
+    },
+    {
+      "img": "http://pic3.nipic.com/20090708/1246691_220346018_2.jpg",
+      "bankname": "建设银行",
+      "phonenumber": "18966018063"
+    },
+    {
+      "img": "http://pic.nipic.com/2007-12-14/20071214163126710_2.jpg",
+      "bankname": "农业银行",
+      "phonenumber": "15920180683"
+    },
+    {
+      "img": "https://tse4-mm.cn.bing.net/th?id=OIP.eKznf0uGn6_1j1GTHrJE3gEsEs&p=0&pid=1.1",
+      "bankname": "上海银行",
+      "phonenumber": "18850180653"
+    }
+  ]
+}
