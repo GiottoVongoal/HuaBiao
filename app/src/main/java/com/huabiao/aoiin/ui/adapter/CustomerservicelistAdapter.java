@@ -58,7 +58,7 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
         holder.successrate_rate_tv.setText(customerservicelistBean.getSuccessrate());
         holder.service_servicerate_tv.setText(customerservicelistBean.getService());
         holder.service_call_tv.setOnClickListener(this);
-        BitmapLoader.ins().loadImage(customerservicelistBean.getCustomerserviceimg(), R.mipmap.touxiang,holder.service_img);    }
+        BitmapLoader.ins().loadImage(customerservicelistBean.getCustomerserviceimg(), R.mipmap.logobg,holder.service_img);    }
 
     @Override
     public int getItemCount() {

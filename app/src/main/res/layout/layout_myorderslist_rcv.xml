@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/myorders_traderge_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/jiantou_right"
+            android:padding="10dp"
+            android:text="海飞丝商标注册" />
+
+        <View
+            style="@style/GrayLine"
+            android:layout_marginTop="@dimen/x6"
+            android:background="@color/grey_E9E7E7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/myorders_listitem_imageView"
+                android:layout_width="@dimen/x160"
+                android:layout_height="@dimen/x160"
+                android:layout_below="@+id/myorders_traderge_tv"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x36"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/logobg" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x19"
+                android:layout_toRightOf="@+id/myorders_listitem_imageView"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/myorders_tradename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="海飞丝"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/text_size_17" />
+
+                <TextView
+                    android:id="@+id/myorders_classfication_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x13"
+                    android:text="分类"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/mall_listitem_line"
+        style="@style/GrayLine"
+        android:background="@color/grey_DDDDDD" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myorders_payshow_tv"
+        android:text="付款显示"
+        android:padding="10dp"
+      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="付款"
+        android:id="@+id/myorders_pay_tv"
+        android:background="@mipmap/jindu_weixuan"
+        android:textAlignment="center"
+    />
+</LinearLayout>
