@@ -49,9 +49,9 @@ public class RegisterCardOneAdapter extends RecyclerView.Adapter<RegisterCardOne
         holder.bottom_tv.setText(bean.getClassificationname());
         boolean ischeck = bean.isCheck();
         if (ischeck) {
-            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.xuanzhong));
+            holder.item_ll.setBackground(context.getResources().getDrawable(R.drawable.xuanzhong));
         } else {
-            holder.item_ll.setBackground(context.getResources().getDrawable(R.mipmap.weixuanzhong));
+            holder.item_ll.setBackground(context.getResources().getDrawable(R.drawable.weixuanzhong));
         }
         holder.item_ll.setOnClickListener(new View.OnClickListener() {
             @Override
