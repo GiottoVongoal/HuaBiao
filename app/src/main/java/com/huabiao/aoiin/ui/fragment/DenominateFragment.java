@@ -91,8 +91,6 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     CreatNameBean bean = (CreatNameBean) mData;
-                    ALog.i("CreatNameBean-->"
-                            + bean.toString());
                     list = bean.getRecommendnamelist();
                     if (list.size() > 0) {
                         setData();
@@ -111,7 +109,6 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
         List<String> nameList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             String name = list.get(i).getLinechart().getTradename();
-            ALog.i("list.get(i) " + list.get(i) + "   " + name);
             nameList.add(name);
         }
         ALog.i(nameList.toString());
@@ -133,7 +130,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     @Override
     public void onClick(final View view) {
         switch (view.getId()) {
-            //判断editview是否有值，有值的话点击go有效,没有值则输出弹框提示
+            //判断editview与行业是否有值，有值的话点击go有效,没有值则输出弹框提示
             case R.id.go:
                 str = denominate_trade_name_et.getText().toString();
                 if (StringUtil.isEmpty(str)) {

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x87"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/myorders_all_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="全部"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
+
+            <View
+                android:layout_width="@dimen/text_size_15"
+                android:layout_height="3dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="@drawable/bg_underline" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/myorders_yetpay_tv"
+                android:text="待支付"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
+
+            <View
+                android:layout_width="@dimen/text_size_15"
+                android:layout_height="3dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="@drawable/bg_underline" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="已完成"
+                android:id="@+id/myorders_finish_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
+
+            <View
+                android:layout_width="@dimen/text_size_15"
+                android:layout_height="3dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="@drawable/bg_underline" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="已取消"
+                android:id="@+id/myorders_cancel_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
+
+            <View
+                android:layout_width="@dimen/text_size_15"
+                android:layout_height="3dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="@drawable/bg_underline" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/GrayLine"
+        android:layout_marginTop="@dimen/x6"
+        android:background="@color/grey_E9E7E7" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>
