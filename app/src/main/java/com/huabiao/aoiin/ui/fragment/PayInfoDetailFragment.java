@@ -34,6 +34,12 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
     TextView detail_orderid_tv;//订单编号
 
     //商标信息展示
+    @Bind(R.id.pay_info_detail_trade_logo_iv)
+    ImageView pay_info_detail_trade_logo_iv;
+    @Bind(R.id.pay_info_detail_tradename_top_tv)
+    TextView pay_info_detail_tradename_top_tv;
+    @Bind(R.id.pay_info_detail_register_type_top_tv)
+    TextView pay_info_detail_register_type_top_tv;
     @Bind(R.id.pay_info_detail_traderl)
     RelativeLayout detail_traderl;
     @Bind(R.id.pay_info_detail_tradetype_tv)
@@ -44,10 +50,6 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
     TextView detail_register_type_tv;//注册类别
     @Bind(R.id.pay_info_detail_order_date_tv)
     TextView detail_order_date_tv;//订单日期
-
-    //支付信息展示
-    @Bind(R.id.pay_info_detail_pay_money_tv)
-    TextView detail_pay_money_tv;//需支付：5000.00元
 
     //发票相关
     @Bind(R.id.pay_info_detail_switch_view)

@@ -8,108 +8,119 @@
 
     <include layout="@layout/view_title" />
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/x30"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/user_address_add_name_et"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:hintAnimationEnabled="true" >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <EditText
-                style="@style/edittext_no_bg"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="姓名"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_margin="@dimen/x30"
+                android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/user_address_add_phone_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-            app:errorEnabled="true"
-            app:errorTextAppearance="@style/errorAppearance" >
-            <!--app:errorEnabled="true"时，开启错误提示-->
-            <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/user_address_add_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hintAnimationEnabled="true">
 
-            <EditText
-                style="@style/edittext_no_bg"
+                    <EditText
+                        style="@style/edittext_no_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="姓名"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/user_address_add_phone_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                    app:errorEnabled="true"
+                    app:errorTextAppearance="@style/errorAppearance">
+                    <!--app:errorEnabled="true"时，开启错误提示-->
+                    <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
+
+                    <EditText
+                        style="@style/edittext_no_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="电话"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/user_address_add_area_et"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:theme="@style/TextInputLayoutLineColor"-->
+                <!--app:hintAnimationEnabled="true"-->
+                <!--app:hintTextAppearance="@style/hintAppearance">-->
+
+                <EditText
+                    android:id="@+id/user_address_add_area_et"
+                    style="@style/edittext_no_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="地区"
+                    android:inputType="text" />
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/user_address_add_address_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:hintAnimationEnabled="true">
+
+                    <EditText
+                        style="@style/edittext_no_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="地址"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/user_address_add_code_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                    app:errorEnabled="true"
+                    app:errorTextAppearance="@style/errorAppearance"
+                    app:hintAnimationEnabled="true">
+
+                    <EditText
+                        style="@style/edittext_no_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="邮编"
+                        android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/user_address_add_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="电话"
-                android:inputType="phone"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
-
-        <!--<android.support.design.widget.TextInputLayout-->
-        <!--android:id="@+id/user_address_add_area_et"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:theme="@style/TextInputLayoutLineColor"-->
-        <!--app:hintAnimationEnabled="true"-->
-        <!--app:hintTextAppearance="@style/hintAppearance">-->
-
-        <EditText
-            android:id="@+id/user_address_add_area_et"
-            style="@style/edittext_no_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="地区"
-            android:inputType="text" />
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/user_address_add_address_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:hintAnimationEnabled="true" >
-
-            <EditText
-                style="@style/edittext_no_bg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="地址"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/user_address_add_code_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-            app:errorEnabled="true"
-            app:errorTextAppearance="@style/errorAppearance"
-            app:hintAnimationEnabled="true">
-
-            <EditText
-                style="@style/edittext_no_bg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="邮编"
-                android:inputType="number" />
-        </android.support.design.widget.TextInputLayout>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/user_address_add_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@mipmap/btn_yellow"
-        android:gravity="center"
-        android:padding="15dp"
-        android:text="保存" />
+                android:layout_margin="20dp"
+                android:background="@mipmap/btn_yellow"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="保存" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

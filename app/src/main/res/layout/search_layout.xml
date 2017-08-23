@@ -9,49 +9,55 @@
         android:id="@+id/include2"
         layout="@layout/view_title" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/include2"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="30dp">
-        <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/search_tradename_tl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x216"
-            app:hintAnimationEnabled="true">
+        android:scrollbars="none">
 
-            <EditText
-                style="@style/edittext_no_bg"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="30dp">
+            <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/search_tradename_tl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="商标名"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginTop="@dimen/x216"
+                app:hintAnimationEnabled="true">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/search_goodsname_tl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x80"
-            app:hintAnimationEnabled="true">
+                <EditText
+                    style="@style/edittext_no_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="商标名"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                style="@style/edittext_no_bg"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/search_goodsname_tl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="商品名"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginTop="@dimen/x80"
+                app:hintAnimationEnabled="true">
 
-        <TextView
-            android:id="@+id/search_tv"
-            style="@style/text_btn_style"
-            android:layout_below="@+id/linearLayout"
-            android:layout_marginTop="@dimen/x165"
-            android:text="查询" />
-    </LinearLayout>
+                <EditText
+                    style="@style/edittext_no_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="商品名"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/search_tv"
+                style="@style/text_btn_style"
+                android:layout_below="@+id/linearLayout"
+                android:layout_marginTop="@dimen/x165"
+                android:text="查询" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
