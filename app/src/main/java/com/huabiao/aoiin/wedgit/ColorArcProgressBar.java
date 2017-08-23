@@ -51,7 +51,7 @@ public class ColorArcProgressBar extends View {
     private float curValues = 0;
     private float bgArcWidth = dipToPx(2);
     private float progressWidth = dipToPx(10);
-    private float textSize = dipToPx(40);
+    private float textSize = dipToPx(37);
     private float hintSize = dipToPx(15);
     private float curSpeedSize = dipToPx(13);
     private int aniSpeed = 1000;
@@ -226,18 +226,17 @@ public class ColorArcProgressBar extends View {
         canvas.drawArc(bgRect, startAngle, currentAngle, false, progressPaint);
 
         if (isNeedContent) {
-            canvas.drawText(String.format("%.0f", curValues), centerX, centerY + textSize / 3, vTextPaint);
+            canvas.drawText(String.format("%.0f", curValues), centerX - bgRect.left / 2, centerY + bgRect.top / 3 * 2, vTextPaint);
 //            canvas.drawText(contentString, centerX, centerY + textSize / 3, vTextPaint);
         }
         if (isNeedUnit) {
-            canvas.drawText(hintString, centerX, centerY + 2 * textSize / 3, hintPaint);
+            canvas.drawText(hintString, centerX + bgRect.left / 5 * 6, centerY + bgRect.top / 3 * 2, hintPaint);
         }
         if (isNeedTitle) {
             canvas.drawText(titleString, centerX, centerY - 2 * textSize / 3, curSpeedPaint);
         }
 
         invalidate();
-
     }
 
     /**
