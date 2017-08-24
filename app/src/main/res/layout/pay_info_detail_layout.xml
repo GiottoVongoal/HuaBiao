@@ -24,47 +24,73 @@
                 android:id="@+id/pay_info_detail_orderid_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="订单编号:xxx" />
+                android:gravity="center_vertical"
+                android:padding="@dimen/x26"
+                android:text="订单编号:xxx"
+                android:textSize="@dimen/text_size_14" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:padding="10dp">
+                android:padding="@dimen/x25">
 
                 <TextView
+                    android:id="@+id/pay_info_detail_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="地址" />
+                    android:text="姓名"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_15" />
 
+                <TextView
+                    android:id="@+id/pay_info_detail_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pay_info_detail_name"
+                    android:layout_marginTop="@dimen/x20"
+                    android:text="地址地址地址地址地址地址地址地址"
+                    android:textColor="@color/grey_848484"
+                    android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:id="@+id/pay_info_detail_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_toRightOf="@+id/pay_info_detail_name"
+                    android:text="18212341234"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_15" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/pay_info_detail_traderl"
+                android:id="@+id/pay_info_detail_trade_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/x19"
                 android:background="@color/white"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:padding="10dp">
+                android:padding="@dimen/x18"
+                android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/pay_info_detail_trade_logo_iv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/x119"
+                    android:layout_height="@dimen/x119"
+                    android:layout_marginLeft="@dimen/x8"
                     android:src="@mipmap/logobg" />
 
                 <TextView
                     android:id="@+id/pay_info_detail_tradename_top_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="@dimen/x20"
+                    android:layout_marginTop="@dimen/x24"
                     android:layout_toRightOf="@+id/pay_info_detail_trade_logo_iv"
                     android:text="海飞丝"
                     android:textColor="@color/black3"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/text_size_17" />
 
                 <TextView
                     android:id="@+id/pay_info_detail_register_type_top_tv"
@@ -73,7 +99,9 @@
                     android:layout_alignLeft="@+id/pay_info_detail_tradename_top_tv"
                     android:layout_below="@+id/pay_info_detail_tradename_top_tv"
                     android:layout_marginTop="10dp"
-                    android:text="01-日化用品" />
+                    android:text="01-日化用品"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <View
                     android:id="@+id/pay_info_detail_line1"
@@ -82,36 +110,102 @@
                     android:layout_marginTop="10dp" />
 
                 <TextView
-                    android:id="@+id/pay_info_detail_tradetype_tv"
+                    android:id="@+id/pay_info_detail_tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_line1"
                     android:layout_marginTop="10dp"
-                    android:text="商标类型：注册+预审+退费担保" />
+                    android:text="商标类型："
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/pay_info_detail_tradetype_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pay_info_detail_tv1"
+                    android:layout_toRightOf="@+id/pay_info_detail_tv1"
+                    android:text=" 注册+预审+退费担保"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
+
+                <View
+                    android:id="@+id/pay_info_detail_line2"
+                    style="@style/GrayLine"
+                    android:layout_below="@+id/pay_info_detail_tradetype_tv"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/pay_info_detail_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pay_info_detail_line2"
+                    android:layout_marginTop="10dp"
+                    android:text="商标名称："
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <TextView
                     android:id="@+id/pay_info_detail_tradename_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_tradetype_tv"
+                    android:layout_alignBaseline="@+id/pay_info_detail_tv2"
+                    android:layout_toRightOf="@+id/pay_info_detail_tv2"
+                    android:text="海飞丝"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
+
+                <View
+                    android:id="@+id/pay_info_detail_line3"
+                    style="@style/GrayLine"
+                    android:layout_below="@+id/pay_info_detail_tradename_tv"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/pay_info_detail_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pay_info_detail_line3"
                     android:layout_marginTop="10dp"
-                    android:text="商标名称：海飞丝" />
+                    android:text="注册类别："
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <TextView
                     android:id="@+id/pay_info_detail_register_type_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_tradename_tv"
+                    android:layout_alignBaseline="@+id/pay_info_detail_tv3"
+                    android:layout_toRightOf="@+id/pay_info_detail_tv3"
+                    android:text="注册类别：41类教育娱文、文体活动"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
+
+                <View
+                    android:id="@+id/pay_info_detail_line4"
+                    style="@style/GrayLine"
+                    android:layout_below="@+id/pay_info_detail_register_type_tv"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/pay_info_detail_tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pay_info_detail_line4"
                     android:layout_marginTop="10dp"
-                    android:text="注册类别：41类教育娱文、文体活动" />
+                    android:text="订单日期："
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <TextView
                     android:id="@+id/pay_info_detail_order_date_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_register_type_tv"
-                    android:layout_marginTop="10dp"
-                    android:text="订单日期：2017-07-31" />
+                    android:layout_alignBaseline="@+id/pay_info_detail_tv4"
+                    android:layout_toRightOf="@+id/pay_info_detail_tv4"
+                    android:text="2017-07-31"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -124,12 +218,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:text="开具发票" />
+                    android:text="开具发票"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_15" />
 
                 <com.sevenheaven.iosswitch.ShSwitchView
                     android:id="@+id/pay_info_detail_switch_view"
-                    android:layout_width="50dip"
-                    android:layout_height="35dip"
+                    android:layout_width="60dip"
+                    android:layout_height="40dip"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     shSwitch:shadowSpace="7dip"
@@ -142,14 +238,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:padding="15dp"
+                android:padding="@dimen/x26"
                 android:visibility="visible">
 
                 <TextView
                     android:id="@+id/pay_info_detail_invoice_type_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="发票类型：纸质发票" />
+                    android:text="发票类型：纸质发票"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <TextView
                     android:id="@+id/pay_info_detail_invoice_content_tv"
@@ -157,7 +255,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_invoice_type_tv"
                     android:layout_marginTop="10dp"
-                    android:text="发票内容：明细" />
+                    android:text="发票内容：明细"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <TextView
                     android:id="@+id/pay_info_detail_invoice_header_tv"
@@ -165,7 +265,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_invoice_content_tv"
                     android:layout_marginTop="10dp"
-                    android:text="发票抬头：" />
+                    android:text="发票抬头："
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <RadioGroup
                     android:id="@+id/pay_info_detail_rg"
@@ -181,7 +283,9 @@
                         android:layout_height="wrap_content"
                         android:button="@null"
                         android:drawableLeft="@drawable/checkbox_select_type"
-                        android:text="个人" />
+                        android:drawablePadding="@dimen/x16"
+                        android:text="个人"
+                        android:textSize="@dimen/text_size_14" />
 
                     <RadioButton
                         android:id="@+id/pay_info_detail_company_rb"
@@ -192,7 +296,9 @@
                         android:button="@null"
                         android:checked="true"
                         android:drawableLeft="@drawable/checkbox_select_type"
-                        android:text="公司" />
+                        android:drawablePadding="@dimen/x16"
+                        android:text="公司"
+                        android:textSize="@dimen/text_size_14" />
 
                 </RadioGroup>
 
@@ -208,9 +314,10 @@
                         style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/x16"
                         android:hint="发票抬头"
                         android:inputType="text"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_size_14" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -247,25 +354,32 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:orientation="vertical"
-                android:padding="15dp">
+                android:paddingLeft="@dimen/x29"
+                android:paddingRight="@dimen/x29">
 
                 <RadioButton
                     android:id="@+id/pay_info_detail_pay_wechat_rb"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/x87"
                     android:button="@null"
+                    android:drawableLeft="@mipmap/weixin"
+                    android:drawablePadding="@dimen/x11"
                     android:drawableRight="@drawable/checkbox_select_type"
                     android:text="微信支付"
                     android:textColor="@color/black3" />
 
+                <View style="@style/GrayLine" />
+
                 <RadioButton
                     android:id="@+id/pay_info_detail_pay_alipay_rb"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/x87"
                     android:layout_marginTop="15dp"
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
+                    android:drawableLeft="@mipmap/zhifubao"
+                    android:drawablePadding="@dimen/x11"
                     android:drawableRight="@drawable/checkbox_select_type"
                     android:text="支付宝支付"
                     android:textColor="@color/black3" />
@@ -277,7 +391,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/x96"
         android:layout_gravity="center"
         android:orientation="horizontal">
 
@@ -289,8 +403,8 @@
             android:background="@color/white"
             android:gravity="center"
             android:padding="15dp"
-            android:text="实付款：¥ 5000.00" />
-
+            android:text="实付款：¥ 5000.00"
+            android:textSize="@dimen/text_size_15" />
 
         <TextView
             android:id="@+id/pay_info_detail_pay_tv"
@@ -300,6 +414,7 @@
             android:background="@color/yellow_fdd400"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
-            android:text="立即支付" />
+            android:text="立即支付"
+            android:textSize="@dimen/text_size_18" />
     </LinearLayout>
 </LinearLayout>

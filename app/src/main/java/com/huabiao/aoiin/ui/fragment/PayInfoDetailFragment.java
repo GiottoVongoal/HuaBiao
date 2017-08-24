@@ -40,7 +40,7 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
     TextView pay_info_detail_tradename_top_tv;
     @Bind(R.id.pay_info_detail_register_type_top_tv)
     TextView pay_info_detail_register_type_top_tv;
-    @Bind(R.id.pay_info_detail_traderl)
+    @Bind(R.id.pay_info_detail_trade_rl)
     RelativeLayout detail_traderl;
     @Bind(R.id.pay_info_detail_tradetype_tv)
     TextView detail_tradetype_tv;//商标类型
@@ -157,7 +157,7 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.pay_info_detail_traderl:
+            case R.id.pay_info_detail_trade_rl:
                 //商标信息
                 break;
             case R.id.pay_info_detail_invoice_dutynum_tip_iv:
