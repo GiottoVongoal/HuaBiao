@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="right"
     android:background="@color/white"
+    android:gravity="right"
     android:orientation="vertical">
 
     <LinearLayout
@@ -27,7 +27,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/myorders_listitem_imageView"
@@ -75,20 +75,28 @@
         android:id="@+id/myorders_payshow_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
         android:padding="10dp"
         android:text="付款显示" />
+
+    <View
+        style="@style/GrayLine"
+        android:layout_marginTop="@dimen/x6"
+        android:background="@color/grey_E9E7E7" />
 
     <TextView
         android:id="@+id/myorders_pay_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
         android:background="@mipmap/jindu_weixuan"
         android:text="付款"
         android:textAlignment="center" />
+
     <View
         style="@style/GrayLine"
-        android:background="@color/grey_efefef"
-        android:layout_height="5dp"
-       android:layout_marginTop="5dp"
-        />
+        android:layout_height="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/grey_efefef" />
 </LinearLayout>

@@ -1,0 +1,45 @@
+{
+  "myorderslist": [
+
+    {
+      "goodsname": "Lee",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205853_txaH3.thumb.700_0.jpeg",
+      "price":"6550",
+      "classificationname": "服装类",
+      "classificationid": "05",
+      "status": "3"
+    },
+    {
+      "goodsname": "CK",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205843_CMzAV.thumb.700_0.jpeg",
+      "price":"6500",
+      "classificationname": "服装类",
+      "classificationid": "05",
+      "status": "2"
+    },
+    {
+      "goodsname": "LV",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210247_e2Nds.thumb.700_0.jpeg",
+      "price":"45550",
+      "classificationname": "奢侈品",
+      "classificationid": "02",
+      "status": "2"
+    },
+    {
+      "goodsname": "D&G",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210228_mYkie.thumb.700_0.jpeg",
+      "price":"64440",
+      "classificationname": "日用品",
+      "classificationid": "01",
+      "status": "2"
+    },
+    {
+      "goodsname": "gucci",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210208_xNedz.thumb.700_0.jpeg",
+      "price":"52000",
+      "classificationname": "化妆品",
+      "classificationid": "03",
+      "status": "2"
+    }
+  ]
+}

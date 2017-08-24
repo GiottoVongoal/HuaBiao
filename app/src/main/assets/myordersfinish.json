@@ -1,0 +1,38 @@
+{
+  "myorderslist": [
+
+    {
+      "goodsname": "chanel",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205813_nxUmk.thumb.700_0.jpeg",
+      "price":"35400",
+      "classificationname": "奢侈品",
+      "classificationid": "02",
+      "status": "4"
+    },
+
+    {
+      "goodsname": "耐克",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "classificationname": "日用品",
+      "price":"36000",
+      "classificationid": "01",
+      "status": "4"
+    },
+    {
+      "goodsname": "耐ke",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "price":"54200",
+      "classificationname": "服装",
+      "classificationid": "05",
+      "status": "4"
+    },
+    {
+      "goodsname": "nike",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "price":"52000",
+      "classificationname": "必需品",
+      "classificationid": "04",
+      "status": "4"
+    }
+  ]
+}

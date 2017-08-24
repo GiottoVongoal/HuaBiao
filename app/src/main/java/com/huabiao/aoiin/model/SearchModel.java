@@ -176,8 +176,23 @@ public class SearchModel {
      * @param context
      * @param callback
      */
-    public static void getMyordersList(Context context, final InterfaceManager.CallBackCommon callback) {
-        String jsonString = GetJsonToName.getJson(context, "myorders.json");
+    public static void getMyordersList(Context context,  int index,final InterfaceManager.CallBackCommon callback) {
+        String jsonList = "";
+        switch (index) {
+            case 1:
+                jsonList = "myorders.json";
+                break;
+            case 2:
+                jsonList = "myordersyetpay.json";
+                break;
+            case 3:
+                jsonList = "myordersfinish.json";
+                break;
+            case 4:
+                jsonList = "myorderscancel.json";
+                break;
+        }
+        String jsonString = GetJsonToName.getJson(context, jsonList);
         Gson gson = new Gson();
         MyOrdersBean bean = gson.fromJson(jsonString, MyOrdersBean.class);
         if (callback != null) {

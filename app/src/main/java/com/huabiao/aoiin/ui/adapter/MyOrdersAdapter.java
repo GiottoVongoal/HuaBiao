@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MyOrdersBean;
+import com.huabiao.aoiin.ui.fragment.RegisterFragment;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.List;
 
@@ -19,13 +21,18 @@ import java.util.List;
  * Created by Aoiin-9 on 2017/8/24.
  */
 
-public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHolder> {
+public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHolder> implements View.OnClickListener {
     private Context context;
     private List<MyOrdersBean.MyorderslistBean> myOrdersList;
 
     public MyOrdersAdapter(Context context, List<MyOrdersBean.MyorderslistBean> myOrdersList) {
         this.context = context;
         this.myOrdersList = myOrdersList;
+    }
+
+    public void update(List<MyOrdersBean.MyorderslistBean> list) {
+        myOrdersList.addAll(list);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -36,22 +43,31 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(MyOrdersAdapter.ViewHolder holder, int position) {
-        MyOrdersBean.MyorderslistBean bean=myOrdersList.get(position);
-        holder.pay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context,"点击付款",Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.payshow.setText("实付款："+bean.getPrice()+"元");
+        MyOrdersBean.MyorderslistBean bean = myOrdersList.get(position);
+        holder.pay.setOnClickListener(this);
+        holder.traderegister.setOnClickListener(this);
+        holder.payshow.setText("实付款：" + bean.getPrice() + "元");
         holder.tradename.setText(bean.getGoodsname());
-        holder.classfication.setText(bean.getClassificationid()+"-"+bean.getClassificationname());
+        holder.classfication.setText(bean.getClassificationid() + "-" + bean.getClassificationname());
         BitmapLoader.ins().loadImage(bean.getGoodsimg(), R.mipmap.logobg, holder.imgview);
+        
     }
 
     @Override
     public int getItemCount() {
         return myOrdersList.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.myorders_traderge_tv:
+                JumpUtils.startFragmentByName(context, RegisterFragment.class);
+                break;
+            case R.id.myorders_pay_tv:
+                Toast.makeText(context, "点击付款", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,6 +76,8 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         private ImageView imgview;
         private TextView payshow;
         private TextView pay;
+        //跳转注册页面
+        private TextView traderegister;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -67,7 +85,8 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
             classfication = (TextView) itemView.findViewById(R.id.myorders_classfication_TextView);
             imgview = (ImageView) itemView.findViewById(R.id.myorders_listitem_imageView);
             payshow = (TextView) itemView.findViewById(R.id.myorders_payshow_tv);
-            pay =(TextView)itemView.findViewById(R.id.myorders_pay_tv);
+            pay = (TextView) itemView.findViewById(R.id.myorders_pay_tv);
+            traderegister = (TextView) itemView.findViewById(R.id.myorders_traderge_tv);
         }
     }
 }
