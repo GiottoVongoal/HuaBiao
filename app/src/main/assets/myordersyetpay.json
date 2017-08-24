@@ -1,0 +1,36 @@
+{
+  "myorderslist": [
+    {
+      "goodsname": "海飞丝",
+      "goodsimg": "",
+      "price": "98500",
+      "classificationname": "日用品",
+      "classificationid": "01",
+      "status": "1"
+    },
+    {
+      "goodsname": "StarbucksCoffee",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205357_EcWfu.thumb.700_0.jpeg",
+      "price": "52400",
+      "classificationname": "食品",
+      "classificationid": "06",
+      "status": "1"
+    },
+    {
+      "goodsname": "LV",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210247_e2Nds.thumb.700_0.jpeg",
+      "price": "45550",
+      "classificationname": "奢侈品",
+      "classificationid": "02",
+      "status": "1"
+    },
+    {
+      "goodsname": "美国队长",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210055_YRMw4.thumb.700_0.jpeg",
+      "price": "61000",
+      "classificationname": "必需品",
+      "classificationid": "04",
+      "status": "1"
+    }
+  ]
+}

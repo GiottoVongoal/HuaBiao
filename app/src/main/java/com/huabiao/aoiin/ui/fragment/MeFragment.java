@@ -2,9 +2,7 @@ package com.huabiao.aoiin.ui.fragment;
 
 
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,7 +12,6 @@ import com.huabiao.aoiin.ui.activity.LoginActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.wedgit.wedgit.CircleView;
 
@@ -110,7 +107,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                 JumpUtils.startActivity(getContext(), UserProgressActivity.class);
                 break;
             case R.id.me_order_cv:
-                showToast("我的订单");
+                JumpUtils.startFragmentByName(getContext(),MyOrdersFragment.class);
                 break;
         }
     }
