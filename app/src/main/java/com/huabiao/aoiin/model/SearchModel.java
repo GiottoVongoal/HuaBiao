@@ -5,6 +5,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.BuyingInfoBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
+import com.huabiao.aoiin.bean.MyOrdersBean;
 import com.huabiao.aoiin.bean.PledgeBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
@@ -165,6 +166,20 @@ public class SearchModel {
         String jsonString = GetJsonToName.getJson(context, "pledge.json");
         Gson gson = new Gson();
        PledgeBean bean = gson.fromJson(jsonString, PledgeBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+    /**
+     * 我的订单列表
+     *
+     * @param context
+     * @param callback
+     */
+    public static void getMyordersList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "myorders.json");
+        Gson gson = new Gson();
+        MyOrdersBean bean = gson.fromJson(jsonString, MyOrdersBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }
