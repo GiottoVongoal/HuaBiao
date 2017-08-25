@@ -7,13 +7,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/x154">
 
         <ImageView
             android:id="@+id/pledgercv_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="10dp"
+            android:layout_width="@dimen/x100"
+            android:layout_height="@dimen/x100"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x27"
             android:scaleType="fitXY"
             android:src="@mipmap/logobg" />
 
@@ -21,8 +22,9 @@
             android:id="@+id/pledge_linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:padding="10dp"
+            android:layout_marginBottom="@dimen/x42"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x22"
             android:layout_toEndOf="@+id/pledgercv_img"
             android:orientation="vertical">
 
@@ -31,34 +33,36 @@
                 android:id="@+id/pledgercv_bankname_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
                 android:text="银行名称"
-                android:textSize="20sp" />
+                android:textColor="@color/black3"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/pledgercv_phonenumber_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/pledge_linearLayout"
+                android:layout_marginTop="@dimen/x18"
                 android:drawableLeft="@mipmap/phone"
-                android:drawablePadding="5dp"
-                android:paddingTop="8dp"
+                android:drawablePadding="@dimen/x8"
                 android:text="手机号码"
-                android:textSize="16sp" />
+                android:textColor="@color/black3"
+                android:textSize="13sp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/pledgercv_connect_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/jindu_weixuan"
-            android:padding="5dp"
-            android:text="立即联系"
-            android:layout_marginRight="10dp"
-            android:textAlignment="center"
-            android:textSize="12sp"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_marginRight="@dimen/x34"
+            android:background="@mipmap/jindu_weixuan"
+            android:paddingTop="@dimen/x9"
+            android:paddingBottom="@dimen/x9"
+            android:text="立即联系"
+            android:textAlignment="center"
+            android:textSize="12sp" />
     </RelativeLayout>
 
     <View style="@style/GrayLine" />

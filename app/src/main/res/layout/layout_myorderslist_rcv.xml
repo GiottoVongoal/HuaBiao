@@ -14,9 +14,10 @@
         <TextView
             android:id="@+id/myorders_traderge_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/x72"
             android:drawableRight="@mipmap/jiantou_right"
-            android:padding="10dp"
+            android:paddingTop="@dimen/x27"
+            android:layout_marginLeft="@dimen/x39"
             android:text="海飞丝商标注册" />
 
         <View
@@ -42,7 +43,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x19"
+                android:layout_marginLeft="@dimen/x25"
                 android:layout_toRightOf="@+id/myorders_listitem_imageView"
                 android:orientation="vertical">
 
@@ -50,6 +51,7 @@
                     android:id="@+id/myorders_tradename_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x20"
                     android:text="海飞丝"
                     android:textColor="#333333"
                     android:textSize="@dimen/text_size_17" />
@@ -58,9 +60,10 @@
                     android:id="@+id/myorders_classfication_TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x13"
+                    android:layout_marginBottom="@dimen/x40"
+                    android:layout_marginTop="@dimen/x20"
                     android:text="分类"
-                    android:textColor="@color/black3"
+                    android:textColor="@color/black34"
                     android:textSize="@dimen/text_size_16" />
             </LinearLayout>
         </LinearLayout>
@@ -75,8 +78,9 @@
         android:id="@+id/myorders_payshow_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:padding="10dp"
+        android:layout_marginBottom="@dimen/x22"
+        android:layout_marginRight="@dimen/x37"
+        android:layout_marginTop="@dimen/x25"
         android:text="付款显示" />
 
     <View
@@ -88,11 +92,14 @@
         android:id="@+id/myorders_pay_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="@dimen/x18"
+        android:layout_marginRight="@dimen/x38"
+        android:layout_marginTop="@dimen/x20"
+        android:paddingTop="@dimen/x2"
         android:background="@mipmap/jindu_weixuan"
         android:text="付款"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/black8" />
 
     <View
         style="@style/GrayLine"
