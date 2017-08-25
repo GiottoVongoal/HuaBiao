@@ -25,7 +25,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     private MallAdapter mallAapter;
     //将下划线放入一个数组
     View[] lines = new View[4];
-    //当前页面的页数，1是首页
+    //当前页面的页数
     private int page = 1;
     //m是传的标志位，1234代表的是全部、可求购、可抢注、可异议的页面
     private int m = 1;

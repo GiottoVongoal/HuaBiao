@@ -3,6 +3,7 @@ package com.huabiao.aoiin.model;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.huabiao.aoiin.bean.AuctionBean;
 import com.huabiao.aoiin.bean.BuyingInfoBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
 import com.huabiao.aoiin.bean.MyOrdersBean;
@@ -166,6 +167,20 @@ public class SearchModel {
         String jsonString = GetJsonToName.getJson(context, "pledge.json");
         Gson gson = new Gson();
        PledgeBean bean = gson.fromJson(jsonString, PledgeBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+    /**
+     * 商标拍卖列表
+     *
+     * @param context
+     * @param callback
+     */
+    public static void getAuctionList(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "auction.json");
+        Gson gson = new Gson();
+        AuctionBean bean = gson.fromJson(jsonString, AuctionBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

@@ -6,9 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.PledgeBean;
+import com.huabiao.aoiin.bean.AuctionBean;
 import com.huabiao.aoiin.model.SearchModel;
-import com.huabiao.aoiin.ui.adapter.PledgeAdapter;
+import com.huabiao.aoiin.ui.adapter.AuctionAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -16,19 +16,22 @@ import com.ywy.mylibs.base.BasePresenter;
 import butterknife.Bind;
 
 /**
- * @author 杨丽亚.
- * @PackageName com.huabiao.aoiin.ui.fragment
- * @date 2017-08-23 14:58
- * @description 商标质押页面
+ * Created by Aoiin-9 on 2017/8/25.
  */
-public class PledgeFragment extends BaseFragment {
-    private PledgeAdapter pledgeAdapter;
-    @Bind(R.id.pledge_recycleview)
-    RecyclerView pledge_recycleview;
+
+public class AuctionFragment extends BaseFragment {
+    private AuctionAdapter auctionAdapter;
+    @Bind(R.id.auction_recycleview)
+    RecyclerView auction_recyclerview;
+
+    @Override
+    public BasePresenter getPresenter() {
+        return null;
+    }
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        setTitle("商标质押");
+        setTitle("商标拍卖");
         setBackEnable();
         setRightIvResourse(getResources().getDrawable(R.mipmap.fangdajing));
         setRightIvOnclick(new View.OnClickListener() {
@@ -37,14 +40,15 @@ public class PledgeFragment extends BaseFragment {
                 showToast("放大镜");
             }
         });
-        SearchModel.getPledgeList(getContext(), new InterfaceManager.CallBackCommon() {
+        SearchModel.getAuctionList(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
-                    PledgeBean bean = (PledgeBean) mData;
-                    pledge_recycleview.setLayoutManager(new LinearLayoutManager(getContext()));
-                    pledgeAdapter=new PledgeAdapter(getContext(),bean.getPledgelist());
-                    pledge_recycleview.setAdapter(pledgeAdapter);
+                    AuctionBean bean = (AuctionBean) mData;
+                    auction_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+                    auctionAdapter=new AuctionAdapter(getContext(),bean.getAuctionlist());
+                    auction_recyclerview.setAdapter(auctionAdapter);
+
                 }
             }
         });
@@ -52,11 +56,6 @@ public class PledgeFragment extends BaseFragment {
 
     @Override
     public int getContentLayout() {
-        return R.layout.pledge_layout;
-    }
-
-    @Override
-    public BasePresenter getPresenter() {
-        return null;
+        return R.layout.auction_layout;
     }
 }

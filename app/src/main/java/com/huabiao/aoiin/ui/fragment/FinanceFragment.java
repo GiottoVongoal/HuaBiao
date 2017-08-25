@@ -68,7 +68,7 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
                 break;
             case R.id.finance_trade_sale_ll:
                 //商标拍卖
-                showToast("商标拍卖");
+             JumpUtils.startFragmentByName(getContext(),AuctionFragment.class);
                 break;
         }
     }
