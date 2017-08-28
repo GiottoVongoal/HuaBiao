@@ -127,10 +127,6 @@ public class MainActivity extends BaseActivity {
             }
         });
         home_rg.check(home_shouye_rb.getId());
-        // 处理拍照选照相关权限
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
-//        }
     }
 
     public void setItem(int index) {

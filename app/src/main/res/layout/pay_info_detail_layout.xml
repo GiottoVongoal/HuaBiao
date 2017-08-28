@@ -238,6 +238,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:layout_marginBottom="10dp"
                 android:padding="@dimen/x26"
                 android:visibility="visible">
 
@@ -307,7 +308,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_invoice_header_tv"
-                    android:layout_marginTop="5dp"
                     app:hintAnimationEnabled="true">
 
                     <EditText
@@ -351,7 +351,6 @@
                 android:id="@+id/pay_info_detail_pay_way_rg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:layout_marginBottom="15dp"

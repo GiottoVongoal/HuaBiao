@@ -51,7 +51,7 @@ public class RegisterCommitBean {
 //    private String proxyImg;//委托书
 //    private String businessLicenceImg;//营业执照
 
-    private int serviceMode;//服务方式
+    private int serviceMode = -1;//服务方式
 
     //判断所有数据是否为空
     public boolean isNull() {
