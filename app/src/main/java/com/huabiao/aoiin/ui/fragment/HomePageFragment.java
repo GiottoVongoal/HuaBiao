@@ -19,7 +19,9 @@ import com.huabiao.aoiin.bean.HomeBean;
 import com.huabiao.aoiin.bean.HomeBean.BannarlistBean;
 import com.huabiao.aoiin.bean.HomeBean.HomeinfolistBean;
 import com.huabiao.aoiin.bean.HomeBean.HotwordslistBean;
+import com.huabiao.aoiin.bean.TestBean;
 import com.huabiao.aoiin.model.HomeModel;
+import com.huabiao.aoiin.retrofit.RetrofitClinetImpl;
 import com.huabiao.aoiin.ui.activity.MainActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
@@ -28,13 +30,18 @@ import com.huabiao.aoiin.ui.adapter.InfomationAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.retrofit.RetrofitClient;
 import com.ywy.mylibs.utils.DeviceUtils;
 import com.ywy.mylibs.utils.JumpUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
+import okhttp3.ResponseBody;
 
 /**
  * @author 杨丽亚.
@@ -177,6 +184,31 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 }
             }
         }.start();
+
+        Map<String, String> source = new HashMap<>();
+        source.put("name", "aaa");
+        RetrofitClinetImpl.getInstance(getContext())
+                .newRetrofitClient()
+                .postL("api/v2/wallet"
+                        , source
+                        , new RetrofitClient.ResponseCallBack<ResponseBody>() {
+                            @Override
+                            public void onSucceess(ResponseBody response) {
+                                try {
+                                    String string = new String(response.bytes());
+                                    ALog.i("RetrofitClinetImpl---string--->" + string);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Throwable throwable) {
+                                if (throwable != null) {
+                                    ALog.i("RetrofitClinetImpl---throwable--->" + throwable.getMessage());
+                                }
+                            }
+                        });
     }
 
     @Override
