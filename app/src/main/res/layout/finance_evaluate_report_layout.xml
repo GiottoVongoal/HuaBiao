@@ -21,14 +21,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:padding="@dimen/x33">
 
                 <ImageView
                     android:id="@+id/finance_evaluate_report_trade_iv"
-                    android:layout_width="150dp"
-                    android:layout_height="110dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="15dp"
+                    android:layout_width="@dimen/x119"
+                    android:layout_height="@dimen/x119"
+                    android:layout_centerVertical="true"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/logobg" />
 
@@ -37,10 +37,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@+id/finance_evaluate_report_trade_iv"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="@dimen/x20"
                     android:layout_toRightOf="@+id/finance_evaluate_report_trade_iv"
                     android:text="商标名"
-                    android:textSize="18sp" />
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_17" />
 
                 <TextView
                     android:id="@+id/finance_evaluate_report_tradetype_tv"
@@ -48,22 +49,23 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/finance_evaluate_report_tradename_tv"
                     android:layout_below="@+id/finance_evaluate_report_tradename_tv"
-                    android:layout_marginTop="10dp"
-                    android:text="类别" />
+                    android:layout_marginTop="@dimen/x18"
+                    android:text="类别"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_13" />
 
                 <TextView
                     android:id="@+id/finance_evaluate_report_tradestatus_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/finance_evaluate_report_tradename_tv"
-                    android:layout_alignTop="@+id/finance_evaluate_report_tradename_tv"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/x11"
                     android:layout_toRightOf="@+id/finance_evaluate_report_tradename_tv"
                     android:background="@mipmap/jindu_yixuan"
                     android:gravity="center"
                     android:text="状态"
-                    android:textColor="@color/black3" />
-
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_11" />
 
                 <TextView
                     android:id="@+id/finance_evaluate_report_regnumber_tv"
@@ -71,14 +73,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/finance_evaluate_report_tradename_tv"
                     android:layout_below="@+id/finance_evaluate_report_tradetype_tv"
-                    android:layout_marginTop="10dp"
-                    android:text="注册号" />
+                    android:layout_marginTop="@dimen/x18"
+                    android:text="注册号"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_13" />
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/x20"
                 android:background="@color/white"
                 android:orientation="vertical">
 
@@ -86,17 +90,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/banyuan"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="@dimen/x12"
                     android:gravity="center_vertical"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:text="系统综合评估"
-                    android:textColor="@color/black3" />
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_16" />
 
                 <com.huabiao.aoiin.wedgit.ColorArcProgressBar
                     android:id="@+id/finance_evaluate_report_circle_bar"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/x173"
+                    android:layout_height="@dimen/x173"
                     android:layout_gravity="center"
                     app:back_width="4dp"
                     app:front_color1="@color/yellow_fdd400"
@@ -111,18 +116,20 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x13"
                     android:gravity="center"
-                    android:text="综合评分" />
+                    android:text="综合评分"
+                    android:textColor="@color/black2" />
 
                 <View
                     style="@style/GrayLine"
-                    android:layout_margin="10dp" />
+                    android:layout_margin="@dimen/x22" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="@dimen/x35">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -135,16 +142,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="月销量" />
+                            android:text="月销量"
+                            android:textColor="@color/black9"
+                            android:textSize="@dimen/text_size_13" />
 
                         <TextView
                             android:id="@+id/finance_evaluate_report_monthsales_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
                             android:gravity="center"
                             android:text="XXX"
-                            android:textColor="@color/black3" />
+                            android:layout_marginTop="@dimen/x20"
+                            android:textColor="@color/black2"
+                            android:textSize="@dimen/text_size_18" />
                     </LinearLayout>
 
                     <View style="@style/GrayLine_shu" />
@@ -160,16 +170,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="月品牌热门排行榜" />
+                            android:text="月品牌热门排行榜"
+                            android:textColor="@color/black9"
+                            android:textSize="@dimen/text_size_13" />
 
                         <TextView
                             android:id="@+id/finance_evaluate_report_hotrank_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
                             android:text="XXX"
-                            android:textColor="@color/black3" />
+                            android:textColor="@color/black2"
+                            android:textSize="@dimen/text_size_18" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -177,7 +190,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/x20"
                 android:background="@color/white"
                 android:orientation="vertical">
 
@@ -185,44 +198,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/banyuan"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="@dimen/x12"
                     android:gravity="center_vertical"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:text="相似产品综合评估"
-                    android:textColor="@color/black3" />
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_16" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingLeft="10dp">
-
-                        <TextView
-                            android:id="@+id/finance_evaluate_report_similarproduct_tradename_tv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left"
-                            android:text="沙宣" />
-
-                        <TextView
-                            android:id="@+id/finance_evaluate_report_similarproduct_tradetype_tv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="left"
-                            android:text="01-日化用品"
-                            android:textColor="@color/black3" />
-                    </LinearLayout>
+                    android:orientation="horizontal" >
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -231,11 +218,36 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/finance_evaluate_report_similarproduct_tradename_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="沙宣" />
+
+                        <TextView
+                            android:id="@+id/finance_evaluate_report_similarproduct_tradetype_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x14"
+                            android:gravity="center"
+                            android:text="01-日化用品"
+                            android:textColor="@color/black3" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
                         <com.huabiao.aoiin.wedgit.ColorArcProgressBar
                             android:id="@+id/finance_evaluate_report_similarproduct_circle_bar"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:layout_gravity="center"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="20dp"
                             app:back_width="4dp"
                             app:front_color1="@color/yellow_fdd400"
                             app:front_width="4dp"
@@ -266,17 +278,18 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center" android:textColor="@color/black9"
+                            android:textSize="@dimen/text_size_13"
                             android:text="月销量" />
 
                         <TextView
                             android:id="@+id/finance_evaluate_report_similarproduct_monthsales_tv"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"  android:layout_marginTop="@dimen/x20"
+                            android:textColor="@color/black2"
+                            android:textSize="@dimen/text_size_18"
                             android:gravity="center"
-                            android:text="XXX"
-                            android:textColor="@color/black3" />
+                            android:text="XXX" />
                     </LinearLayout>
 
                     <View style="@style/GrayLine_shu" />
@@ -291,21 +304,20 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center" android:textColor="@color/black9"
+                            android:textSize="@dimen/text_size_13"
                             android:text="月品牌热门排行榜" />
 
                         <TextView
                             android:id="@+id/finance_evaluate_report_similarproduct_hotrank_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="XXX"
-                            android:textColor="@color/black3" />
+                            android:text="XXX"  android:layout_marginTop="@dimen/x20"
+                            android:textColor="@color/black2"
+                            android:textSize="@dimen/text_size_18" />
                     </LinearLayout>
-
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
