@@ -53,9 +53,9 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
     View myorders_alllines;
     //选中时下标线
     View[] mlines = new View[4];
-    //当前页面的页数，1是全部
+    //当前页面的页数
     private int mpage = 1;
-    //m是传的标志位，1234代表的是全部、待支付、已完成、已取消的页面
+    //n是标志位，1234代表的是全部、待支付、已完成、已取消的页面
     private int n = 1;
 
     @Override
