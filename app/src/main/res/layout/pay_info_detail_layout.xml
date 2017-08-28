@@ -354,6 +354,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:orientation="vertical"
+                android:layout_marginBottom="15dp"
                 android:paddingLeft="@dimen/x29"
                 android:paddingRight="@dimen/x29">
 
@@ -374,7 +375,6 @@
                     android:id="@+id/pay_info_detail_pay_alipay_rb"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/x87"
-                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
