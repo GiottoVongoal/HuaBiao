@@ -94,8 +94,6 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         home_register_ll.setOnClickListener(this);
         home_progress_ll.setOnClickListener(this);
 
-        ALog.i("28--->" + DeviceUtils.px2sp(getContext(), 28));
-
         HomeModel.getHomeData(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {

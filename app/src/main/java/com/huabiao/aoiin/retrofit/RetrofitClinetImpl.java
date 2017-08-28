@@ -3,6 +3,7 @@ package com.huabiao.aoiin.retrofit;
 import android.content.Context;
 import android.util.Log;
 
+import com.blankj.ALog;
 import com.ywy.mylibs.listener.BaseRetrofitCallBackResponse;
 import com.ywy.mylibs.listener.ICallBackResultCode;
 import com.ywy.mylibs.listener.ICallBackStatusCode;
@@ -21,7 +22,7 @@ import java.util.Map;
 public class RetrofitClinetImpl {
     private static final String TAG = "RetrofitClinetImpl";
     private volatile static RetrofitClinetImpl instance;
-    private static String url = "\"http://uniapi.cheyipai.com/\"";
+    private static String url = "";
     private static boolean isParseStateCode = false;
     private static boolean isLoading = true;
     private static Context mContext;
@@ -130,13 +131,13 @@ public class RetrofitClinetImpl {
         mRetrofitClient.setRetrofitCallBackStatusCode(new ICallBackStatusCode() {
             @Override
             public void getCallBackStatusCode(BaseRetrofitCallBackResponse coreBaseRetrofitCallBackResponse) {
-                new BaseRetrofitCallBackVM<BaseRetrofitCallBackResponse>(mContext).onResponse(coreBaseRetrofitCallBackResponse);
+                ALog.i(TAG, "getResultCode: " + coreBaseRetrofitCallBackResponse.getResultCode());
             }
         });
         mRetrofitClient.setRetrofitCallBackResultCode(new ICallBackResultCode() {
             @Override
             public void getCallBackResultCode(String s, String s1) {
-                Log.i(TAG, "getCallBackResultCode: " + s + "--" + s1);
+                ALog.i(TAG, "getCallBackResultCode: " + s + "--" + s1);
             }
         });
         return mRetrofitClient;
