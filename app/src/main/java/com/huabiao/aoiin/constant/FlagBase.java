@@ -11,14 +11,9 @@ import java.io.File;
  * @description 公共常量
  */
 public class FlagBase {
-
-    //设置页面
-    public static final int SETTING_ACCOUNT_SAFE = 0;// 账户安全
-    public static final int SETTING_ADDRESS = 1;// 地址管理
-    public static final int SETTING_FEEDBACK = 2;// 建议反馈
-    public static final int SETTING_ABOUT_US = 3;// 关于我们
-    public static final int SETTING__AGREEMENT = 4;// 服务与隐私协议
-    public static final int SETTING_CLEAR_CACHE = 5;// 清除缓存
+    //回调状态码
+    public static final int CALL_BACK_SUCCESS = 10000;
+    public static final int CALL_BACK_FAILED = 10001;
 
     //拍照选照相关
     //移动端存放头像的本地路径，即attachment

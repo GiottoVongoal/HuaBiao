@@ -63,7 +63,7 @@
                     android:layout_marginBottom="@dimen/x40"
                     android:layout_marginTop="@dimen/x20"
                     android:text="分类"
-                    android:textColor="@color/black34"
+                    android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_16" />
             </LinearLayout>
         </LinearLayout>
@@ -99,7 +99,7 @@
         android:background="@mipmap/jindu_weixuan"
         android:text="付款"
         android:textAlignment="center"
-        android:textColor="@color/black8" />
+        android:textColor="@color/black3" />
 
     <View
         style="@style/GrayLine"

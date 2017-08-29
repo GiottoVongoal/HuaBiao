@@ -2,7 +2,7 @@ package com.ywy.mylibs.listener;
 
 /**
  * @author shaoshuai.
- * @PackageName com.cheyipai.core.base.retrofit.call
+ * @PackageName com.ywy.mylibs.listener
  * @date 2016-10-27 15:37
  * @description
  */

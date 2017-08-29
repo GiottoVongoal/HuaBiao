@@ -64,7 +64,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * @author shaoshuai.
- * @PackageName com.cyp.p.retrofit.net
+ * @PackageName com.ywy.mylibs.retrofit
  * @date 2016-09-28 17:04
  * @description retrofit client
  */

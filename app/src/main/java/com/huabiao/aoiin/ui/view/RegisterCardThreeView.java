@@ -62,13 +62,13 @@ public class RegisterCardThreeView extends RegisterCardBaseView {
         int personType = commitBean.getPersonType();
         switch (personType) {
             case 1:
-                title_tv.setText("公司注册资料提交");
+                title_tv.setText("自然人注册资料提交");
                 break;
             case 2:
-                title_tv.setText("个体户注册资料提交");
+                title_tv.setText("个体工商户注册资料提交");
                 break;
             case 3:
-                title_tv.setText("自然人注册资料提交");
+                title_tv.setText("公司或其他组织注册资料提交");
                 break;
             default:
                 title_tv.setText("资料提交");
@@ -83,12 +83,14 @@ public class RegisterCardThreeView extends RegisterCardBaseView {
         business_licence_iv.setOnClickListener(new ViewOnClickListener(0));
         next_tv.setOnClickListener(new ViewOnClickListener(0));
 
-        //第二个参数是需要申请的权限
+        // 内外置sd卡写权限
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             //权限还没有授予，需要在这里写申请权限的代码
             ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 7);
-        } else {
-
+        }
+        // 处理拍照选照相关权限
+        if (ContextCompat.checkSelfPermission((Activity) context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
         }
     }
 

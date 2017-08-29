@@ -3,6 +3,8 @@ package com.huabiao.aoiin.tools;
 import android.content.Context;
 import android.os.Environment;
 
+import com.ywy.mylibs.utils.CommonDialogUtils;
+
 import java.io.File;
 import java.math.BigDecimal;
 
@@ -20,11 +22,13 @@ public class DataCleanManager {
     }
 
 
-    public static void clearAllCache(Context context) {
+    public static boolean clearAllCache(Context context) {
         deleteDir(context.getCacheDir());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             deleteDir(context.getExternalCacheDir());
+            return true;
         }
+        return false;
     }
 
     private static boolean deleteDir(File dir) {

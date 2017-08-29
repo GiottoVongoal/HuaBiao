@@ -182,19 +182,19 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
         person_address_tv.setText("行政区划:" + personBean.getPersonaddress());
 
         ImgInfoBean imgbean = bean.getImginfo();
-        BitmapLoader.ins().loadImage(imgbean.getLogoimg(), R.mipmap.ic_launcher, trade_logo_iv);
-        BitmapLoader.ins().loadImage(imgbean.getProxyimg(), R.mipmap.ic_launcher, proxy_iv);
-        BitmapLoader.ins().loadImage(imgbean.getBusinesslicenceimg(), R.mipmap.ic_launcher, business_licence_iv);
+        BitmapLoader.ins().loadImage(imgbean.getLogoimg(), R.mipmap.logobg, trade_logo_iv);
+        BitmapLoader.ins().loadImage(imgbean.getProxyimg(), R.mipmap.logobg, proxy_iv);
+        BitmapLoader.ins().loadImage(imgbean.getBusinesslicenceimg(), R.mipmap.logobg, business_licence_iv);
 
         int serviceMode = bean.getServicemode();
         switch (serviceMode) {
-            case 1:
+            case 0:
                 service_mode_tv.setText("普通注册");
                 break;
-            case 2:
+            case 1:
                 service_mode_tv.setText("加急注册");
                 break;
-            case 3:
+            case 2:
                 service_mode_tv.setText("注册 + 预审 + 退费担保");
                 break;
         }
@@ -234,16 +234,16 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
 
         int person_type = bean.getPersonType();
         switch (person_type) {
-            case 1:
-                person_type_tv.setText("法人或其他组织");
+            case 0:
+                person_type_tv.setText("自然人");
 //                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
                 break;
-            case 2:
+            case 1:
                 person_type_tv.setText("个体工商户");
 //                legal_or_id_tv.setText("法人姓名:" + bean.getLegalPersonName());
                 break;
-            case 3:
-                person_type_tv.setText("自然人");
+            case 2:
+                person_type_tv.setText("公司或其他组织");
 //                legal_or_id_tv.setText("身份证件文件号码:" + bean.getCertificatesID());
                 break;
         }
@@ -260,13 +260,13 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
 
         int serviceMode = bean.getServiceMode();
         switch (serviceMode) {
-            case 1:
+            case 0:
                 service_mode_tv.setText("普通注册");
                 break;
-            case 2:
+            case 1:
                 service_mode_tv.setText("加急注册");
                 break;
-            case 3:
+            case 2:
                 service_mode_tv.setText("注册 + 预审 + 退费担保");
                 break;
         }

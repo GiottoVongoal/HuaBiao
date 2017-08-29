@@ -27,7 +27,17 @@
             android:textColor="@color/black3"
             android:textSize="@dimen/text_size_13" />
 
+        <TextView
+            android:id="@+id/view_me_right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/view_me_right_iv"
+            android:textColor="@color/grey_999999"
+            android:textSize="@dimen/text_size_12" />
+
         <ImageView
+            android:id="@+id/view_me_right_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

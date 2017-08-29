@@ -81,20 +81,20 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void onClick(final View view) {
+        KeyboardUtils.hideSoftInput(getActivity());
+        tradename = tradename_et.getEditText().getText().toString();
+        goodsname = goodsname_et.getEditText().getText().toString();
+        if (TextUtils.isEmpty(tradename)) {
+            showToast("请输入商标名");
+            return;
+        }
+        if (TextUtils.isEmpty(goodsname)) {
+            showToast("请输入商品名");
+            return;
+        }
         switch (view.getId()) {
             case R.id.register_one_register_tv:
                 //注册按钮
-                KeyboardUtils.hideSoftInput(getActivity());
-                tradename = tradename_et.getEditText().getText().toString();
-                goodsname = goodsname_et.getEditText().getText().toString();
-                if (TextUtils.isEmpty(tradename)) {
-                    showToast("请输入商标名");
-                    return;
-                }
-                if (TextUtils.isEmpty(goodsname)) {
-                    showToast("请输入商品名");
-                    return;
-                }
                 setSelect(0);
                 JumpUtils.startActivity(getContext(), RegisterOneActivity.class);
 //                showFinishPopupWindow(view);

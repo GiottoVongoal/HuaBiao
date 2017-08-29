@@ -2,7 +2,7 @@ package com.ywy.mylibs.listener;
 
 /**
  * @author shaoshuai.
- * @PackageName com.cyp.p.retrofit.call
+ * @PackageName com.ywy.mylibs.listener
  * @date 2016-09-28 17:04
  * @description down callback
  */
