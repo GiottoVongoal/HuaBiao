@@ -317,19 +317,19 @@ public class DenominateRotatePanLayout extends View {
             return true;
         }
 
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            float centerX = (DenominateRotatePanLayout.this.getLeft() + DenominateRotatePanLayout.this.getRight()) * 0.5f;
-            float centerY = (DenominateRotatePanLayout.this.getTop() + DenominateRotatePanLayout.this.getBottom()) * 0.5f;
-
-            float scrollTheta = vectorToScalarScroll(velocityX, velocityY, e2.getX() - centerX, e2.getY() -
-                    centerY);
-
-            scroller.abortAnimation();
-            scroller.fling(0, InitAngle, 0, (int) scrollTheta / FLING_VELOCITY_DOWNSCALE,
-                    0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
-            return true;
-        }
+//        @Override
+//        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+//            float centerX = (DenominateRotatePanLayout.this.getLeft() + DenominateRotatePanLayout.this.getRight()) * 0.5f;
+//            float centerY = (DenominateRotatePanLayout.this.getTop() + DenominateRotatePanLayout.this.getBottom()) * 0.5f;
+//
+//            float scrollTheta = vectorToScalarScroll(velocityX, velocityY, e2.getX() - centerX, e2.getY() -
+//                    centerY);
+//
+//            scroller.abortAnimation();
+//            scroller.fling(0, InitAngle, 0, (int) scrollTheta / FLING_VELOCITY_DOWNSCALE,
+//                    0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+//            return true;
+//        }
     }
 
     //  判断滑动的方向
