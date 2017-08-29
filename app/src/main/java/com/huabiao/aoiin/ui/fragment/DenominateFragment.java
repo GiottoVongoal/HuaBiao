@@ -38,7 +38,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     @Bind(R.id.rp_layout)
     DenominateRotatePanLayout rp;
     //中心的点击图片
-    @Bind(R.id.go)
+    @Bind(R.id.zhizhen)
     ImageView goBtnIV;
     //商品名
     @Bind(R.id.tv_name)
@@ -130,7 +130,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     public void onClick(final View view) {
         switch (view.getId()) {
             //判断editview与行业是否有值，有值的话点击go有效,没有值则输出弹框提示
-            case R.id.go:
+            case R.id.zhizhen:
                 str = denominate_trade_name_et.getText().toString();
                 if (StringUtil.isEmpty(str)) {
                     showToast("请输入商品名");
