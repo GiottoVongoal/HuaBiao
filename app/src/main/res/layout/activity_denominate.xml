@@ -93,17 +93,17 @@
                         android:layout_height="@dimen/x530"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginTop="@dimen/x30" />
 
                     <ImageView
                         android:id="@+id/zhizhen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/x200"
+                        android:layout_height="@dimen/x200"
                         android:layout_alignTop="@+id/rp_layout"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="66dp"
+                        android:layout_marginTop="@dimen/x160"
                         android:clickable="true"
-                        android:src="@mipmap/node"
+                        android:src="@mipmap/zhizhen"
                         android:visibility="visible" />
                 </RelativeLayout>
 
@@ -122,8 +122,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="商品名"
                     android:layout_marginTop="@dimen/x34"
+                    android:text="商品名"
                     android:textColor="@color/black_080C31"
                     android:textSize="@dimen/text_size_20" />
 
@@ -132,8 +132,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/x17"
                     android:layout_marginBottom="@dimen/x25"
+                    android:layout_marginTop="@dimen/x17"
                     android:text="商品类型" />
 
                 <com.huabiao.aoiin.wedgit.DrawLineChartView
