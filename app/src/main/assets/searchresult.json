@@ -61,47 +61,7 @@
           6,
           8
         ]
-      },
-      {
-        "linename": "阿里",
-        "linecolor": "#AED79B",
-        "linevalue": [
-          2,
-          5,
-          7,
-          4,
-          4,
-          8,
-          6
-        ]
       }
     ]
-  },
-  "recommend": [
-    {
-      "tradename": "推荐名字1",
-      "trademarkclassification": "类别1",
-      "classificationid": "01"
-    },
-    {
-      "tradename": "推荐名字2",
-      "trademarkclassification": "类别2",
-      "classificationid": "02"
-    },
-    {
-      "tradename": "推荐名字3",
-      "trademarkclassification": "类别3",
-      "classificationid": "03"
-    },
-    {
-      "tradename": "推荐名字4",
-      "trademarkclassification": "类别4",
-      "classificationid": "04"
-    },
-    {
-      "tradename": "推荐名字5",
-      "trademarkclassification": "类别5",
-      "classificationid": "05"
-    }
-  ]
+  }
 }

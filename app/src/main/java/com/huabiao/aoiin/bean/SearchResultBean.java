@@ -12,7 +12,6 @@ public class SearchResultBean {
 
     private ClassificationBean classification;
     private LineChartBean linechart;
-    private List<RecommendBean> recommend;
 
     public ClassificationBean getClassification() {
         return classification;
@@ -28,14 +27,6 @@ public class SearchResultBean {
 
     public void setLinechart(LineChartBean linechart) {
         this.linechart = linechart;
-    }
-
-    public List<RecommendBean> getRecommend() {
-        return recommend;
-    }
-
-    public void setRecommend(List<RecommendBean> recommend) {
-        this.recommend = recommend;
     }
 
     public static class ClassificationBean {
@@ -102,43 +93,6 @@ public class SearchResultBean {
             public void setTrademarkstatus(int trademarkstatus) {
                 this.trademarkstatus = trademarkstatus;
             }
-        }
-    }
-
-    public static class RecommendBean {
-        /**
-         * tradename : 推荐名字1
-         * trademarkclassification : 类别1
-         * classificationid : 01
-         * trademarkstatus : 1
-         */
-
-        private String tradename;
-        private String trademarkclassification;
-        private String classificationid;
-
-        public String getTradename() {
-            return tradename;
-        }
-
-        public void setTradename(String tradename) {
-            this.tradename = tradename;
-        }
-
-        public String getTrademarkclassification() {
-            return trademarkclassification;
-        }
-
-        public void setTrademarkclassification(String trademarkclassification) {
-            this.trademarkclassification = trademarkclassification;
-        }
-
-        public String getClassificationid() {
-            return classificationid;
-        }
-
-        public void setClassificationid(String classificationid) {
-            this.classificationid = classificationid;
         }
     }
 }

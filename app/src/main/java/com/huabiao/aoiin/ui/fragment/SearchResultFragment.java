@@ -1,6 +1,7 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,13 +12,10 @@ import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.ScreenBean.ScreenlistBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
-import com.huabiao.aoiin.bean.SearchResultBean.RecommendBean;
 import com.huabiao.aoiin.model.SearchModel;
-import com.huabiao.aoiin.ui.adapter.SearchResultBottomAdapter;
 import com.huabiao.aoiin.ui.adapter.SearchResultTopAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
-import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.huabiao.aoiin.wedgit.MaxRecyclerView;
 import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
@@ -42,11 +40,8 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
 
     //展示数据
     @Bind(R.id.search_result_top_rv)
-    MaxRecyclerView top_rv;
+    RecyclerView top_rv;
     private SearchResultTopAdapter topAdapter;
-    @Bind(R.id.search_result_bottom_rv)
-    MaxRecyclerView bottom_rv;
-    private SearchResultBottomAdapter bottomAdapter;
     @Bind(R.id.search_result_line_chart)
     DrawLineChartView line_chart;
 
@@ -99,12 +94,6 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
                     if (linechart != null) {
                         line_chart.setLineChartBean(linechart);
                     }
-                    //展示推荐
-                    List<RecommendBean> recommendList = searchResult.getRecommend();
-                    bottom_rv.setLayoutManager(new FullyGridLayoutManager(getContext(), 2));
-                    bottomAdapter = new SearchResultBottomAdapter(getContext(), recommendList);
-                    bottom_rv.setAdapter(bottomAdapter);
-                    bottom_rv.setNestedScrollingEnabled(false);
                 }
             }
         });
