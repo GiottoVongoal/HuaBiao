@@ -50,7 +50,6 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         holder.tradename.setText(bean.getGoodsname());
         holder.classfication.setText(bean.getClassificationid() + "-" + bean.getClassificationname());
         BitmapLoader.ins().loadImage(bean.getGoodsimg(), R.mipmap.logobg, holder.imgview);
-        
     }
 
     @Override
