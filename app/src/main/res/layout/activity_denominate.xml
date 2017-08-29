@@ -2,112 +2,142 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include layout="@layout/view_title" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
 
-        <EditText
-            android:id="@+id/denominate_trade_name_et"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/bg_round_gray"
-            android:drawableLeft="@mipmap/fangdajing"
-            android:gravity="center"
-            android:hint="商品名"
-            android:padding="10dp" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <View style="@style/GrayLine_shu" />
-
-        <Button
-            android:id="@+id/denominate_industry_btn"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="0.81"
-            android:gravity="center"
-            android:text="行业"
-            android:background="@drawable/bg_round_gray"
-            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
-
-        <ImageView
-            android:id="@+id/arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@mipmap/arrow"
-            android:visibility="visible" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_round_gray"
-        android:orientation="vertical"
-        android:id="@+id/denominate_layout"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="商品名"
-            android:textColor="@color/black_080C31"
-            android:textSize="@dimen/text_size_20" />
-
-        <TextView
-            android:id="@+id/tv_trademarkclassification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="5dp"
-            android:text="商品类型" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="释义："
-            android:textColor="@color/black3" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_means"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="释义的内容" />
+            <include layout="@layout/view_title" />
 
-        <com.huabiao.aoiin.wedgit.DrawLineChartView
-            android:id="@+id/creat_name_line_chart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-110dp">
+                <LinearLayout
+                    android:id="@+id/layout_denominate_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-        <com.huabiao.aoiin.ui.view.DenominateRotatePanLayout
-            android:id="@+id/rp_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+                    <EditText
+                        android:id="@+id/denominate_trade_name_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_round_gray"
+                        android:drawableLeft="@mipmap/fangdajing"
+                        android:gravity="center"
+                        android:hint="商品名"
+                        android:padding="10dp" />
 
-        <ImageView
-            android:id="@+id/go"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/rp_layout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"
-            android:clickable="true"
-            android:src="@mipmap/node"
-            android:visibility="visible" />
-    </RelativeLayout>
+                    <View style="@style/GrayLine_shu" />
+
+                    <Button
+                        android:id="@+id/denominate_industry_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.81"
+                        android:background="@drawable/bg_round_gray"
+                        android:gravity="center"
+                        android:text="行业"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
+
+                    <ImageView
+                        android:id="@+id/arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:src="@mipmap/arrow"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <com.huabiao.aoiin.ui.view.DenominateRotatePanLayout
+                        android:id="@+id/rp_layout"
+                        android:layout_width="@dimen/x530"
+                        android:layout_height="@dimen/x530"
+                        android:layout_marginTop="73dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
+
+                    <ImageView
+                        android:id="@+id/go"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:src="@mipmap/node"
+                        android:visibility="visible"
+                        android:layout_marginTop="66dp"
+                        android:layout_alignTop="@+id/rp_layout"
+                        android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/denominate_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="商品名"
+                    android:textColor="@color/black_080C31"
+                    android:textSize="@dimen/text_size_20" />
+
+                <TextView
+                    android:id="@+id/tv_trademarkclassification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="商品类型" />
+
+                <com.huabiao.aoiin.wedgit.DrawLineChartView
+                    android:id="@+id/creat_name_line_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="释义："
+                    android:textColor="@color/black3" />
+
+                <TextView
+                    android:id="@+id/tv_means"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="释义的内容" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x112"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black3"
+                    android:drawableRight="@mipmap/my_icon_defult"
+                    android:text="点击更多"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
