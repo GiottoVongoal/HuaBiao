@@ -21,4 +21,5 @@
     <dimen name="text_size_49">49sp</dimen>
     <dimen name="text_size_70">70sp</dimen>
 
+    <dimen name="textandiconmargin">10dp</dimen>
 </resources>

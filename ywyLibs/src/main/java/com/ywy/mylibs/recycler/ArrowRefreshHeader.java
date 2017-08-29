@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.cheyipai.core.R;
+import com.ywy.mylibs.R;
 
 import java.util.Date;
 
