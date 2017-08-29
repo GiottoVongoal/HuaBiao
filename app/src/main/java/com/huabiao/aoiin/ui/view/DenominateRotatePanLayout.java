@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.picview.BitmapUtil;
 
@@ -73,8 +74,10 @@ public class DenominateRotatePanLayout extends View {
             verPanRadius = 360 / panNum;
             diffRadius = verPanRadius / 2;
             //两个盘的颜色
-            dPaint.setColor(Color.parseColor("#AED79B"));
-            sPaint.setColor(context.getResources().getColor(R.color.yellow_fdd400));
+//            dPaint.setColor(Color.parseColor("#AED79B"));
+//            sPaint.setColor(context.getResources().getColor(R.color.yellow_fdd400));
+            dPaint.setColor(context.getResources().getColor(R.color.white));
+            sPaint.setColor(context.getResources().getColor(R.color.white));
             //盘上文字大小和颜色
             textPaint.setColor(Color.BLACK);
             textPaint.setTextSize(BitmapUtil.dip2px(context, 16));
@@ -259,6 +262,11 @@ public class DenominateRotatePanLayout extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            ALog.i("scroller--queryPosition() = " + queryPosition());
+            if (l != null)
+                l.endAnimation(queryPosition());
+        }
         boolean consume = mDetector.onTouchEvent(event);
         if (consume) {
             getParent().requestDisallowInterceptTouchEvent(true);

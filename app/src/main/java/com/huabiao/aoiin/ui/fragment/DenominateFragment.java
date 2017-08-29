@@ -4,7 +4,6 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,9 +55,9 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     //输入商品名
     @Bind(R.id.denominate_trade_name_et)
     EditText denominate_trade_name_et;
-    //选择行业
+    //选择行业(以前是btn现在已经改为了textview)
     @Bind(R.id.denominate_industry_btn)
-    Button denominate_industry_btn;
+    TextView denominate_industry_btn;
     //跳转到详情页面的layout id
     @Bind(R.id.denominate_layout)
     LinearLayout denominate_layout;
