@@ -21,6 +21,7 @@ import com.huabiao.aoiin.wedgit.MaxRecyclerView;
 import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class SearchResultFragment extends BaseFragment {
         setRightIvOnclick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("筛选");
+                JumpUtils.startFragmentByName(getContext(), SearchResultScreenFragment.class);
             }
         });
 

@@ -17,9 +17,10 @@ import butterknife.Bind;
 
 /**
  * Created by Aoiin-9 on 2017/8/30.
+ * 查询结果筛选数据
  */
 
-public class ScreenResultFragment extends BaseFragment {
+public class SearchResultScreenFragment extends BaseFragment {
     private ScreenAdapter adapter;
     @Bind(R.id.exlv)
     ExpandableListView exlv;
@@ -40,7 +41,7 @@ public class ScreenResultFragment extends BaseFragment {
                 if (mData != null) {
                     ScreenBean bean = (ScreenBean) mData;
                     List<ScreenBean.ScreenlistBean> list = bean.getScreenlist();
-                    adapter=new ScreenAdapter(getContext(), list);
+                    adapter = new ScreenAdapter(getContext(), list);
                     exlv.setAdapter(adapter);
                     exlv.expandGroup(0);//默认展开第一项
                     exlv.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
