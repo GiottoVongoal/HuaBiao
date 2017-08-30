@@ -15,6 +15,10 @@ public class FlagBase {
     public static final int CALL_BACK_SUCCESS = 10000;
     public static final int CALL_BACK_FAILED = 10001;
 
+    //刷新与加载
+    public static final int PULL_TO_REFRESH=10000;
+    public static final int SCROLL_LOAD_MORE=10001;
+
     //拍照选照相关
     //移动端存放头像的本地路径，即attachment
     public static final String SDCARD_FJ_PATH = Environment.getExternalStorageDirectory() + File.separator;
