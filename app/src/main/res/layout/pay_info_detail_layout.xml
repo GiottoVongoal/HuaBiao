@@ -72,7 +72,7 @@
                 android:background="@color/white"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:padding="@dimen/x18"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/pay_info_detail_trade_logo_iv"
@@ -237,8 +237,8 @@
                 android:id="@+id/pay_info_detail_invoice_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:layout_marginBottom="10dp"
+                android:background="@color/white"
                 android:padding="@dimen/x26"
                 android:visibility="visible">
 
@@ -326,6 +326,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_invoice_header_et"
                     android:layout_marginTop="5dp"
+                    android:layout_toLeftOf="@+id/pay_info_detail_invoice_dutynum_tip_iv"
                     app:hintAnimationEnabled="true">
 
                     <EditText
@@ -341,19 +342,18 @@
                     android:id="@+id/pay_info_detail_invoice_dutynum_tip_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignTop="@+id/pay_info_detail_invoice_dutynum_et"
-                    android:layout_margin="5dp"
-                    android:src="@mipmap/notice_iv" />
+                    android:src="@mipmap/gantanhao" />
             </RelativeLayout>
 
             <RadioGroup
                 android:id="@+id/pay_info_detail_pay_way_rg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:background="@color/white"
                 android:orientation="vertical"
-                android:layout_marginBottom="15dp"
                 android:paddingLeft="@dimen/x29"
                 android:paddingRight="@dimen/x29">
 

@@ -21,18 +21,18 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/x17"
             android:text="商品服务小项"
-            android:textSize="@dimen/text_size_13"
-            android:textColor="@color/grey_999999" />
+            android:textColor="@color/grey_999999"
+            android:textSize="@dimen/text_size_13" />
 
         <TextView
             android:id="@+id/search_result_top_item_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_16"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/x23"
-            android:layout_marginTop="@dimen/x14"
-            android:textColor="@color/black3" />
+            android:layout_marginTop="@dimen/x10"
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_16" />
 
         <View style="@style/GrayLine" />
 
@@ -54,23 +54,24 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/x17"
-                    android:textSize="@dimen/text_size_13"
                     android:text="状态"
-                    android:textColor="@color/grey_999999" />
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_13" />
 
                 <TextView
                     android:id="@+id/search_result_top_item_left_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x23"
-                    android:textSize="@dimen/text_size_14"
-                    android:layout_marginTop="@dimen/x14"
-                    android:textColor="@color/black3" />
+                    android:layout_marginTop="@dimen/x10"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
             </LinearLayout>
 
-            <View style="@style/GrayLine_shu"
-                android:layout_marginBottom="@dimen/x10"
-                android:layout_marginTop="@dimen/x10"/>
+            <View
+                style="@style/GrayLine_shu"
+                android:layout_marginBottom="@dimen/x20"
+                android:layout_marginTop="@dimen/x20" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -83,19 +84,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="@dimen/text_size_13"
                     android:layout_marginTop="@dimen/x17"
                     android:text="日用品行业"
-                    android:textColor="@color/grey_999999" />
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_13" />
 
                 <TextView
                     android:id="@+id/search_result_top_item_right_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x23"
-                    android:textSize="@dimen/text_size_14"
-                    android:layout_marginTop="@dimen/x14"
-                    android:textColor="@color/black3" />
+                    android:layout_marginTop="@dimen/x10"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

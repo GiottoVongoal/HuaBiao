@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean;
-import com.huabiao.aoiin.bean.SearchResultBean.ClassificationBean.ClassficationsmalltypeBean;
+import com.huabiao.aoiin.bean.SearchResultBean.ResultClassificationBean;
+import com.huabiao.aoiin.bean.SearchResultBean.ResultClassificationBean.ClassficationsmalltypeBean;
 
 import java.util.List;
 
@@ -21,12 +21,17 @@ import java.util.List;
  * @description 查结果--筛选后的次级分类Adapter
  */
 public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTopAdapter.TopHolder> {
-    private ClassificationBean bean;
+    private ResultClassificationBean bean;
     private Context context;
 
-    public SearchResultTopAdapter(Context context, ClassificationBean bean) {
+    public SearchResultTopAdapter(Context context, ResultClassificationBean bean) {
         this.context = context;
         this.bean = bean;
+    }
+
+    public void updateAdapter(ResultClassificationBean bean) {
+        this.bean = bean;
+        notifyDataSetChanged();
     }
 
     @Override

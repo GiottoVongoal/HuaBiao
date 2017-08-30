@@ -16,17 +16,17 @@
 
         <TextView
             android:id="@+id/message"
-            android:textSize="@dimen/text_size_13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/common_loading_loadingmsg"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_13" />
 
         <ProgressBar
             android:id="@+id/widget108"
             style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -46,7 +46,8 @@
 
         <ImageView
             android:layout_width="20dp"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:src="@mipmap/common_loadingprogress_closeimg" />
 
     </LinearLayout>
 

@@ -16,6 +16,7 @@ public class InterfaceManager {
     public interface OnItemClickListener {
         void onItemClickListener(View view, int position);
     }
+
     //创建查询结果筛选条件的Item点击事件
     public interface OnScreenItemClickListener {
         void onItemClickListener(View view, ClassificationBean position);

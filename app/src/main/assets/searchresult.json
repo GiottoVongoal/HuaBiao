@@ -6,32 +6,32 @@
       {
         "classificationsmallname": "饮料色素",
         "classificationsmallid": "0203",
-        "trademarkstatus": 3
+        "trademarkstatus": 2
       },
       {
         "classificationsmallname": "食品用着色剂",
         "classificationsmallid": "0203",
-        "trademarkstatus": 3
+        "trademarkstatus": 2
       },
       {
         "classificationsmallname": "麦芽焦糖（食品色素）",
         "classificationsmallid": "0203",
-        "trademarkstatus": 3
+        "trademarkstatus": 2
       },
       {
         "classificationsmallname": "打印机和复印机用已填充的鼓粉盒",
         "classificationsmallid": "0204",
-        "trademarkstatus": 3
+        "trademarkstatus": 2
       },
       {
         "classificationsmallname": "天然树脂（原料）",
         "classificationsmallid": "0207",
-        "trademarkstatus": 3
+        "trademarkstatus": 2
       },
       {
         "classificationsmallname": "山达脂",
         "classificationsmallid": "0207",
-        "trademarkstatus": 3
+        "trademarkstatus": 2
       }
     ]
   },
@@ -53,11 +53,11 @@
         "linename": "百度",
         "linecolor": "#fdd400",
         "linevalue": [
-          9,
+          7,
           7,
           6,
           7,
-          8,
+          5,
           6,
           8
         ]

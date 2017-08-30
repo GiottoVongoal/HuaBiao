@@ -10,14 +10,14 @@ import java.util.List;
  */
 public class SearchResultBean {
 
-    private ClassificationBean classification;
+    private ResultClassificationBean classification;
     private LineChartBean linechart;
 
-    public ClassificationBean getClassification() {
+    public ResultClassificationBean getClassification() {
         return classification;
     }
 
-    public void setClassification(ClassificationBean classification) {
+    public void setClassification(ResultClassificationBean classification) {
         this.classification = classification;
     }
 
@@ -29,7 +29,7 @@ public class SearchResultBean {
         this.linechart = linechart;
     }
 
-    public static class ClassificationBean {
+    public static class ResultClassificationBean {
 
         private String classificationname;
         private String classificationid;

@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x77"
                 android:background="@color/white"
-                android:drawableLeft="@mipmap/notice_iv"
+                android:drawableLeft="@mipmap/gantanhao"
                 android:drawablePadding="@dimen/x12"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x27"

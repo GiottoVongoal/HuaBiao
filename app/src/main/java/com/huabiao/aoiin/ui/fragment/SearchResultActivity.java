@@ -2,7 +2,6 @@ package com.huabiao.aoiin.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -14,6 +13,7 @@ import com.huabiao.aoiin.bean.LineChartBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.ScreenBean.ScreenlistBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
+import com.huabiao.aoiin.bean.SearchResultBean.ResultClassificationBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultTopAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -22,15 +22,14 @@ import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.huabiao.aoiin.wedgit.MaxRecyclerView;
 import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
 import com.ywy.mylibs.base.BaseActivity;
-import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.List;
 
 import butterknife.Bind;
 
 import static android.R.attr.phoneNumber;
+import static android.R.attr.top;
 
 /**
  * @author 杨丽亚.
@@ -40,7 +39,6 @@ import static android.R.attr.phoneNumber;
  */
 public class SearchResultActivity extends BaseActivity {
     //筛选
-    private ScreenPopupWindow screenPopupWindow;
     @Bind(R.id.search_result_num_tv)
     TextView search_result_num_tv;
 
@@ -56,6 +54,8 @@ public class SearchResultActivity extends BaseActivity {
 
     private String tradename, goodsname;
     private int REQUEST_CODE = 0;
+
+    private ResultClassificationBean bean;
 
     @Override
     public void getIntentValue() {
@@ -75,18 +75,47 @@ public class SearchResultActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent newIntent = new Intent(SearchResultActivity.this, SearchResultScreenActivity.class);
-                // 开始一个新的 Activity等候返回结果
                 startActivityForResult(newIntent, REQUEST_CODE);
             }
         });
 
+        top_rv.setLayoutManager(new FullyLinearLayoutManager(SearchResultActivity.this));
+        bean = new ResultClassificationBean();
+        topAdapter = new SearchResultTopAdapter(SearchResultActivity.this, bean);
+        top_rv.setAdapter(topAdapter);
+        top_rv.setNestedScrollingEnabled(false);
+
+        //获取筛选类别数据
         SearchModel.getSelectClassificationList(SearchResultActivity.this, new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     ScreenBean bean = (ScreenBean) mData;
                     List<ScreenlistBean> list = bean.getScreenlist();
-                    initPopMenu(list);
+                    //默认获取第一类数据
+                    initData(list.get(0).getSlist().get(0).getClassificationid());
+                }
+            }
+        });
+    }
+
+    //根据筛选类别第一类去获取展示数据
+    private void initData(String classificationid) {
+        SearchModel.getSearchResult(SearchResultActivity.this, classificationid, new InterfaceManager.CallBackCommon() {
+            @Override
+            public void getCallBackCommon(Object mData) {
+                if (mData != null) {
+                    SearchResultBean searchResult = (SearchResultBean) mData;
+                    //列表展示
+                    topAdapter.updateAdapter(searchResult.getClassification());
+                    //文字展示
+                    int num = searchResult.getClassification().getClassficationsmalltype().size();
+                    search_result_num_tv.setText("为您找到" + num + "个未注册相关结果");
+                    //展示折线图
+                    LineChartBean linechart = searchResult.getLinechart();
+                    if (linechart != null) {
+                        line_chart.setLineChartBean(linechart);
+                    }
                 }
             }
         });
@@ -101,48 +130,12 @@ public class SearchResultActivity extends BaseActivity {
                 if (extras != null) {
                     String id = extras.getString("id");
                     String name = extras.getString("name");
+                    showToast("id = " + id + ",name = " + name);
                     ALog.i("id = " + id + ",name = " + name);
+                    initData(id);
                 }
             }
         }
-    }
-
-    //下拉筛选菜单相关
-    private void initPopMenu(final List<ScreenlistBean> list) {
-        //默认获取第一类数据
-        initData(list.get(0).getSlist().get(0).getClassificationid());
-        screenPopupWindow = new ScreenPopupWindow(SearchResultActivity.this, list, new InterfaceManager.OnScreenItemClickListener() {
-            @Override
-            public void onItemClickListener(View view, ClassificationBean bean) {
-                ALog.i("bean", bean.getClassificationid() + "-" + bean.getClassificationname());
-                initData(bean.getClassificationid());
-            }
-        });
-    }
-
-    //获取展示数据
-    private void initData(String classificationid) {
-        SearchModel.getSearchResult(SearchResultActivity.this, classificationid, new InterfaceManager.CallBackCommon() {
-            @Override
-            public void getCallBackCommon(Object mData) {
-                if (mData != null) {
-                    SearchResultBean searchResult = (SearchResultBean) mData;
-                    //展示小分类
-//                    List<ClassficationsmalltypeBean> detailedList = searchResult.getClassification().getClassficationsmalltype();
-                    top_rv.setLayoutManager(new FullyLinearLayoutManager(SearchResultActivity.this));
-                    topAdapter = new SearchResultTopAdapter(SearchResultActivity.this, searchResult.getClassification());
-                    int num = searchResult.getClassification().getClassficationsmalltype().size();
-                    search_result_num_tv.setText("为您找到" + num + "个未注册相关结果");
-                    top_rv.setAdapter(topAdapter);
-                    top_rv.setNestedScrollingEnabled(false);
-                    //展示折线图
-                    LineChartBean linechart = searchResult.getLinechart();
-                    if (linechart != null) {
-                        line_chart.setLineChartBean(linechart);
-                    }
-                }
-            }
-        });
     }
 
     @Override
