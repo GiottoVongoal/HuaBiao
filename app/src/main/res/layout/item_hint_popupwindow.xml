@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/x108"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/screen_item_left_iv"
-        android:layout_width="100px"
-        android:layout_height="100px"
+        android:layout_width="@dimen/x45"
+        android:layout_height="@dimen/x45"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:padding="15dp"
-        android:visibility="gone" />
+        android:layout_marginLeft="@dimen/x40"
+        android:scaleType="centerInside"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/screen_item_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_toRightOf="@+id/screen_item_left_iv"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_16" />
 
     <ImageView
         android:id="@+id/screen_item_right_iv"
@@ -19,18 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:padding="15dp"
+        android:layout_marginRight="@dimen/x40"
         android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/screen_item_content_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_toRightOf="@+id/screen_item_left_iv"
-        android:padding="15dp"
-        android:text="筛选的子项文字显示观看效果" />
 </RelativeLayout>

@@ -8,6 +8,7 @@
     <include layout="@layout/view_title" />
 
     <ScrollView
+        android:id="@+id/search_result_sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -26,7 +27,8 @@
                 android:drawablePadding="@dimen/x12"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x27"
-                android:text="为您找到的未注册相关结果" />
+                android:text="为您找到的未注册相关结果"
+                android:textSize="@dimen/text_size_14" />
 
             <View
                 style="@style/GrayLine"
@@ -37,6 +39,7 @@
                 android:id="@+id/search_result_top_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/x10"
                 android:background="@color/white" />
 
             <TextView
@@ -49,7 +52,7 @@
                 android:paddingTop="10dp"
                 android:text="热度趋势图"
                 android:textColor="@color/black3"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_16" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/search_result_line_chart"

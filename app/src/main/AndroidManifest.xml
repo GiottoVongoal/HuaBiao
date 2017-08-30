@@ -39,6 +39,10 @@
         </activity>
         <!--登录-->
         <activity android:name=".ui.activity.LoginActivity" />
+        <!--查询结果页面-->
+        <activity android:name=".ui.fragment.SearchResultActivity" />
+        <!--查询结果的筛选数据显示-->
+        <activity android:name=".ui.fragment.SearchResultScreenActivity" />
         <!-- 进度页面(测试圆弧进度条) -->
         <activity
             android:name=".ui.activity.UserProgressActivity"

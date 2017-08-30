@@ -12,6 +12,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.DeviceUtils;
 
 import java.util.List;
 
@@ -66,20 +67,21 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_hint_popupwindow, parent, false);
             groupHolder = new ViewHolderGroup();
+            groupHolder.iv_left = (ImageView) convertView.findViewById(R.id.screen_item_left_iv);
             groupHolder.tv_content = (TextView) convertView.findViewById(R.id.screen_item_content_tv);
             groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.screen_item_right_iv);
             convertView.setTag(groupHolder);
         } else {
             groupHolder = (ViewHolderGroup) convertView.getTag();
         }
+        groupHolder.iv_left.setVisibility(View.GONE);
         groupHolder.iv_right.setVisibility(View.VISIBLE);
         if (isExpanded) {//展开
             groupHolder.iv_right.setImageResource(R.mipmap.shouqi);
         } else {
             groupHolder.iv_right.setImageResource(R.mipmap.xiala);
         }
-        groupHolder.tv_content.setTextSize(18);
-        groupHolder.tv_content.setTextColor(mContext.getResources().getColor(R.color.black3));
+        groupHolder.tv_content.setTextSize(DeviceUtils.px2sp(mContext, 32));
         groupHolder.tv_content.setText(list.get(groupPosition).getSname());
         return convertView;
     }
@@ -90,17 +92,18 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_hint_popupwindow, parent, false);
             groupHolder = new ViewHolderItem();
+            groupHolder.iv_left = (ImageView) convertView.findViewById(R.id.screen_item_left_iv);
             groupHolder.tv_content = (TextView) convertView.findViewById(R.id.screen_item_content_tv);
             groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.screen_item_right_iv);
-            groupHolder.iv_left = (ImageView) convertView.findViewById(R.id.screen_item_left_iv);
             convertView.setTag(groupHolder);
         } else {
             groupHolder = (ViewHolderItem) convertView.getTag();
         }
         ClassificationBean bean = list.get(groupPosition).getSlist().get(childPosition);
-        groupHolder.iv_right.setVisibility(View.INVISIBLE);
         groupHolder.iv_left.setVisibility(View.VISIBLE);
+        groupHolder.iv_right.setVisibility(View.INVISIBLE);
         BitmapLoader.ins().loadImage("", R.mipmap.ic_rest_day, groupHolder.iv_left);
+        groupHolder.tv_content.setTextSize(DeviceUtils.px2sp(mContext, 28));
         groupHolder.tv_content.setText(bean.getClassificationid() + " - " + bean.getClassificationname());
         return convertView;
     }
@@ -119,6 +122,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
     private static class ViewHolderGroup {
         private TextView tv_content;
         private ImageView iv_right;
+        private ImageView iv_left;
     }
 
     private static class ViewHolderItem {

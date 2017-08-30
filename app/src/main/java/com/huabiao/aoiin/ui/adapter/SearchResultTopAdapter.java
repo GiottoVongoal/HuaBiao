@@ -53,7 +53,6 @@ public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTop
         }
         holder.item_left_tv.setText(statusString);
 
-
         //上边显示第二分类的ID和最小分类的name
         String topTex = smallBean.getClassificationsmallid() + " - " + smallBean.getClassificationsmallname();
         holder.item_tv.setText(topTex);

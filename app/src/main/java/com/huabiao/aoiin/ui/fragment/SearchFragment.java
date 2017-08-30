@@ -69,7 +69,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         Bundle bundle = new Bundle();
         bundle.putString("tradename", tradename);
         bundle.putString("goodsname", goodsname);
-        JumpUtils.startFragmentByName(getContext(), SearchResultFragment.class, bundle);
+        JumpUtils.startActivity(getContext(), SearchResultActivity.class, bundle);
     }
 
     @Override
