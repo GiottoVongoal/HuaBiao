@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundwhite"
+    android:background="@color/grey_f8f8f8"
     android:orientation="vertical">
 
     <include layout="@layout/view_title" />
@@ -19,88 +19,58 @@
 
             <include layout="@layout/layout_buying_view" />
 
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="0dp"
-                android:background="@color/black3" />
-
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="10dp"
-                android:background="@color/black3" />
-
             <include layout="@layout/layout_buying_baseinfo" />
 
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="0dp"
-                android:background="@color/black3" />
-
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="10dp"
-                android:background="@color/black3" />
 
             <include layout="@layout/layout_buying_registerinfo" />
-
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="0dp"
-                android:background="@color/black3" />
-
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="10dp"
-                android:background="@color/black3" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:padding="8dp"
+                android:drawableLeft="@mipmap/banyuan"
+                android:drawablePadding="@dimen/x13"
+                android:paddingTop="@dimen/x27"
                 android:text="商标服务列表"
-                android:textSize="18dp" />
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_18" />
 
             <com.huabiao.aoiin.wedgit.MaxRecyclerView
                 android:id="@+id/buying_recyclerview1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white" />
+                android:background="@color/white"
+                android:paddingBottom="@dimen/x23" />
 
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="0dp"
-                android:background="@color/black3" />
-
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="10dp"
-                android:background="@color/black3" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:padding="8dp"
+                android:drawableLeft="@mipmap/banyuan"
+                android:drawablePadding="@dimen/x13"
+                android:paddingTop="@dimen/x27"
                 android:text="公告与状态"
-                android:textSize="18dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buying_trademarkuseless"
-                    android:text="商标无效"
-                    android:padding="10dp"
-                    android:background="@color/white"/>
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_18" />
+
+            <TextView
+                android:id="@+id/buying_trademarkuseless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:text="商标无效"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_14" />
+
             <com.huabiao.aoiin.wedgit.MaxRecyclerView
                 android:id="@+id/buying_recyclerview2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white" />
-
-            <View
-                style="@style/GrayLine"
-                android:layout_width="match_parent"
-                android:layout_height="4dp" />
         </LinearLayout>
     </ScrollView>
 
@@ -114,22 +84,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/grey_E9E7E7"
+            android:background="@color/white"
             android:padding="15dp"
             android:text="在线询价"
             android:textAlignment="center"
             android:textColor="@color/black3" />
-
-        <View
-            style="@style/GrayLine_shu"
-            android:background="@color/black3" />
 
         <TextView
             android:id="@+id/buying2_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/grey_E9E7E7"
+            android:background="@color/yellow_fdd400"
             android:padding="15dp"
             android:text="求购此标"
             android:textAlignment="center"

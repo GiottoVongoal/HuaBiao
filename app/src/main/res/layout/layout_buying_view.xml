@@ -2,43 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/buying_listitem_line"
-        style="@style/GrayLine" />
     <ImageView
         android:id="@+id/buying_view_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
+        android:layout_width="@dimen/x124"
+        android:layout_height="@dimen/x124"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="11dp"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_horizontal"/>
+        android:src="@mipmap/logobg" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="商标名"
         android:id="@+id/buying_view_trademarkname"
-        android:layout_gravity="center_horizontal"
-        android:textSize="@dimen/text_size_20"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="商标类型"
-        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginTop="@dimen/x27"
+        android:text="商标名"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_17" />
+
+    <TextView
         android:id="@+id/buying_view_classfication"
-        android:layout_gravity="center_horizontal"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="上面的变化"
-        android:id="@+id/buying_view_trademarkstatus"
         android:layout_gravity="center_horizontal"
-        android:padding="10dp"/>
+        android:layout_marginTop="@dimen/x20"
+        android:text="商标类型"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_14" />
+
+    <TextView
+        android:id="@+id/buying_view_trademarkstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/x23"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:background="@mipmap/jindu_yixuan"
+        android:text="上面的变化"
+        android:layout_marginBottom="@dimen/x23"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_12" />
 </LinearLayout>

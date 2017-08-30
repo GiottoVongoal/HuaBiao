@@ -2,49 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
     android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginTop="@dimen/x27"
+        android:drawableLeft="@mipmap/banyuan"
+        android:drawablePadding="@dimen/x13"
         android:text="商标注册信息"
-        android:textSize="18dp" />
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_18" />
 
     <TextView
         android:id="@+id/buying_registerinfo_applicationdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="申请日期" />
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginTop="@dimen/x30"
+        android:text="申请日期"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_14" />
 
     <TextView
         android:id="@+id/buying_registerinfo_registerdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="注册日期" />
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginTop="@dimen/x23"
+        android:text="注册日期"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_14" />
 
     <TextView
         android:id="@+id/buying_registerinfo_preliminarynoticedate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="初审公告日期" />
+        android:layout_marginBottom="@dimen/x23"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginTop="@dimen/x23"
+        android:text="初审公告日期"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_14" />
 
-    <TextView
-        android:id="@+id/buying_registerinfo_registrationnoticedate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="注册公告日期" />
-
-    <TextView
-        android:id="@+id/buying_registerinfo_dedicatedterm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="专用期限" />
 
 </LinearLayout>

@@ -33,7 +33,7 @@ public class BuyingAdapter1 extends RecyclerView.Adapter<BuyingAdapter1.VH1> {
     @Override
     public void onBindViewHolder(BuyingAdapter1.VH1 holder, int position) {
         BuyingInfoBean.ServicelistBean servicelistBean = servicedata.get(position);
-        holder.serviceitem.setText("【" + servicelistBean.getId() + "——" + servicelistBean.getClassname() + "】");
+        holder.serviceitem.setText(servicelistBean.getId() + "——" + servicelistBean.getClassname());
 
     }
 

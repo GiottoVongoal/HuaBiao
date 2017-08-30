@@ -83,12 +83,6 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
     //商标注册信息初审公告日期
     @Bind(R.id.buying_registerinfo_preliminarynoticedate)
     TextView registerinfo_preliminarynoticedate;
-    //商标注册信息注册公告日期
-    @Bind(R.id.buying_registerinfo_registrationnoticedate)
-    TextView registerinfo_registrationnoticedate;
-    //商标注册信息专用期限
-    @Bind(R.id.buying_registerinfo_dedicatedterm)
-    TextView registerinfo_dedicatedterm;
     int n;
 
     @Override
@@ -135,33 +129,31 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                     int i = Integer.parseInt(buyingInfoBean.getStatus());
                     switch (i) {
                         case 0:
-                            view_trademarkstatus.setText("状态：商标无效");
+                            view_trademarkstatus.setText("商标无效");
                             break;
                         case 1:
-                            view_trademarkstatus.setText("状态：初审公告");
+                            view_trademarkstatus.setText("初审公告");
                             break;
                         case 2:
-                            view_trademarkstatus.setText("状态：注册成功");
+                            view_trademarkstatus.setText("注册成功");
                             break;
                         case 3:
-                            view_trademarkstatus.setText("状态：待审核中");
+                            view_trademarkstatus.setText("待审核中");
                             break;
                     }
                     //商标基础信息获取数据
                     BuyingInfoBean.BaseinfoBean baseinfoBean = buyingInfoBean.getBaseinfo();
-                    baseinfo_applicantaddress.setText("申请人地址：" + baseinfoBean.getApplicantaddress());
-                    baseinfo_applicantname.setText("申请人名称：" + baseinfoBean.getApplicantname());
-                    baseinfo_registrationnumber.setText("商标注册号：" + baseinfoBean.getRegistrationnumber());
                     baseinfo_trademarkname.setText("商标名称：" + baseinfoBean.getTrademarkname());
+                    baseinfo_registrationnumber.setText("注册号：" + baseinfoBean.getRegistrationnumber());
+                    baseinfo_classification.setText("分类：" + buyingInfoBean.getClassificationid()+ buyingInfoBean.getClassifictiontype());
+                    baseinfo_applicantname.setText("申请人：" + baseinfoBean.getApplicantname());
+                    baseinfo_applicantaddress.setText("申请人地址：" + baseinfoBean.getApplicantaddress());
                     baseinfo_proxycompany.setText("代理公司：" + baseinfoBean.getProxycompany());
-                    baseinfo_classification.setText("分类：" + baseinfoBean.getClassificationid());
                     //商标注册信息获取数据
                     BuyingInfoBean.RegisterinfoBean registerinfoBean = buyingInfoBean.getRegisterinfo();
                     registerinfo_applicationdate.setText("申请日期：" + registerinfoBean.getApplicationdate());
                     registerinfo_registerdate.setText("注册日期：" + registerinfoBean.getRegisterdate());
                     registerinfo_preliminarynoticedate.setText("初审公告日期：" + registerinfoBean.getPreliminarynoticedate());
-                    registerinfo_registrationnoticedate.setText("注册公告日期：" + registerinfoBean.getRegistrationnoticedate());
-                    registerinfo_dedicatedterm.setText("专用期限：" + registerinfoBean.getDedicatedterm());
                     //商标服务列表RecyclerView1,adpter数据获取
                     buyingRecylerView1.setLayoutManager(new FullyLinearLayoutManager(getContext()));
                     buyingAdapter1 = new BuyingAdapter1(buyingInfoBean.getServicelist());
@@ -170,7 +162,7 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                      商标服务列表RecyclerView1,adpter数据获取
                      "商标无效"是否可见，有数据时不可见，无数据时可见*/
                     buying_recyclerview2.setLayoutManager(new FullyLinearLayoutManager(getContext()));
-                    buyingAdapter2 = new BuyingAdapter2(buyingInfoBean.getNotice());
+                    buyingAdapter2 = new BuyingAdapter2(getContext(), buyingInfoBean.getNotice());
                     buying_recyclerview2.setAdapter(buyingAdapter2);
                     if (buyingInfoBean.getNotice() != null && buyingInfoBean.getNotice().size() > 0) {
                         buying_recyclerview2.setAdapter(buyingAdapter2);

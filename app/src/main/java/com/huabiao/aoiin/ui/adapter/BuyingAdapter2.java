@@ -1,9 +1,11 @@
 package com.huabiao.aoiin.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -17,9 +19,11 @@ import java.util.List;
 
 public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
 
+    private Context context;
     private List<BuyingInfoBean.NoticeBean> noticedata;
 
-    public BuyingAdapter2(List<BuyingInfoBean.NoticeBean> noticedata) {
+    public BuyingAdapter2(Context context, List<BuyingInfoBean.NoticeBean> noticedata) {
+        this.context = context;
         this.noticedata = noticedata;
     }
 
@@ -48,6 +52,9 @@ public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
         //布局中最后一条线不可见
         if (position == noticedata.size() - 1) {
             holder.buying_rcv2_linear.setVisibility(View.INVISIBLE);
+            holder.user_progress_date_item_spot_iv1.setBackground(context.getResources().getDrawable(R.mipmap.point_yellow));
+        }else if(position==0){
+            holder.buying_rcv1_linear.setVisibility(View.INVISIBLE);
         }
 
     }
@@ -63,14 +70,17 @@ public class BuyingAdapter2 extends RecyclerView.Adapter<BuyingAdapter2.VH2> {
         private TextView noticeitem_tv;
         private TextView noticeitemtime_tv;
         private TextView noticevisable_tv;
+        private View buying_rcv1_linear;
         private View buying_rcv2_linear;
-
+        private ImageView user_progress_date_item_spot_iv1;
         public VH2(View itemView) {
             super(itemView);
             noticeitem_tv = (TextView) itemView.findViewById(R.id.buying_rcv2_status1);
             noticeitemtime_tv = (TextView) itemView.findViewById(R.id.buying_rcv2_status1_date);
             noticevisable_tv = (TextView) itemView.findViewById(R.id.buying_rcv2_noticevisable);
             buying_rcv2_linear = itemView.findViewById(R.id.buying_rcv2_linear);
+            buying_rcv1_linear=itemView.findViewById(R.id.buying_rcv1_linear);
+            user_progress_date_item_spot_iv1= (ImageView) itemView.findViewById(R.id.user_progress_date_item_spot_iv1);
         }
     }
 }

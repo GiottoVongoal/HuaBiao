@@ -3,62 +3,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:layout_marginTop="10dp"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginTop="@dimen/x27"
+        android:drawableLeft="@mipmap/banyuan"
+        android:drawablePadding="@dimen/x13"
         android:text="商标基础信息"
-        android:textSize="18dp" />
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_18" />
 
     <TextView
         android:id="@+id/buying_baseinfo_trademarkname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="商标名称" />
+        android:layout_marginTop="@dimen/x30"
+        android:paddingLeft="@dimen/x40"
+        android:text="商标名称"
+        android:textColor="@color/black3" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/buying_baseinfo_registrationnumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            android:text="商标注册号" />
+    <TextView
+        android:id="@+id/buying_baseinfo_registrationnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x23"
+        android:paddingLeft="@dimen/x40"
+        android:text="商标注册号"
+        android:textColor="@color/black3" />
 
-        <TextView
-            android:id="@+id/buying_baseinfo_classification"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            android:text="分类"
-            android:textAlignment="center" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/buying_baseinfo_classification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x23"
+        android:paddingLeft="@dimen/x40"
+        android:text="分类"
+        android:textAlignment="center"
+        android:textColor="@color/black3" />
+
 
     <TextView
         android:id="@+id/buying_baseinfo_applicantname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="申请人名称" />
+        android:layout_marginTop="@dimen/x23"
+
+        android:paddingLeft="@dimen/x40"
+        android:text="申请人名称"
+        android:textColor="@color/black3" />
 
     <TextView
         android:id="@+id/buying_baseinfo_applicantaddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="申请人地址" />
+        android:layout_marginTop="@dimen/x23"
+        android:paddingLeft="@dimen/x40"
+        android:text="申请人地址"
+        android:textColor="@color/black3" />
 
     <TextView
         android:id="@+id/buying_baseinfo_proxycompany"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="代理公司" />
+        android:layout_marginTop="@dimen/x23"
+        android:paddingLeft="@dimen/x40"
+        android:text="代理公司"
+        android:layout_marginBottom="@dimen/x23"
+        android:textColor="@color/black3" />
 </LinearLayout>

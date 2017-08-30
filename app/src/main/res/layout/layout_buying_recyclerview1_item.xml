@@ -8,6 +8,9 @@
         android:id="@+id/buying_recyler1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:layout_marginLeft="@dimen/x39"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_14"
+        android:layout_marginTop="@dimen/x27"
         android:text="111" />
 </LinearLayout>
