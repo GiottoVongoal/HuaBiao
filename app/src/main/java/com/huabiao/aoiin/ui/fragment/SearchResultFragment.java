@@ -32,23 +32,40 @@ import butterknife.Bind;
  * @date 2017-07-13 11:36
  * @description 查询结果已注册页面
  */
-public class SearchResultFragment extends BaseFragment implements View.OnClickListener {
+public class SearchResultFragment extends BaseFragment {
     //筛选
-    @Bind(R.id.search_result_screen_tv)
-    TextView screen_tv;
     private ScreenPopupWindow screenPopupWindow;
+    @Bind(R.id.search_result_num_tv)
+    TextView search_result_num_tv;
 
     //展示数据
     @Bind(R.id.search_result_top_rv)
-    RecyclerView top_rv;
+    MaxRecyclerView top_rv;
     private SearchResultTopAdapter topAdapter;
     @Bind(R.id.search_result_line_chart)
     DrawLineChartView line_chart;
 
+    private String tradename, goodsname;
+
+    @Override
+    public void getIntentValue() {
+        super.getIntentValue();
+        Bundle bundle = getActivity().getIntent().getExtras();
+        tradename = bundle.getString("tradename");
+        goodsname = bundle.getString("goodsname");
+    }
+
     @Override
     public void bindView(Bundle savedInstanceState) {
-        setTitle("查询结果");
+        setTitle(tradename + "-" + goodsname);
         setBackEnable();
+        setRightIvResourse(getContext().getResources().getDrawable(R.mipmap.shaixuan));
+        setRightIvOnclick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToast("筛选");
+            }
+        });
 
         SearchModel.getSelectClassificationList(getContext(), new InterfaceManager.CallBackCommon() {
             @Override
@@ -57,7 +74,6 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
                     ScreenBean bean = (ScreenBean) mData;
                     List<ScreenlistBean> list = bean.getScreenlist();
                     initPopMenu(list);
-                    screen_tv.setOnClickListener(SearchResultFragment.this);
                 }
             }
         });
@@ -87,6 +103,8 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
 //                    List<ClassficationsmalltypeBean> detailedList = searchResult.getClassification().getClassficationsmalltype();
                     top_rv.setLayoutManager(new FullyLinearLayoutManager(getContext()));
                     topAdapter = new SearchResultTopAdapter(getContext(), searchResult.getClassification());
+                    int num = searchResult.getClassification().getClassficationsmalltype().size();
+                    search_result_num_tv.setText("为您找到" + num + "个未注册相关结果");
                     top_rv.setAdapter(topAdapter);
                     top_rv.setNestedScrollingEnabled(false);
                     //展示折线图
@@ -97,15 +115,6 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
                 }
             }
         });
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.search_result_screen_tv:
-                screenPopupWindow.showPopupWindow(view);
-                break;
-        }
     }
 
     @Override

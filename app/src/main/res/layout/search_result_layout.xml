@@ -2,32 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundwhite"
+    android:background="@color/grey_f8f8f8"
     android:orientation="vertical">
 
     <include layout="@layout/view_title" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="为您找到的未注册相关结果" />
-
-        <TextView
-            android:id="@+id/search_result_screen_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:padding="10dp"
-            android:text="筛选" />
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,19 +15,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
+            <TextView
+                android:id="@+id/search_result_num_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x77"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/notice_iv"
+                android:drawablePadding="@dimen/x12"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x27"
+                android:text="为您找到的未注册相关结果" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20" />
+
+            <com.huabiao.aoiin.wedgit.MaxRecyclerView
                 android:id="@+id/search_result_top_rv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/banyuan"
+                android:drawablePadding="@dimen/x20"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="热度趋势图"
+                android:textColor="@color/black3"
+                android:textSize="18sp" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/search_result_line_chart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:background="@color/white" />
         </LinearLayout>
     </ScrollView>

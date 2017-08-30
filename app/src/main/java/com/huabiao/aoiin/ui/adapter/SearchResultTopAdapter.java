@@ -37,16 +37,8 @@ public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTop
 
     @Override
     public void onBindViewHolder(SearchResultTopAdapter.TopHolder holder, final int position) {
-        //左边显示最大分类
-        String leftTextt = bean.getClassificationid() + " - " + bean.getClassificationname();
-        holder.item_left_tv.setText(leftTextt);
-
         ClassficationsmalltypeBean smallBean = bean.getClassficationsmalltype().get(position);
-
-        //上边显示第二分类的ID和最小分类的name
-        String topTex = smallBean.getClassificationsmallid() + " - " + smallBean.getClassificationsmallname();
-        holder.item_tv.setText(topTex);
-        //右边显示状态
+        //左边显示状态
         String statusString = "";
         switch (smallBean.getTrademarkstatus()) {
             case 1:
@@ -59,7 +51,16 @@ public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTop
                 statusString = "待审核";
                 break;
         }
-        holder.item_right_tv.setText(statusString);
+        holder.item_left_tv.setText(statusString);
+
+
+        //上边显示第二分类的ID和最小分类的name
+        String topTex = smallBean.getClassificationsmallid() + " - " + smallBean.getClassificationsmallname();
+        holder.item_tv.setText(topTex);
+
+        //右边显示最大分类
+        String classiString = bean.getClassificationid() + " - " + bean.getClassificationname();
+        holder.item_right_tv.setText(classiString);
 //        holder.item_ll.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

@@ -41,8 +41,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         setTitle("查询");
         setBackEnable();
 
-        search_tradename_tl.getEditText().setText("我是商标名(查询)");
-        search_goodsname_tl.getEditText().setText("我是商品名(查询)");
+        search_tradename_tl.getEditText().setText("海飞丝");
+        search_goodsname_tl.getEditText().setText("洗发水");
         search_tv.setOnClickListener(this);
     }
 
@@ -66,7 +66,10 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     }
 
     private void startSearch() {
-        JumpUtils.startFragmentByName(getContext(), SearchResultFragment.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("tradename", tradename);
+        bundle.putString("goodsname", goodsname);
+        JumpUtils.startFragmentByName(getContext(), SearchResultFragment.class, bundle);
     }
 
     @Override

@@ -3,45 +3,99 @@
     android:id="@+id/search_result_top_item_ll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:background="@drawable/bg_round_gray"
+    android:background="@color/white"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/search_result_top_item_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="5dp" />
-
-    <View style="@style/GrayLine" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
         <TextView
-            android:id="@+id/search_result_top_item_left_tv"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp" />
-
-        <View style="@style/GrayLine_shu" />
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/x17"
+            android:text="商品服务小项"
+            android:textColor="@color/grey_999999" />
 
         <TextView
-            android:id="@+id/search_result_top_item_right_tv"
-            android:layout_width="0dp"
+            android:id="@+id/search_result_top_item_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/x23"
+            android:layout_marginTop="@dimen/x14"
+            android:textColor="@color/black3" />
+
+        <View style="@style/GrayLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="5dp" />
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x17"
+                    android:text="状态"
+                    android:textColor="@color/grey_999999" />
+
+                <TextView
+                    android:id="@+id/search_result_top_item_left_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/x23"
+                    android:layout_marginTop="@dimen/x14"
+                    android:textColor="@color/black3" />
+            </LinearLayout>
+
+            <View style="@style/GrayLine_shu"
+                android:layout_marginBottom="@dimen/x10"
+                android:layout_marginTop="@dimen/x10"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x17"
+                    android:text="日用品行业"
+                    android:textColor="@color/grey_999999" />
+
+                <TextView
+                    android:id="@+id/search_result_top_item_right_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/x23"
+                    android:layout_marginTop="@dimen/x14"
+                    android:textColor="@color/black3" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
+
+    <View
+        style="@style/GrayLine"
+        android:layout_height="@dimen/x18"
+        android:background="@color/grey_f8f8f8" />
 </LinearLayout>

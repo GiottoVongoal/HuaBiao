@@ -143,7 +143,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="月销量"
-                            android:textColor="@color/black9"
+                            android:textColor="@color/grey_999999"
                             android:textSize="@dimen/text_size_13" />
 
                         <TextView
@@ -171,7 +171,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="月品牌热门排行榜"
-                            android:textColor="@color/black9"
+                            android:textColor="@color/grey_999999"
                             android:textSize="@dimen/text_size_13" />
 
                         <TextView
@@ -278,7 +278,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center" android:textColor="@color/black9"
+                            android:gravity="center" android:textColor="@color/grey_999999"
                             android:textSize="@dimen/text_size_13"
                             android:text="月销量" />
 
@@ -304,7 +304,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center" android:textColor="@color/black9"
+                            android:gravity="center" android:textColor="@color/grey_999999"
                             android:textSize="@dimen/text_size_13"
                             android:text="月品牌热门排行榜" />
 

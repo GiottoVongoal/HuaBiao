@@ -35,6 +35,11 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         notifyDataSetChanged();
     }
 
+    public void updateListView(List<MyOrdersBean.MyorderslistBean> list) {
+        myOrdersList = list;
+        notifyDataSetChanged();
+    }
+
     @Override
     public MyOrdersAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_myorderslist_rcv, parent, false);
