@@ -61,11 +61,6 @@ public class SearchResultTopAdapter extends RecyclerView.Adapter<SearchResultTop
         //右边显示最大分类
         String classiString = bean.getClassificationid() + " - " + bean.getClassificationname();
         holder.item_right_tv.setText(classiString);
-//        holder.item_ll.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//            }
-//        });
     }
 
     @Override
