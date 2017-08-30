@@ -17,10 +17,10 @@ import com.huabiao.aoiin.ui.adapter.SearchResultTopAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
-import com.huabiao.aoiin.wedgit.MaxRecyclerView;
 import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.List;
 
@@ -103,7 +103,8 @@ public class SearchResultFragment extends BaseFragment implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.search_result_screen_tv:
-                screenPopupWindow.showPopupWindow(view);
+                JumpUtils.startFragmentByName(getContext(),ScreenResultFragment.class);
+//                screenPopupWindow.showPopupWindow(view);
                 break;
         }
     }

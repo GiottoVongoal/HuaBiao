@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.ScreenBean;
+import com.ywy.mylibs.utils.BitmapLoader;
 
 import java.util.List;
 
@@ -91,12 +92,15 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
             groupHolder = new ViewHolderItem();
             groupHolder.tv_content = (TextView) convertView.findViewById(R.id.screen_item_content_tv);
             groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.screen_item_right_iv);
+            groupHolder.iv_left = (ImageView) convertView.findViewById(R.id.screen_item_left_iv);
             convertView.setTag(groupHolder);
         } else {
             groupHolder = (ViewHolderItem) convertView.getTag();
         }
         ClassificationBean bean = list.get(groupPosition).getSlist().get(childPosition);
         groupHolder.iv_right.setVisibility(View.INVISIBLE);
+        groupHolder.iv_left.setVisibility(View.VISIBLE);
+        BitmapLoader.ins().loadImage("", R.mipmap.ic_rest_day, groupHolder.iv_left);
         groupHolder.tv_content.setText(bean.getClassificationid() + " - " + bean.getClassificationname());
         return convertView;
     }
@@ -120,5 +124,6 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
     private static class ViewHolderItem {
         private TextView tv_content;
         private ImageView iv_right;
+        private ImageView iv_left;
     }
 }
