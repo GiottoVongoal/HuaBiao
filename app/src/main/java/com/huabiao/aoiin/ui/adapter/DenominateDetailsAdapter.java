@@ -30,7 +30,6 @@ public class DenominateDetailsAdapter extends RecyclerView.Adapter<DenominateDet
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
        ClassificationBean.ClassficationsmalltypeBean cb=cmdata.getClassficationsmalltype().get(position);
-        holder.tv2.setText(cmdata.getClassificationid()+"-"+cmdata.getClassificationname());
         holder.tv1.setText(cb.getClassificationsmallid()+"-"+cb.getClassificationsmallname());
     }
 
@@ -42,12 +41,10 @@ public class DenominateDetailsAdapter extends RecyclerView.Adapter<DenominateDet
     class ViewHolder extends RecyclerView.ViewHolder {
         //取名详情页的recyclerview的商品分类
         public TextView tv1;
-        public TextView tv2;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv1=(TextView)itemView.findViewById(R.id.denominate_details_rcv_tv1);
-            tv2=(TextView)itemView.findViewById(R.id.denominate_details_rcv_tv2);
         }
     }
 }

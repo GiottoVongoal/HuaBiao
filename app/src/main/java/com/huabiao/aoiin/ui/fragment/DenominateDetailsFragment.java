@@ -3,6 +3,8 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -44,6 +46,11 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
     TextView details_register_tv;
     //用来传递标题的nameString
     private String nameString;
+    //筛选下拉菜单
+    private PopupWindow shaixuan;
+
+    //未收藏
+    private boolean flag = false;
 
     @Override
     public BasePresenter getPresenter() {
@@ -65,12 +72,21 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
         details_register_tv.setOnClickListener(this);
         //标题的右边图片以及监听事件
         setTitle(nameString);
-        setRightIvResourse(getResources().getDrawable(R.mipmap.ic_launcher));
         setBackEnable();
-        setRightIvOnclick(new View.OnClickListener() {
+        //收藏图片
+        final ImageView shoucang = setRightIvResourse(R.mipmap.shoucang2);
+        shoucang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("收藏");
+                if (flag) {
+                    setRightIvResourse(getResources().getDrawable(R.mipmap.shoucang2));
+                    flag = false;
+                    showToast("取消");
+                } else {
+                    setRightIvResourse(getResources().getDrawable(R.mipmap.shoucang1));
+                    flag = true;
+                    showToast("收藏");
+                }
             }
         });
         SearchModel.getCreatName(getContext(), "", "", new InterfaceManager.CallBackCommon() {
@@ -87,6 +103,10 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
                 }
             }
         });
+    }
+
+    private void initShaixuan() {
+        shaixuan=new PopupWindow();
     }
 
     @Override

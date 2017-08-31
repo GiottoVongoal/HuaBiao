@@ -32,10 +32,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableLeft="@mipmap/banyuan"
-                    android:padding="10dp"
-                    android:textSize="@dimen/text_size_18"
+                    android:text="可注册分类"
                     android:textColor="@color/black3"
-                    android:text="可注册分类" />
+                    android:textSize="@dimen/text_size_18" />
 
                 <TextView
                     android:id="@+id/details_tv2"
@@ -54,45 +53,36 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/denominate_details_rcv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <View
-                style="@style/GrayLine"
-                android:background="@color/black3" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+                <View style="@style/GrayLine"
+                    android:background="@color/grey_E9E7E7"
+                    android:layout_height="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:padding="10dp"
+                android:layout_marginBottom="10dp"
                 android:drawableLeft="@mipmap/banyuan"
+                android:drawablePadding="5dp"
+                android:text="热度趋势图"
                 android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_18"
-                android:text="热度趋势图" />
+                android:textSize="@dimen/text_size_18" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/details_linechart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <View
-                style="@style/GrayLine"
-                android:layout_below="@+id/mall_listitem_imageView" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:padding="8dp"
-                android:text="释义："
-                android:textColor="@color/black3" />
-
             <TextView
                 android:id="@+id/details_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="释义的内容" />
+                android:text="释义的内容"
+                android:textAlignment="center" />
         </LinearLayout>
     </ScrollView>
 
@@ -107,5 +97,6 @@
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
         android:text="注册"
-        android:textSize="18dp" />
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_18" />
 </LinearLayout>
