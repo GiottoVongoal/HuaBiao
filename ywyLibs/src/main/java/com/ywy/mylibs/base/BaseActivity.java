@@ -156,18 +156,20 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     /**
      * 设置右边图片
      */
-    public void setRightIvResourse(Drawable back) {
+    public ImageView setRightIvResourse(Drawable back) {
         if (back != null && title_right_iv != null) {
             title_right_iv.setVisibility(View.VISIBLE);
             title_right_iv.setBackgroundDrawable(back);
         }
+        return title_right_iv;
     }
 
-    public void setRightIvResourse(int backId) {
+    public ImageView setRightIvResourse(int backId) {
         if (title_right_iv != null) {
             title_right_iv.setVisibility(View.VISIBLE);
             title_right_iv.setBackgroundResource(backId);
         }
+        return title_right_iv;
     }
 
     public void setRightIvOnclick(View.OnClickListener click) {
