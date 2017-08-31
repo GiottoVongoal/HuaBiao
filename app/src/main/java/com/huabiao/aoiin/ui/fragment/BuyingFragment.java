@@ -84,6 +84,8 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
     @Bind(R.id.buying_registerinfo_preliminarynoticedate)
     TextView registerinfo_preliminarynoticedate;
     int n;
+    //下面的两个按钮
+    private TextView[] tvlist = new TextView[2];
 
     @Override
     public BasePresenter getPresenter() {
@@ -112,7 +114,9 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                 buying2_tv.setText("抢注此标");
                 break;
         }
-
+        tvlist[0] = buying1_tv;
+        tvlist[1] = buying2_tv;
+        setSelect(1);
         buying1_tv.setOnClickListener(this);
         buying2_tv.setOnClickListener(this);
         SearchModel.getBuyingInfo(getContext(), n, new InterfaceManager.CallBackCommon() {
@@ -145,7 +149,7 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                     BuyingInfoBean.BaseinfoBean baseinfoBean = buyingInfoBean.getBaseinfo();
                     baseinfo_trademarkname.setText("商标名称：" + baseinfoBean.getTrademarkname());
                     baseinfo_registrationnumber.setText("注册号：" + baseinfoBean.getRegistrationnumber());
-                    baseinfo_classification.setText("分类：" + buyingInfoBean.getClassificationid()+ buyingInfoBean.getClassifictiontype());
+                    baseinfo_classification.setText("分类：" + buyingInfoBean.getClassificationid() + buyingInfoBean.getClassifictiontype());
                     baseinfo_applicantname.setText("申请人：" + baseinfoBean.getApplicantname());
                     baseinfo_applicantaddress.setText("申请人地址：" + baseinfoBean.getApplicantaddress());
                     baseinfo_proxycompany.setText("代理公司：" + baseinfoBean.getProxycompany());
@@ -175,6 +179,15 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
         });
     }
 
+    private void setSelect(int position) {
+        for (int i = 0; i < tvlist.length; i++) {
+            tvlist[i].setBackgroundColor(getResources().getColor(R.color.yellow_fdd400));
+            if (i == position) {
+                tvlist[i].setBackgroundColor(getResources().getColor(R.color.white));
+            }
+        }
+    }
+
     @Override
     public int getContentLayout() {
         return R.layout.layout_buying;
@@ -187,12 +200,15 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                 switch (n) {
                     case 1:
                         showToast("求购详情页的咨询按钮");
+                        setSelect(1);
                         break;
                     case 2:
                         showToast("异议详情页的阻止按钮");
+                        setSelect(1);
                         break;
                     case 3:
                         showToast("抢注详情页的咨询按钮");
+                        setSelect(1);
                         break;
                 }
                 break;
@@ -200,12 +216,15 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                 switch (n) {
                     case 1:
                         showToast("求购详情页的求购按钮");
+                        setSelect(0);
                         break;
                     case 2:
                         showToast("异议详情页的求购按钮");
+                        setSelect(0);
                         break;
                     case 3:
                         showToast("抢注详情页的抢注按钮");
+                        setSelect(0);
                         break;
                 }
                 break;

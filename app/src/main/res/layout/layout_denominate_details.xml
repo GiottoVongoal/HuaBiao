@@ -31,7 +31,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@mipmap/banyuan"
                     android:padding="10dp"
+                    android:textSize="@dimen/text_size_18"
+                    android:textColor="@color/black3"
                     android:text="可注册分类" />
 
                 <TextView
@@ -62,7 +65,10 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:padding="10dp"
-                android:text="热度指数" />
+                android:drawableLeft="@mipmap/banyuan"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_18"
+                android:text="热度趋势图" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/details_linechart"
