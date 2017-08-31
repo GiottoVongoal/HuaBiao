@@ -12,7 +12,6 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ActivityCollector;
-import com.huabiao.aoiin.ui.adapter.CardPagerAdapter;
 import com.huabiao.aoiin.ui.ottobus.ToNextPageEvent;
 import com.huabiao.aoiin.ui.view.RegisterCardBaseView;
 import com.huabiao.aoiin.ui.view.RegisterCardFourView;
@@ -44,7 +43,6 @@ public class RegisterActivity extends BaseActivity {
 
     @Bind(R.id.register_card_vp)
     ViewPager register_card_vp;
-    CardPagerAdapter mCardAdapter;
     ShadowTransformer mCardShadowTransformer;
 
     private int pointIndex = 0;// 圆圈标志位
@@ -94,11 +92,7 @@ public class RegisterActivity extends BaseActivity {
             vp_points.addView(view);
         }
 
-        mCardAdapter = new CardPagerAdapter();
-        mCardAdapter.setCardItem(vpList);
-        mCardShadowTransformer = new ShadowTransformer(register_card_vp, mCardAdapter);
-        mCardShadowTransformer.enableScaling(true);
-        register_card_vp.setAdapter(mCardAdapter);
+//        mCardShadowTransformer = new ShadowTransformer(register_card_vp, mCardAdapter);
         register_card_vp.setPageTransformer(false, mCardShadowTransformer);
         register_card_vp.setOffscreenPageLimit(3);
         vp_points.getChildAt(pointIndex).setEnabled(true);
