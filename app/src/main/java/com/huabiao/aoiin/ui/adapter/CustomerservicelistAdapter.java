@@ -15,16 +15,6 @@ import com.ywy.mylibs.utils.BitmapLoader;
 
 import java.util.List;
 
-import static com.huabiao.aoiin.R.id.customer_service_call;
-import static com.huabiao.aoiin.R.id.customer_service_company_tv;
-import static com.huabiao.aoiin.R.id.customer_service_consult_tv;
-import static com.huabiao.aoiin.R.id.customer_service_img;
-import static com.huabiao.aoiin.R.id.customer_service_name_tv;
-import static com.huabiao.aoiin.R.id.customer_service_number_tv;
-import static com.huabiao.aoiin.R.id.customer_service_reputable_tv;
-import static com.huabiao.aoiin.R.id.customer_service_servicerate_tv;
-import static com.huabiao.aoiin.R.id.customer_successrate_rate_tv;
-import static com.huabiao.aoiin.R.id.customer_usedtime_time_tv;
 
 /**
  * Created by Aoiin-9 on 2017/8/8.
@@ -50,15 +40,13 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
     public void onBindViewHolder(CustomerservicelistAdapter.CustomerServiceVH holder, int position) {
         CustomerservicelistBean customerservicelistBean = customerservicelist.get(position);
         holder.service_company_tv.setText(customerservicelistBean.getCustomerservicecompany());
-        holder.service_consult_tv.setText("order"+customerservicelistBean.getConsultnumber());
-        holder.service_reputable_tv.setText("star"+customerservicelistBean.getReputablenumber());
-        holder.usedtime_time_tv.setText(customerservicelistBean.getUsedtime());
+        holder.customer_register_count_tv.setText(customerservicelistBean.getConsultnumber());
         holder.service_name_tv.setText(customerservicelistBean.getCustomerservicename());
-        holder.service_number_tv.setText(customerservicelistBean.getCustomerserviceid());
-        holder.successrate_rate_tv.setText(customerservicelistBean.getSuccessrate());
-        holder.service_servicerate_tv.setText(customerservicelistBean.getService());
-        holder.service_call_tv.setOnClickListener(this);
-        BitmapLoader.ins().loadImage(customerservicelistBean.getCustomerserviceimg(), R.mipmap.logobg,holder.service_img);    }
+        holder.customer_service_successrate_tv.setText(customerservicelistBean.getSuccessrate());
+        holder.customer_successrate_rate_tv.setText(customerservicelistBean.getService());
+        holder.customer_yuyin_tv.setOnClickListener(this);
+        BitmapLoader.ins().loadImage(customerservicelistBean.getCustomerserviceimg(), R.mipmap.logobg,holder.service_img);
+    }
 
     @Override
     public int getItemCount() {
@@ -68,7 +56,7 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case customer_service_call:
+            case R.id.customer_yuyin_tv:
                 Toast toast=Toast.makeText(context,"咨询客服",Toast.LENGTH_LONG);
                 toast.show();
                 break;
@@ -82,32 +70,23 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
         private TextView service_name_tv;
         //商标公司
         private TextView service_company_tv;
-        //客服编号
-        private TextView service_number_tv;
-        //用时
-        private TextView usedtime_time_tv;
-        //点赞数
-        private TextView service_reputable_tv;
         //成功率
-        private TextView successrate_rate_tv;
+        private TextView customer_service_successrate_tv;
         //满意度
-        private TextView service_servicerate_tv;
-        //咨询量
-        private TextView service_consult_tv;
-        //拨号图片
-        private  ImageView service_call_tv;
+        private TextView customer_successrate_rate_tv;
+        //注册量
+        private TextView customer_register_count_tv;
+        //语音按钮
+        private  TextView customer_yuyin_tv;
         public CustomerServiceVH(View view) {
             super(view);
-            service_name_tv = (TextView) view.findViewById(customer_service_name_tv);
-            service_company_tv = (TextView) view.findViewById(customer_service_company_tv);
-            service_number_tv = (TextView) view.findViewById(customer_service_number_tv);
-            usedtime_time_tv = (TextView) view.findViewById(customer_usedtime_time_tv);
-            service_reputable_tv = (TextView) view.findViewById(customer_service_reputable_tv);
-            successrate_rate_tv = (TextView) view.findViewById(customer_successrate_rate_tv);
-            service_servicerate_tv = (TextView) view.findViewById(customer_service_servicerate_tv);
-            service_consult_tv = (TextView) view.findViewById(customer_service_consult_tv);
-            service_img = (ImageView) view.findViewById(customer_service_img);
-           service_call_tv=(ImageView)view.findViewById(customer_service_call);
+            service_name_tv = (TextView) view.findViewById(R.id.customer_service_name_tv);
+            service_company_tv = (TextView) view.findViewById(R.id.customer_service_company_tv);
+            customer_service_successrate_tv = (TextView) view.findViewById(R.id.customer_service_successrate_tv);
+            customer_successrate_rate_tv = (TextView) view.findViewById(R.id.customer_successrate_rate_tv);
+            customer_register_count_tv = (TextView) view.findViewById(R.id.customer_register_count_tv);
+            service_img = (ImageView) view.findViewById(R.id.customer_service_img);
+           customer_yuyin_tv=(TextView)view.findViewById(R.id.customer_yuyin_tv);
 
         }
     }
