@@ -223,7 +223,6 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             case R.id.home_creat_name_ll:
                 //取名
                 JumpUtils.startFragmentByName(getContext(), DenominateFragment.class);
-//                JumpUtils.startFragmentByName(getContext(), TestRecyclerViewFragment.class);
                 break;
             case R.id.home_register_ll:
                 //注册

@@ -44,28 +44,6 @@ public class TestFragment extends BaseFragment {
                 startActivity(CameraUtils.getCameraIntent(filePath));
             }
         });
-        TextView tv3 = new TextView(getContext());
-        tv3.setPadding(10, 10, 10, 10);
-        LinearLayout.LayoutParams lp3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        main_ll.addView(tv3, lp3);
-        tv3.setText("点我去我的页面");
-        tv3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JumpUtils.startFragmentByName(getContext(), MeFragment.class);
-            }
-        });
-        TextView tv4 = new TextView(getContext());
-        tv4.setPadding(10, 10, 10, 10);
-        LinearLayout.LayoutParams lp4 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        main_ll.addView(tv4, lp4);
-        tv4.setText("点我去搜索页面");
-        tv4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JumpUtils.startFragmentByName(getContext(), SearchFragment.class);
-            }
-        });
         TextView tv5 = new TextView(getContext());
         tv5.setPadding(10, 10, 10, 10);
         LinearLayout.LayoutParams lp5 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -86,6 +64,17 @@ public class TestFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 JumpUtils.startFragmentByName(getContext(), CheckTypeListFragment.class);
+            }
+        });
+        TextView tv7 = new TextView(getContext());
+        tv7.setPadding(10, 10, 10, 10);
+        LinearLayout.LayoutParams lp7 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        main_ll.addView(tv7, lp7);
+        tv7.setText("点我去测试XRecyclerView分页页面");
+        tv7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JumpUtils.startFragmentByName(getContext(), TestRecyclerViewFragment.class);
             }
         });
 
