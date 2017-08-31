@@ -72,7 +72,7 @@
                 android:background="@color/white"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:padding="@dimen/x18"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/pay_info_detail_trade_logo_iv"
@@ -308,6 +308,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_invoice_header_tv"
+                    android:layout_marginTop="@dimen/x20"
                     app:hintAnimationEnabled="true">
 
                     <EditText
@@ -341,8 +342,9 @@
                 <ImageView
                     android:id="@+id/pay_info_detail_invoice_dutynum_tip_iv"
                     android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/x30"
+                    android:layout_below="@+id/pay_info_detail_invoice_header_et"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:src="@mipmap/gantanhao" />
             </RelativeLayout>

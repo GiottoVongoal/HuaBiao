@@ -1,15 +1,11 @@
 package com.huabiao.aoiin.ui.interfaces;
 
 
-import android.support.v7.widget.CardView;
+import android.widget.RelativeLayout;
 
 public interface ICardAdapter {
 
-    int MAX_ELEVATION_FACTOR = 8;
-
-    float getBaseElevation();
-
-    CardView getCardViewAt(int position);
+    RelativeLayout getCardViewAt(int position);
 
     int getCount();
 }

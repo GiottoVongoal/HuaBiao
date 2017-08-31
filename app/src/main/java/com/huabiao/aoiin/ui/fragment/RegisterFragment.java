@@ -110,7 +110,7 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.register_one_register_custom_tv:
                 setSelect(1);
-                JumpUtils.startFragmentByName(getContext(), CustomerServiceListFragment.class);
+                JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
                 break;
         }
     }
@@ -129,7 +129,7 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void selectRecommand() {
                 showToast("客服推荐\n" + tradename + "\n" + goodsname);
-                JumpUtils.startFragmentByName(getContext(), CustomerServiceListFragment.class);
+                JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
                 finishPopupWindow.dismiss();
             }
         });
