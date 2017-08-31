@@ -50,8 +50,8 @@ public class CustomerservicelistAdapter extends RecyclerView.Adapter<Customerser
     public void onBindViewHolder(CustomerservicelistAdapter.CustomerServiceVH holder, int position) {
         CustomerservicelistBean customerservicelistBean = customerservicelist.get(position);
         holder.service_company_tv.setText(customerservicelistBean.getCustomerservicecompany());
-        holder.service_consult_tv.setText("咨询量"+customerservicelistBean.getConsultnumber());
-        holder.service_reputable_tv.setText("点赞数"+customerservicelistBean.getReputablenumber());
+        holder.service_consult_tv.setText("order"+customerservicelistBean.getConsultnumber());
+        holder.service_reputable_tv.setText("star"+customerservicelistBean.getReputablenumber());
         holder.usedtime_time_tv.setText(customerservicelistBean.getUsedtime());
         holder.service_name_tv.setText(customerservicelistBean.getCustomerservicename());
         holder.service_number_tv.setText(customerservicelistBean.getCustomerserviceid());
