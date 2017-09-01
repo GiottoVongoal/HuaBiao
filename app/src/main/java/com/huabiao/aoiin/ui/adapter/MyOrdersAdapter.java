@@ -31,7 +31,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
     }
 
     public void update(List<MyOrdersBean.MyorderslistBean> list) {
-        myOrdersList.addAll(list);
+        myOrdersList = list;
         notifyDataSetChanged();
     }
 

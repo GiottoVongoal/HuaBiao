@@ -1,19 +1,24 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MyOrdersBean;
+import com.huabiao.aoiin.constant.FlagBase;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.MyOrdersAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.recycler.XRecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -38,7 +43,7 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.myorders_yetpay_tv)
     TextView yetpay;
     @Bind(R.id.myorders_recyclerview)
-    RecyclerView ordersrcyclerview;
+    XRecyclerView ordersrcyclerview;
     //待付款下标线
     @Bind(R.id.myorders_yetpaylines)
     View myorders_yetpaylines;
@@ -57,6 +62,12 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
     private int mpage = 1;
     //n是标志位，1234代表的是全部、待支付、已完成、已取消的页面
     private int n = 1;
+    //定义mloadtype的默认值是下拉刷新
+    private int mLoadType = FlagBase.PULL_TO_REFRESH;
+    //刷新list
+    private List<MyOrdersBean.MyorderslistBean> list_refresh;
+    //将四个页面装进一个数组
+    private int[]pagercv;
 
     @Override
     public BasePresenter getPresenter() {
@@ -72,8 +83,50 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
         all.setOnClickListener(this);
         cancel.setOnClickListener(this);
         yetpay.setOnClickListener(this);
-        getMyordersList(mpage,n);
+        getMyordersList(mpage, n);
+        list_refresh = new ArrayList<>();
+        ordersrcyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        ordersAdapter = new MyOrdersAdapter(getContext(), list_refresh);
+        ordersrcyclerview.setAdapter(ordersAdapter);
+        ordersrcyclerview.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                mpage = 1;
+                mLoadType = FlagBase.PULL_TO_REFRESH;
+                getMyordersList(mpage, n);
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                //加载更多
+                mpage++;
+                mLoadType = 200;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        SystemClock.sleep(3000);
+                        Message msg = new Message();
+                        msg.what = 123;
+                        handler.sendMessage(msg);
+                    }
+                }).start();
+                mLoadType = FlagBase.SCROLL_LOAD_MORE;
+                getMyordersList(mpage, n);
+            }
+        });
+        ordersrcyclerview.refresh();
     }
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 123) {
+                getMyordersList(mpage,n);
+            }
+        }
+    };
 
     private void getMyordersList(final int mpage, int n) {
         SearchModel.getMyordersList(getContext(), n, new InterfaceManager.CallBackCommon() {
@@ -82,16 +135,30 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
                 if (mData != null) {
                     MyOrdersBean bean = (MyOrdersBean) mData;
                     List<MyOrdersBean.MyorderslistBean> list = bean.getMyorderslist();
-                    if (mpage == 1) {
-                        ordersrcyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-                        ordersAdapter = new MyOrdersAdapter(getContext(), list);
-                        ordersrcyclerview.setAdapter(ordersAdapter);
-                    } else {
-                        ordersAdapter.update(list);
+                    if (mLoadType == FlagBase.PULL_TO_REFRESH) {
+                                  list_refresh = list;
+                        if (list_refresh.size() > 0 && list_refresh != null) {
+                            if (ordersAdapter != null) {
+                                ordersAdapter.update(list_refresh);
+                            }
+                            ordersrcyclerview.refreshComplete();
+                        }
+                    } else if (mLoadType == FlagBase.SCROLL_LOAD_MORE) {
+                        if (list.size() > 0 && list != null) {
+                            list_refresh.addAll(list);
+                            if (ordersAdapter != null) {
+                                ordersAdapter.update(list_refresh);
+                            }
+                            ordersrcyclerview.loadMoreComplete();
+                        } else {
+                            ordersrcyclerview.setNoMore(true);
+                        }
                     }
                 }
             }
         });
+
+
 //        置线的显示隐藏
         mlines[0] = myorders_alllines;
         mlines[1] = myorders_yetpaylines;
@@ -116,22 +183,22 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
             case R.id.myorders_all_tv:
                 n = 1;
                 mpage = 1;
-                getMyordersList(mpage,n);
+                getMyordersList(mpage, n);
                 break;
             case R.id.myorders_yetpay_tv:
-                 n = 2;
-                 mpage = 1;
-                 getMyordersList(mpage,n);
-                 break;
+                n = 2;
+                mpage = 1;
+                getMyordersList(mpage, n);
+                break;
             case R.id.myorders_finish_tv:
                 n = 3;
                 mpage = 1;
-                getMyordersList(mpage,n);
+                getMyordersList(mpage, n);
                 break;
             case R.id.myorders_cancel_tv:
                 n = 4;
                 mpage = 1;
-                getMyordersList(mpage,n);
+                getMyordersList(mpage, n);
                 break;
         }
     }

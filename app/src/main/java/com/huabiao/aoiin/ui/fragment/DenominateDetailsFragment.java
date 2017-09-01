@@ -20,6 +20,9 @@ import com.ywy.mylibs.base.BasePresenter;
 
 import butterknife.Bind;
 
+import static com.umeng.analytics.pro.x.R;
+
+
 /**
  * Created by Aoiin-9 on 2017/8/11.
  */
@@ -109,9 +112,8 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
 
     private void initData(String trademarkId) {
     }
-    private void initShaixuan() {//下拉筛选菜单相关
-//        private void initPopMenu(final List<UserTrademarkProgressListBean.TrademarkprogresslistBean> list) {
-//            View contentView = View.inflate(this, R.layout.popwin_supplier_list, null);
+//    private void initShaixuan(final List<ScreenclassficationBean.SlistBean>list) {//下拉筛选菜单相关
+//            View contentView = View.inflate(getContext(), R.layout.popwin_supplier_list, null);
 //        shaixuan = new PopupWindow(contentView,
 //                    LinearLayout.LayoutParams.MATCH_PARENT,
 //                    LinearLayout.LayoutParams.MATCH_PARENT);
@@ -124,8 +126,8 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
 //                    details_tv2.setTextColor(getResources().getColor(R.color.black3));
 //                }
 //            });
-//        details_tv2.setText(list.get(0).getTrademarkname());//默认显示第一个类别
-//            initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
+//        details_tv2.setText(list.get(0).getClassificationname());//默认显示第一个类别
+//            initData(list.get(0).getClassificationid());//根据类别获取商标进度数据
 //            popRecyclerView = (RecyclerView) contentView
 //                    .findViewById(R.id.popwin_supplier_list_rv);
 //            contentView.findViewById(R.id.popwin_supplier_list_bottom)
@@ -134,21 +136,21 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
 //                            shaixuan.dismiss();
 //                        }
 //                    });
-//            popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            popRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 //            List<String> l = new ArrayList<>();
 //            for (int i = 0; i < list.size(); i++) {
-//                l.add(list.get(i).getTrademarkname());
+//                l.add(list.get(i).getClassificationname());
 //            }
-//            menuAdapter = new UpMenuAdapter(this, l);
+//            menuAdapter = new UpMenuAdapter(getContext(), l);
 //            menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
 //                @Override
 //                public void onItemClickListener(View view, int position) {
 //                    shaixuan.dismiss();
-//                    details_tv2.setText(list.get(position).getTrademarkname());
+//                    details_tv2.setText(getContext().get(position).getTrademarkname());
 //                    showToast(list.get(position).getTrademarkname());
 //                }
 //            });
-    }
+//    }
 
     @Override
     public int getContentLayout() {
