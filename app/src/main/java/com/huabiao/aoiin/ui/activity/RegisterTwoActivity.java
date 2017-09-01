@@ -3,11 +3,13 @@ package com.huabiao.aoiin.ui.activity;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ActivityCollector;
+import com.huabiao.aoiin.tools.ViewTools;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -34,12 +36,20 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
 
     @Bind(R.id.register_card_two_username_et)
     TextInputLayout username_et;//客户姓名
+    @Bind(R.id.register_card_two_username_delete_iv)
+    ImageView username_delete_iv;
     @Bind(R.id.register_card_two_userphone_et)
     TextInputLayout userphone_et;//电话
+    @Bind(R.id.register_card_two_userphone_delete_iv)
+    ImageView userphone_delete_iv;
     @Bind(R.id.register_card_two_address_et)
     TextInputLayout address_et;//输入地址
+    @Bind(R.id.register_card_two_address_delete_iv)
+    ImageView address_delete_iv;
     @Bind(R.id.register_card_two_code_et)
     TextInputLayout code_et;//邮政编码
+    @Bind(R.id.register_card_two_code_delete_iv)
+    ImageView code_delete_iv;
 
     @Bind(R.id.register_card_two_next_tv)
     TextView next_tv;//下一步
@@ -76,6 +86,35 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
         individual_tv.setOnClickListener(this);
         company_tv.setOnClickListener(this);
         next_tv.setOnClickListener(this);
+
+        ViewTools.setEdittext(username_et.getEditText(), username_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        username_et.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(userphone_et.getEditText(), userphone_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        userphone_et.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(address_et.getEditText(), address_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        address_et.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(code_et.getEditText(), code_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        code_et.getEditText().setText("");
+                    }
+                });
 
         if (commitBean.getPersonType() != -1) {
             setPersonTypeSelect(commitBean.getPersonType());

@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/x20"
-        android:paddingRight="@dimen/x20"
+        android:paddingLeft="@dimen/x40"
+        android:paddingRight="@dimen/x40"
         android:src="@mipmap/back_cut" />
 
     <TextView
@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/text_size_17" />
 
     <TextView
         android:id="@+id/tv_right"
@@ -34,10 +35,11 @@
     <ImageView
         android:id="@+id/title_right_iv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/x20"
+        android:paddingRight="@dimen/x40"
+        android:paddingLeft="@dimen/x40"
         android:layout_toLeftOf="@+id/tv_right"
         android:visibility="gone" />
 

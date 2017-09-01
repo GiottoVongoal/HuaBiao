@@ -12,12 +12,13 @@
     </style>
 
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/white</item>
+        <!--<item name="colorPrimary">@color/white</item>-->
+        <!--<item name="colorPrimaryDark">@color/white</item>-->
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <!--<item name="android:statusBarColor">@color/white</item>-->
+        <!--<item name="android:windowLightStatusBar">false</item>-->
         <!-- 去标题 -->
-        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:windowNoTitle">true</item>-->
     </style>
 
 

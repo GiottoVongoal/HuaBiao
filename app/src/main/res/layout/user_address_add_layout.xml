@@ -24,41 +24,71 @@
                 android:layout_margin="@dimen/x30"
                 android:orientation="vertical">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/user_address_add_name_et"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:hintAnimationEnabled="true">
+                    android:layout_height="wrap_content">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/user_address_add_name_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="姓名"
-                        android:inputType="text" />
-                </android.support.design.widget.TextInputLayout>
+                        app:hintAnimationEnabled="true">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/user_address_add_phone_et"
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="姓名"
+                            android:inputType="text" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/user_address_add_name_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-                    app:errorEnabled="true"
-                    app:errorTextAppearance="@style/errorAppearance">
-                    <!--app:errorEnabled="true"时，开启错误提示-->
-                    <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
+                    android:layout_marginTop="10dp">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/user_address_add_phone_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="电话"
-                        android:inputType="phone"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-                </android.support.design.widget.TextInputLayout>
+                        app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                        app:errorEnabled="true"
+                        app:errorTextAppearance="@style/errorAppearance">
+                        <!--app:errorEnabled="true"时，开启错误提示-->
+                        <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
 
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="电话"
+                            android:inputType="phone"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/user_address_add_phone_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
                 <!--<android.support.design.widget.TextInputLayout-->
                 <!--android:id="@+id/user_address_add_area_et"-->
                 <!--android:layout_width="match_parent"-->
@@ -77,39 +107,68 @@
                     android:hint="地区"
                     android:inputType="text" />
                 <!--</android.support.design.widget.TextInputLayout>-->
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/user_address_add_address_et"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:hintAnimationEnabled="true">
+                    android:layout_marginTop="10dp">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/user_address_add_address_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="地址"
-                        android:inputType="text" />
-                </android.support.design.widget.TextInputLayout>
+                        app:hintAnimationEnabled="true">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/user_address_add_code_et"
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="地址"
+                            android:inputType="text" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/user_address_add_address_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-                    app:errorEnabled="true"
-                    app:errorTextAppearance="@style/errorAppearance"
-                    app:hintAnimationEnabled="true">
+                    android:layout_marginTop="10dp">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/user_address_add_code_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="邮编"
-                        android:inputType="number" />
-                </android.support.design.widget.TextInputLayout>
+                        app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                        app:errorEnabled="true"
+                        app:errorTextAppearance="@style/errorAppearance"
+                        app:hintAnimationEnabled="true">
+
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="邮编"
+                            android:inputType="number" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/user_address_add_code_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
             </LinearLayout>
 
             <TextView

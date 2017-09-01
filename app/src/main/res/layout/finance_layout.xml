@@ -8,11 +8,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/x88"
         android:fitsSystemWindows="true"
         android:gravity="center"
-        android:padding="15dp"
-        android:text="金融" />
+        android:text="金融"
+        android:textSize="@dimen/text_size_17" />
 
     <View
         style="@style/GrayLine"
@@ -28,39 +28,68 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/finance_tradename_tl"
+            <RelativeLayout
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/x180"
-                app:hintAnimationEnabled="true">
-
-                <EditText
-                    style="@style/edittext_no_bg"
+                android:layout_marginTop="@dimen/x180">
+                <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/finance_tradename_tl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="商标名"
-                    android:inputType="text" />
-            </android.support.design.widget.TextInputLayout>
-            <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/finance_tradeid_tl"
+                    app:hintAnimationEnabled="true">
+
+                    <EditText
+                        style="@style/edittext_no_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="商标名"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/finance_tradename_delete_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/login_edit_delete"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/x76"
-                app:hintAnimationEnabled="true"
                 app:layout_constraintTop_toBottomOf="@+id/finance_tradename_tl">
-
-                <EditText
-                    style="@style/edittext_no_bg"
+                <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/finance_tradeid_tl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="商标编号"
-                    android:inputType="text" />
-            </android.support.design.widget.TextInputLayout>
+                    app:hintAnimationEnabled="true">
+
+                    <EditText
+                        style="@style/edittext_no_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="商标编号"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/finance_tradeid_delete_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/login_edit_delete"
+                    android:visibility="invisible" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/finance_evaluate_tv"

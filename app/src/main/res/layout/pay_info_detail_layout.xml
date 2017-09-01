@@ -303,49 +303,81 @@
 
                 </RadioGroup>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/pay_info_detail_invoice_header_et"
+                <RelativeLayout
+                    android:id="@+id/pay_info_detail_invoice_header_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_invoice_header_tv"
-                    android:layout_marginTop="@dimen/x20"
-                    app:hintAnimationEnabled="true">
+                    android:layout_marginTop="@dimen/x20">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/pay_info_detail_invoice_header_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/x16"
-                        android:hint="发票抬头"
-                        android:inputType="text"
-                        android:textSize="@dimen/text_size_14" />
-                </android.support.design.widget.TextInputLayout>
+                        app:hintAnimationEnabled="true">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/pay_info_detail_invoice_dutynum_et"
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/x16"
+                            android:hint="发票抬头"
+                            android:inputType="text"
+                            android:textSize="@dimen/text_size_14" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/pay_info_detail_invoice_header_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/pay_info_detail_invoice_dutynum_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_invoice_header_et"
+                    android:layout_below="@+id/pay_info_detail_invoice_header_rl"
                     android:layout_marginTop="5dp"
-                    android:layout_toLeftOf="@+id/pay_info_detail_invoice_dutynum_tip_iv"
-                    app:hintAnimationEnabled="true">
+                    android:layout_toLeftOf="@+id/pay_info_detail_invoice_dutynum_tip_iv">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/pay_info_detail_invoice_dutynum_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="纳税人识别号"
-                        android:inputType="text"
-                        android:textSize="14sp" />
-                </android.support.design.widget.TextInputLayout>
+                        app:hintAnimationEnabled="true">
+
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="纳税人识别号"
+                            android:inputType="text"
+                            android:textSize="14sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/pay_info_detail_invoice_dutynum_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/pay_info_detail_invoice_dutynum_tip_iv"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/x30"
-                    android:layout_below="@+id/pay_info_detail_invoice_header_et"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_below="@+id/pay_info_detail_invoice_header_rl"
+                    android:layout_marginTop="@dimen/x30"
                     android:src="@mipmap/gantanhao" />
             </RelativeLayout>
 
@@ -364,6 +396,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/x87"
                     android:button="@null"
+                    android:checked="true"
                     android:drawableLeft="@mipmap/weixin"
                     android:drawablePadding="@dimen/x11"
                     android:drawableRight="@drawable/checkbox_select_type"
@@ -378,7 +411,6 @@
                     android:layout_height="@dimen/x87"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:checked="true"
                     android:drawableLeft="@mipmap/zhifubao"
                     android:drawablePadding="@dimen/x11"
                     android:drawableRight="@drawable/checkbox_select_type"

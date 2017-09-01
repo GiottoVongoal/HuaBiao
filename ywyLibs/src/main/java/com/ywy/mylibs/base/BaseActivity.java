@@ -2,7 +2,6 @@ package com.ywy.mylibs.base;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,12 +10,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.umeng.analytics.MobclickAgent;
 import com.ywy.mylibs.R;
 import com.ywy.mylibs.base.impl.IBase;
@@ -25,7 +23,6 @@ import com.ywy.mylibs.manager.AppManager;
 import com.ywy.mylibs.manager.SystemBarTintManager;
 import com.ywy.mylibs.utils.ClickUtil;
 import com.ywy.mylibs.utils.ContextUtils;
-import com.ywy.mylibs.utils.StatusBarUtils;
 import com.ywy.mylibs.utils.StringUtil;
 
 import butterknife.ButterKnife;
@@ -71,6 +68,7 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.white), true);
         mUIThreadId = android.os.Process.myTid();
         AppManager.getAppManager().addActivity(this);
         mPresenter = getPresenter();
@@ -159,7 +157,7 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     public ImageView setRightIvResourse(Drawable back) {
         if (back != null && title_right_iv != null) {
             title_right_iv.setVisibility(View.VISIBLE);
-            title_right_iv.setBackgroundDrawable(back);
+            title_right_iv.setImageDrawable(back);
         }
         return title_right_iv;
     }
@@ -167,7 +165,7 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     public ImageView setRightIvResourse(int backId) {
         if (title_right_iv != null) {
             title_right_iv.setVisibility(View.VISIBLE);
-            title_right_iv.setBackgroundResource(backId);
+            title_right_iv.setImageResource(backId);
         }
         return title_right_iv;
     }
@@ -215,11 +213,11 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     @TargetApi(19)
     private void initWindow() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && isSetStatusBar()) {
-            getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setStatusBarTintResource(R.color.color_my_libs_ff6565);
+//            getWindow().addFlags(
+//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            tintManager = new SystemBarTintManager(this);
+//            tintManager.setStatusBarTintEnabled(true);
+//            tintManager.setStatusBarTintResource(R.color.color_my_libs_ff6565);
         }
     }
 

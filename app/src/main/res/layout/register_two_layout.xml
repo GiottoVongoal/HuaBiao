@@ -94,75 +94,135 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_16" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/register_card_two_username_et"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x36"
-                    app:hintAnimationEnabled="true">
+                    android:layout_marginTop="@dimen/x36">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/register_card_two_username_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="申请人姓名"
-                        android:inputType="text" />
-                </android.support.design.widget.TextInputLayout>
+                        app:hintAnimationEnabled="true">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/register_card_two_userphone_et"
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="申请人姓名"
+                            android:inputType="text" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/register_card_two_username_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x36"
-                    app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-                    app:errorEnabled="true"
-                    app:errorTextAppearance="@style/errorAppearance"
-                    app:hintAnimationEnabled="true">
-                    <!--app:errorEnabled="true"时，开启错误提示-->
-                    <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
+                    android:layout_marginTop="@dimen/x36">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/register_card_two_userphone_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="联系电话"
-                        android:inputType="phone"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-                </android.support.design.widget.TextInputLayout>
+                        app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                        app:errorEnabled="true"
+                        app:errorTextAppearance="@style/errorAppearance"
+                        app:hintAnimationEnabled="true">
+                        <!--app:errorEnabled="true"时，开启错误提示-->
+                        <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/register_card_two_address_et"
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="联系电话"
+                            android:inputType="phone"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/register_card_two_userphone_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x36"
-                    app:hintAnimationEnabled="true">
+                    android:layout_marginTop="@dimen/x36">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/register_card_two_address_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="合同地址"
-                        android:inputType="text" />
-                </android.support.design.widget.TextInputLayout>
+                        app:hintAnimationEnabled="true">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/register_card_two_code_et"
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="合同地址"
+                            android:inputType="text" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/register_card_two_address_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x36"
-                    app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-                    app:errorEnabled="true"
-                    app:errorTextAppearance="@style/errorAppearance"
-                    app:hintAnimationEnabled="true">
+                    android:layout_marginTop="@dimen/x36">
 
-                    <EditText
-                        style="@style/edittext_no_bg"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/register_card_two_code_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="邮政编码"
-                        android:inputType="number" />
-                </android.support.design.widget.TextInputLayout>
+                        app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                        app:errorEnabled="true"
+                        app:errorTextAppearance="@style/errorAppearance"
+                        app:hintAnimationEnabled="true">
+
+                        <EditText
+                            style="@style/edittext_no_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="邮政编码"
+                            android:inputType="number" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/register_card_two_code_delete_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@mipmap/login_edit_delete"
+                        android:visibility="invisible" />
+                </RelativeLayout>
             </LinearLayout>
 
             <TextView

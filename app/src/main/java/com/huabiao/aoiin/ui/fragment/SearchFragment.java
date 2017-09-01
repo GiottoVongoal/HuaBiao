@@ -5,9 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.tools.ViewTools;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.ClickUtil;
@@ -24,8 +26,12 @@ import butterknife.Bind;
 public class SearchFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.search_tradename_tl)
     TextInputLayout search_tradename_tl;//商标名
+    @Bind(R.id.search_tradename_delete_iv)
+    ImageView search_tradename_delete_iv;
     @Bind(R.id.search_goodsname_tl)
     TextInputLayout search_goodsname_tl;//商品名
+    @Bind(R.id.search_goodsname_delete_iv)
+    ImageView search_goodsname_delete_iv;
     @Bind(R.id.search_tv)
     TextView search_tv;//查询按钮
 
@@ -41,9 +47,24 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         setTitle("查询");
         setBackEnable();
 
-        search_tradename_tl.getEditText().setText("海飞丝");
-        search_goodsname_tl.getEditText().setText("洗发水");
+//        search_tradename_tl.getEditText().setText("海飞丝");
+//        search_goodsname_tl.getEditText().setText("洗发水");
         search_tv.setOnClickListener(this);
+
+        ViewTools.setEdittext(search_tradename_tl.getEditText(), search_tradename_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        search_tradename_tl.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(search_goodsname_tl.getEditText(), search_goodsname_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        search_goodsname_tl.getEditText().setText("");
+                    }
+                });
     }
 
     @Override

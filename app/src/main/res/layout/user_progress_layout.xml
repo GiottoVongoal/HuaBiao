@@ -37,9 +37,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x100"
                 android:background="@color/yellow_fdd400"
+                android:navigationIcon="@mipmap/back_cut"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
-                app:layout_collapseMode="pin">
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@mipmap/back_cut">
 
                 <TextView
                     android:id="@+id/user_progress_toolbar_title"
@@ -48,7 +50,7 @@
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:drawablePadding="10dp"
-                    android:drawableRight="@mipmap/ic_chat_switch_down_arrow"
+                    android:drawableRight="@mipmap/xia"
                     android:text="我的商标列表"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/x36" />

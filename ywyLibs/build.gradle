@@ -21,7 +21,11 @@ android {
     }
 
 }
-
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //打多个dex
@@ -53,4 +57,6 @@ dependencies {
     compile 'com.karumi:dexter:2.2.2'
     compile files('libs/umeng_social_api.jar')
     compile files('libs/umeng_social_net.jar')
+    //
+    compile 'com.githang:status-bar-compat:0.5.3'
 }

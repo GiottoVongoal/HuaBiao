@@ -3,10 +3,12 @@ package com.huabiao.aoiin.ui.fragment;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.tools.ViewTools;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
@@ -24,8 +26,12 @@ import butterknife.Bind;
 public class FinanceFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.finance_tradename_tl)
     TextInputLayout tradename_tl;//商标名
+    @Bind(R.id.finance_tradename_delete_iv)
+    ImageView tradename_delete_iv;
     @Bind(R.id.finance_tradeid_tl)
     TextInputLayout tradeid_tl;//商标编号
+    @Bind(R.id.finance_tradeid_delete_iv)
+    ImageView tradeid_delete_iv;
 
     @Bind(R.id.finance_evaluate_tv)
     TextView evaluate_circle_tv;//评估
@@ -37,12 +43,27 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        tradename_tl.getEditText().setText("商标名");
-        tradeid_tl.getEditText().setText("商标编号");
+//        tradename_tl.getEditText().setText("商标名");
+//        tradeid_tl.getEditText().setText("商标编号");
 
         evaluate_circle_tv.setOnClickListener(this);
         trade_pledge_ll.setOnClickListener(this);
         trade_sale_ll.setOnClickListener(this);
+
+        ViewTools.setEdittext(tradename_tl.getEditText(), tradename_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tradename_tl.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(tradeid_tl.getEditText(), tradeid_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tradeid_tl.getEditText().setText("");
+                    }
+                });
 
     }
 
@@ -64,11 +85,11 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
                 break;
             case R.id.finance_trade_pledge_ll:
                 //商标质押
-                JumpUtils.startFragmentByName(getContext(),PledgeFragment.class);
+                JumpUtils.startFragmentByName(getContext(), PledgeFragment.class);
                 break;
             case R.id.finance_trade_sale_ll:
                 //商标拍卖
-             JumpUtils.startFragmentByName(getContext(),AuctionFragment.class);
+                JumpUtils.startFragmentByName(getContext(), AuctionFragment.class);
                 break;
         }
     }

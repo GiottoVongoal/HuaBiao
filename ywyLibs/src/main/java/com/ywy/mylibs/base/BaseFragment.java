@@ -164,7 +164,7 @@ public abstract class BaseFragment<T extends BasePresenter<IBaseView>> extends F
     public ImageView setRightIvResourse(Drawable back) {
         if (back != null && title_right_iv != null) {
             title_right_iv.setVisibility(View.VISIBLE);
-            title_right_iv.setBackgroundDrawable(back);
+            title_right_iv.setImageDrawable(back);
         }
         return title_right_iv;
     }
@@ -172,7 +172,7 @@ public abstract class BaseFragment<T extends BasePresenter<IBaseView>> extends F
     public ImageView setRightIvResourse(int backId) {
         if (title_right_iv != null) {
             title_right_iv.setVisibility(View.VISIBLE);
-            title_right_iv.setBackgroundResource(backId);
+            title_right_iv.setImageResource(backId);
         }
         return title_right_iv;
     }

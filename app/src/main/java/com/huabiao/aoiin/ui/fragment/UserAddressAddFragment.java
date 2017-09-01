@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.tools.ViewTools;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -31,14 +33,22 @@ import static com.huabiao.aoiin.R.id.tv;
 public class UserAddressAddFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.user_address_add_name_et)
     TextInputLayout add_name_et;
+    @Bind(R.id.user_address_add_name_delete_iv)
+    ImageView name_delete_iv;
     @Bind(R.id.user_address_add_phone_et)
     TextInputLayout add_phone_et;
+    @Bind(R.id.user_address_add_phone_delete_iv)
+    ImageView phone_delete_iv;
     @Bind(R.id.user_address_add_area_et)
     EditText add_area_et;
     @Bind(R.id.user_address_add_address_et)
     TextInputLayout add_address_et;
+    @Bind(R.id.user_address_add_address_delete_iv)
+    ImageView address_delete_iv;
     @Bind(R.id.user_address_add_code_et)
     TextInputLayout add_code_et;
+    @Bind(R.id.user_address_add_code_delete_iv)
+    ImageView code_delete_iv;
 
     @Bind(R.id.user_address_add_tv)
     TextView add_tv;
@@ -59,6 +69,35 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
         add_area_et.setFocusable(false);
         add_area_et.setOnClickListener(this);
         add_tv.setOnClickListener(this);
+
+        ViewTools.setEdittext(add_name_et.getEditText(), name_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        add_name_et.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(add_phone_et.getEditText(), phone_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        add_phone_et.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(add_address_et.getEditText(), address_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        add_address_et.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(add_code_et.getEditText(), code_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        add_code_et.getEditText().setText("");
+                    }
+                });
     }
 
     @Override

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
+import com.huabiao.aoiin.tools.ViewTools;
 import com.sevenheaven.iosswitch.ShSwitchView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -65,8 +66,12 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
     RadioButton company_rb;//公司
     @Bind(R.id.pay_info_detail_invoice_header_et)
     TextInputLayout detail_invoice_header_et;//抬头内容
+    @Bind(R.id.pay_info_detail_invoice_header_delete_iv)
+    ImageView header_delete_iv;
     @Bind(R.id.pay_info_detail_invoice_dutynum_et)
     TextInputLayout detail_invoice_dutynum_et;//纳税人识别号
+    @Bind(R.id.pay_info_detail_invoice_dutynum_delete_iv)
+    ImageView dutynum_delete_iv;
     @Bind(R.id.pay_info_detail_invoice_dutynum_tip_iv)
     ImageView detail_invoice_dutynum_tip_iv;//纳税人识别号Tip
     private int invoiceHeaderType = 2;
@@ -146,6 +151,21 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
             }
         });
         setOnClick();
+
+        ViewTools.setEdittext(detail_invoice_header_et.getEditText(), header_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        detail_invoice_header_et.getEditText().setText("");
+                    }
+                });
+        ViewTools.setEdittext(detail_invoice_dutynum_et.getEditText(), dutynum_delete_iv
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        detail_invoice_dutynum_et.getEditText().setText("");
+                    }
+                });
     }
 
     private void setOnClick() {

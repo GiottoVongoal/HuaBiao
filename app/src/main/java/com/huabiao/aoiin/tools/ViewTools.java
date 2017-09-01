@@ -1,9 +1,13 @@
 package com.huabiao.aoiin.tools;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -173,5 +177,48 @@ public class ViewTools {
         view_height.setLayoutParams(params_1);
         other_addlayout.addView(child);
 
+    }
+
+    private static boolean isFocus;
+
+    public static EditText setEdittext( final EditText myEditText,
+                                       final ImageView delete, final View.OnClickListener onClickListener) {
+        isFocus = false;
+        myEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    isFocus = true;
+                    if (!TextUtils.isEmpty(myEditText.getText())) {
+                        delete.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    isFocus = false;
+                    delete.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+        myEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+                if (isFocus && !TextUtils.isEmpty(s)) {
+                    delete.setVisibility(View.VISIBLE);
+                } else {
+                    delete.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        delete.setOnClickListener(onClickListener);
+        return myEditText;
     }
 }
