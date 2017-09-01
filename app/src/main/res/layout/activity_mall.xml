@@ -16,17 +16,17 @@
         <EditText
             android:id="@+id/mall_search_et"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x58"
-            android:layout_marginLeft="@dimen/x23"
+            android:layout_height="@dimen/x60"
             android:layout_weight="1"
+            android:layout_margin="10dp"
             android:background="@drawable/bg_round_edittext_bg"
             android:drawableLeft="@mipmap/fangdajing"
-            android:drawablePadding="@dimen/x43"
+            android:drawablePadding="@dimen/x25"
             android:gravity="center_vertical"
             android:hint="搜索"
             android:maxLines="1"
             android:paddingLeft="@dimen/x29"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/mall_img"
