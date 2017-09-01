@@ -59,6 +59,8 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
         setTitle("注册");
         setBackEnable();
 
+        getActivity().getWindow().setBackgroundDrawableResource(R.mipmap.bg_icon);
+
 //        tradename_et.getEditText().setText("我是商标名(注册)");
 //        goodsname_et.getEditText().setText("我是商品名(注册)");
         register_tv.setOnClickListener(this);

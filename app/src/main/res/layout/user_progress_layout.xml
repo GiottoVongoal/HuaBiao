@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="@dimen/x10"
                     android:drawableRight="@mipmap/xia"
                     android:text="我的商标列表"
                     android:textColor="@color/black3"
