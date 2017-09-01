@@ -1,90 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:orientation="vertical">
 
     <include
         android:id="@+id/include"
         layout="@layout/view_title" />
 
-    <LinearLayout
-        android:id="@+id/register_fragment_ll"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/include"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="30dp">
+        android:layout_marginTop="@dimen/x190"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
-        <RelativeLayout
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_one_tradename_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x190">
+            app:hintAnimationEnabled="true">
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/register_one_tradename_et"
+            <EditText
+                style="@style/edittext_no_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintAnimationEnabled="true">
+                android:hint="商标名"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    style="@style/edittext_no_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="商标名"
-                    android:inputType="text" />
-            </android.support.design.widget.TextInputLayout>
+        <ImageView
+            android:id="@+id/register_one_tradename_delete_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/login_edit_delete"
+            android:visibility="invisible" />
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/register_one_tradename_delete_iv"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@mipmap/login_edit_delete"
-                android:visibility="invisible" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x78">
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/register_one_goodsname_et"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:hintAnimationEnabled="true">
-
-                <EditText
-                    style="@style/edittext_no_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="商品名"
-                    android:inputType="text" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <ImageView
-                android:id="@+id/register_one_goodsname_delete_iv"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@mipmap/login_edit_delete"
-                android:visibility="invisible" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@mipmap/bg_icon" />
+        android:layout_marginTop="@dimen/x78"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_one_goodsname_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintAnimationEnabled="true">
+
+            <EditText
+                style="@style/edittext_no_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="商品名"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/register_one_goodsname_delete_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/login_edit_delete"
+            android:visibility="invisible" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/register_one_register_tv"
@@ -103,4 +91,4 @@
         android:layout_marginTop="@dimen/x50"
         android:background="@mipmap/btn_white"
         android:text="咨询客服" />
-</RelativeLayout>
+</LinearLayout>

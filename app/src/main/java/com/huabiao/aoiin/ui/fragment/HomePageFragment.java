@@ -1,5 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -7,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,6 +27,7 @@ import com.huabiao.aoiin.ui.adapter.BannerAdapter;
 import com.huabiao.aoiin.ui.adapter.HotWordsAdapter;
 import com.huabiao.aoiin.ui.adapter.InfomationAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.wedgit.ObservableScrollView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
@@ -40,7 +43,7 @@ import butterknife.Bind;
  * @date 2017-07-20 09:56
  * @description 首页
  */
-public class HomePageFragment extends BaseFragment implements View.OnClickListener {
+public class HomePageFragment extends BaseFragment implements View.OnClickListener, ObservableScrollView.OnObservableScrollViewListener {
     //Banner
     @Bind(R.id.home_bannar_vp)
     ViewPager home_bannar_vp;
@@ -56,8 +59,13 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     private BannerAdapter mAdapter;
     private List<ImageView> mlist;
     //输入框
-    @Bind(R.id.home_search_et)
-    EditText home_search_et;
+    @Bind(R.id.home_sv)
+    ObservableScrollView home_sv;
+    @Bind(R.id.home_top_ll)
+    LinearLayout home_top_ll;
+    @Bind(R.id.home_search_tv)
+    TextView home_search_tv;
+    private int mHeight;
     //按钮
     @Bind(R.id.home_search_ll)
     LinearLayout home_search_ll;
@@ -78,8 +86,18 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        home_search_et.setOnClickListener(this);
+        ViewTreeObserver viewTreeObserver = home_bannar_vp.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                home_bannar_vp.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                mHeight = home_bannar_vp.getHeight();
+                //注册滑动监听
+                home_sv.setOnObservableScrollViewListener(HomePageFragment.this);
+            }
+        });
 
+        home_search_tv.setOnClickListener(this);
         home_search_ll.setOnClickListener(this);
         home_creat_name_ll.setOnClickListener(this);
         home_register_ll.setOnClickListener(this);
@@ -220,9 +238,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_search_et:
+            case R.id.home_search_tv:
                 //输入框
-                ((MainActivity) getContext()).setItem(1);
+                JumpUtils.startFragmentByName(getContext(), SearchMallFragment.class);
                 break;
             case R.id.home_search_ll:
                 //查询
@@ -241,6 +259,27 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 JumpUtils.startActivity(getContext(), UserProgressActivity.class);
                 break;
         }
+    }
+
+    @Override
+    public void onObservableScrollViewListener(int l, int t, int oldl, int oldt) {
+//        if (t <= 0) {
+//            //顶部图处于最顶部，标题栏透明
+//            home_top_ll.setAlpha(1);
+//            home_top_ll.setBackgroundColor(Color.argb(0, 255, 255, 255));
+//        } else if (t > 0 && t <= mHeight / 2) {
+//            //滑动过程中，渐变
+//            float scale = (float) (t / (mHeight / 2));//算出滑动距离比例
+//            float alpha = (255 * scale);//得到透明度
+//            home_top_ll.setAlpha(alpha / 100);
+//            home_top_ll.setBackgroundColor(Color.argb((int) alpha, 255, 255, 255));
+//        } else if (t > mHeight / 2 && t <= mHeight) {
+//
+//        } else {
+//            //过顶部图区域，标题栏定色
+//            home_top_ll.setAlpha(1);
+//            home_top_ll.setBackgroundColor(Color.argb(255, 255, 255, 255));
+//        }
     }
 
     //实现VierPager监听器接口

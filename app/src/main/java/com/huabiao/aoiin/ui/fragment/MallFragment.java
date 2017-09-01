@@ -14,6 +14,7 @@ import com.huabiao.aoiin.ui.adapter.MallAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import butterknife.Bind;
 
@@ -51,6 +52,9 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     TextView mall_all_tv;
     @Bind(R.id.mall_all_tv_line)
     View mall_all_tv_line;
+    //输入框
+    @Bind(R.id.mall_search_tv)
+    TextView mall_search_tv;
     //筛选图片
     @Bind(R.id.mall_img)
     ImageView mall_img;
@@ -64,6 +68,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
         mall_canbuy_tv.setOnClickListener(this);
         mall_all_tv.setOnClickListener(this);
         mall_canyiyi_tv.setOnClickListener(this);
+        mall_search_tv.setOnClickListener(this);
         mall_img.setOnClickListener(this);
         //列表监听事件以及实例化
         mall_listview.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -82,6 +87,25 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                 }
             }
         });
+    }
+
+    @Override
+    public void getIntentValue() {
+        super.getIntentValue();
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            mall_search_tv.setText(bundle.getString("search"));
+        }
+    }
+
+    /**
+     * 跳转到商城页面
+     *
+     * @param msg
+     */
+    public void SearchMallEvent(String msg) {
+        if (mall_search_tv != null)
+            mall_search_tv.setText(msg);
     }
 
     private void getList(final int page, int m) {
@@ -110,7 +134,6 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                 lines[i].setVisibility(View.VISIBLE);
             }
         }
-
     }
 
     //五个按钮的监听事件实例化，点击显示不同页面，解析不同的json.
@@ -140,9 +163,12 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
             case R.id.mall_img:
                 showToast("筛选");
                 break;
+            case R.id.mall_search_tv:
+                //输入框
+                JumpUtils.startFragmentByName(getContext(), SearchMallFragment.class);
+                break;
         }
     }
-
 
     @Override
     public int getContentLayout() {

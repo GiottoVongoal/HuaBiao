@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:paddingTop="10dp">
 
     <TextView
@@ -28,6 +29,5 @@
     <View
         style="@style/GrayLine"
         android:layout_below="@+id/user_address_item_address_tv"
-        android:background="@color/grey_848484"
         android:layout_marginTop="10dp" />
 </RelativeLayout>

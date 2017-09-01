@@ -1,5 +1,6 @@
 package com.huabiao.aoiin.ui.ottobus;
 
+import com.blankj.ALog;
 import com.squareup.otto.Bus;
 
 /**
@@ -18,4 +19,11 @@ public class AppBus extends Bus {
         }
         return bus;
     }
+
+    @Override
+    public void post(Object event) {
+        ALog.i("AppBus", "post event : " + event.toString());
+        super.post(event);
+    }
+
 }

@@ -1,26 +1,15 @@
 package com.huabiao.aoiin.ui.activity;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.ALog;
@@ -29,9 +18,11 @@ import com.huabiao.aoiin.ui.fragment.FinanceFragment;
 import com.huabiao.aoiin.ui.fragment.HomePageFragment;
 import com.huabiao.aoiin.ui.fragment.MallFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
+import com.huabiao.aoiin.ui.ottobus.AppBus;
+import com.huabiao.aoiin.ui.ottobus.ToSearchMallPageEvent;
+import com.squareup.otto.Subscribe;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.DeviceUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -69,6 +60,8 @@ public class MainActivity extends BaseActivity {
         mallFragment = new MallFragment();
         financeFragment = new FinanceFragment();
         meFragment = new MeFragment();
+
+        AppBus.getInstance().register(this);//注册事件
 
         File newFile = new File(Environment.getExternalStorageDirectory().getPath() + "/music/", "5816.mp3");
         if (newFile.exists()) {
@@ -154,7 +147,23 @@ public class MainActivity extends BaseActivity {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction tran = manager.beginTransaction();
         tran.replace(R.id.botton_fl, fragment);
-        tran.commit();
+        tran.commitAllowingStateLoss();
+    }
+
+    /**
+     * 跳转到商城页面
+     *
+     * @param event
+     */
+    @Subscribe
+    public void ToSearcmMallPageEvent(ToSearchMallPageEvent event) {
+        setItem(event.getIndex());
+        ((MallFragment) mallFragment).SearchMallEvent(event.getSearchStr());
+        if (mallFragment.isVisible())
+            return;
+        Bundle bundle = new Bundle();
+        bundle.putString("search", event.getSearchStr());
+        mallFragment.setArguments(bundle);
     }
 
     @Override
@@ -193,4 +202,9 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppBus.getInstance().unregister(this);//解除注册事件
+    }
 }
