@@ -15,9 +15,9 @@
             android:id="@+id/myorders_traderge_tv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/x72"
+            android:layout_marginLeft="@dimen/x39"
             android:drawableRight="@mipmap/jiantou_right"
             android:paddingTop="@dimen/x27"
-            android:layout_marginLeft="@dimen/x39"
             android:text="海飞丝商标注册" />
 
         <View
@@ -95,11 +95,11 @@
         android:layout_marginBottom="@dimen/x18"
         android:layout_marginRight="@dimen/x38"
         android:layout_marginTop="@dimen/x20"
-        android:paddingTop="@dimen/x2"
         android:background="@mipmap/jindu_weixuan"
+        android:paddingTop="@dimen/x2"
         android:text="付款"
-        android:textAlignment="center"
-        android:textColor="@color/black" />
+        android:gravity="center"
+        android:textSize="@dimen/text_size_11" />
 
     <View
         style="@style/GrayLine"

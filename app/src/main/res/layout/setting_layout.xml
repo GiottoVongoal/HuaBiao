@@ -11,18 +11,18 @@
         android:id="@+id/setting_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:layout_marginTop="@dimen/x20"
+        android:layout_weight="1"
         android:orientation="vertical" />
 
+    <View style="@style/GrayLine" />
 
     <TextView
         android:id="@+id/setting_log_out"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@drawable/bg_round_gray"
+        android:layout_height="@dimen/x95"
+        android:background="@color/white"
         android:gravity="center"
-        android:padding="10dp"
-        android:text="退出登录" />
+        android:text="退出登录"
+        android:textColor="@color/black3" />
 </LinearLayout>

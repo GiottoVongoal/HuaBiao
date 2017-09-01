@@ -21,17 +21,16 @@
             android:id="@+id/auction_linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
             android:layout_toLeftOf="@+id/auctionrcv_connect_tv"
             android:layout_toRightOf="@+id/auctionrcv_img"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/auctionrcv_companyname_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
+                android:layout_marginTop="10dp"
                 android:text="公司名称"
                 android:textSize="15sp" />
 
@@ -39,8 +38,7 @@
                 android:id="@+id/auctionrcv_phonenumber_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/auction_linearLayout"
-                android:paddingTop="8dp"
+                android:layout_marginTop="8dp"
                 android:text="联系方式："
                 android:textSize="13sp" />
         </LinearLayout>
@@ -51,11 +49,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="@dimen/x34"
             android:background="@mipmap/jindu_weixuan"
-            android:padding="@dimen/x6"
+            android:gravity="center"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10"
             android:text="立即联系"
-            android:textAlignment="center"
             android:textSize="12sp" />
     </RelativeLayout>
 

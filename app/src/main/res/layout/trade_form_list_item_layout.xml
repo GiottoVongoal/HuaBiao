@@ -3,13 +3,14 @@
     android:id="@+id/trade_form_list_item_rl"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:padding="15dp">
+    android:background="@color/grey_f8f8f8"
+    android:layout_margin="@dimen/x13">
 
     <com.huabiao.aoiin.wedgit.XCRoundRectImageView
         android:id="@+id/trade_form_list_item_iv"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/x327"
+        android:layout_height="@dimen/x326"
+        android:layout_marginTop="@dimen/x13"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -18,6 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/trade_form_list_item_iv"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center" />
+        android:layout_marginTop="@dimen/x23"
+        android:gravity="center"
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_14" />
 </RelativeLayout>

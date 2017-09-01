@@ -306,15 +306,13 @@
                     android:id="@+id/register_data_preview_service_mode_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/x30"
                     android:layout_marginTop="@dimen/x30"
+                    android:paddingBottom="@dimen/x30"
                     android:text="方式" />
             </LinearLayout>
         </ScrollView>
 
-        <View
-            style="@style/GrayLine"
-            android:background="@color/black_5a5959" />
+        <View style="@style/GrayLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -331,6 +329,11 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 android:text="编辑" />
+
+            <View
+                style="@style/GrayLine_shu"
+                android:layout_marginBottom="@dimen/x10"
+                android:layout_marginTop="@dimen/x10" />
 
             <TextView
                 android:id="@+id/register_data_preview_commit_tv"

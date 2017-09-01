@@ -42,30 +42,30 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="right"
                     android:padding="10dp"
-                    android:text="筛选"
-                    android:textAlignment="textEnd" />
+                    android:text="筛选" />
             </LinearLayout>
 
-            <View
-                style="@style/GrayLine"
-                android:background="@color/black3" />
+            <View style="@style/GrayLine" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/denominate_details_rcv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" />
-                <View style="@style/GrayLine"
-                    android:background="@color/grey_f8f8f8"
-                    android:layout_height="10dp"/>
+
+            <View
+                style="@style/GrayLine"
+                android:layout_height="10dp"
+                android:background="@color/grey_f8f8f8" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:layout_marginBottom="10dp"
                 android:drawableLeft="@mipmap/banyuan"
                 android:drawablePadding="5dp"
                 android:text="热度趋势图"
@@ -87,17 +87,13 @@
         </LinearLayout>
     </ScrollView>
 
-    <View
-        style="@style/GrayLine"
-        android:background="@color/black3" />
+    <View style="@style/GrayLine" />
 
     <TextView
         android:id="@+id/details_register_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x95"
+        android:gravity="center"
         android:text="注册"
-        android:textColor="@color/black3"
-        android:textSize="@dimen/text_size_18" />
+        android:textColor="@color/black3" />
 </LinearLayout>

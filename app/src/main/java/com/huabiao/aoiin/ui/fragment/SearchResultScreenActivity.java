@@ -12,15 +12,11 @@ import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.ScreenAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseActivity;
-import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 
 import java.util.List;
 
 import butterknife.Bind;
-
-import static android.R.attr.phoneNumber;
-import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by Aoiin-9 on 2017/8/30.

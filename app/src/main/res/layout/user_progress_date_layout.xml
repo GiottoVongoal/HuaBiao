@@ -23,13 +23,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="aaa"
-            android:textColor="@color/black3" />
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_12" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" - "
-            android:textColor="@color/black3" />
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_12" />
 
         <TextView
             android:id="@+id/user_progress_date_day_title_tv"
@@ -37,7 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="aaa"
-            android:textColor="@color/black3" />
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_12" />
 
     </LinearLayout>
 
@@ -73,10 +76,10 @@
                     <com.huabiao.aoiin.dateview.MonthCalendarView
                         android:id="@+id/user_progress_date_month_calendar"
                         android:layout_width="match_parent"
-                        android:layout_height="288dp"
+                        android:layout_height="280dp"
                         android:background="@color/white"
                         android:overScrollMode="never"
-                        app:month_day_text_size="13"
+                        app:week_day_text_size="15"
                         app:month_holiday_color="@color/purple_9082BD"
                         app:month_selected_circle_color="@color/yellow_fdd400"
                         app:month_show_holiday_hint="true"
@@ -91,13 +94,12 @@
                     android:background="@color/white"
                     android:overScrollMode="never"
                     android:visibility="gone"
-                    app:week_day_text_size="13"
+                    app:week_day_text_size="15"
                     app:week_holiday_color="@color/purple_9082BD"
                     app:week_selected_circle_color="@color/yellow_fdd400"
                     app:week_show_holiday_hint="true"
                     app:week_show_lunar="true"
                     app:week_show_task_hint="true" />
-
             </RelativeLayout>
 
             <View

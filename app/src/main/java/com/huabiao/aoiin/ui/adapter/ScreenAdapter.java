@@ -102,7 +102,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
         ClassificationBean bean = list.get(groupPosition).getSlist().get(childPosition);
         groupHolder.iv_left.setVisibility(View.VISIBLE);
         groupHolder.iv_right.setVisibility(View.INVISIBLE);
-        BitmapLoader.ins().loadImage("", R.mipmap.ic_rest_day, groupHolder.iv_left);
+        BitmapLoader.ins().loadImage("", R.mipmap.shenghezhong, groupHolder.iv_left);
         groupHolder.tv_content.setTextSize(DeviceUtils.px2sp(mContext, 28));
         groupHolder.tv_content.setText(bean.getClassificationid() + " - " + bean.getClassificationname());
         return convertView;
