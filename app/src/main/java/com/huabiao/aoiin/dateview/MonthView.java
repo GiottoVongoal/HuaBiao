@@ -95,7 +95,7 @@ public class MonthView extends View {
             mSelectDayColor = array.getColor(R.styleable.MonthCalendarView_month_selected_text_color, Color.parseColor("#333333"));
             mSelectBGColor = array.getColor(R.styleable.MonthCalendarView_month_selected_circle_color, Color.parseColor("#fdd400"));
             mSelectBGTodayColor = array.getColor(R.styleable.MonthCalendarView_month_selected_circle_today_color, Color.parseColor("#fdd400"));
-            mNormalDayColor = array.getColor(R.styleable.MonthCalendarView_month_normal_text_color, Color.parseColor("#333333"));
+            mNormalDayColor = array.getColor(R.styleable.MonthCalendarView_month_normal_text_color, Color.parseColor("#575471"));
             mCurrentDayColor = array.getColor(R.styleable.MonthCalendarView_month_today_text_color, Color.parseColor("#fdd400"));
             mHintCircleColor = array.getColor(R.styleable.MonthCalendarView_month_hint_circle_color, Color.parseColor("#fdd400"));
             mLastOrNextMonthTextColor = array.getColor(R.styleable.MonthCalendarView_month_last_or_next_month_text_color, Color.parseColor("#ACA9BC"));
@@ -110,7 +110,7 @@ public class MonthView extends View {
             mSelectDayColor = Color.parseColor("#333333");
             mSelectBGColor = Color.parseColor("#fdd400");
             mSelectBGTodayColor = Color.parseColor("#fdd400");
-            mNormalDayColor = Color.parseColor("#333333");
+            mNormalDayColor = Color.parseColor("#575471");
             mCurrentDayColor = Color.parseColor("#fdd400");
             mHintCircleColor = Color.parseColor("#fdd400");
             mLastOrNextMonthTextColor = Color.parseColor("#ACA9BC");
