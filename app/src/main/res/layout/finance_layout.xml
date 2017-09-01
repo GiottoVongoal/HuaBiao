@@ -81,8 +81,7 @@
                 android:orientation="horizontal"
                 android:paddingBottom="15dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="15dp">
+                android:paddingRight="10dp">
 
                 <LinearLayout
                     android:id="@+id/finance_trade_pledge_ll"
@@ -95,7 +94,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/home_jindu" />
+                        android:src="@mipmap/zhiya" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -118,7 +117,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/home_jindu" />
+                        android:src="@mipmap/paimai" />
 
                     <TextView
                         android:layout_width="wrap_content"

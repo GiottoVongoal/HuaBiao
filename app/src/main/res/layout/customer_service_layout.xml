@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:layout_marginBottom="@dimen/x20"
-        android:layout_marginTop="@dimen/x20"
+        android:layout_marginTop="@dimen/x52"
         android:clipToPadding="false"
         android:overScrollMode="never"
         android:paddingBottom="@dimen/x20"

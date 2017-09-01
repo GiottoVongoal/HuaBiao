@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="@drawable/bg_round_gray"
     android:padding="15dp">
 
-    <ImageView
+    <com.huabiao.aoiin.wedgit.XCRoundRectImageView
         android:id="@+id/trade_form_list_item_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"

@@ -13,6 +13,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.TradeFormListBean.TradeFormItemBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
+import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.ywy.mylibs.utils.BitmapLoader;
 
 import java.util.List;
@@ -64,13 +65,13 @@ public class TradeFormListAdapter extends RecyclerView.Adapter<TradeFormListAdap
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private RelativeLayout item_rl;
-        private ImageView item_iv;
+        private XCRoundRectImageView item_iv;
         private TextView item_tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
             item_rl = (RelativeLayout) itemView.findViewById(R.id.trade_form_list_item_rl);
-            item_iv = (ImageView) itemView.findViewById(R.id.trade_form_list_item_iv);
+            item_iv = (XCRoundRectImageView) itemView.findViewById(R.id.trade_form_list_item_iv);
             item_tv = (TextView) itemView.findViewById(R.id.trade_form_list_item_tv);
         }
     }
