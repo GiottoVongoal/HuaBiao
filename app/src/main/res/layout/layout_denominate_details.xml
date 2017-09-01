@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" />
                 <View style="@style/GrayLine"
-                    android:background="@color/grey_E9E7E7"
+                    android:background="@color/grey_f8f8f8"
                     android:layout_height="10dp"/>
 
             <TextView

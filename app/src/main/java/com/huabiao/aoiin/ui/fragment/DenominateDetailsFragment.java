@@ -11,6 +11,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.SearchResult;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.DenominateDetailsAdapter;
+import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
@@ -48,7 +49,8 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
     private String nameString;
     //筛选下拉菜单
     private PopupWindow shaixuan;
-
+    //下拉展示菜单的Adapter
+    private UpMenuAdapter menuAdapter;
     //未收藏
     private boolean flag = false;
 
@@ -105,8 +107,47 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
         });
     }
 
-    private void initShaixuan() {
-        shaixuan=new PopupWindow();
+    private void initData(String trademarkId) {
+    }
+    private void initShaixuan() {//下拉筛选菜单相关
+//        private void initPopMenu(final List<UserTrademarkProgressListBean.TrademarkprogresslistBean> list) {
+//            View contentView = View.inflate(this, R.layout.popwin_supplier_list, null);
+//        shaixuan = new PopupWindow(contentView,
+//                    LinearLayout.LayoutParams.MATCH_PARENT,
+//                    LinearLayout.LayoutParams.MATCH_PARENT);
+//        shaixuan.setOutsideTouchable(true);
+//        shaixuan.setBackgroundDrawable(new BitmapDrawable());
+//        shaixuan.setFocusable(true);
+//        shaixuan.setAnimationStyle(R.style.popwin_anim_style);
+//        shaixuan.setOnDismissListener(new PopupWindow.OnDismissListener() {
+//                public void onDismiss() {
+//                    details_tv2.setTextColor(getResources().getColor(R.color.black3));
+//                }
+//            });
+//        details_tv2.setText(list.get(0).getTrademarkname());//默认显示第一个类别
+//            initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
+//            popRecyclerView = (RecyclerView) contentView
+//                    .findViewById(R.id.popwin_supplier_list_rv);
+//            contentView.findViewById(R.id.popwin_supplier_list_bottom)
+//                    .setOnClickListener(new View.OnClickListener() {
+//                        public void onClick(View arg0) {
+//                            shaixuan.dismiss();
+//                        }
+//                    });
+//            popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            List<String> l = new ArrayList<>();
+//            for (int i = 0; i < list.size(); i++) {
+//                l.add(list.get(i).getTrademarkname());
+//            }
+//            menuAdapter = new UpMenuAdapter(this, l);
+//            menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+//                @Override
+//                public void onItemClickListener(View view, int position) {
+//                    shaixuan.dismiss();
+//                    details_tv2.setText(list.get(position).getTrademarkname());
+//                    showToast(list.get(position).getTrademarkname());
+//                }
+//            });
     }
 
     @Override

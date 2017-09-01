@@ -96,6 +96,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                     }
                     rp.startRotate(-1);
                     if (isFirst) {
+                        //不仅要设置图片不可点击还要设置转盘不转动，且没有数据
                         goBtnIV.setEnabled(false);
                     }
                 }

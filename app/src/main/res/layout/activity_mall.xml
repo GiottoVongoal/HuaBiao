@@ -40,8 +40,15 @@
     <View
         style="@style/GrayLine"
         android:layout_marginTop="@dimen/x6"
-
         android:background="@color/grey_c2c2c2" />
+
+    <ListView
+        android:id="@+id/Mall_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/grey_f8f8f8"
+        android:dividerHeight="@dimen/x20"
+        android:scrollbars="none" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -157,13 +164,5 @@
 
         </LinearLayout>
     </RelativeLayout>
-
-    <ListView
-        android:id="@+id/Mall_listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/grey_E9E7E7"
-        android:dividerHeight="6dp"
-        android:scrollbars="none" />
 
 </LinearLayout>

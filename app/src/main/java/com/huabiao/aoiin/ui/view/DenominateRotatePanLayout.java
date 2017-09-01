@@ -65,24 +65,24 @@ public class DenominateRotatePanLayout extends View {
         refreshPan(context);
     }
 
-    private void refreshPan(Context context) {
+    public void refreshPan(Context context) {
         //根据list来确定盘的数目
-        if (list != null && list.size() != 0) {
-            panNum = list.size();
-            if (360 % panNum != 0)
-                InitAngle = 360 / panNum;
-            verPanRadius = 360 / panNum;
-            diffRadius = verPanRadius / 2;
-            //两个盘的颜色
-//            dPaint.setColor(Color.parseColor("#AED79B"));
-//            sPaint.setColor(context.getResources().getColor(R.color.yellow_fdd400));
-            dPaint.setColor(context.getResources().getColor(R.color.white));
-            sPaint.setColor(context.getResources().getColor(R.color.white));
-            //盘上文字大小和颜色
-            textPaint.setColor(Color.BLACK);
-            textPaint.setTextSize(BitmapUtil.dip2px(context, 16));
-            setClickable(true);
-        }
+//        if (list != null && list.size() != 0) {
+//            panNum = list.size();
+        //给转盘固定盘数
+        panNum = 4;
+        if (360 % panNum != 0)
+            InitAngle = 360 / panNum;
+        verPanRadius = 360 / panNum;
+        diffRadius = verPanRadius / 2;
+        //两个盘的颜色
+        dPaint.setColor(context.getResources().getColor(R.color.white));
+        sPaint.setColor(context.getResources().getColor(R.color.white));
+        //盘上文字大小和颜色
+        textPaint.setColor(Color.BLACK);
+        textPaint.setTextSize(BitmapUtil.dip2px(context, 16));
+        setClickable(true);
+//        }
     }
 
     /*组件宽高计算   模式简介：
@@ -166,7 +166,7 @@ public class DenominateRotatePanLayout extends View {
     }
 
     //旋转一圈所需要的时间
-    private static final long ONE_WHEEL_TIME = 200;
+    private static final long ONE_WHEEL_TIME = 800;
 
 
     /**
