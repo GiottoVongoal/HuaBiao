@@ -69,6 +69,10 @@
             </LinearLayout>
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,8 +103,9 @@
                     android:clickable="true"
                     android:src="@mipmap/zhizhen"
                     android:visibility="visible" />
+            </RelativeLayout>
 
-
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/denominate_layout"
@@ -149,6 +154,6 @@
                 android:text="点击更多"
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_15" />
-        </LinearLayout>    </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
