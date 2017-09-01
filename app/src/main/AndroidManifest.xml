@@ -57,6 +57,9 @@
         <activity android:name=".ui.activity.RegisterThreeActivity" />
         <!-- 注册资料预览页 -->
         <activity android:name=".ui.activity.RegisterDataPreviewActivity" />
+        <!-- 取名页 -->
+        <activity android:name=".ui.fragment.DenominateActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
     </application>
 
 </manifest>

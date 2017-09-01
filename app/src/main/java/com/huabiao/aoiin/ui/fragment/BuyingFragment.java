@@ -86,7 +86,8 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
     int n;
     //下面的两个按钮
     private TextView[] tvlist = new TextView[2];
-
+    //未收藏
+    private boolean flag = false;
     @Override
     public BasePresenter getPresenter() {
         return null;
@@ -117,6 +118,22 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
         tvlist[0] = buying1_tv;
         tvlist[1] = buying2_tv;
         setSelect(1);
+        //收藏图片
+        final ImageView shoucang = setRightIvResourse(R.mipmap.shoucang2);
+        shoucang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (flag) {
+                    setRightIvResourse(getResources().getDrawable(R.mipmap.shoucang2));
+                    flag = false;
+                    showToast("取消");
+                } else {
+                    setRightIvResourse(getResources().getDrawable(R.mipmap.shoucang1));
+                    flag = true;
+                    showToast("收藏");
+                }
+            }
+        });
         buying1_tv.setOnClickListener(this);
         buying2_tv.setOnClickListener(this);
         SearchModel.getBuyingInfo(getContext(), n, new InterfaceManager.CallBackCommon() {

@@ -19,7 +19,7 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.view.DenominateRotatePanLayout;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
-import com.ywy.mylibs.base.BaseFragment;
+import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.KeyboardUtils;
@@ -33,7 +33,7 @@ import butterknife.Bind;
 /**
  * 取名
  */
-public class DenominateFragment extends BaseFragment implements DenominateRotatePanLayout.AnimationEndListener, View.OnClickListener {
+public class DenominateActivity extends BaseActivity implements DenominateRotatePanLayout.AnimationEndListener, View.OnClickListener {
     //转盘
     @Bind(R.id.rp_layout)
     DenominateRotatePanLayout rp;
@@ -85,7 +85,7 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
     }
 
     private void refreshView(final boolean isFirst) {
-        AnalysisJson.getDenominateName(getContext(), new InterfaceManager.CallBackCommon() {
+        AnalysisJson.getDenominateName(this, new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
@@ -96,7 +96,6 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                     }
                     rp.startRotate(-1);
                     if (isFirst) {
-                        //不仅要设置图片不可点击还要设置转盘不转动，且没有数据
                         goBtnIV.setEnabled(false);
                     }
                 }
@@ -145,8 +144,8 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
                 break;
             //点击行业按钮弹出选择弹窗
             case R.id.denominate_industry_btn:
-                KeyboardUtils.hideSoftInput(getActivity());
-                RegisterModel.getIndustryList(getContext(), new InterfaceManager.CallBackCommon() {
+                KeyboardUtils.hideSoftInput(this);
+                RegisterModel.getIndustryList(this, new InterfaceManager.CallBackCommon() {
                     @Override
                     public void getCallBackCommon(Object mData) {
                         if (mData != null) {
@@ -160,14 +159,14 @@ public class DenominateFragment extends BaseFragment implements DenominateRotate
             case R.id.denominate_layout:
                 Bundle bundle = new Bundle();
                 bundle.putString("nameString", nameString);
-                JumpUtils.startFragmentByName(getContext(), DenominateDetailsFragment.class, bundle);
+                JumpUtils.startFragmentByName(this, DenominateDetailsFragment.class, bundle);
                 break;
         }
     }
 
     //行业选择弹框
     private void showIndustryWindow(View view, final List<RegisterOneIndustryBean.IndustrylistBean> industryList) {
-        industryWindow = new IndustryPopupWindow(getContext(), "标题", industryList, place, new InterfaceManager.OnItemClickListener() {
+        industryWindow = new IndustryPopupWindow(this, "标题", industryList, place, new InterfaceManager.OnItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
                 industry = industryList.get(position).getIndustryname();

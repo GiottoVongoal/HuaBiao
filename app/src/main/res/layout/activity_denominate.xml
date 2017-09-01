@@ -4,169 +4,151 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="wrap_content"
+    <include layout="@layout/view_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/layout_denominate_linear"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x86"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/denominate_trade_name_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="商品名"
+                    android:textSize="@dimen/x31" />
+
+                <View
+                    android:layout_width="@dimen/x95"
+                    android:layout_height="3dp"
+                    android:layout_marginBottom="@dimen/x19"
+                    android:background="@drawable/bg_underline"
+                    android:gravity="bottom" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/denominate_industry_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableRight="@mipmap/xia"
+                    android:gravity="center"
+                    android:text="行业"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/x31" />
+
+                <View
+                    android:layout_width="@dimen/x95"
+                    android:layout_height="3dp"
+                    android:layout_marginBottom="@dimen/x19"
+                    android:background="@drawable/bg_underline"
+                    android:gravity="bottom" />
+            </LinearLayout>
+        </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/ao" />
+
+                <com.huabiao.aoiin.ui.view.DenominateRotatePanLayout
+                    android:id="@+id/rp_layout"
+                    android:layout_width="@dimen/x540"
+                    android:layout_height="@dimen/x540"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/x40" />
+
+                <ImageView
+                    android:id="@+id/zhizhen"
+                    android:layout_width="@dimen/x200"
+                    android:layout_height="@dimen/x200"
+                    android:layout_alignTop="@+id/rp_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/x160"
+                    android:clickable="true"
+                    android:src="@mipmap/zhizhen"
+                    android:visibility="visible" />
+
+
+
+        <LinearLayout
+            android:id="@+id/denominate_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/view_title" />
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/black_080C31"
+                android:textSize="@dimen/text_size_14" />
 
-            <LinearLayout
-                android:id="@+id/layout_denominate_linear"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x86"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_trademarkclassification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/x9"
+                android:layout_marginTop="@dimen/x9" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+            <com.huabiao.aoiin.wedgit.DrawLineChartView
+                android:id="@+id/creat_name_line_chart"
+                android:layout_width="@dimen/x580"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal" />
 
-                    <EditText
-                        android:id="@+id/denominate_trade_name_et"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:gravity="center"
-                        android:hint="商品名"
-                        android:textSize="@dimen/x31" />
-
-                    <View
-                        android:layout_width="@dimen/x95"
-                        android:layout_height="3dp"
-                        android:background="@drawable/bg_underline"
-                        android:gravity="bottom"
-                        android:layout_marginBottom="@dimen/x19"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/denominate_industry_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:drawableRight="@mipmap/gengduo"
-                        android:gravity="center"
-                        android:text="行业"
-                        android:textSize="@dimen/x31"
-                        android:textColor="@color/black3"
-                />
-
-                    <View
-                        android:layout_width="@dimen/x95"
-                        android:layout_height="3dp"
-                        android:background="@drawable/bg_underline"
-                        android:gravity="bottom"
-                        android:layout_marginBottom="@dimen/x19"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@mipmap/ao" />
-
-                    <com.huabiao.aoiin.ui.view.DenominateRotatePanLayout
-                        android:id="@+id/rp_layout"
-                        android:layout_width="@dimen/x540"
-                        android:layout_height="@dimen/x540"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/x40" />
-
-                    <ImageView
-                        android:id="@+id/zhizhen"
-                        android:layout_width="@dimen/x200"
-                        android:layout_height="@dimen/x200"
-                        android:layout_alignTop="@+id/rp_layout"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/x160"
-                        android:clickable="true"
-                        android:src="@mipmap/zhizhen"
-                        android:visibility="visible" />
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/denominate_layout"
+            <TextView
+                android:id="@+id/tv_means"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/x19"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_14" />
 
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/x34"
-                    android:text="商品名"
-                    android:textColor="@color/black_080C31"
-                    android:textSize="@dimen/text_size_20" />
-
-                <TextView
-                    android:id="@+id/tv_trademarkclassification"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/x25"
-                    android:layout_marginTop="@dimen/x17"
-                    android:text="商品类型" />
-
-                <com.huabiao.aoiin.wedgit.DrawLineChartView
-                    android:id="@+id/creat_name_line_chart"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/tv_means"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x55"
-                    android:gravity="center"
-                    android:lineSpacingExtra="@dimen/x19"
-                    android:text="释义的内容"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_14" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/x112"
-                    android:drawablePadding="@dimen/x10"
-                    android:drawableRight="@mipmap/gengduo"
-                    android:text="点击更多"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_15" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/x10"
+                android:drawablePadding="@dimen/x10"
+                android:drawableRight="@mipmap/gengduo"
+                android:text="点击更多"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/text_size_15" />
+        </LinearLayout>    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
