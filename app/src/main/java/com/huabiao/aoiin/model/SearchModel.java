@@ -6,13 +6,14 @@ import com.google.gson.Gson;
 import com.huabiao.aoiin.bean.AuctionBean;
 import com.huabiao.aoiin.bean.BuyingInfoBean;
 import com.huabiao.aoiin.bean.ClassificationListBean;
+import com.huabiao.aoiin.bean.CustomerServiceListBean;
+import com.huabiao.aoiin.bean.MallBean;
 import com.huabiao.aoiin.bean.MyOrdersBean;
 import com.huabiao.aoiin.bean.PledgeBean;
 import com.huabiao.aoiin.bean.ScreenBean;
-import com.huabiao.aoiin.bean.SearchResultBean;
-import com.huabiao.aoiin.bean.CustomerServiceListBean;
-import com.huabiao.aoiin.bean.MallBean;
+import com.huabiao.aoiin.bean.ScreenclassficationBean;
 import com.huabiao.aoiin.bean.SearchResult;
+import com.huabiao.aoiin.bean.SearchResultBean;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 
 /**
@@ -210,6 +211,21 @@ public class SearchModel {
         String jsonString = GetJsonToName.getJson(context, jsonList);
         Gson gson = new Gson();
         MyOrdersBean bean = gson.fromJson(jsonString, MyOrdersBean.class);
+        if (callback != null) {
+            callback.getCallBackCommon(bean);
+        }
+    }
+
+    /**
+     * 获取筛选列表
+     *
+     * @param context
+     * @param callback
+     */
+    public static void getScreenclassfication(Context context, final InterfaceManager.CallBackCommon callback) {
+        String jsonString = GetJsonToName.getJson(context, "screenclassfication.json");
+        Gson gson = new Gson();
+        ScreenclassficationBean bean = gson.fromJson(jsonString, ScreenclassficationBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }

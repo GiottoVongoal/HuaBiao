@@ -1,13 +1,17 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.ScreenclassficationBean;
 import com.huabiao.aoiin.bean.SearchResult;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.DenominateDetailsAdapter;
@@ -17,6 +21,9 @@ import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -48,9 +55,10 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
     //用来传递标题的nameString
     private String nameString;
     //筛选下拉菜单
-    private PopupWindow shaixuan;
-    //下拉展示菜单的Adapter
+    private PopupWindow popupWindowshaixuan;
+    //下拉筛选菜单的Adapter
     private UpMenuAdapter menuAdapter;
+    private RecyclerView popRecyclerView;
     //未收藏
     private boolean flag = false;
 
@@ -91,6 +99,8 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
                 }
             }
         });
+
+        //页面数据获取
         SearchModel.getCreatName(getContext(), "", "", new InterfaceManager.CallBackCommon() {
 
             @Override
@@ -107,47 +117,46 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
         });
     }
 
-    private void initData(String trademarkId) {
-    }
-    private void initShaixuan() {//下拉筛选菜单相关
-//        private void initPopMenu(final List<UserTrademarkProgressListBean.TrademarkprogresslistBean> list) {
-//            View contentView = View.inflate(this, R.layout.popwin_supplier_list, null);
-//        shaixuan = new PopupWindow(contentView,
-//                    LinearLayout.LayoutParams.MATCH_PARENT,
-//                    LinearLayout.LayoutParams.MATCH_PARENT);
-//        shaixuan.setOutsideTouchable(true);
-//        shaixuan.setBackgroundDrawable(new BitmapDrawable());
-//        shaixuan.setFocusable(true);
-//        shaixuan.setAnimationStyle(R.style.popwin_anim_style);
-//        shaixuan.setOnDismissListener(new PopupWindow.OnDismissListener() {
-//                public void onDismiss() {
-//                    details_tv2.setTextColor(getResources().getColor(R.color.black3));
-//                }
-//            });
-//        details_tv2.setText(list.get(0).getTrademarkname());//默认显示第一个类别
-//            initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
-//            popRecyclerView = (RecyclerView) contentView
-//                    .findViewById(R.id.popwin_supplier_list_rv);
-//            contentView.findViewById(R.id.popwin_supplier_list_bottom)
-//                    .setOnClickListener(new View.OnClickListener() {
-//                        public void onClick(View arg0) {
-//                            shaixuan.dismiss();
-//                        }
-//                    });
-//            popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//            List<String> l = new ArrayList<>();
-//            for (int i = 0; i < list.size(); i++) {
-//                l.add(list.get(i).getTrademarkname());
-//            }
-//            menuAdapter = new UpMenuAdapter(this, l);
-//            menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
-//                @Override
-//                public void onItemClickListener(View view, int position) {
-//                    shaixuan.dismiss();
-//                    details_tv2.setText(list.get(position).getTrademarkname());
-//                    showToast(list.get(position).getTrademarkname());
-//                }
-//            });
+    //下拉筛选
+    private void initShaixuan(View view, final List<ScreenclassficationBean.SlistBean> list) {
+        View contentView = view.inflate(getContext(), R.layout.layout_shaixuan, null);
+        popupWindowshaixuan = new PopupWindow(contentView,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindowshaixuan.setOutsideTouchable(true);
+        popupWindowshaixuan.setBackgroundDrawable(new BitmapDrawable());
+        popupWindowshaixuan.setFocusable(true);
+        popupWindowshaixuan.setAnimationStyle(R.style.popwin_anim_style);
+        popupWindowshaixuan.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            public void onDismiss() {
+                details_tv2.setTextColor(getResources().getColor(R.color.black3));
+            }
+        });
+        details_tv2.setText(list.get(0).getClassificationname());//默认显示的文字
+        popRecyclerView = (RecyclerView) contentView
+                .findViewById(R.id.popwin_shaixuan_list_rv);
+        contentView.findViewById(R.id.popwin_shaixuan_list_bottom)
+                .setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        popupWindowshaixuan.dismiss();
+                    }
+                });
+        popRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        List<String> l = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            l.add(list.get(i).getClassificationname());
+        }
+        menuAdapter = new UpMenuAdapter(getContext(), l);
+        menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View view, int position) {
+                details_tv2.setText(list.get(position).getClassificationname());
+                showToast(list.get(position).getClassificationname());
+                popupWindowshaixuan.dismiss();
+            }
+        });
+        //窗口显示方式
+        popupWindowshaixuan.showAsDropDown(view);
     }
 
     @Override
@@ -156,7 +165,7 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(final View view) {
         switch (view.getId()) {
             case R.id.details_register_tv:
                 showToast("注册按钮");
@@ -164,8 +173,17 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
             case R.id.details_tv1:
                 showToast("可注册按钮");
                 break;
-            case R.id.details_tv2:
-                showToast("筛选按钮");
+            case R.id.details_tv2: //筛选弹框获取
+                SearchModel.getScreenclassfication(getContext(), new InterfaceManager.CallBackCommon() {
+                    @Override
+                    public void getCallBackCommon(Object mData) {
+                        if (mData != null) {
+                            ScreenclassficationBean bean = (ScreenclassficationBean) mData;
+                            initShaixuan(view, bean.getSlist());
+                        }
+                    }
+                });
+                popRecyclerView.setAdapter(menuAdapter);
                 break;
         }
     }

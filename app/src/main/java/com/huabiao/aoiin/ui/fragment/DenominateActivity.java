@@ -1,12 +1,15 @@
 package com.huabiao.aoiin.ui.fragment;
 
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.blankj.ALog;
@@ -15,10 +18,10 @@ import com.huabiao.aoiin.bean.CreatNameBean;
 import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.model.AnalysisJson;
 import com.huabiao.aoiin.model.RegisterModel;
+import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.view.DenominateRotatePanLayout;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
-import com.huabiao.aoiin.wedgit.IndustryPopupWindow;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
@@ -61,11 +64,15 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     //跳转到详情页面的layout id
     @Bind(R.id.denominate_layout)
     LinearLayout denominate_layout;
-
+    @Bind(R.id.layout_denominate_linear)
+    LinearLayout  layout_denominate_linear;
+    //行业下拉框的adapter和recycler view
+    private UpMenuAdapter menuAdapter;
+    private RecyclerView popRecyclerView;
     //用于传值的nameString
     private String nameString;
     private List<CreatNameBean.RecommendnamelistBean> list;
-    private IndustryPopupWindow industryWindow;
+    private PopupWindow industryWindow;
     private int place = 0;
     private String industry = "";
     private String str = "";
@@ -154,6 +161,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                         }
                     }
                 });
+                popRecyclerView.setAdapter(menuAdapter);
                 break;
             //点击跳到详情页，并传了一个nameString的bundle过去
             case R.id.denominate_layout:
@@ -166,17 +174,44 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
 
     //行业选择弹框
     private void showIndustryWindow(View view, final List<RegisterOneIndustryBean.IndustrylistBean> industryList) {
-        industryWindow = new IndustryPopupWindow(this, "标题", industryList, place, new InterfaceManager.OnItemClickListener() {
+        View industryview = view.inflate(this, R.layout.layout_industry, null);
+        industryWindow = new PopupWindow(industryview, LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        industryWindow.setOutsideTouchable(true);
+        industryWindow.setBackgroundDrawable(new BitmapDrawable());
+        industryWindow.setFocusable(true);
+        industryWindow.setAnimationStyle(R.style.popwin_anim_style);
+        industryWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                denominate_industry_btn.setTextColor(getResources().getColor(R.color.black3));
+            }
+        });
+        denominate_industry_btn.setText(industryList.get(1).getIndustryname());//默认显示列表的第二个
+        popRecyclerView = (RecyclerView) industryview.findViewById(R.id.popwin_industry_list_rv);
+        industryview.findViewById(R.id.popwin_industry_list_bottom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                industryWindow.dismiss();
+            }
+        });
+        popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < industryList.size(); i++) {
+            list.add(industryList.get(i).getIndustryname());
+        }
+        menuAdapter = new UpMenuAdapter(this, list);
+        menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
-                industry = industryList.get(position).getIndustryname();
-                denominate_industry_btn.setText(industry);
-                place = position;
+                denominate_industry_btn.setText(industryList.get(position).getIndustryname());
+                showToast(industryList.get(position).getIndustryname());
                 industryWindow.dismiss();
             }
         });
         //显示窗口
-        industryWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+        industryWindow.showAsDropDown(layout_denominate_linear);
+
     }
 
     @Override

@@ -26,6 +26,32 @@ public class FinanceModel {
         if (callBack != null) {
             callBack.getCallBackCommon(bean);
         }
-    }
+
+//
+//        Map<String, String> map = new HashMap<>();
+//        map.put("name", "aaa");
+//        map.put("id", "1");
+//        RetrofitClinetImpl.getInstance(context)
+//                .newRetrofitClient()
+//                .executePost("sdfds/sdfa"
+//                        , map
+//                        , new RetrofitClient.ResponseCallBack<FinanceEvakuateReportBean>() {
+//                            @Override
+//                            public void onSucceess(FinanceEvakuateReportBean response) {
+//                                if (response.getresultCode() == 10000) {
+//                                    if (callBack != null) {
+//                                        callBack.getCallBackCommon(response);
+//                                    }
+//                                }else{
+//                                    ALog.i(response.getstateDescription());
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onFailure(Throwable e) {
+//                                ALog.i(e.getMessage());
+                            }
+//                        });
+//    }
 
 }
