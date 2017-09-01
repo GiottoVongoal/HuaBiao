@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_5000"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/popwin_shaixuan_list_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:cacheColorHint="@color/white"
+        android:fadingEdge="none"
+        android:listSelector="@color/backgroundwhite"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+    <LinearLayout
+        android:id="@+id/popwin_shaixuan_list_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" />
+
+</LinearLayout>
