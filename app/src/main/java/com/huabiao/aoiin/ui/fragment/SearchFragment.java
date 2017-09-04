@@ -21,7 +21,7 @@ import butterknife.Bind;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
  * @date 2017-06-07 18:44
- * @description Tab下的查询商标页面
+ * @description 查询商标输入页面
  */
 public class SearchFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.search_tradename_tl)
