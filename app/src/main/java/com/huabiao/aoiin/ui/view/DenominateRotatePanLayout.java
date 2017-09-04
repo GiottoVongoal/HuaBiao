@@ -13,6 +13,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ScrollerCompat;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,7 +48,6 @@ public class DenominateRotatePanLayout extends View {
     public static final int FLING_VELOCITY_DOWNSCALE = 4;
     private GestureDetectorCompat mDetector;
     private ScrollerCompat scroller;
-
     // 自定义的 View 组件, 一般需要实现 三个构造方法, 分别有 一个, 两个, 三个参数;
     public DenominateRotatePanLayout(Context context) {
         this(context, null);
@@ -76,11 +76,11 @@ public class DenominateRotatePanLayout extends View {
         verPanRadius = 360 / panNum;
         diffRadius = verPanRadius / 2;
         //两个盘的颜色
-        dPaint.setColor(context.getResources().getColor(R.color.white));
-        sPaint.setColor(context.getResources().getColor(R.color.white));
+        dPaint.setColor(context.getResources().getColor(R.color.black3));
+        sPaint.setColor(context.getResources().getColor(R.color.black3));
         //盘上文字大小和颜色
-        textPaint.setColor(Color.BLACK);
-        textPaint.setTextSize(BitmapUtil.dip2px(context, 16));
+        textPaint.setColor(Color.WHITE);
+        textPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 19, getResources().getDisplayMetrics()));
         setClickable(true);
 //        }
     }
@@ -126,7 +126,7 @@ public class DenominateRotatePanLayout extends View {
         int MinValue = Math.min(width, height);
         //半径等于宽高最小值除以2
         int radius = MinValue / 2;
-        //创建圆弧对象
+        //创建圆弧对象也就是盘块的范围
         RectF rectF = new RectF(getPaddingLeft(), getPaddingTop(), width, height);
 
         int angle = InitAngle;
@@ -154,7 +154,8 @@ public class DenominateRotatePanLayout extends View {
         //drawTextOnPath沿着路径绘制文本，hOffset参数指定水平偏移、vOffset指定垂直偏移
         float textWidth = mTextPaint.measureText(string);
         float hOffset = (float) (mRadius * Math.PI / panNum - textWidth / 2);
-        float vOffset = mRadius / 4;
+        //距离圆心的距离
+        float vOffset = mRadius /3;
         mCanvas.drawTextOnPath(string, path, hOffset, vOffset, mTextPaint);
     }
 
@@ -165,7 +166,7 @@ public class DenominateRotatePanLayout extends View {
     }
 
     //旋转一圈所需要的时间
-    private static final long ONE_WHEEL_TIME = 700;
+    private static final long ONE_WHEEL_TIME = 800;
 
 
     public void initAngle(){
@@ -178,7 +179,7 @@ public class DenominateRotatePanLayout extends View {
      * @param pos 如果 pos = -1 则随机，如果指定某个值，则转到某个指定区域
      */
     public void startRotate(int pos) {
-        int lap = (int) (Math.random() * 12) + 4;
+        int lap = (int) (Math.random() * 6) + 4;
 
         int angle = 0;
         if (pos < 0) {

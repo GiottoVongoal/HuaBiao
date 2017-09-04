@@ -64,8 +64,6 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     //跳转到详情页面的layout id
     @Bind(R.id.denominate_layout)
     LinearLayout denominate_layout;
-    @Bind(R.id.layout_denominate_linear)
-    LinearLayout  layout_denominate_linear;
     //行业下拉框的adapter和recycler view
     private UpMenuAdapter menuAdapter;
     private RecyclerView popRecyclerView;
@@ -83,12 +81,12 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
 
     @Override
     public void bindView(Bundle savedInstanceState) {
+        setTitle("商标取名");
+        setBackEnable();
         refreshView(true);//flase不可点击，true可点击
         denominate_industry_btn.setOnClickListener(this);
         denominate_layout.setOnClickListener(this);
         goBtnIV.setOnClickListener(this);
-        setTitle("商标取名");
-        setBackEnable();
     }
 
     private void refreshView(final boolean isFirst) {
@@ -218,7 +216,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
             }
         });
         //显示窗口
-        industryWindow.showAsDropDown(layout_denominate_linear);
+        industryWindow.showAsDropDown(denominate_industry_btn);
 
     }
 
