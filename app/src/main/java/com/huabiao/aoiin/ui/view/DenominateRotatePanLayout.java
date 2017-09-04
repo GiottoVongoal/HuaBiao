@@ -144,7 +144,6 @@ public class DenominateRotatePanLayout extends View {
             drawText(InitAngle, list.get(i), radius, textPaint, canvas, rectF);
             InitAngle += verPanRadius;
         }
-
     }
 
 
@@ -166,8 +165,12 @@ public class DenominateRotatePanLayout extends View {
     }
 
     //旋转一圈所需要的时间
-    private static final long ONE_WHEEL_TIME = 800;
+    private static final long ONE_WHEEL_TIME = 700;
 
+
+    public void initAngle(){
+        InitAngle=+225;
+    }
 
     /**
      * 开始转动
@@ -175,7 +178,6 @@ public class DenominateRotatePanLayout extends View {
      * @param pos 如果 pos = -1 则随机，如果指定某个值，则转到某个指定区域
      */
     public void startRotate(int pos) {
-
         int lap = (int) (Math.random() * 12) + 4;
 
         int angle = 0;

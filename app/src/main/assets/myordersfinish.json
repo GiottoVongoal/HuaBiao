@@ -7,7 +7,7 @@
       "price":"35400",
       "classificationname": "奢侈品",
       "classificationid": "02",
-      "status": "4"
+      "status": "已完成"
     },
 
     {
@@ -16,7 +16,7 @@
       "classificationname": "日用品",
       "price":"36000",
       "classificationid": "01",
-      "status": "4"
+      "status": "已完成"
     },
     {
       "goodsname": "耐ke",
@@ -24,7 +24,7 @@
       "price":"54200",
       "classificationname": "服装",
       "classificationid": "05",
-      "status": "4"
+      "status": "已完成"
     },
     {
       "goodsname": "nike",
@@ -32,7 +32,7 @@
       "price":"52000",
       "classificationname": "必需品",
       "classificationid": "04",
-      "status": "4"
+      "status": "已完成"
     }
   ]
 }

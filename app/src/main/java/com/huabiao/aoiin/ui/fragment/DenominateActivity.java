@@ -83,9 +83,10 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        refreshView(false);//flase不可点击，true可点击
+        refreshView(true);//flase不可点击，true可点击
         denominate_industry_btn.setOnClickListener(this);
         denominate_layout.setOnClickListener(this);
+        goBtnIV.setOnClickListener(this);
         setTitle("商标取名");
         setBackEnable();
     }
@@ -100,10 +101,18 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                     if (list.size() > 0) {
                         setData();
                     }
-                    rp.startRotate(-1);
-                    if (isFirst) {
+                    if (!isFirst) {
+                        rp.startRotate(-1);
                         goBtnIV.setEnabled(false);
+                    }else{
+                        //如果是第一次进入设置数据为list[0]
+                        rp.initAngle();
+                        meansTV.setText(list.get(0).getMeans());
+                        trademarkclassificationTv.setText(list.get(0).getLinechart().getClassificationid()+ " - " + list.get(0).getLinechart().getTrademarkclassification());
+                        creat_name_line_chart.setLineChartBean(list.get(0).getLinechart());
                     }
+
+
                 }
             }
         });
@@ -119,7 +128,6 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
         ALog.i(nameList.toString());
         rp.setStr(nameList);
         rp.setAnimationEndListener(this);
-        goBtnIV.setOnClickListener(this);
     }
 
     //写入数据
@@ -146,7 +154,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                     showToast("请选择行业");
                     return;
                 }
-                refreshView(true);
+                refreshView(false);
                 break;
             //点击行业按钮弹出选择弹窗
             case R.id.denominate_industry_btn:

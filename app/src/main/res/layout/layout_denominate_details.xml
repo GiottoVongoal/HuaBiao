@@ -36,6 +36,7 @@
 
                 <TextView
                     android:id="@+id/details_tv2"
+                    android:drawableRight="@mipmap/xia"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

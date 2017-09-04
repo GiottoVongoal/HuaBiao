@@ -54,6 +54,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         holder.traderegister.setOnClickListener(this);
         holder.payshow.setText("实付款：" + bean.getPrice() + "元");
         holder.tradename.setText(bean.getGoodsname());
+        holder.status.setText(bean.getStatus());
         holder.classfication.setText(bean.getClassificationid() + "-" + bean.getClassificationname());
         BitmapLoader.ins().loadImage(bean.getGoodsimg(), R.mipmap.logobg, holder.imgview);
     }
@@ -85,6 +86,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         private TextView payshow;
         private TextView pay;
         private TextView cancel;
+        private TextView status;
         //跳转注册页面
         private TextView traderegister;
 
@@ -96,6 +98,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
             payshow = (TextView) itemView.findViewById(R.id.myorders_payshow_tv);
             pay = (TextView) itemView.findViewById(R.id.myorders_pay_tv);
             cancel=(TextView)itemView.findViewById(R.id.myorders_cancel_tv);
+            status=(TextView)itemView.findViewById(R.id.myorders_status);
             traderegister = (TextView) itemView.findViewById(R.id.myorders_traderge_tv);
         }
     }
