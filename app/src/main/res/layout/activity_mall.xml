@@ -37,6 +37,10 @@
             android:src="@mipmap/shaixuan" />
     </LinearLayout>
 
+    <View
+        style="@style/GrayLine"
+        android:background="@color/grey_c2c2c2" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/x78"
@@ -143,8 +147,7 @@
 
     <View
         style="@style/GrayLine"
-        android:layout_marginTop="@dimen/x6"
-        android:background="@color/grey_c2c2c2" />
+       />
 
     <ListView
         android:id="@+id/Mall_listView"

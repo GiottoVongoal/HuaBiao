@@ -18,8 +18,6 @@ import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.List;
 
-import static com.huabiao.aoiin.R.id.mall_listitem_Cybersquatting;
-
 public class MallAdapter extends BaseAdapter implements View.OnClickListener {
     private Context context;
     private List<ShoppingmalllistBean> data2;
@@ -85,7 +83,7 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
             //异议按钮
             mallViewHolder.mall_listitem_yiyi_tv = (TextView) view.findViewById(R.id.mall_listitem_yiyi);
             //状态图片
-            mallViewHolder.mall_status_img=(ImageView)view.findViewById( R.id.mall_status_img);
+            mallViewHolder.mall_status_img = (ImageView) view.findViewById(R.id.mall_status_img);
             //抢注按钮
             mallViewHolder.mall_listitem_Cybersquatting_tv = (TextView) view.findViewById(R.id.mall_listitem_Cybersquatting);
             //求购按钮
@@ -116,7 +114,7 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
                     break;
                 case 2:
                     mallViewHolder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
-                    mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
+                    mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.VISIBLE);
                     mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     mallViewHolder.show_TextView.setText("待审核中");
                     mallViewHolder.mall_status_img.setImageResource(R.mipmap.shenghezhong);
@@ -153,10 +151,10 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
             case R.id.mall_listitem_yiyi:
                 bundle.putInt("pageid", 2);
                 break;
-            case mall_listitem_Cybersquatting:
+            case R.id.mall_listitem_Cybersquatting:
                 bundle.putInt("pageid", 3);
                 break;
         }
-        JumpUtils.startFragmentByName(context,  BuyingFragment.class, bundle);
+        JumpUtils.startFragmentByName(context, BuyingFragment.class, bundle);
     }
 }

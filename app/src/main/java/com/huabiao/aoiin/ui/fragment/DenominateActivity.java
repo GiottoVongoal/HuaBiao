@@ -44,8 +44,8 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     @Bind(R.id.zhizhen)
     ImageView goBtnIV;
     //商品名
-    @Bind(R.id.tv_name)
-    TextView nameTv;
+//    @Bind(R.id.tv_name)
+//    TextView nameTv;
     //商品类型
     @Bind(R.id.tv_trademarkclassification)
     TextView trademarkclassificationTv;
@@ -73,7 +73,6 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     private String nameString;
     private List<CreatNameBean.RecommendnamelistBean> list;
     private PopupWindow industryWindow;
-    private int place = 0;
     private String industry = "";
     private String str = "";
 
@@ -126,7 +125,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     //写入数据
     private void setCreatNameData(int position) {
         nameString = list.get(position).getLinechart().getTradename();
-        nameTv.setText(nameString);
+//        nameTv.setText(nameString);
         meansTV.setText(list.get(position).getMeans());
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
         trademarkclassificationTv.setText(classificationString);
@@ -204,7 +203,8 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
         menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
-                denominate_industry_btn.setText(industryList.get(position).getIndustryname());
+                industry=industryList.get(position).getIndustryname();
+                denominate_industry_btn.setText(industry);
                 showToast(industryList.get(position).getIndustryname());
                 industryWindow.dismiss();
             }

@@ -1,6 +1,5 @@
 {
   "shoppingmalllist": [
-
     {
       "goodsname": "Lee",
       "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205853_txaH3.thumb.700_0.jpeg",
@@ -17,7 +16,7 @@
       "applicantname": "广州美思古智能家居有限公司",
       "classificationname": "金属材料",
       "classificationid": "06",
-      "status": "2"
+      "status": "3"
     },
 
 
@@ -28,7 +27,7 @@
       "applicantname": "广州美思古智能家居有限公司",
       "classificationname": "金属材料",
       "classificationid": "06",
-      "status": "2"
+      "status": "3"
     },
     {
       "goodsname": "gucci",
@@ -37,8 +36,7 @@
       "applicantname": "广州美思古智能家居有限公司",
       "classificationname": "金属材料",
       "classificationid": "06",
-      "status": "2"
+      "status": "3"
     }
-
   ]
 }

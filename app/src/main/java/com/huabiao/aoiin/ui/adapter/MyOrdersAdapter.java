@@ -50,6 +50,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
     public void onBindViewHolder(MyOrdersAdapter.ViewHolder holder, int position) {
         MyOrdersBean.MyorderslistBean bean = myOrdersList.get(position);
         holder.pay.setOnClickListener(this);
+        holder.cancel.setOnClickListener(this);
         holder.traderegister.setOnClickListener(this);
         holder.payshow.setText("实付款：" + bean.getPrice() + "元");
         holder.tradename.setText(bean.getGoodsname());
@@ -71,6 +72,9 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
             case R.id.myorders_pay_tv:
                 Toast.makeText(context, "点击付款", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.myorders_cancel_tv:
+                Toast.makeText(context, "点击取消", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 
@@ -80,6 +84,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         private ImageView imgview;
         private TextView payshow;
         private TextView pay;
+        private TextView cancel;
         //跳转注册页面
         private TextView traderegister;
 
@@ -90,6 +95,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
             imgview = (ImageView) itemView.findViewById(R.id.myorders_listitem_imageView);
             payshow = (TextView) itemView.findViewById(R.id.myorders_payshow_tv);
             pay = (TextView) itemView.findViewById(R.id.myorders_pay_tv);
+            cancel=(TextView)itemView.findViewById(R.id.myorders_cancel_tv);
             traderegister = (TextView) itemView.findViewById(R.id.myorders_traderge_tv);
         }
     }
