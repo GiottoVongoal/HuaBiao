@@ -7,13 +7,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/x154">
 
         <ImageView
             android:id="@+id/auctionrcv_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="10dp"
+            android:layout_width="@dimen/x100"
+            android:layout_height="@dimen/x100"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x27"
             android:scaleType="fitXY"
             android:src="@mipmap/logobg" />
 
@@ -21,7 +22,9 @@
             android:id="@+id/auction_linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/x42"
+            android:layout_marginLeft="@dimen/x22"
             android:layout_toLeftOf="@+id/auctionrcv_connect_tv"
             android:layout_toRightOf="@+id/auctionrcv_img"
             android:orientation="vertical">
@@ -30,17 +33,19 @@
                 android:id="@+id/auctionrcv_companyname_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="公司名称"
-                android:textSize="15sp" />
+                android:textColor="@color/black3"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/auctionrcv_phonenumber_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="联系方式："
-                android:textSize="13sp" />
+                android:layout_marginTop="@dimen/x18"
+                android:drawableLeft="@mipmap/phone"
+                android:drawablePadding="@dimen/x8"
+                android:textColor="@color/black3"
+                android:textSize="13sp"  />
         </LinearLayout>
 
         <TextView

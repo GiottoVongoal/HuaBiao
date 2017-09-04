@@ -40,8 +40,8 @@
         android:layout_marginTop="@dimen/x18"
         android:background="@mipmap/jindu_weixuan"
         android:gravity="center"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
         android:textColor="@color/black3"
         android:textSize="@dimen/text_size_12" />
 

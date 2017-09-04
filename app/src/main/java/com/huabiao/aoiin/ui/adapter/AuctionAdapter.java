@@ -39,7 +39,7 @@ public class AuctionAdapter extends RecyclerView.Adapter<AuctionAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final AuctionBean.AuctionlistBean bean = auctionlist.get(position);
-        holder.phonenum_tv.setText("联系方式："+bean.getPhone());
+        holder.phonenum_tv.setText(bean.getPhone());
         holder.companyname_tv.setText(bean.getCompany());
         holder.connect_tv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +62,7 @@ public class AuctionAdapter extends RecyclerView.Adapter<AuctionAdapter.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
             bank_img = (ImageView) itemView.findViewById(R.id.auctionrcv_img);
-           companyname_tv = (TextView) itemView.findViewById(R.id.auctionrcv_companyname_tv);
+            companyname_tv = (TextView) itemView.findViewById(R.id.auctionrcv_companyname_tv);
             phonenum_tv = (TextView) itemView.findViewById(R.id.auctionrcv_phonenumber_tv);
             connect_tv = (TextView) itemView.findViewById(R.id.auctionrcv_connect_tv);
         }

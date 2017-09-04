@@ -119,7 +119,7 @@ public class DrawLineChartView extends RelativeLayout {
         }
         //坐标轴
         Axis axisX = new Axis(); //X轴
-        axisX.setHasTiltedLabels(true);
+        axisX.setHasTiltedLabels(false);//X轴文字水平
         axisX.setTextColor(getResources().getColor(R.color.grey_282828));  //设置字体颜色
 //        axisX.setName("未来几天的天气");  //表格名称
         axisX.setTextSize(7);//设置字体大小

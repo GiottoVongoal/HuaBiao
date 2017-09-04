@@ -150,9 +150,9 @@
                             android:id="@+id/finance_evaluate_report_monthsales_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
                             android:text="XXX"
-                            android:layout_marginTop="@dimen/x20"
                             android:textColor="@color/black2"
                             android:textSize="@dimen/text_size_18" />
                     </LinearLayout>
@@ -209,7 +209,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -278,18 +278,20 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center" android:textColor="@color/grey_999999"
-                            android:textSize="@dimen/text_size_13"
-                            android:text="月销量" />
+                            android:gravity="center"
+                            android:text="月销量"
+                            android:textColor="@color/grey_999999"
+                            android:textSize="@dimen/text_size_13" />
 
                         <TextView
                             android:id="@+id/finance_evaluate_report_similarproduct_monthsales_tv"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"  android:layout_marginTop="@dimen/x20"
-                            android:textColor="@color/black2"
-                            android:textSize="@dimen/text_size_18"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
-                            android:text="XXX" />
+                            android:text="XXX"
+                            android:textColor="@color/black2"
+                            android:textSize="@dimen/text_size_18" />
                     </LinearLayout>
 
                     <View style="@style/GrayLine_shu" />
@@ -304,16 +306,18 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center" android:textColor="@color/grey_999999"
-                            android:textSize="@dimen/text_size_13"
-                            android:text="月品牌热门排行榜" />
+                            android:gravity="center"
+                            android:text="月品牌热门排行榜"
+                            android:textColor="@color/grey_999999"
+                            android:textSize="@dimen/text_size_13" />
 
                         <TextView
                             android:id="@+id/finance_evaluate_report_similarproduct_hotrank_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
-                            android:text="XXX"  android:layout_marginTop="@dimen/x20"
+                            android:text="XXX"
                             android:textColor="@color/black2"
                             android:textSize="@dimen/text_size_18" />
                     </LinearLayout>

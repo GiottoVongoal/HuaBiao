@@ -26,40 +26,6 @@
   ],
   "hotwordslist": [
     {
-      "name": "舒肤佳",
-      "industrytype": "日化用品",
-      "interpretation": "Safeguard 保护者; safe 是“安全”的意思，guard 是“门卫”的意思，safeguard是个合成词，保护者，很形象的描述了舒肤佳香皂的功能和产品定位。",
-      "linechart": {
-        "trademarkname": "舒肤佳",
-        "trademarkclassification": "日化用品",
-        "classificationid": "05",
-        "Xaxistag": [
-          "周一",
-          "周二",
-          "周三",
-          "周四",
-          "周五",
-          "周六",
-          "周日"
-        ],
-        "lines": [
-          {
-            "linename": "百度",
-            "linecolor": "#fdd400",
-            "linevalue": [
-              9,
-              7,
-              6,
-              7,
-              8,
-              6,
-              8
-            ]
-          }
-        ]
-      }
-    },
-    {
       "name": "雪碧",
       "industrytype": "啤酒饮料",
       "interpretation": "Sprite 小妖精，调皮鬼; 这个单词个人觉得很符合雪碧一直以来以年轻人为主体消费者的一个定位，充分展示了雪碧透心凉的活力。",
@@ -136,6 +102,40 @@
         "trademarkclassification": "服饰品牌",
         "classificationid": "05",
         "Xaxistag": [
+          "一",
+          "二",
+          "三",
+          "四",
+          "五",
+          "六",
+          "日"
+        ],
+        "lines": [
+          {
+            "linename": "百度",
+            "linecolor": "#fdd400",
+            "linevalue": [
+              10,
+              13,
+              9,
+              7,
+              10,
+              6,
+              8
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "舒肤佳",
+      "industrytype": "日化用品",
+      "interpretation": "Safeguard 保护者; safe 是“安全”的意思，guard 是“门卫”的意思，safeguard是个合成词，保护者，很形象的描述了舒肤佳香皂的功能和产品定位。",
+      "linechart": {
+        "trademarkname": "舒肤佳",
+        "trademarkclassification": "日化用品",
+        "classificationid": "05",
+        "Xaxistag": [
           "周一",
           "周二",
           "周三",
@@ -149,11 +149,11 @@
             "linename": "百度",
             "linecolor": "#fdd400",
             "linevalue": [
-              10,
-              13,
               9,
               7,
-              10,
+              6,
+              7,
+              8,
               6,
               8
             ]
