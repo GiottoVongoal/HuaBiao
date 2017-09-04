@@ -24,7 +24,7 @@
                 android:background="@color/white"
                 android:padding="@dimen/x33">
 
-                <ImageView
+                <com.huabiao.aoiin.wedgit.XCRoundRectImageView
                     android:id="@+id/finance_evaluate_report_trade_iv"
                     android:layout_width="@dimen/x119"
                     android:layout_height="@dimen/x119"

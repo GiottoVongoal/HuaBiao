@@ -59,8 +59,8 @@
     </style>
     <!--下拉筛选菜单-->
     <style name="popwin_anim_style">
-        <item name="android:windowEnterAnimation">@anim/still</item>
-        <item name="android:windowExitAnimation">@anim/still</item>
+        <item name="android:windowEnterAnimation">@anim/dd_menu_in</item>
+        <item name="android:windowExitAnimation">@anim/dd_menu_out</item>
     </style>
     <!--日历相关-->
     <declare-styleable name="WeekBarView">

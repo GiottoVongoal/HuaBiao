@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.AuctionBean;
+import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.IntentUtils;
 
@@ -57,11 +58,11 @@ public class AuctionAdapter extends RecyclerView.Adapter<AuctionAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView phonenum_tv, companyname_tv, connect_tv;
-        public ImageView bank_img;
+        private XCRoundRectImageView bank_img;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            bank_img = (ImageView) itemView.findViewById(R.id.auctionrcv_img);
+            bank_img = (XCRoundRectImageView) itemView.findViewById(R.id.auctionrcv_img);
             companyname_tv = (TextView) itemView.findViewById(R.id.auctionrcv_companyname_tv);
             phonenum_tv = (TextView) itemView.findViewById(R.id.auctionrcv_phonenumber_tv);
             connect_tv = (TextView) itemView.findViewById(R.id.auctionrcv_connect_tv);

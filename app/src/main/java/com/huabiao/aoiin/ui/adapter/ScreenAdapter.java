@@ -12,7 +12,6 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.ScreenBean;
 import com.ywy.mylibs.utils.BitmapLoader;
-import com.ywy.mylibs.utils.DeviceUtils;
 
 import java.util.List;
 
@@ -81,7 +80,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
         } else {
             groupHolder.iv_right.setImageResource(R.mipmap.xiala);
         }
-        groupHolder.tv_content.setTextSize(DeviceUtils.px2sp(mContext, 32));
+        groupHolder.tv_content.setTextSize(16);
         groupHolder.tv_content.setText(list.get(groupPosition).getSname());
         return convertView;
     }
@@ -103,7 +102,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
         groupHolder.iv_left.setVisibility(View.VISIBLE);
         groupHolder.iv_right.setVisibility(View.INVISIBLE);
         BitmapLoader.ins().loadImage("", R.mipmap.shenghezhong, groupHolder.iv_left);
-        groupHolder.tv_content.setTextSize(DeviceUtils.px2sp(mContext, 28));
+        groupHolder.tv_content.setTextSize(14);
         groupHolder.tv_content.setText(bean.getClassificationid() + " - " + bean.getClassificationname());
         return convertView;
     }

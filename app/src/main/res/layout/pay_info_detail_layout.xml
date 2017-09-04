@@ -74,7 +74,7 @@
                 android:padding="@dimen/x18"
                 android:visibility="visible">
 
-                <ImageView
+                <com.huabiao.aoiin.wedgit.XCRoundRectImageView
                     android:id="@+id/pay_info_detail_trade_logo_iv"
                     android:layout_width="@dimen/x119"
                     android:layout_height="@dimen/x119"

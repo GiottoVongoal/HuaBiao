@@ -95,7 +95,10 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     UserTrademarkProgressListBean bean = (UserTrademarkProgressListBean) mData;
-                    initPopMenu(bean.getTrademarkprogresslist());
+                    List<TrademarkprogresslistBean> list = bean.getTrademarkprogresslist();
+                    toolbar_title.setText(list.get(0).getTrademarkname());//默认显示第一个类别
+                    initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
+                    initPopMenu(list);
                     toolbar_title.setOnClickListener(UserProgressActivity.this);
                 }
             }
@@ -179,7 +182,7 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                 //下拉菜单
                 toolbar_title.setTextColor(getResources().getColor(R.color.black3));
                 popRecyclerView.setAdapter(menuAdapter);
-                popMenu.showAsDropDown(toolbar_title, 0, 2);
+                popMenu.showAsDropDown(toolbar_title, 0, 3);
                 break;
             case R.id.user_progress_tv:
                 //最新进度

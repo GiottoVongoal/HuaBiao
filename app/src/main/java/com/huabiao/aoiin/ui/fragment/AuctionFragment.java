@@ -17,6 +17,7 @@ import butterknife.Bind;
 
 /**
  * Created by Aoiin-9 on 2017/8/25.
+ * 商标拍卖
  */
 
 public class AuctionFragment extends BaseFragment {
@@ -46,7 +47,7 @@ public class AuctionFragment extends BaseFragment {
                 if (mData != null) {
                     AuctionBean bean = (AuctionBean) mData;
                     auction_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-                    auctionAdapter=new AuctionAdapter(getContext(),bean.getAuctionlist());
+                    auctionAdapter = new AuctionAdapter(getContext(), bean.getAuctionlist());
                     auction_recyclerview.setAdapter(auctionAdapter);
 
                 }

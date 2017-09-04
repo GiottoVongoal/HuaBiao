@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.PledgeBean.PledgelistBean;
+import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.IntentUtils;
 
@@ -20,7 +21,7 @@ import java.util.List;
  * Created by Aoiin-9 on 2017/8/23.
  */
 
-public class PledgeAdapter extends RecyclerView.Adapter<PledgeAdapter.ViewHolder>{
+public class PledgeAdapter extends RecyclerView.Adapter<PledgeAdapter.ViewHolder> {
     private Context context;
     private List<PledgelistBean> pledgelist;
 
@@ -56,11 +57,11 @@ public class PledgeAdapter extends RecyclerView.Adapter<PledgeAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView phonenum_tv, bankname_tv, connect_tv;
-        public ImageView bank_img;
+        private XCRoundRectImageView bank_img;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            bank_img = (ImageView) itemView.findViewById(R.id.pledgercv_img);
+            bank_img = (XCRoundRectImageView) itemView.findViewById(R.id.pledgercv_img);
             bankname_tv = (TextView) itemView.findViewById(R.id.pledgercv_bankname_tv);
             phonenum_tv = (TextView) itemView.findViewById(R.id.pledgercv_phonenumber_tv);
             connect_tv = (TextView) itemView.findViewById(R.id.pledgercv_connect_tv);

@@ -98,7 +98,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.me_user_photo:
 //                showToast("头像");
-                JumpUtils.startFragmentByName(getContext(), PayInfoDetailFragment.class);
+//                JumpUtils.startFragmentByName(getContext(), PayInfoDetailFragment.class);
                 break;
             case me_trademark_registered_form_cv:
                 JumpUtils.startFragmentByName(getContext(), TradeFormListFragment.class);

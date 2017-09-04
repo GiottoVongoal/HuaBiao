@@ -12,6 +12,7 @@ import com.huabiao.aoiin.bean.FinanceEvakuateReportBean.SimilarproductBean;
 import com.huabiao.aoiin.model.FinanceModel;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.ColorArcProgressBar;
+import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
@@ -27,7 +28,7 @@ import butterknife.Bind;
  */
 public class FinanceEvaluateReportFragment extends BaseFragment {
     @Bind(R.id.finance_evaluate_report_trade_iv)
-    ImageView trade_iv;
+    XCRoundRectImageView trade_iv;
     @Bind(R.id.finance_evaluate_report_tradename_tv)
     TextView tradename_tv;
     @Bind(R.id.finance_evaluate_report_tradetype_tv)

@@ -18,6 +18,7 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ViewTools;
+import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.sevenheaven.iosswitch.ShSwitchView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -36,7 +37,7 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
 
     //商标信息展示
     @Bind(R.id.pay_info_detail_trade_logo_iv)
-    ImageView pay_info_detail_trade_logo_iv;
+    XCRoundRectImageView pay_info_detail_trade_logo_iv;
     @Bind(R.id.pay_info_detail_tradename_top_tv)
     TextView pay_info_detail_tradename_top_tv;
     @Bind(R.id.pay_info_detail_register_type_top_tv)

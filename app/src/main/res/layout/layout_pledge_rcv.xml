@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/x154">
 
-        <ImageView
+        <com.huabiao.aoiin.wedgit.XCRoundRectImageView
             android:id="@+id/pledgercv_img"
             android:layout_width="@dimen/x100"
             android:layout_height="@dimen/x100"

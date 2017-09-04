@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_marginBottom="@dimen/x20"
-    android:layout_marginRight="@dimen/x20"
     android:layout_marginTop="@dimen/x20"
     android:orientation="horizontal">
 
@@ -33,5 +32,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@+id/tv"
+        android:layout_marginRight="@dimen/x20"
         android:visibility="invisible" />
 </LinearLayout>

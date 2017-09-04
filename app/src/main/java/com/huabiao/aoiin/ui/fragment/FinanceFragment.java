@@ -72,11 +72,11 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
         switch (view.getId()) {
             case R.id.finance_evaluate_tv:
                 //评估
-                if (StringUtil.isEmpty(tradename_tl.getEditText().getText().toString().toString())) {
+                if (StringUtil.isEmpty(tradename_tl.getEditText().getText().toString().trim())) {
                     showToast("请输入商标名");
                     return;
                 }
-                if (StringUtil.isEmpty(tradeid_tl.getEditText().getText().toString().toString())) {
+                if (StringUtil.isEmpty(tradeid_tl.getEditText().getText().toString().trim())) {
                     showToast("请输入商标编号");
                     return;
                 }

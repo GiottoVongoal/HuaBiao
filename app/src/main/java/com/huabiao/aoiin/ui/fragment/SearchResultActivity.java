@@ -35,7 +35,7 @@ import static android.R.attr.top;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
  * @date 2017-07-13 11:36
- * @description 查询结果已注册页面
+ * @description 查询结果页面
  */
 public class SearchResultActivity extends BaseActivity {
     //筛选
