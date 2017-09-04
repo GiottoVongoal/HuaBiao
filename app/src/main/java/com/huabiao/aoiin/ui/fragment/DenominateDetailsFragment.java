@@ -21,11 +21,13 @@ import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+
 
 /**
  * Created by Aoiin-9 on 2017/8/11.
@@ -132,7 +134,6 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
                 details_tv2.setTextColor(getResources().getColor(R.color.black3));
             }
         });
-        details_tv2.setText(list.get(0).getClassificationname());//默认显示的文字
         popRecyclerView = (RecyclerView) contentView
                 .findViewById(R.id.popwin_shaixuan_list_rv);
         contentView.findViewById(R.id.popwin_shaixuan_list_bottom)
@@ -168,10 +169,11 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
     public void onClick(final View view) {
         switch (view.getId()) {
             case R.id.details_register_tv:
-                showToast("注册按钮");
+                //点击跳转到注册
+                JumpUtils.startActivity(getContext(),RegisterFragment.class);
                 break;
             case R.id.details_tv1:
-                showToast("可注册按钮");
+//                showToast("可注册按钮");
                 break;
             case R.id.details_tv2: //筛选弹框获取
                 SearchModel.getScreenclassfication(getContext(), new InterfaceManager.CallBackCommon() {

@@ -6,7 +6,7 @@
       "price": "98500",
       "classificationname": "日用品",
       "classificationid": "01",
-      "status": "1"
+      "status": "待支付"
     },
     {
       "goodsname": "StarbucksCoffee",
@@ -14,7 +14,7 @@
       "price": "52400",
       "classificationname": "食品",
       "classificationid": "06",
-      "status": "1"
+      "status": "待支付"
     },
     {
       "goodsname": "LV",
@@ -22,7 +22,7 @@
       "price": "45550",
       "classificationname": "奢侈品",
       "classificationid": "02",
-      "status": "1"
+      "status": "待支付"
     },
     {
       "goodsname": "美国队长",
@@ -30,7 +30,7 @@
       "price": "61000",
       "classificationname": "必需品",
       "classificationid": "04",
-      "status": "1"
+      "status": "待支付"
     }
   ]
 }

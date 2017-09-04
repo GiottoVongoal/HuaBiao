@@ -124,12 +124,14 @@ public class MallAdapter extends BaseAdapter implements View.OnClickListener {
                     mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
                     mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.VISIBLE);
                     mallViewHolder.show_TextView.setText("商标无效");
+                    mallViewHolder.mall_status_img.setImageResource(R.mipmap.useless);
                     break;
                 case 4:
                     mallViewHolder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     mallViewHolder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
                     mallViewHolder.mall_listitem_yiyi_tv.setVisibility(View.VISIBLE);
                     mallViewHolder.show_TextView.setText("初审公告");
+                    mallViewHolder.mall_status_img.setImageResource(R.mipmap.notice);
                     break;
             }
         }

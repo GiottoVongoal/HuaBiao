@@ -181,21 +181,25 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.myorders_all_tv:
+                //全部
                 n = 1;
                 mpage = 1;
                 getMyordersList(mpage, n);
                 break;
             case R.id.myorders_yetpay_tv:
+                //2待支付
                 n = 2;
                 mpage = 1;
                 getMyordersList(mpage, n);
                 break;
             case R.id.myorders_finish_tv:
+                //3已完成
                 n = 3;
                 mpage = 1;
                 getMyordersList(mpage, n);
                 break;
             case R.id.myorders_cancel_tv:
+                //4已取消
                 n = 4;
                 mpage = 1;
                 getMyordersList(mpage, n);
