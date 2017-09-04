@@ -59,6 +59,10 @@ public class RegisterCommitBean {
             ToastUtils.getInstance().showToast("请选择分类");
             return true;
         }
+        if (personType == -1) {
+            ToastUtils.getInstance().showToast("请选择申请人类型");
+            return true;
+        }
         if (StringUtil.isEmpty(username)) {
             ToastUtils.getInstance().showToast("请输入申请人姓名");
             return true;
@@ -79,10 +83,7 @@ public class RegisterCommitBean {
             ToastUtils.getInstance().showToast("请输入邮政编码");
             return true;
         }
-        if (personType == -1) {
-            ToastUtils.getInstance().showToast("请选择申请人类型");
-            return true;
-        }
+
 //        if (StringUtil.isEmpty(personName)) {
 //            ToastUtils.getInstance().showToast("请输入申请人姓名");
 //            return true;

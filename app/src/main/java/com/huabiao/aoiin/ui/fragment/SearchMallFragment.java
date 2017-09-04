@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.ALog;
@@ -38,6 +39,8 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 public class SearchMallFragment extends BaseFragment implements View.OnClickListener, MultipleTextViewGroup.OnMultipleTVItemClickListener {
     @Bind(R.id.search_mall_search_et)
     EditText search_et;
+    @Bind(R.id.search_mall_search_delete_iv)
+    ImageView search_delete_iv;
     @Bind(R.id.search_mall_search_tv)
     TextView search_tv;
     @Bind(R.id.search_mall_history_search_tv_group)
@@ -74,8 +77,10 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
                                       int count) {
                 if (!TextUtils.isEmpty(s)) {
                     search_tv.setText("搜索");
+                    search_delete_iv.setVisibility(View.VISIBLE);
                 } else {
                     search_tv.setText("取消");
+                    search_delete_iv.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -88,6 +93,7 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
             public void afterTextChanged(Editable s) {
             }
         });
+        search_delete_iv.setOnClickListener(this);
 
         // 获取历史记录
         historyList = new ArrayList<>();
@@ -125,6 +131,9 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
                 break;
             case R.id.search_mall_history_search_clear_tv:
                 clearHistory();
+                break;
+            case R.id.search_mall_search_delete_iv:
+                search_et.setText("");
                 break;
         }
     }

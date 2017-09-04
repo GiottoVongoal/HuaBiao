@@ -124,7 +124,6 @@ public class RegisterOneActivity extends BaseActivity implements View.OnClickLis
                 //下一步
 //                AppBus.getInstance().post(produceChangeIndex());
                 save();
-                JumpUtils.startActivity(this, RegisterTwoActivity.class);
                 break;
         }
     }
@@ -139,7 +138,12 @@ public class RegisterOneActivity extends BaseActivity implements View.OnClickLis
                 result.add(bean);
             }
         }
-        commitBean.setClaList(result);
+        if (result.size() > 0) {
+            commitBean.setClaList(result);
+            JumpUtils.startActivity(this, RegisterTwoActivity.class);
+        } else {
+            showToast("请选择分类");
+        }
     }
 
     /**

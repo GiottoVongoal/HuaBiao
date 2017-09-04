@@ -99,7 +99,7 @@ public class WeekView extends View {
             mLunarTextColor = Color.parseColor("#ACA9BC");
             mHolidayTextColor = Color.parseColor("#A68BFF");
             mDaySize = 13;
-            mDaySize = 8;
+            mLunarTextSize = 8;
             mIsShowHint = true;
             mIsShowLunar = true;
             mIsShowHolidayHint = true;
