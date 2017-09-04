@@ -1,9 +1,9 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -13,10 +13,9 @@ import android.widget.TextView;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.ui.adapter.SearchHistoryAdapter;
-import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ToSearchMallPageEvent;
+import com.huabiao.aoiin.wedgit.MultipleTextViewGroup;
 import com.squareup.otto.Produce;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -37,22 +36,19 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
  * @date 2017-09-01 15:05
  * @description 首页点击查询跳转的页面
  */
-public class SearchMallFragment extends BaseFragment implements View.OnClickListener {
-    @Bind(R.id.search_mall_back_iv)
-    ImageView back_iv;
+public class SearchMallFragment extends BaseFragment implements View.OnClickListener, MultipleTextViewGroup.OnMultipleTVItemClickListener {
     @Bind(R.id.search_mall_search_et)
     EditText search_et;
+    @Bind(R.id.search_mall_search_delete_iv)
+    ImageView search_delete_iv;
     @Bind(R.id.search_mall_search_tv)
     TextView search_tv;
-    @Bind(R.id.search_mall_history_search_rv)
-    RecyclerView history_rv;
-    @Bind(R.id.search_mall_history_search_none_tv)
-    TextView history_none_tv;
+    @Bind(R.id.search_mall_history_search_tv_group)
+    MultipleTextViewGroup history_tv_group;
     @Bind(R.id.search_mall_history_search_clear_tv)
     TextView history_clear_tv;
 
     private List<String> historyList;
-    private SearchHistoryAdapter historyAdapter;
     private String historyString;// 用于存储历史纪录的字符串
     private SPUtils sp;
 
@@ -69,36 +65,46 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
                                     .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                     // 进行搜索操作
                     String etString = search_et.getText().toString().trim();
-                    getSearch(etString);
+                    gotoSearch(etString);
                 }
                 return false;
             }
         });
+
+        search_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+                if (!TextUtils.isEmpty(s)) {
+                    search_tv.setText("搜索");
+                    search_delete_iv.setVisibility(View.VISIBLE);
+                } else {
+                    search_tv.setText("取消");
+                    search_delete_iv.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        search_delete_iv.setOnClickListener(this);
+
         // 获取历史记录
         historyList = new ArrayList<>();
         sp = new SPUtils("searchtrademark");//搜索商标
         initHistory();
-        history_rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        historyAdapter = new SearchHistoryAdapter(getContext(), historyList);
-        history_rv.setAdapter(historyAdapter);
+
+        history_tv_group.setTextViews(historyList);
+        history_tv_group.setOnMultipleTVItemClickListener(this);
+
         //监听点击事件
         setOnClick();
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.search_mall_back_iv:
-                ClickUtil.onBackClick();
-                break;
-            case R.id.search_mall_search_tv:
-                String etString = search_et.getText().toString().trim();
-                getSearch(etString);
-                break;
-            case R.id.search_mall_history_search_clear_tv:
-                clearHistory();
-                break;
-        }
     }
 
     private void initHistory() {
@@ -107,44 +113,55 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
         if (historyString.length() != 0) {
             stringToList(historyString);
             history_clear_tv.setVisibility(View.VISIBLE);
-            history_none_tv.setVisibility(View.GONE);
         } else {
             history_clear_tv.setVisibility(View.GONE);
-            history_none_tv.setVisibility(View.VISIBLE);
         }
     }
 
-    private void setOnClick() {
-        back_iv.setOnClickListener(this);
-        search_tv.setOnClickListener(this);
-        history_clear_tv.setOnClickListener(this);
-        historyAdapter.setItemClickListener(new InterfaceManager.OnItemClickListener() {
-            @Override
-            public void onItemClickListener(View view, int position) {
-                getSearch(historyList.get(position));
-            }
-        });
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.search_mall_search_tv:
+                String etString = search_et.getText().toString().trim();
+                if (!TextUtils.isEmpty(etString)) {
+                    gotoSearch(etString);
+                } else {
+                    ClickUtil.onBackClick();
+                }
+                break;
+            case R.id.search_mall_history_search_clear_tv:
+                clearHistory();
+                break;
+            case R.id.search_mall_search_delete_iv:
+                search_et.setText("");
+                break;
+        }
     }
 
-    /**
-     * 产生事件
-     *
-     * @return
-     */
+    @Override
+    public void onMultipleTVItemClick(View view, int position) {
+        gotoSearch(historyList.get(position));
+    }
+
+    private void setOnClick() {
+        search_tv.setOnClickListener(this);
+        history_clear_tv.setOnClickListener(this);
+    }
+
     @Produce
-    public ToSearchMallPageEvent toSearchMall(int index,String searchString) {
-        return new ToSearchMallPageEvent(index,searchString);
+    public ToSearchMallPageEvent toSearchMall(int index, String searchString) {
+        return new ToSearchMallPageEvent(index, searchString);
     }
 
     /**
      * 进行查询并将查询内容写入历史记录中
      */
-    private void getSearch(String searchString) {
+    private void gotoSearch(String searchString) {
         KeyboardUtils.hideSoftInput(getActivity());
         if (!TextUtils.isEmpty(searchString)) {
             putString(searchString);
             getActivity().finish();
-            AppBus.getInstance().post(toSearchMall(1,searchString));
+            AppBus.getInstance().post(toSearchMall(1, searchString));
         } else {
             showToast("请输入搜索内容");
         }
@@ -183,9 +200,8 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
 //            public void onClick(View v) {
         sp.put("historylist", "");
         historyList.clear();
-        historyAdapter.notifyDataSetChanged();
+        history_tv_group.setVisibility(View.GONE);
         history_clear_tv.setVisibility(View.GONE);
-        history_none_tv.setVisibility(View.VISIBLE);
         showToast("清除成功");
 //            }
 //        };
@@ -211,5 +227,6 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
     public BasePresenter getPresenter() {
         return null;
     }
+
 
 }

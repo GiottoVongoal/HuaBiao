@@ -12,12 +12,14 @@
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
+    <View style="@style/GrayLine" />
+
     <TextView
         android:id="@+id/user_address_list_add_tv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x95"
         android:background="@color/white"
         android:gravity="center"
-        android:textColor="@color/black3"
-        android:text="新建收货地址"  />
+        android:text="新建收货地址"
+        android:textColor="@color/black3" />
 </LinearLayout>

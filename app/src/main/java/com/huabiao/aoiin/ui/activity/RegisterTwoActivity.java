@@ -13,8 +13,10 @@ import com.huabiao.aoiin.tools.ViewTools;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.constant.RegexConstants;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.StringUtil;
+import com.ywy.mylibs.utils.ToastUtils;
 
 import butterknife.Bind;
 
@@ -32,7 +34,7 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
     @Bind(R.id.register_card_five_company_tv)
     TextView company_tv;//公司或其他组织
     private TextView[] tvs = new TextView[3];
-    private int personType;
+    private int personType = -1;
 
     @Bind(R.id.register_card_two_username_et)
     TextInputLayout username_et;//客户姓名
@@ -156,17 +158,45 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
                 //下一步
 //                AppBus.getInstance().post(produceChangeIndex());
                 save();
-                JumpUtils.startActivity(this, RegisterThreeActivity.class);
                 break;
         }
     }
 
     private void save() {
+        if (personType == -1) {
+            showToast("请选择申请人类型");
+            return;
+        }
+        if (StringUtil.isEmpty(username_et.getEditText().getText().toString().trim())) {
+            showToast("请输入申请人姓名");
+            return;
+        }
+        if (StringUtil.isEmpty(userphone_et.getEditText().getText().toString().trim())) {
+            showToast("请输入联系电话");
+            return;
+        }
+        if (!(userphone_et.getEditText().getText().toString().trim()).matches(RegexConstants.REGEX_MOBILE_EXACT)) {
+            showToast("请输入正确的手机号");
+            return;
+        }
+        if (StringUtil.isEmpty(address_et.getEditText().getText().toString().trim())) {
+            showToast("请输入合同地址");
+            return;
+        }
+        if (StringUtil.isEmpty(code_et.getEditText().getText().toString().trim())) {
+            showToast("请输入邮政编码");
+            return;
+        }
+        if (!(code_et.getEditText().getText().toString().trim()).matches(RegexConstants.REGEX_ZIP_CODE)) {
+            showToast("请输入正确的邮政编码");
+            return;
+        }
         commitBean.setPersonType(personType);
-        commitBean.setUsername(username_et.getEditText().getText().toString());
-        commitBean.setUserphone(userphone_et.getEditText().getText().toString());
-        commitBean.setContractAddress(address_et.getEditText().getText().toString());
-        commitBean.setCode(code_et.getEditText().getText().toString());
+        commitBean.setUsername(username_et.getEditText().getText().toString().trim());
+        commitBean.setUserphone(userphone_et.getEditText().getText().toString().trim());
+        commitBean.setContractAddress(address_et.getEditText().getText().toString().trim());
+        commitBean.setCode(code_et.getEditText().getText().toString().trim());
+        JumpUtils.startActivity(this, RegisterThreeActivity.class);
     }
 
     public void setPersonTypeSelect(int position) {

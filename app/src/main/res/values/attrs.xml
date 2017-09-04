@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="zhuanpan">
-        <attr name="pannum"  format="integer"/>
-        <attr name="names" format="reference"/>
-        <attr name="icons"  format="reference"/>
+        <attr name="pannum" format="integer" />
+        <attr name="names" format="reference" />
+        <attr name="icons" format="reference" />
     </declare-styleable>
     <!--日历相关-->
     <declare-styleable name="MonthCalendarView">
@@ -79,5 +79,20 @@
         <attr name="max_value" format="float" />
 
     </declare-styleable>
+    <!--自动换行的TextView-->
+    <declare-styleable name="MultipleTextViewGroup">
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textWordMargin" format="dimension" />
+        <attr name="textLineMargin" format="dimension" />
+        <attr name="textBackground" format="reference" />
 
+        <attr name="textPaddingLeft" format="dimension" />
+        <attr name="textPaddingRight" format="dimension" />
+        <attr name="textPaddingTop" format="dimension" />
+        <attr name="textPaddingBottom" format="dimension" />
+
+        <attr name="overspread" format="boolean" />
+        <attr name="columnNum" format="integer" />
+    </declare-styleable>
 </resources>
