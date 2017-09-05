@@ -11,8 +11,10 @@
         android:background="@color/white"
         android:fitsSystemWindows="true"
         android:gravity="center"
+        android:text="我的"
+        android:textColor="@color/black3"
         android:textSize="@dimen/text_size_17"
-        android:text="我的" />
+        android:textStyle="bold" />
 
     <View
         style="@style/GrayLine"
@@ -40,7 +42,9 @@
                     android:layout_width="@dimen/x146"
                     android:layout_height="@dimen/x146"
                     android:layout_gravity="center"
-                    android:layout_margin="@dimen/x32"
+                    android:layout_marginBottom="@dimen/x15"
+                    android:layout_marginLeft="@dimen/x32"
+                    android:layout_marginTop="@dimen/x15"
                     android:src="@mipmap/touxiang" />
 
                 <TextView
@@ -48,7 +52,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/x20"
                     android:text="登录/注册"
+                    android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_13" />
             </LinearLayout>
 
@@ -84,6 +90,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="@string/me_trademark_registered_form_string"
+                        android:textColor="@color/black3"
                         android:textSize="@dimen/text_size_13" />
                 </LinearLayout>
 
@@ -107,6 +114,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="@string/me_remind_progress_string"
+                        android:textColor="@color/black3"
                         android:textSize="@dimen/text_size_13" />
                 </LinearLayout>
 
@@ -130,6 +138,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="@string/me_order_string"
+                        android:textColor="@color/black3"
                         android:textSize="@dimen/text_size_13" />
                 </LinearLayout>
             </LinearLayout>

@@ -14,14 +14,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingLeft="@dimen/x40"
-            android:paddingRight="@dimen/x20"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x10"
             android:src="@mipmap/back_cut" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/x60"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/x20"
             android:background="@drawable/bg_round_edittext_bg"
             android:orientation="horizontal">
 
@@ -47,7 +47,8 @@
                 android:text="行业"
                 android:textAlignment="center"
                 android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_14" />
+                android:textSize="@dimen/text_size_14"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
@@ -99,7 +100,6 @@
                 android:layout_below="@id/zhuanpan_rl"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:id="@+id/tv_trademarkclassification"
                     android:layout_width="wrap_content"
@@ -108,23 +108,23 @@
                     android:layout_marginBottom="@dimen/x10"
                     android:layout_marginTop="@dimen/x38"
                     android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_14" />
+                    android:textSize="@dimen/text_size_12" />
 
                 <com.huabiao.aoiin.wedgit.DrawLineChartView
                     android:id="@+id/creat_name_line_chart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/x50"
-                    android:layout_marginRight="@dimen/x50"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_marginRight="@dimen/x50" />
 
                 <TextView
                     android:id="@+id/tv_means"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x50"
-                    android:layout_marginTop="@dimen/x20"
                     android:layout_marginRight="@dimen/x50"
+                    android:layout_marginTop="@dimen/x20"
                     android:lineSpacingExtra="@dimen/x19"
                     android:maxLines="2"
                     android:textAlignment="center"

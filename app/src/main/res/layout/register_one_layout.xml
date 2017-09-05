@@ -26,17 +26,17 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/title_tv_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="注册商标"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16" />
+                    android:text="注册商标" />
 
                 <TextView
                     android:id="@+id/register_card_one_tradename_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_15" />
             </LinearLayout>
 
@@ -49,11 +49,10 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/title_tv_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="分类"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16" />
+                    android:text="分类" />
 
                 <TextView
                     android:id="@+id/register_card_one_tradetype_tv"
@@ -61,43 +60,27 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
+                    android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_15" />
 
                 <TextView
                     android:id="@+id/register_card_one_select_tradetype_tv"
+                    style="@style/title_tv_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableRight="@mipmap/xia"
                     android:gravity="right"
-                    android:text="筛选"
-                    android:textColor="@color/black3" />
+                    android:text="筛选" />
             </LinearLayout>
 
             <View style="@style/GrayLine" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                style="@style/title_tv_style"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x30"
-                    android:text="可注册类别"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16" />
-
-                <TextView
-                    android:id="@+id/register_card_one_classification_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="按类筛选 >"
-                    android:visibility="gone" />
-
-            </LinearLayout>
+                android:layout_marginTop="@dimen/x30"
+                android:text="可注册类别" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/register_card_one_classification_rv"
@@ -115,12 +98,11 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/title_tv_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/x30"
-                    android:text="热度指数"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16" />
+                    android:text="热度指数" />
 
                 <com.huabiao.aoiin.wedgit.DrawLineChartView
                     android:id="@+id/register_card_one_linechart"
@@ -140,7 +122,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x66"
                 android:gravity="center"
-                android:text="1/3" />
+                android:text="1/3"
+                android:textColor="@color/black3" />
         </LinearLayout>
     </ScrollView>
 

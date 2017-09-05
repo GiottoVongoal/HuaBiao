@@ -7,165 +7,137 @@
     android:background="@color/grey_f8f8f8"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/x20"
         android:background="@mipmap/bg_icon2"
-        android:padding="@dimen/x30">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/customer_service_img">
-
-            <TextView
-                android:id="@+id/customer_service_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x10"
-                android:text="客服名"
-                android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_18"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/customer_service_company_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x21"
-                android:drawableLeft="@mipmap/dingwei"
-                android:text="上海商标有限公司"
-                android:textSize="@dimen/text_size_13"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_name_tv" />
-
-            <View
-                android:id="@+id/shuxian1"
-                style="@style/GrayLine_shu"
-                android:layout_width="1dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="@dimen/x126"
-                android:background="@color/grey_e1e1e1"
-                app:layout_constraintLeft_toRightOf="@+id/customer_service_successrate_tv"
-                app:layout_constraintRight_toLeftOf="@+id/customer_successrate_rate_tv"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_company_tv" />
-
-            <TextView
-                android:id="@+id/customer_service_successrate_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
-                android:text="成功率"
-                android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_20"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/customer_successrate_rate_tv" />
-
-            <TextView
-                android:id="@+id/customer_successrate_rate_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="@dimen/x126"
-                android:text="服务"
-                android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_20"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_company_tv" />
-
-            <TextView
-                android:id="@+id/customer_register_count_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="40dp"
-                android:layout_marginRight="40dp"
-                android:text="注册量"
-                android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_20"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/customer_successrate_rate_tv" />
-
-            <View
-                android:id="@+id/shuxian2"
-                style="@style/GrayLine_shu"
-                android:layout_width="1dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="@dimen/x126"
-                android:background="@color/grey_e1e1e1"
-                app:layout_constraintLeft_toRightOf="@+id/customer_successrate_rate_tv"
-                app:layout_constraintRight_toLeftOf="@+id/customer_register_count_tv"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_company_tv" />
-
-            <TextView
-                android:id="@+id/customer_register_count_jian_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x19"
-                android:text="注册量(件)"
-                android:textSize="@dimen/text_size_10"
-                app:layout_constraintLeft_toLeftOf="@+id/customer_register_count_tv"
-                app:layout_constraintRight_toRightOf="@+id/customer_register_count_tv"
-                app:layout_constraintTop_toBottomOf="@+id/customer_register_count_tv" />
-
-            <TextView
-                android:id="@+id/customer_service_service_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x19"
-                android:text="成功率(%)"
-                android:textSize="@dimen/text_size_10"
-                app:layout_constraintLeft_toLeftOf="@+id/customer_service_successrate_tv"
-                app:layout_constraintRight_toRightOf="@+id/customer_service_successrate_tv"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_successrate_tv" />
-
-            <TextView
-                android:id="@+id/customer_service_servicerate_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x19"
-                android:text="评价(星)"
-                android:textSize="@dimen/text_size_10"
-                app:layout_constraintLeft_toLeftOf="@+id/customer_successrate_rate_tv"
-                app:layout_constraintRight_toRightOf="@+id/customer_successrate_rate_tv"
-                app:layout_constraintTop_toBottomOf="@+id/customer_successrate_rate_tv" />
-
-            <TextView
-                android:id="@+id/customer_yuyin_tv"
-                style="@style/text_btn_style"
-                android:layout_width="@dimen/x473"
-                android:layout_height="@dimen/x88"
-                android:layout_marginTop="@dimen/x173"
-                android:background="@mipmap/btn_yellow"
-                android:gravity="center"
-                android:text="语音"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/customer_service_servicerate_tv" />
-        </android.support.constraint.ConstraintLayout>
+        android:orientation="vertical">
 
         <com.ywy.mylibs.wedgit.wedgit.CircleView
             android:id="@+id/customer_service_img"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x160"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/x154"
             android:src="@mipmap/touxiang" />
-    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/customer_service_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/x10"
+            android:text="name"
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/customer_service_company_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/x21"
+            android:drawableLeft="@mipmap/dingwei"
+            android:text="company"
+            android:textColor="@color/grey_999999"
+            android:textSize="@dimen/text_size_13" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x120"
+            android:layout_marginTop="@dimen/x126"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/customer_service_successrate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_25" />
+
+                <TextView
+                    android:id="@+id/customer_service_service_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x19"
+                    android:text="成功率(%)"
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_10" />
+            </LinearLayout>
+
+            <View style="@style/GrayLine_shu" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/customer_successrate_rate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_25" />
+
+                <TextView
+                    android:id="@+id/customer_service_servicerate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x19"
+                    android:text="评价(星)"
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_10" />
+            </LinearLayout>
+
+            <View style="@style/GrayLine_shu" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/customer_register_count_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_25" />
+
+                <TextView
+                    android:id="@+id/customer_register_count_jian_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x19"
+                    android:text="注册量(件)"
+                    android:textColor="@color/grey_999999"
+                    android:textSize="@dimen/text_size_10" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/customer_yuyin_tv"
+            style="@style/text_btn_style"
+            android:layout_width="@dimen/x473"
+            android:layout_height="@dimen/x88"
+            android:layout_marginTop="@dimen/x173"
+            android:background="@mipmap/btn_yellow"
+            android:gravity="center"
+            android:text="语音" />
+    </LinearLayout>
 </RelativeLayout>

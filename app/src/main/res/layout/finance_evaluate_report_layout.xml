@@ -34,13 +34,12 @@
 
                 <TextView
                     android:id="@+id/finance_evaluate_report_tradename_tv"
+                    style="@style/title_tv_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@+id/finance_evaluate_report_trade_iv"
                     android:layout_marginLeft="@dimen/x20"
                     android:layout_toRightOf="@+id/finance_evaluate_report_trade_iv"
-                    android:text="商标名"
-                    android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_17" />
 
                 <TextView
@@ -50,7 +49,6 @@
                     android:layout_alignLeft="@+id/finance_evaluate_report_tradename_tv"
                     android:layout_below="@+id/finance_evaluate_report_tradename_tv"
                     android:layout_marginTop="@dimen/x18"
-                    android:text="类别"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_13" />
 
@@ -63,7 +61,6 @@
                     android:layout_toRightOf="@+id/finance_evaluate_report_tradename_tv"
                     android:background="@mipmap/jindu_yixuan"
                     android:gravity="center"
-                    android:text="状态"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_11" />
 
@@ -74,7 +71,6 @@
                     android:layout_alignLeft="@+id/finance_evaluate_report_tradename_tv"
                     android:layout_below="@+id/finance_evaluate_report_tradetype_tv"
                     android:layout_marginTop="@dimen/x18"
-                    android:text="注册号"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_13" />
             </RelativeLayout>
@@ -87,6 +83,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/title_tv_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/banyuan"
@@ -94,9 +91,7 @@
                     android:gravity="center_vertical"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
-                    android:text="系统综合评估"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_16" />
+                    android:text="系统综合评估" />
 
                 <com.huabiao.aoiin.wedgit.ColorArcProgressBar
                     android:id="@+id/finance_evaluate_report_circle_bar"
@@ -119,7 +114,8 @@
                     android:layout_marginTop="@dimen/x13"
                     android:gravity="center"
                     android:text="综合评分"
-                    android:textColor="@color/black2" />
+                    android:textColor="@color/black2"
+                    android:textSize="@dimen/text_size_14" />
 
                 <View
                     style="@style/GrayLine"
@@ -152,9 +148,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
-                            android:text="XXX"
                             android:textColor="@color/black2"
-                            android:textSize="@dimen/text_size_18" />
+                            android:textSize="@dimen/text_size_18"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <View style="@style/GrayLine_shu" />
@@ -180,9 +176,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
-                            android:text="XXX"
                             android:textColor="@color/black2"
-                            android:textSize="@dimen/text_size_18" />
+                            android:textSize="@dimen/text_size_18"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -195,6 +191,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/title_tv_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/banyuan"
@@ -202,9 +199,7 @@
                     android:gravity="center_vertical"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
-                    android:text="相似产品综合评估"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_16" />
+                    android:text="相似产品综合评估" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -220,6 +215,7 @@
 
                         <TextView
                             android:id="@+id/finance_evaluate_report_similarproduct_tradename_tv"
+                            style="@style/title_tv_style"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -232,7 +228,8 @@
                             android:layout_marginTop="@dimen/x14"
                             android:gravity="center"
                             android:text="01-日化用品"
-                            android:textColor="@color/black3" />
+                            android:textColor="@color/black3"
+                            android:textSize="@dimen/text_size_13" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -289,9 +286,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
-                            android:text="XXX"
                             android:textColor="@color/black2"
-                            android:textSize="@dimen/text_size_18" />
+                            android:textSize="@dimen/text_size_18"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <View style="@style/GrayLine_shu" />
@@ -317,9 +314,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/x20"
                             android:gravity="center"
-                            android:text="XXX"
                             android:textColor="@color/black2"
-                            android:textSize="@dimen/text_size_18" />
+                            android:textSize="@dimen/text_size_18"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

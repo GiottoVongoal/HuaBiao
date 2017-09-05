@@ -72,7 +72,7 @@
                     <com.huabiao.aoiin.dateview.MonthCalendarView
                         android:id="@+id/user_progress_date_month_calendar"
                         android:layout_width="match_parent"
-                        android:layout_height="230dp"
+                        android:layout_height="288dp"
                         android:background="@color/white"
                         android:overScrollMode="never"
                         app:month_day_text_size="15"
@@ -98,21 +98,13 @@
                     app:week_show_task_hint="true" />
             </RelativeLayout>
 
-            <View
-                style="@style/GrayLine"
-                android:layout_marginTop="10dp" />
+            <View style="@style/GrayLine" />
 
             <RelativeLayout
                 android:id="@+id/rlScheduleList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/grey_f8f8f8">
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="@dimen/x40"
-                    android:layout_marginLeft="@dimen/x14"
-                    android:background="@color/grey_DDDDDD" />
 
                 <com.huabiao.aoiin.dateview.schedule.ScheduleRecyclerView
                     android:id="@+id/user_progress_date_srv"
@@ -122,8 +114,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:orientation="vertical"
-                    android:overScrollMode="never"
-                    android:paddingTop="@dimen/x40" />
+                    android:overScrollMode="never" />
             </RelativeLayout>
         </LinearLayout>
     </com.huabiao.aoiin.dateview.schedule.ScheduleLayout>

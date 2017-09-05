@@ -25,24 +25,23 @@
 
                 <TextView
                     android:id="@+id/details_tv1"
+                    style="@style/title_tv_style"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableLeft="@mipmap/banyuan"
                     android:drawablePadding="5dp"
-                    android:text="可注册分类"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_18" />
+                    android:text="可注册分类" />
 
                 <TextView
                     android:id="@+id/details_tv2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableRight="@mipmap/xiala"
-                    android:drawablePadding="@dimen/x20"
-                    android:gravity="right"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/x20"
+                    android:drawableRight="@mipmap/xiala"
+                    android:gravity="right"
                     android:padding="10dp"
                     android:text="筛选"
                     android:textColor="@color/black3" />
@@ -72,29 +71,27 @@
                 android:drawableLeft="@mipmap/banyuan"
                 android:drawablePadding="5dp"
                 android:text="热度趋势图"
-                android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_18" />
+                style="@style/title_tv_style" />
 
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/details_linechart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/x50"
-                android:layout_marginLeft="@dimen/x50"/>
+                android:layout_marginLeft="@dimen/x50"
+                android:layout_marginRight="@dimen/x50" />
 
             <TextView
                 android:id="@+id/details_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textSize="@dimen/text_size_14"
+                android:textAlignment="center"
                 android:textColor="@color/black3"
-                android:textAlignment="center" />
+                android:textSize="@dimen/text_size_14" />
         </LinearLayout>
     </ScrollView>
 
-    <View style="@style/GrayLine"
-        />
+    <View style="@style/GrayLine" />
 
     <TextView
         android:id="@+id/details_register_tv"

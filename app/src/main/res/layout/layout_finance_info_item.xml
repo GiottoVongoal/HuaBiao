@@ -7,14 +7,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x154">
+        android:layout_height="wrap_content">
 
         <com.huabiao.aoiin.wedgit.XCRoundRectImageView
             android:id="@+id/auctionrcv_img"
-            android:layout_width="@dimen/x100"
-            android:layout_height="@dimen/x100"
+            android:layout_width="@dimen/x119"
+            android:layout_height="@dimen/x119"
             android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/x30"
             android:layout_marginLeft="@dimen/x27"
+            android:layout_marginTop="@dimen/x30"
             android:scaleType="fitXY"
             android:src="@mipmap/logobg" />
 
@@ -23,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginBottom="@dimen/x42"
             android:layout_marginLeft="@dimen/x22"
             android:layout_toLeftOf="@+id/auctionrcv_connect_tv"
             android:layout_toRightOf="@+id/auctionrcv_img"
@@ -31,11 +32,9 @@
 
             <TextView
                 android:id="@+id/auctionrcv_companyname_tv"
+                style="@style/title_tv_style"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="公司名称"
-                android:textColor="@color/black3"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/auctionrcv_phonenumber_tv"
@@ -45,7 +44,7 @@
                 android:drawableLeft="@mipmap/phone"
                 android:drawablePadding="@dimen/x8"
                 android:textColor="@color/black3"
-                android:textSize="13sp" />
+                android:textSize="@dimen/text_size_13" />
         </LinearLayout>
 
         <TextView

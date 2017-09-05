@@ -21,7 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:textSize="@dimen/text_size_17" />
+        android:textColor="@color/black3"
+        android:textSize="@dimen/text_size_17"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_right"
@@ -38,9 +40,9 @@
         android:layout_height="match_parent"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
-        android:paddingRight="@dimen/x40"
-        android:paddingLeft="@dimen/x40"
         android:layout_toLeftOf="@+id/tv_right"
+        android:paddingLeft="@dimen/x40"
+        android:paddingRight="@dimen/x40"
         android:visibility="gone" />
 
     <View

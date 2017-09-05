@@ -17,6 +17,22 @@
         <item name="android:layout_width">1dp</item>
         <item name="android:background">@color/grey_e1e1e1</item>
     </style>
+    <!--加粗的黑色标题文字-->
+    <style name="title_tv_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black3</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <!--按钮style-->
+    <style name="text_btn_style">
+        <item name="android:layout_width">@dimen/x534</item>
+        <item name="android:layout_height">@dimen/x100</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textColor">@color/black3</item>
+        <item name="android:background">@mipmap/btn_yellow</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
     <!--屏幕底部弹出PopupWindow效果-->
     <style name="bottom_enter_anim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
@@ -30,21 +46,11 @@
         <item name="android:maxHeight">20dip</item>
         <item name="android:stepSize">0.1</item>
     </style>
-    <!--按钮style-->
-    <style name="text_btn_style">
-        <item name="android:layout_width">@dimen/x534</item>
-        <item name="android:layout_height">@dimen/x100</item>
-        <item name="android:textSize">@dimen/text_size_18</item>
-        <item name="android:textColor">@color/black3</item>
-        <item name="android:background">@mipmap/btn_yellow</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
     <!--设置EditText输入框背景为空白-->
     <style name="edittext_no_bg">
         <item name="android:background">@mipmap/edittext_bg_line</item>
         <item name="android:textColorHint">@color/grey_848484</item>
-        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textSize">@dimen/text_size_15</item>
         <item name="android:textColor">@color/black3</item>
     </style>
     <!--TextInputLayout输入框的错误提示样式-->

@@ -15,12 +15,11 @@
         android:paddingRight="@dimen/x65">
 
         <TextView
+            style="@style/title_tv_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/x56"
-            android:text="服务方式"
-            android:textColor="@color/black3"
-            android:textSize="@dimen/text_size_16" />
+            android:text="服务方式" />
 
         <RadioGroup
             android:id="@+id/register_card_five_service_mode_rg"
@@ -39,24 +38,32 @@
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_15" />
 
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="@dimen/x35" />
+
             <RadioButton
                 android:id="@+id/register_card_five_urgent_rb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x35"
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
-                android:paddingTop="20dp"
                 android:text="加急注册"
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_15" />
+
+            <View
+                style="@style/GrayLine"
+                android:layout_marginTop="@dimen/x35" />
 
             <RadioButton
                 android:id="@+id/register_card_five_guarantee_rb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x35"
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
-                android:paddingTop="20dp"
                 android:text="注册 + 预审 + 退费担保"
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_15" />
@@ -64,7 +71,7 @@
 
         <View
             style="@style/GrayLine"
-            android:layout_marginTop="15dp"  />
+            android:layout_marginTop="15dp" />
 
         <TextView
             android:id="@+id/register_card_five_total_cost_tv"
@@ -74,7 +81,7 @@
             android:layout_marginTop="@dimen/x95"
             android:text="总费用"
             android:textColor="@color/black3"
-            android:textSize="@dimen/text_size_15" />
+            android:textSize="@dimen/text_size_17" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/x66"
             android:gravity="center"
-            android:text="3/3" />
+            android:text="3/3"
+            android:textColor="@color/black3" />
     </LinearLayout>
 </LinearLayout>

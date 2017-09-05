@@ -32,7 +32,7 @@ public class PledgeAdapter extends RecyclerView.Adapter<PledgeAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_pledge_rcv, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_finance_info_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -61,10 +61,10 @@ public class PledgeAdapter extends RecyclerView.Adapter<PledgeAdapter.ViewHolder
 
         public ViewHolder(View itemView) {
             super(itemView);
-            bank_img = (XCRoundRectImageView) itemView.findViewById(R.id.pledgercv_img);
-            bankname_tv = (TextView) itemView.findViewById(R.id.pledgercv_bankname_tv);
-            phonenum_tv = (TextView) itemView.findViewById(R.id.pledgercv_phonenumber_tv);
-            connect_tv = (TextView) itemView.findViewById(R.id.pledgercv_connect_tv);
+            bank_img = (XCRoundRectImageView) itemView.findViewById(R.id.auctionrcv_img);
+            bankname_tv = (TextView) itemView.findViewById(R.id.auctionrcv_companyname_tv);
+            phonenum_tv = (TextView) itemView.findViewById(R.id.auctionrcv_phonenumber_tv);
+            connect_tv = (TextView) itemView.findViewById(R.id.auctionrcv_connect_tv);
         }
     }
 }

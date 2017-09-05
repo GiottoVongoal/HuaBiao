@@ -20,16 +20,16 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="30dp">
+            android:paddingLeft="@dimen/x81"
+            android:paddingRight="@dimen/x81">
             <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x216">
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/search_tradename_tl"
+                    android:id="@+id/search_goodsname_tl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintAnimationEnabled="true">
@@ -38,12 +38,12 @@
                         style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="商标名"
+                        android:hint="请输入商品名"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
 
                 <ImageView
-                    android:id="@+id/search_tradename_delete_iv"
+                    android:id="@+id/search_goodsname_delete_iv"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -59,7 +59,7 @@
                 android:layout_marginTop="@dimen/x80">
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/search_goodsname_tl"
+                    android:id="@+id/search_tradename_tl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintAnimationEnabled="true">
@@ -68,12 +68,12 @@
                         style="@style/edittext_no_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="商品名"
+                        android:hint="请输入商标名"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
 
                 <ImageView
-                    android:id="@+id/search_goodsname_delete_iv"
+                    android:id="@+id/search_tradename_delete_iv"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -82,6 +82,7 @@
                     android:src="@mipmap/login_edit_delete"
                     android:visibility="invisible" />
             </RelativeLayout>
+
 
             <TextView
                 android:id="@+id/search_tv"
