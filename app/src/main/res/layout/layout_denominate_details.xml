@@ -87,7 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="释义的内容"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="@color/black3"
                 android:textAlignment="center" />
         </LinearLayout>
     </ScrollView>
