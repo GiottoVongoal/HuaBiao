@@ -118,7 +118,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="42dp"
             android:layout_marginTop="@dimen/x30"
-            android:background="@mipmap/jindu_weixuan"
+            android:background="@mipmap/red"
             android:gravity="center"
             android:text="付款"
             android:textColor="#dc1c1c"
