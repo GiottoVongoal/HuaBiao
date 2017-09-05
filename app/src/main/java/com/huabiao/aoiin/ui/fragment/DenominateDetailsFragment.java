@@ -170,7 +170,7 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
         switch (view.getId()) {
             case R.id.details_register_tv:
                 //点击跳转到注册
-                JumpUtils.startActivity(getContext(),RegisterFragment.class);
+                JumpUtils.startFragmentByName(getContext(),RegisterFragment.class);
                 break;
             case R.id.details_tv1:
 //                showToast("可注册按钮");

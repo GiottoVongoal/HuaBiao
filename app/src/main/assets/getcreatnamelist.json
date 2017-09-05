@@ -1,7 +1,7 @@
 {
   "recommendnamelist": [
     {
-      "means": "我是这个商标名的含义,美丽的思考--飘柔",
+      "means": "十大洗发水-护发素品牌，中国市场第一个洗发护发二合一品牌，消费者最喜爱的品牌。",
       "linechart": {
         "tradename": "1飘柔",
         "trademarkclassification": "日化用品",
@@ -20,25 +20,12 @@
             "linename": "京东",
             "linecolor": "#fdd400",
             "linevalue": [
+              8,
               7,
-              7,
-              6,
-              7,
-              5,
-              6,
-              8
-            ]
-          },
-          {
-            "linename": "亚马逊",
-            "linecolor": "#AED79B",
-            "linevalue": [
-              2,
-              2,
-              5,
               4,
-              7,
-              7,
+              6,
+              5,
+              5,
               3
             ]
           }
@@ -47,7 +34,7 @@
 
     },
     {
-      "means": "我是这个商标名的含义,美丽的思考--顺畅",
+      "means": "顺畅--事物的发展或事情的进行通畅，没有阻碍：事情在顺畅进展中。舒畅合意：日子过得挺顺畅",
       "linechart": {
         "tradename": "2顺畅",
         "trademarkclassification": "日化用品",
@@ -66,33 +53,20 @@
             "linename": "清风",
             "linecolor": "#fdd400",
             "linevalue": [
+              2,
               7,
+              3,
               7,
               6,
-              7,
-              5,
               6,
               8
-            ]
-          },
-          {
-            "linename": "相印",
-            "linecolor": "#AED79B",
-            "linevalue": [
-              2,
-              2,
-              5,
-              4,
-              7,
-              7,
-              3
             ]
           }
         ]
       }
     },
     {
-      "means": "我是这个商标名的含义,美丽的思考--飘逸",
+      "means": "飘逸是一种境界，清新雅致，恬淡自然的一种感受。现多见于具体的修饰，如头发飘逸，形容清新靓丽",
       "linechart": {
         "tradename": "3飘逸",
         "trademarkclassification": "日化用品",
@@ -119,25 +93,12 @@
               6,
               8
             ]
-          },
-          {
-            "linename": "饿了么",
-            "linecolor": "#AED79B",
-            "linevalue": [
-              2,
-              2,
-              5,
-              4,
-              7,
-              7,
-              3
-            ]
           }
         ]
       }
     },
     {
-      "means": "我是这个商标名的含义,美丽的思考--柔亮",
+      "means": "柔亮--透明啫喱质地，清新柑橘香调。100%遵循发质结构，采用生物可降解配方和可循环使用包装，以减少对水质及环境的污染。",
       "linechart": {
         "tradename": "4柔亮",
         "trademarkclassification": "日化用品",
@@ -156,26 +117,13 @@
             "linename": "百度",
             "linecolor": "#fdd400",
             "linevalue": [
-              7,
-              7,
+              5,
               6,
+              3,
               7,
               5,
               6,
-              8
-            ]
-          },
-          {
-            "linename": "淘宝",
-            "linecolor": "#AED79B",
-            "linevalue": [
-              2,
-              2,
-              5,
-              4,
-              7,
-              7,
-              3
+              6
             ]
           }
         ]

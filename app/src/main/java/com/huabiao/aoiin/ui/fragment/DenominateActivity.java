@@ -135,6 +135,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
         meansTV.setText(list.get(position).getMeans());
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
         trademarkclassificationTv.setText(classificationString);
+        //折线图
         creat_name_line_chart.setLineChartBean(list.get(position).getLinechart());
     }
 
@@ -192,7 +193,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                 denominate_industry_btn.setTextColor(getResources().getColor(R.color.black3));
             }
         });
-        denominate_industry_btn.setText(industryList.get(1).getIndustryname());//默认显示列表的第二个
+//        denominate_industry_btn.setText(industryList.get(1).getIndustryname());//默认显示列表的第二个
         popRecyclerView = (RecyclerView) industryview.findViewById(R.id.popwin_industry_list_rv);
         industryview.findViewById(R.id.popwin_industry_list_bottom).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,7 +216,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                 industryWindow.dismiss();
             }
         });
-        //显示窗口
+        //显示窗口方式
         industryWindow.showAsDropDown(denominate_industry_btn);
 
     }
