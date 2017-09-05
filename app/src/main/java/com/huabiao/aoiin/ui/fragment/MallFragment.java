@@ -1,20 +1,29 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MallBean;
+import com.huabiao.aoiin.bean.ScreenclassficationBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.MallAdapter;
+import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.recycler.XRecyclerView;
 import com.ywy.mylibs.utils.JumpUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -22,7 +31,6 @@ import butterknife.Bind;
  * 商城列表
  */
 public class MallFragment extends BaseFragment implements View.OnClickListener {
-    private boolean isLast;     //是否滑动到底部的标志位
     private MallAdapter mallAapter;
     //将下划线放入一个数组
     View[] lines = new View[4];
@@ -31,7 +39,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     //m是传的标志位，1234代表的是全部、可求购、可抢注、可异议的页面
     private int m = 1;
     @Bind(R.id.Mall_listView)
-    ListView mall_listview;
+    XRecyclerView mall_listview;
     //可求购按钮and line
     @Bind(R.id.mall_canbuy_tv)
     TextView mall_canbuy_tv;
@@ -58,6 +66,11 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     //筛选图片
     @Bind(R.id.mall_img)
     ImageView mall_img;
+    //筛选下拉菜单
+    private PopupWindow popupWindowshaixuan;
+    //下拉筛选菜单的Adapter
+    private UpMenuAdapter menuAdapter;
+    private RecyclerView popRecyclerView;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -70,23 +83,48 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
         mall_canyiyi_tv.setOnClickListener(this);
         mall_search_tv.setOnClickListener(this);
         mall_img.setOnClickListener(this);
-        //列表监听事件以及实例化
-        mall_listview.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                isLast = (totalItemCount == firstVisibleItem + visibleItemCount);     //判断是否滑倒底部
+        mall_listview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            }
+    }
 
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                //当滑动到底部 且 手指离开屏幕时 确定为需要加载分页
-                if (isLast && scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-                    page++;
-                    getList(page, m);
-                }
+
+    //下拉筛选
+    private void initShaixuan(View view, final List<ScreenclassficationBean.SlistBean> list) {
+        View contentView = view.inflate(getContext(), R.layout.layout_shaixuan, null);
+        popupWindowshaixuan = new PopupWindow(contentView,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindowshaixuan.setOutsideTouchable(true);
+        popupWindowshaixuan.setBackgroundDrawable(new BitmapDrawable());
+        popupWindowshaixuan.setFocusable(true);
+        popupWindowshaixuan.setAnimationStyle(R.style.popwin_anim_style);
+        popupWindowshaixuan.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            public void onDismiss() {
             }
         });
+        popRecyclerView = (RecyclerView) contentView
+                .findViewById(R.id.popwin_shaixuan_list_rv);
+        contentView.findViewById(R.id.popwin_shaixuan_list_bottom)
+                .setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        popupWindowshaixuan.dismiss();
+                    }
+                });
+        popRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        List<String> l = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            l.add(list.get(i).getClassificationname());
+        }
+        menuAdapter = new UpMenuAdapter(getContext(), l);
+        menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View view, int position) {
+                showToast(list.get(position).getClassificationname());
+                popupWindowshaixuan.dismiss();
+            }
+        });
+        //窗口显示方式
+        popupWindowshaixuan.showAsDropDown(view);
     }
 
     @Override
@@ -116,7 +154,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                     MallBean mallBean = (MallBean) mData;
                     if (page == 1) {
                         mallAapter = new MallAdapter(getContext(), mallBean.getShoppingmalllist());
-                        mall_listview.setAdapter(mallAapter);
+                      mall_listview.setAdapter(mallAapter);
                     } else {
                         mallAapter.addList(mallBean.getShoppingmalllist());
                     }
@@ -138,7 +176,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
 
     //五个按钮的监听事件实例化，点击显示不同页面，解析不同的json.
     @Override
-    public void onClick(View view) {
+    public void onClick(final View view) {
         switch (view.getId()) {
             case R.id.mall_canbuy_tv:
                 m = 2;
@@ -161,7 +199,16 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                 getList(page, m);
                 break;
             case R.id.mall_img:
-                showToast("筛选");
+                SearchModel.getScreenclassfication(getContext(), new InterfaceManager.CallBackCommon() {
+                    @Override
+                    public void getCallBackCommon(Object mData) {
+                        if (mData != null) {
+                            ScreenclassficationBean bean = (ScreenclassficationBean) mData;
+                            initShaixuan(view, bean.getSlist());
+                        }
+                    }
+                });
+                popRecyclerView.setAdapter(menuAdapter);
                 break;
             case R.id.mall_search_tv:
                 //输入框
