@@ -20,14 +20,11 @@ import com.huabiao.aoiin.bean.TradeFormBean.FormBean.PersonTypeInfoBean;
 import com.huabiao.aoiin.bean.TradeFormBean.FormBean.UserBasicInfoBean;
 import com.huabiao.aoiin.model.MeModel;
 import com.huabiao.aoiin.model.RegisterModel;
-import com.huabiao.aoiin.picview.BitmapUtil;
 import com.huabiao.aoiin.tools.ActivityCollector;
-import com.huabiao.aoiin.ui.activity.ShowLargeImageActivity;
 import com.huabiao.aoiin.ui.adapter.RegisterDataPreviewAdapter;
 import com.huabiao.aoiin.ui.fragment.PayInfoDetailFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
-import com.huabiao.aoiin.wedgit.FullyGridLayoutManager;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -91,6 +88,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     TextView back_tv;
     @Bind(R.id.register_data_preview_commit_tv)
     TextView commit_tv;
+    private TextView[] tvs = new TextView[2];
 
     private RegisterCommitBean commitBean;
     private FormBean formbean;
@@ -116,6 +114,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
                 showToast("客服");
             }
         });
+
         switch (index) {
             case 1:
                 //商标注册表单
@@ -133,10 +132,14 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
                 break;
             case 2:
                 //注册资料预览
+                tvs[0] = back_tv;
+                tvs[1] = commit_tv;
+                setSelect(1);
                 setTitle("预览");
                 commitBean = RegisterCommitBean.getInstance();
                 ActivityCollector.addActivity(this);
                 showRegisterData(commitBean);
+
                 break;
         }
         setOnclick();
@@ -281,8 +284,6 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
 
         back_tv.setOnClickListener(this);
         commit_tv.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -298,12 +299,14 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
                 showLargeImg(business_licence_iv, index == 1 ? formbean.getImginfo().getBusinesslicenceimg() : "");//commitBean.getBusinessLicenceImg()
                 break;
             case R.id.register_data_preview_back_tv:
+                setSelect(0);
                 ClickUtil.onBackClick();
                 break;
             case R.id.register_data_preview_commit_tv:
                 if (index == 1) {
                     showToast("下载表单");
                 } else {
+                    setSelect(1);
                     JumpUtils.startFragmentByName(this, PayInfoDetailFragment.class);
                     ActivityCollector.finishAll();
                     commitBean.emptyBean();
@@ -314,7 +317,6 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
 
 
     //显示大图
-
     private void showLargeImg(ImageView iv, String path) {
         Intent i = new Intent(this, ShowLargeImageActivity.class);
         i.putExtra("path", path);
@@ -322,6 +324,16 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
         ActivityOptions transitionActivityOptions =
                 ActivityOptions.makeSceneTransitionAnimation(this, iv, transitionName);
         startActivity(i, transitionActivityOptions.toBundle());
+    }
+
+    //设置最下边按钮点击颜色
+    public void setSelect(int position) {
+        for (int i = 0; i < tvs.length; i++) {
+            tvs[i].setBackgroundColor(getResources().getColor(R.color.white));
+            if (i == position) {
+                tvs[i].setBackgroundColor(getResources().getColor(R.color.yellow_fdd400));
+            }
+        }
     }
 
     @Override

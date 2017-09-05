@@ -2,8 +2,11 @@ package com.huabiao.aoiin.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.view.View;
 
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.third.UMLoginUtil;
+import com.huabiao.aoiin.ui.view.RippleView;
 import com.huabiao.aoiin.wedgit.CheckEdittextTextWatcher;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -16,9 +19,12 @@ import butterknife.Bind;
  * @date 2017-08-18 15:03
  * @description 登录页面
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements View.OnClickListener, RippleView.OnRippleCompleteListener {
     @Bind(R.id.textInputLayout_password)
     TextInputLayout textInputLayout_password;
+
+    //第三方
+    private UMLoginUtil loginUtil;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -30,6 +36,19 @@ public class LoginActivity extends BaseActivity {
         //开启计数
         textInputLayout_password.setCounterEnabled(true);
         textInputLayout_password.setCounterMaxLength(6);//最大输入限制数(输入框后边有0/6的字数统计)
+
+        //第三方
+        loginUtil = new UMLoginUtil(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    public void onComplete(RippleView rippleView) {
+
     }
 
     @Override
@@ -41,4 +60,5 @@ public class LoginActivity extends BaseActivity {
     public BasePresenter getPresenter() {
         return null;
     }
+
 }

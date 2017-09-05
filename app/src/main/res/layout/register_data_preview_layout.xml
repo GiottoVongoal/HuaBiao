@@ -113,8 +113,7 @@
                     android:id="@+id/register_data_preview_linechart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x43"
-                    android:background="@drawable/bg_round_gray" />
+                    android:layout_marginTop="@dimen/x43"  />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -328,6 +327,7 @@
                 android:layout_weight="1"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
+                android:textColor="@color/black3"
                 android:text="编辑" />
 
             <View
@@ -340,6 +340,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textColor="@color/black3"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 android:text="立即申请" />

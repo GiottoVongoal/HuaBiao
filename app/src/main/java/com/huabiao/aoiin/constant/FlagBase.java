@@ -16,8 +16,8 @@ public class FlagBase {
     public static final int CALL_BACK_FAILED = 10001;
 
     //刷新与加载
-    public static final int PULL_TO_REFRESH=10000;
-    public static final int SCROLL_LOAD_MORE=10001;
+    public static final int PULL_TO_REFRESH = 10000;
+    public static final int SCROLL_LOAD_MORE = 10001;
 
     //拍照选照相关
     //移动端存放头像的本地路径，即attachment
@@ -29,4 +29,6 @@ public class FlagBase {
     public static final int TRADE_LOGO = 10071;// 商标图样标识
     public static final int PROXY = 10072;// 委托书标识
     public static final int BUSINESS_LICENCE = 10073;// 营业执照标识
+
+    public static final String THIRD_PLATFORM = "third_platform";
 }

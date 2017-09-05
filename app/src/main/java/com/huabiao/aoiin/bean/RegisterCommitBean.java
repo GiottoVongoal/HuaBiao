@@ -6,6 +6,7 @@ import com.ywy.mylibs.utils.StringUtil;
 import com.ywy.mylibs.utils.ToastUtils;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -143,7 +144,7 @@ public class RegisterCommitBean {
     }
 
     public List<ClassificationBean> getClaList() {
-        return claList;
+        return claList == null ? new ArrayList<ClassificationBean>() : claList;
     }
 
     public void setClaList(List<ClassificationBean> claList) {

@@ -57,6 +57,6 @@ dependencies {
     compile 'com.karumi:dexter:2.2.2'
     compile files('libs/umeng_social_api.jar')
     compile files('libs/umeng_social_net.jar')
-    //
+    // 状态栏工具
     compile 'com.githang:status-bar-compat:0.5.3'
 }

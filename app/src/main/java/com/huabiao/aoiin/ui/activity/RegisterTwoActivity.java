@@ -120,6 +120,7 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
 
         if (commitBean.getPersonType() != -1) {
             setPersonTypeSelect(commitBean.getPersonType());
+            personType = commitBean.getPersonType();
         }
         if (!StringUtil.isEmpty(commitBean.getUsername())) {
             username_et.getEditText().setText(commitBean.getUsername());

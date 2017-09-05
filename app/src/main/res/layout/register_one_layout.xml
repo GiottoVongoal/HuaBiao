@@ -40,8 +40,7 @@
                     android:textSize="@dimen/text_size_15" />
             </LinearLayout>
 
-            <View
-                style="@style/GrayLine"  />
+            <View style="@style/GrayLine" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,14 +57,23 @@
 
                 <TextView
                     android:id="@+id/register_card_one_tradetype_tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
                     android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:id="@+id/register_card_one_select_tradetype_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/xia"
+                    android:gravity="right"
+                    android:text="筛选"
+                    android:textColor="@color/black3" />
             </LinearLayout>
 
-            <View
-                style="@style/GrayLine" />
+            <View style="@style/GrayLine" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,7 +107,7 @@
 
             <View
                 style="@style/GrayLine"
-                android:layout_marginTop="@dimen/x40"  />
+                android:layout_marginTop="@dimen/x40" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,14 +120,13 @@
                     android:layout_marginTop="@dimen/x30"
                     android:text="热度指数"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16"/>
+                    android:textSize="@dimen/text_size_16" />
 
                 <com.huabiao.aoiin.wedgit.DrawLineChartView
                     android:id="@+id/register_card_one_linechart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x43"
-                    android:background="@drawable/bg_round_gray" />
+                    android:layout_marginTop="@dimen/x43" />
             </LinearLayout>
 
             <TextView

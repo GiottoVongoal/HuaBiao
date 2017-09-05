@@ -177,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/pay_info_detail_tv3"
                     android:layout_toRightOf="@+id/pay_info_detail_tv3"
-                    android:text="注册类别：41类教育娱文、文体活动"
+                    android:text="41类教育娱文、文体活动"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_14" />
 
@@ -447,6 +447,7 @@
             android:background="@color/yellow_fdd400"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
+            android:textColor="@color/black3"
             android:text="立即支付"
             android:textSize="@dimen/text_size_18" />
     </LinearLayout>

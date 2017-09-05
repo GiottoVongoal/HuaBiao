@@ -33,7 +33,7 @@
                     android:drawableLeft="@mipmap/fangdajing"
                     android:drawablePadding="@dimen/x28"
                     android:gravity="center_vertical"
-                    android:hint="请输入商标名称/申请人/注册号"
+                    android:hint="@string/edittext_hint"
                     android:imeOptions="actionSearch"
                     android:maxLines="1"
                     android:paddingLeft="@dimen/x30"
@@ -95,11 +95,11 @@
         android:layout_marginRight="@dimen/x14"
         android:layout_marginTop="@dimen/x31"
         android:gravity="center"
-        app:textBackground="@mipmap/jindu_weixuan"
+        app:textBackground="@drawable/round_gray"
         app:textColor="@color/grey_999999"
         app:textLineMargin="@dimen/x19"
         app:textPaddingLeft="@dimen/x25"
         app:textPaddingRight="@dimen/x25"
-        app:textSize="@dimen/text_size_11"
+        app:textSize="@dimen/text_size_12"
         app:textWordMargin="@dimen/x17" />
 </LinearLayout>

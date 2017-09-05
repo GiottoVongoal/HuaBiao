@@ -176,7 +176,7 @@ public class MonthView extends View {
         int selected[] = drawThisMonth(canvas);
         drawNextMonth(canvas);
         drawHintCircle(canvas);
-        drawLunarText(canvas, selected);
+//        drawLunarText(canvas, selected);
         drawHoliday(canvas);
     }
 

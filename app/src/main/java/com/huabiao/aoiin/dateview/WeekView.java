@@ -188,7 +188,7 @@ public class WeekView extends View {
         initSize();
         clearData();
         int selected = drawThisWeek(canvas);
-        drawLunarText(canvas, selected);
+//        drawLunarText(canvas, selected);
         drawHintCircle(canvas);
         drawHoliday(canvas);
     }

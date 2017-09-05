@@ -95,9 +95,9 @@
                 android:id="@+id/denominate_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
                 android:layout_below="@id/zhuanpan_rl"
-                android:orientation="vertical"
-                android:layout_alignParentBottom="true">
+                android:orientation="vertical">
 
 
                 <TextView
@@ -105,10 +105,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="@dimen/text_size_14"
-                    android:textColor="@color/black3"
                     android:layout_marginBottom="@dimen/x10"
-                    android:layout_marginTop="@dimen/x38" />
+                    android:layout_marginTop="@dimen/x38"
+                    android:textColor="@color/black3"
+                    android:textSize="@dimen/text_size_14" />
 
                 <com.huabiao.aoiin.wedgit.DrawLineChartView
                     android:id="@+id/creat_name_line_chart"
@@ -120,11 +120,11 @@
                     android:id="@+id/tv_means"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:maxLines="2"
                     android:layout_marginLeft="@dimen/x50"
                     android:layout_marginRight="@dimen/x50"
                     android:lineSpacingExtra="@dimen/x19"
+                    android:maxLines="2"
+                    android:textAlignment="center"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_14" />
 
@@ -132,13 +132,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/x50"
                     android:layout_gravity="center_horizontal"
-                    android:background="@mipmap/jindu_weixuan"
-                    android:drawablePadding="@dimen/x10"
                     android:layout_marginTop="@dimen/x43"
+                    android:background="@drawable/round_gray"
+                    android:drawablePadding="@dimen/x10"
                     android:drawableRight="@mipmap/gengduo"
+                    android:gravity="center"
                     android:paddingLeft="@dimen/x20"
                     android:paddingRight="@dimen/x20"
-                    android:gravity="center"
                     android:text="点击更多"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_13" />

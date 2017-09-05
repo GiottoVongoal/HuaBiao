@@ -4,6 +4,7 @@
     <string name="me_trademark_registered_form_string">注册表单</string>
     <string name="me_remind_progress_string">进度提醒</string>
     <string name="me_order_string">我的订单</string>
+    <string name="edittext_hint">请输入商标名称/申请人/注册号</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_denominate">Denominate</string>
@@ -76,4 +77,13 @@
         <item>重度</item>
     </string-array>
 
+    <!-- 第三方 -->
+    <string name="uninstallWx">您未安装微信</string>
+    <string name="error_login">登录失败</string>
+    <string name="error_login_sina">新浪登录失败</string>
+    <string name="error_login_wx">微信登录失败</string>
+    <string name="error_login_qq">QQ登录失败</string>
+    <string name="loading_login">登录中&#8230;</string>
+    <string name="login_third_login">- 使用第三方账号登录 -</string>
+    <string name="login_third_login_declare">登录表示同意《商标协议》</string>
 </resources>

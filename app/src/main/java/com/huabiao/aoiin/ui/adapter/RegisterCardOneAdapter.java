@@ -30,6 +30,11 @@ public class RegisterCardOneAdapter extends RecyclerView.Adapter<RegisterCardOne
         this.list = list;
     }
 
+    public void update(List<SelectClassificationCheckBean> list) {
+        this.list = list;
+        notifyDataSetChanged();
+    }
+
     public OnItemClickListener itemClickListener;
 
     public void setOnItemClickListener(OnItemClickListener itemClickListener) {

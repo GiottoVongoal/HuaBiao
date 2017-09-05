@@ -24,22 +24,6 @@
     {
       "classificationname": "金属材料",
       "classificationid": "06"
-    },
-    {
-      "classificationname": "机械设备",
-      "classificationid": "07"
-    },
-    {
-      "classificationname": "手工器械",
-      "classificationid": "08"
-    },
-    {
-      "classificationname": "科学仪器",
-      "classificationid": "09"
-    },
-    {
-      "classificationname": "医疗器械",
-      "classificationid": "10"
     }
   ]
 }

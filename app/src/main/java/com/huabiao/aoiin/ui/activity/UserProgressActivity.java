@@ -89,7 +89,11 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
         //设置标题
         mCollapsingToolbarLayout.setTitleEnabled(false);
 
-        //获取我的商标列表
+        getTrademarkList();
+    }
+
+    //获取我的商标列表
+    private void getTrademarkList() {
         HomeModel.getUserTrademarkProgressListBean(this, new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
@@ -97,8 +101,8 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                     UserTrademarkProgressListBean bean = (UserTrademarkProgressListBean) mData;
                     List<TrademarkprogresslistBean> list = bean.getTrademarkprogresslist();
                     toolbar_title.setText(list.get(0).getTrademarkname());//默认显示第一个类别
-                    initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
                     initPopMenu(list);
+                    initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
                     toolbar_title.setOnClickListener(UserProgressActivity.this);
                 }
             }
@@ -149,8 +153,6 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                 toolbar_title.setTextColor(getResources().getColor(R.color.black3));
             }
         });
-        toolbar_title.setText(list.get(0).getTrademarkname());//默认显示第一个类别
-        initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
         popRecyclerView = (RecyclerView) contentView
                 .findViewById(R.id.popwin_supplier_list_rv);
         contentView.findViewById(R.id.popwin_supplier_list_bottom)
@@ -165,12 +167,14 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
             l.add(list.get(i).getTrademarkname());
         }
         menuAdapter = new UpMenuAdapter(this, l);
+        popRecyclerView.setAdapter(menuAdapter);
         menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
                 popMenu.dismiss();
                 toolbar_title.setText(list.get(position).getTrademarkname());
                 showToast(list.get(position).getTrademarkname());
+                initData(list.get(position).getTrademarkid());//根据类别获取商标进度数据
             }
         });
     }
@@ -180,8 +184,8 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.user_progress_toolbar_title:
                 //下拉菜单
+                getTrademarkList();
                 toolbar_title.setTextColor(getResources().getColor(R.color.black3));
-                popRecyclerView.setAdapter(menuAdapter);
                 popMenu.showAsDropDown(toolbar_title, 0, 3);
                 break;
             case R.id.user_progress_tv:

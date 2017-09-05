@@ -139,7 +139,7 @@ public class MultipleTextViewGroup extends RelativeLayout {
                 tv.setBackgroundResource(textBackground);
 
             tv.setTextColor(textColor);
-            tv.setPadding(textPaddingLeft, textPaddingTop, textPaddingRight, textPaddingBottom);
+            tv.setPadding(textPaddingLeft, 0, textPaddingRight, 0);
             tv.setTag(i);// 标记position
             tv.setOnClickListener(new OnClickListener() {
                 @Override
@@ -198,9 +198,9 @@ public class MultipleTextViewGroup extends RelativeLayout {
 
                 tView2.setPadding(
                         tView2.getPaddingLeft() + padding,
-                        tView2.getPaddingTop(),
+                        0,
                         tView2.getPaddingRight() + padding,
-                        tView2.getPaddingBottom());
+                        0);
 
                 addView(tView2);
             }
