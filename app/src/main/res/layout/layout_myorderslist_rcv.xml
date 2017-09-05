@@ -111,27 +111,30 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/myorders_cancel_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="32dp"
-            android:background="@mipmap/jindu_weixuan"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:text="取消"
-            android:textSize="@dimen/text_size_11" />
-
-        <TextView
             android:id="@+id/myorders_pay_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="26dp"
-            android:layout_toLeftOf="@+id/myorders_cancel_tv"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="42dp"
+            android:layout_marginTop="@dimen/x30"
             android:background="@mipmap/jindu_weixuan"
             android:gravity="center"
-            android:layout_marginTop="8dp"
             android:text="付款"
+            android:textColor="#dc1c1c"
+            android:textSize="@dimen/text_size_11" />
+
+        <TextView
+            android:id="@+id/myorders_cancel_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="33dp"
+            android:layout_marginTop="@dimen/x30"
+            android:layout_toLeftOf="@+id/myorders_pay_tv"
+            android:background="@mipmap/jindu_weixuan"
+            android:gravity="center"
+            android:text="取消"
             android:textSize="@dimen/text_size_11" />
     </RelativeLayout>
 
