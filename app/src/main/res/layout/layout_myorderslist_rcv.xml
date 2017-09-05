@@ -116,10 +116,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="42dp"
             android:layout_marginTop="@dimen/x30"
             android:background="@mipmap/red"
             android:gravity="center"
+            android:layout_marginRight="@dimen/x37"
             android:text="付款"
             android:textColor="#dc1c1c"
             android:textSize="@dimen/text_size_11" />
@@ -129,18 +129,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="33dp"
             android:layout_marginTop="@dimen/x30"
             android:layout_toLeftOf="@+id/myorders_pay_tv"
             android:background="@mipmap/jindu_weixuan"
             android:gravity="center"
+            android:layout_marginRight="@dimen/x37"
             android:text="取消"
             android:textSize="@dimen/text_size_11" />
     </RelativeLayout>
 
     <View
         style="@style/GrayLine"
-        android:layout_height="8dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/grey_efefef" />
+        android:layout_height="@dimen/x18"
+        android:background="@color/grey_f8f8f8" />
 </LinearLayout>

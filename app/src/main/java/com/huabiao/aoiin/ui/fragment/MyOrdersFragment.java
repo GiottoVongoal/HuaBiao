@@ -114,6 +114,8 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
             }
         });
         ordersrcyclerview.refresh();
+        ordersrcyclerview.setPullRefreshEnabled(false);
+        ordersrcyclerview.setLoadingMoreEnabled(false);
     }
 
     private Handler handler = new Handler() {
