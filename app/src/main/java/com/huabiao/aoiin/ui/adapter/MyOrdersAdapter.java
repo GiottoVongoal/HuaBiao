@@ -49,9 +49,11 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
     @Override
     public void onBindViewHolder(MyOrdersAdapter.ViewHolder holder, int position) {
         MyOrdersBean.MyorderslistBean bean = myOrdersList.get(position);
+        //建立监听
         holder.pay.setOnClickListener(this);
         holder.cancel.setOnClickListener(this);
         holder.traderegister.setOnClickListener(this);
+        //页面内容显示
         holder.payshow.setText("实付款：" + bean.getPrice() + "元");
         holder.tradename.setText(bean.getGoodsname());
         holder.status.setText(bean.getStatus());
@@ -80,13 +82,13 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tradename;
-        private TextView classfication;
-        private ImageView imgview;
-        private TextView payshow;
-        private TextView pay;
-        private TextView cancel;
-        private TextView status;
+        private TextView tradename;//商标名
+        private TextView classfication;//分类
+        private ImageView imgview;//订单图片
+        private TextView payshow;//付款显示
+        private TextView pay;//付款
+        private TextView cancel;//取消付款
+        private TextView status;//状态
         //跳转注册页面
         private TextView traderegister;
 

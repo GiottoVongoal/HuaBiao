@@ -36,22 +36,27 @@
 
                 <TextView
                     android:id="@+id/details_tv2"
-                    android:drawableRight="@mipmap/xia"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableRight="@mipmap/xiala"
+                    android:drawablePadding="@dimen/x20"
                     android:gravity="right"
+                    android:layout_marginRight="@dimen/x20"
                     android:padding="10dp"
-                    android:text="筛选" />
+                    android:text="筛选"
+                    android:textColor="@color/black3" />
             </LinearLayout>
 
-            <View style="@style/GrayLine" />
+            <View
+                style="@style/GrayLine"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/denominate_details_rcv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" />
+                android:layout_height="wrap_content" />
 
             <View
                 style="@style/GrayLine"
@@ -85,7 +90,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <View style="@style/GrayLine" />
+    <View style="@style/GrayLine"
+        />
 
     <TextView
         android:id="@+id/details_register_tv"

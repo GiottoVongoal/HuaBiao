@@ -8,14 +8,14 @@
     <TextView
         android:id="@+id/denominate_details_rcv_tv1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="@dimen/x106"
         android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
         android:text="最小分类"
-        android:textSize="@dimen/text_size_14"
         android:textColor="@color/black3"
-        />
-    <View style="@style/GrayLine" />
+        android:textSize="@dimen/text_size_14" />
+
+    <View style="@style/GrayLine"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"/>
 </LinearLayout>
