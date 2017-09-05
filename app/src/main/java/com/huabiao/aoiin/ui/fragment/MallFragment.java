@@ -1,20 +1,30 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MallBean;
+import com.huabiao.aoiin.bean.ScreenclassficationBean;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.MallAdapter;
+import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -58,7 +68,11 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     //筛选图片
     @Bind(R.id.mall_img)
     ImageView mall_img;
-
+    //筛选下拉菜单
+    private PopupWindow popupWindowshaixuan;
+    //下拉筛选菜单的Adapter
+    private UpMenuAdapter menuAdapter;
+    private RecyclerView popRecyclerView;
     @Override
     public void bindView(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +103,44 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
         });
     }
 
+    //下拉筛选
+    private void initShaixuan(View view, final List<ScreenclassficationBean.SlistBean> list) {
+        View contentView = view.inflate(getContext(), R.layout.layout_shaixuan, null);
+        popupWindowshaixuan = new PopupWindow(contentView,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindowshaixuan.setOutsideTouchable(true);
+        popupWindowshaixuan.setBackgroundDrawable(new BitmapDrawable());
+        popupWindowshaixuan.setFocusable(true);
+        popupWindowshaixuan.setAnimationStyle(R.style.popwin_anim_style);
+        popupWindowshaixuan.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            public void onDismiss() {
+            }
+        });
+        popRecyclerView = (RecyclerView) contentView
+                .findViewById(R.id.popwin_shaixuan_list_rv);
+        contentView.findViewById(R.id.popwin_shaixuan_list_bottom)
+                .setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        popupWindowshaixuan.dismiss();
+                    }
+                });
+        popRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        List<String> l = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            l.add(list.get(i).getClassificationname());
+        }
+        menuAdapter = new UpMenuAdapter(getContext(), l);
+        menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View view, int position) {
+                showToast(list.get(position).getClassificationname());
+                popupWindowshaixuan.dismiss();
+            }
+        });
+        //窗口显示方式
+        popupWindowshaixuan.showAsDropDown(view);
+    }
     @Override
     public void getIntentValue() {
         super.getIntentValue();
@@ -138,7 +190,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
 
     //五个按钮的监听事件实例化，点击显示不同页面，解析不同的json.
     @Override
-    public void onClick(View view) {
+    public void onClick(final View view) {
         switch (view.getId()) {
             case R.id.mall_canbuy_tv:
                 m = 2;
@@ -161,7 +213,16 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                 getList(page, m);
                 break;
             case R.id.mall_img:
-                showToast("筛选");
+                SearchModel.getScreenclassfication(getContext(), new InterfaceManager.CallBackCommon() {
+                    @Override
+                    public void getCallBackCommon(Object mData) {
+                        if (mData != null) {
+                            ScreenclassficationBean bean = (ScreenclassficationBean) mData;
+                            initShaixuan(view, bean.getSlist());
+                        }
+                    }
+                });
+                popRecyclerView.setAdapter(menuAdapter);
                 break;
             case R.id.mall_search_tv:
                 //输入框
