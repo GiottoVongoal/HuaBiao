@@ -139,4 +139,7 @@
                 android:textSize="@dimen/text_size_11" />
         </RelativeLayout>
     </LinearLayout>
+    <View style="@style/GrayLine"
+        android:layout_height="@dimen/x18"
+        android:background="@color/grey_f8f8f8"/>
 </LinearLayout>

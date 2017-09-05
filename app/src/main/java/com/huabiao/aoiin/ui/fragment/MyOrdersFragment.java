@@ -111,8 +111,6 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
                         handler.sendMessage(msg);
                     }
                 }).start();
-                mLoadType = FlagBase.SCROLL_LOAD_MORE;
-                getMyordersList(mpage, n);
             }
         });
         ordersrcyclerview.refresh();
@@ -123,6 +121,7 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 123) {
+                mLoadType = FlagBase.SCROLL_LOAD_MORE;
                 getMyordersList(mpage,n);
             }
         }
