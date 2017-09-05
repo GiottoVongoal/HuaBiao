@@ -80,6 +80,8 @@ public class DenominateRotatePanLayout extends View {
         sPaint.setColor(context.getResources().getColor(R.color.black3));
         //盘上文字大小和颜色
         textPaint.setColor(Color.WHITE);
+        //TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 19, getResources().getDisplayMetrics())
+        // 这部分设置文字大小和间距，然而并没有间距
         textPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 19, getResources().getDisplayMetrics()));
         setClickable(true);
 //        }
@@ -156,6 +158,7 @@ public class DenominateRotatePanLayout extends View {
         float hOffset = (float) (mRadius * Math.PI / panNum - textWidth / 2);
         //距离圆心的距离
         float vOffset = mRadius /3;
+
         mCanvas.drawTextOnPath(string, path, hOffset, vOffset, mTextPaint);
     }
 

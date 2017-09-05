@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -21,6 +19,7 @@ import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.recycler.XRecyclerView;
 import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.ArrayList;
@@ -32,7 +31,6 @@ import butterknife.Bind;
  * 商城列表
  */
 public class MallFragment extends BaseFragment implements View.OnClickListener {
-    private boolean isLast;     //是否滑动到底部的标志位
     private MallAdapter mallAapter;
     //将下划线放入一个数组
     View[] lines = new View[4];
@@ -41,7 +39,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     //m是传的标志位，1234代表的是全部、可求购、可抢注、可异议的页面
     private int m = 1;
     @Bind(R.id.Mall_listView)
-    ListView mall_listview;
+    XRecyclerView mall_listview;
     //可求购按钮and line
     @Bind(R.id.mall_canbuy_tv)
     TextView mall_canbuy_tv;
@@ -73,6 +71,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     //下拉筛选菜单的Adapter
     private UpMenuAdapter menuAdapter;
     private RecyclerView popRecyclerView;
+
     @Override
     public void bindView(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,24 +83,10 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
         mall_canyiyi_tv.setOnClickListener(this);
         mall_search_tv.setOnClickListener(this);
         mall_img.setOnClickListener(this);
-        //列表监听事件以及实例化
-        mall_listview.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                isLast = (totalItemCount == firstVisibleItem + visibleItemCount);     //判断是否滑倒底部
+        mall_listview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            }
-
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                //当滑动到底部 且 手指离开屏幕时 确定为需要加载分页
-                if (isLast && scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-                    page++;
-                    getList(page, m);
-                }
-            }
-        });
     }
+
 
     //下拉筛选
     private void initShaixuan(View view, final List<ScreenclassficationBean.SlistBean> list) {
@@ -141,6 +126,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
         //窗口显示方式
         popupWindowshaixuan.showAsDropDown(view);
     }
+
     @Override
     public void getIntentValue() {
         super.getIntentValue();
@@ -168,7 +154,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                     MallBean mallBean = (MallBean) mData;
                     if (page == 1) {
                         mallAapter = new MallAdapter(getContext(), mallBean.getShoppingmalllist());
-                        mall_listview.setAdapter(mallAapter);
+                      mall_listview.setAdapter(mallAapter);
                     } else {
                         mallAapter.addList(mallBean.getShoppingmalllist());
                     }
