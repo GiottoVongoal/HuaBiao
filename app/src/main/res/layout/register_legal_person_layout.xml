@@ -73,14 +73,14 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_round_gray" />
+            android:background="@drawable/bg_round_black3" />
 
         <TextView
             android:id="@+id/person_type_save_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/bg_round_gray"
+            android:background="@drawable/bg_round_black3"
             android:gravity="center"
             android:padding="10dp"
             android:text="保存" />

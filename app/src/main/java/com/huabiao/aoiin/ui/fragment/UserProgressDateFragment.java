@@ -81,7 +81,8 @@ public class UserProgressDateFragment extends BaseFragment {
         int day = Integer.parseInt(dateStr.trim());
 
         mMonthText = getResources().getStringArray(R.array.calendar_month);
-        tvTitleMonth.setText(mMonthText[month - 1]);
+        tvTitleMonth.setText(yearStr);
+        tvTitleDay.setText(mMonthText[month - 1]);
         initSchedule(year, month - 1, day);
     }
 
@@ -126,16 +127,17 @@ public class UserProgressDateFragment extends BaseFragment {
         if (year == calendar.get(Calendar.YEAR) &&
                 month == calendar.get(Calendar.MONTH) &&
                 day == calendar.get(Calendar.DAY_OF_MONTH)) {
-            tvTitleMonth.setText(mMonthText[month]);
-            tvTitleDay.setText("今天");
+            tvTitleMonth.setText(year + "");
+            tvTitleDay.setText(mMonthText[month]);
         } else {
             if (year == calendar.get(Calendar.YEAR)) {
-                tvTitleMonth.setText(mMonthText[month]);
+                tvTitleMonth.setText(year + "");
+                tvTitleDay.setText(mMonthText[month]);
             } else {
-                tvTitleMonth.setText(String.format("%s%s", String.format(getString(R.string.calendar_year), year),
+                tvTitleDay.setText(String.format("%s%s", String.format(getString(R.string.calendar_year), year),
                         mMonthText[month]));
             }
-            tvTitleDay.setText(String.format(getString(R.string.calendar_day), day));
+//            tvTitleDay.setText(String.format(getString(R.string.calendar_day), day));
         }
     }
 

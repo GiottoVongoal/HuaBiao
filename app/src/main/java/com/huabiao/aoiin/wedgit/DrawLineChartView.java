@@ -126,6 +126,7 @@ public class DrawLineChartView extends RelativeLayout {
         axisX.setMaxLabelChars(7);  //最多几个X轴坐标
         axisX.setValues(mAxisValues);  //填充X轴的坐标名称
         axisX.setHasLines(true);//x 轴分割线
+        axisX.setLineColor(getResources().getColor(R.color.grey_d5d5db));
         data.setAxisXBottom(axisX); //x 轴在底部
 //      data.setAxisXTop(axisX);  //x 轴在顶部
 
@@ -134,6 +135,7 @@ public class DrawLineChartView extends RelativeLayout {
 //        axisY.setName("温度");//y轴标注
         axisY.setTextSize(6);//设置字体大小
         axisY.setHasLines(true);
+        axisY.setLineColor(getResources().getColor(R.color.grey_d5d5db));
         axisY.setMaxLabelChars(7); //默认是3，只能看最后三个数字
         data.setAxisYLeft(axisY);  //Y轴设置在左边
 //      data.setAxisYRight(axisY);  //y轴设置在右边

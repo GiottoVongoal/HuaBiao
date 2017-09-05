@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/bg_round_gray"
+                android:background="@drawable/bg_round_black3"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="请选择申请人类型"
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/bg_round_gray"
+                android:background="@drawable/bg_round_black3"
                 android:padding="10dp"
                 android:text="请选择合同地址地区" />
 
@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/bg_round_gray"
+                android:background="@drawable/bg_round_black3"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="下一步" />
