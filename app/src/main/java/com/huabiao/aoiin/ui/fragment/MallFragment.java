@@ -85,6 +85,8 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
         mall_img.setOnClickListener(this);
         mall_listview.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        mall_listview.setPullRefreshEnabled(false);
+        mall_listview.setLoadingMoreEnabled(false);
     }
 
 

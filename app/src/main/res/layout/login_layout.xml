@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/x100"
-            app:hintAnimationEnabled="true" >
+            app:hintAnimationEnabled="true">
 
             <EditText
                 style="@style/edittext_no_bg"
@@ -87,7 +87,7 @@
                 android:layout_weight="3">
 
                 <com.huabiao.aoiin.ui.view.RippleView
-                    android:id="@+id/ripple_sina"
+                    android:id="@+id/login_sina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -109,7 +109,7 @@
                 android:layout_weight="3">
 
                 <com.huabiao.aoiin.ui.view.RippleView
-                    android:id="@+id/ripple_weixin"
+                    android:id="@+id/login_weixin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -131,7 +131,7 @@
                 android:layout_weight="3">
 
                 <com.huabiao.aoiin.ui.view.RippleView
-                    android:id="@+id/ripple_qq"
+                    android:id="@+id/login_qq"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
