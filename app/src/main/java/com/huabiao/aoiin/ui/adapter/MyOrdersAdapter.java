@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MyOrdersBean;
+import com.huabiao.aoiin.ui.fragment.PayInfoDetailFragment;
 import com.huabiao.aoiin.ui.fragment.RegisterFragment;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.JumpUtils;
@@ -73,7 +74,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
                 JumpUtils.startFragmentByName(context, RegisterFragment.class);
                 break;
             case R.id.myorders_pay_tv:
-                Toast.makeText(context, "点击付款", Toast.LENGTH_SHORT).show();
+               JumpUtils.startFragmentByName(context, PayInfoDetailFragment.class);
                 break;
             case R.id.myorders_cancel_tv:
                 Toast.makeText(context, "点击取消", Toast.LENGTH_SHORT).show();

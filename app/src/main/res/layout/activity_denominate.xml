@@ -114,6 +114,8 @@
                     android:id="@+id/creat_name_line_chart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x50"
+                    android:layout_marginRight="@dimen/x50"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
@@ -123,6 +125,7 @@
                     android:textAlignment="center"
                     android:maxLines="2"
                     android:layout_marginLeft="@dimen/x50"
+                    android:layout_marginTop="@dimen/x20"
                     android:layout_marginRight="@dimen/x50"
                     android:lineSpacingExtra="@dimen/x19"
                     android:textColor="@color/black3"

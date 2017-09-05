@@ -16,6 +16,7 @@ import com.huabiao.aoiin.wedgit.MaxRecyclerView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import butterknife.Bind;
 
@@ -216,7 +217,7 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
             case R.id.buying1_tv:
                 switch (n) {
                     case 1:
-                        showToast("求购详情页的咨询按钮");
+                        JumpUtils.startFragmentByName(getContext(),CustomerServiceFragment.class);
                         setSelect(1);
                         break;
                     case 2:
@@ -224,7 +225,8 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                         setSelect(1);
                         break;
                     case 3:
-                        showToast("抢注详情页的咨询按钮");
+
+                        JumpUtils.startFragmentByName(getContext(),CustomerServiceFragment.class);
                         setSelect(1);
                         break;
                 }

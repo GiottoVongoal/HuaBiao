@@ -78,7 +78,9 @@
             <com.huabiao.aoiin.wedgit.DrawLineChartView
                 android:id="@+id/details_linechart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x50"
+                android:layout_marginLeft="@dimen/x50"/>
 
             <TextView
                 android:id="@+id/details_content"
