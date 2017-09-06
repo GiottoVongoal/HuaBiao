@@ -39,6 +39,7 @@
         </activity>
         <!--登录-->
         <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.GetVerificationCodeActivity"/>
         <!--查询结果页面-->
         <activity android:name=".ui.fragment.SearchResultActivity" />
         <!--查询结果的筛选数据显示-->

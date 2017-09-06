@@ -38,9 +38,11 @@ public class DenominateRotatePanLayout extends View {
     //
     private Paint dPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint sPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    //文字画笔
     private Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    //
     private int InitAngle = 0;
-    //累加度数
+
     private int verPanRadius;
     private int diffRadius;
     //
@@ -152,6 +154,7 @@ public class DenominateRotatePanLayout extends View {
     //DrawText函数的作用很简单，就是在指定的区域内输出格式化的文本。这里是自定义的drawText方法。
     private void drawText(float startAngle, String string, int mRadius, Paint mTextPaint, Canvas mCanvas, RectF mRange) {
         Path path = new Path();
+//        path.addRect();
         path.addArc(mRange, startAngle, verPanRadius);
         //drawTextOnPath沿着路径绘制文本，hOffset参数指定水平偏移、vOffset指定垂直偏移
         float textWidth = mTextPaint.measureText(string);
@@ -182,6 +185,7 @@ public class DenominateRotatePanLayout extends View {
      * @param pos 如果 pos = -1 则随机，如果指定某个值，则转到某个指定区域
      */
     public void startRotate(int pos) {
+        //转的圈数取值在6-10之间
         int lap = (int) (Math.random() * 6) + 4;
 
         int angle = 0;
@@ -200,6 +204,7 @@ public class DenominateRotatePanLayout extends View {
         }
 
         int increaseDegree = lap * 360 + angle;
+        //转动总时间
         long time = (lap + angle / 360) * ONE_WHEEL_TIME;
         int DesRotate = increaseDegree + InitAngle;
 
