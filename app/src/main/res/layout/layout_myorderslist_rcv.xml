@@ -23,8 +23,7 @@
                 android:layout_alignBaseline="@+id/myorders_traderge_tv"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="21dp"
-                android:gravity="center"
-                android:text="状态" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/myorders_traderge_tv"
@@ -36,8 +35,7 @@
                 android:layout_marginLeft="19dp"
                 android:layout_marginStart="19dp"
                 android:drawableRight="@mipmap/jiantou_right"
-                android:gravity="center"
-                android:text="海飞丝商标注册" />
+                android:gravity="center" />
         </RelativeLayout>
 
         <View
@@ -50,7 +48,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp">
 
-            <ImageView
+            <com.huabiao.aoiin.wedgit.XCRoundRectImageView
                 android:id="@+id/myorders_listitem_imageView"
                 android:layout_width="@dimen/x160"
                 android:layout_height="@dimen/x160"
@@ -101,14 +99,15 @@
         android:layout_marginTop="@dimen/x25"
         android:text="实付款" />
 
-    <View
-        style="@style/GrayLine"
-        android:layout_marginTop="@dimen/x6"
-        android:background="@color/grey_E9E7E7" />
-
     <RelativeLayout
+        android:id="@+id/myorders_btn_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x6">
+
+        <View
+            style="@style/GrayLine"
+            android:background="@color/grey_E9E7E7" />
 
         <TextView
             android:id="@+id/myorders_pay_tv"
@@ -116,10 +115,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x37"
             android:layout_marginTop="@dimen/x30"
             android:background="@mipmap/red"
             android:gravity="center"
-            android:layout_marginRight="@dimen/x37"
             android:text="付款"
             android:textColor="#dc1c1c"
             android:textSize="@dimen/text_size_11" />
@@ -129,11 +128,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x37"
             android:layout_marginTop="@dimen/x30"
             android:layout_toLeftOf="@+id/myorders_pay_tv"
             android:background="@mipmap/jindu_weixuan"
             android:gravity="center"
-            android:layout_marginRight="@dimen/x37"
             android:text="取消"
             android:textSize="@dimen/text_size_11" />
     </RelativeLayout>

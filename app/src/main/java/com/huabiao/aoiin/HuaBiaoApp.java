@@ -36,7 +36,6 @@ public class HuaBiaoApp extends BaseApplication {
         Fresco.initialize(this, config);//注册图片加载框架
         initUmeng();
         initBitmap();
-
     }
     private void initBitmap() {
         ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(this)
@@ -68,9 +67,9 @@ public class HuaBiaoApp extends BaseApplication {
         com.umeng.socialize.Config.isJumptoAppStore = true;
 
         //第三方账号
-        PlatformConfig.setWeixin("key", "secret");
-        PlatformConfig.setQQZone("key", "secret");
-        PlatformConfig.setSinaWeibo("key", "secret", "http://sns.whalecloud.com/sina2/callback");
+        PlatformConfig.setWeixin("wx00c90dad6875aa9e", "2e83036d37501af863551ef666fc85fa");
+        PlatformConfig.setQQZone("1106093579", "d1148bb53c72a6fb49156769ba4f7512");
+        PlatformConfig.setSinaWeibo("3742918631", "d1148bb53c72a6fb49156769ba4f7512", "http://sns.whalecloud.com/sina2/callback");
         MobclickAgent.openActivityDurationTrack(false);
         MobclickAgent.setDebugMode(Const.DBG);
     }

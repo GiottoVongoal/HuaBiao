@@ -124,6 +124,14 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
             case R.id.search_mall_search_tv:
                 String etString = search_et.getText().toString().trim();
                 if (!TextUtils.isEmpty(etString)) {
+                    if (etString.length() <= 1) {
+                        showToast("最少也要2个字哦!");
+                        return;
+                    }
+                    if (etString.length() > 10) {
+                        showToast("最多只能10个字哦!");
+                        return;
+                    }
                     gotoSearch(etString);
                 } else {
                     ClickUtil.onBackClick();

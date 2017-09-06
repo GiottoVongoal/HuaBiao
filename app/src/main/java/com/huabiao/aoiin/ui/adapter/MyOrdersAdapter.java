@@ -5,16 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MyOrdersBean;
-import com.huabiao.aoiin.ui.fragment.PayInfoDetailFragment;
-import com.huabiao.aoiin.ui.fragment.RegisterFragment;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
+import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.ywy.mylibs.utils.BitmapLoader;
-import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import java.util.List;
  * Created by Aoiin-9 on 2017/8/24.
  */
 
-public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHolder> implements View.OnClickListener {
+public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHolder> {
     private Context context;
     private List<MyOrdersBean.MyorderslistBean> myOrdersList;
 
@@ -36,9 +36,10 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         notifyDataSetChanged();
     }
 
-    public void updateListView(List<MyOrdersBean.MyorderslistBean> list) {
-        myOrdersList = list;
-        notifyDataSetChanged();
+    public OnItemClickListener itemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
     }
 
     @Override
@@ -48,18 +49,44 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(MyOrdersAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(MyOrdersAdapter.ViewHolder holder, final int position) {
         MyOrdersBean.MyorderslistBean bean = myOrdersList.get(position);
         //建立监听
-        holder.pay.setOnClickListener(this);
-        holder.cancel.setOnClickListener(this);
-        holder.traderegister.setOnClickListener(this);
+        holder.traderegister.setText(bean.getGoodsname() + "商标注册");
         //页面内容显示
         holder.payshow.setText("实付款：" + bean.getPrice() + "元");
         holder.tradename.setText(bean.getGoodsname());
-        holder.status.setText(bean.getStatus());
+        switch (bean.getStatus()) {
+            case 1:
+                holder.status.setText("待支付");
+                holder.myorders_btn_rl.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                holder.status.setText("已完成");
+                holder.myorders_btn_rl.setVisibility(View.GONE);
+                break;
+            case 3:
+                holder.status.setText("已取消");
+                holder.myorders_btn_rl.setVisibility(View.GONE);
+                break;
+
+        }
         holder.classfication.setText(bean.getClassificationid() + "-" + bean.getClassificationname());
         BitmapLoader.ins().loadImage(bean.getGoodsimg(), R.mipmap.logobg, holder.imgview);
+
+        holder.pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "付款", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                removeData(position);
+                notifyItemRangeChanged(position, getItemCount());
+            }
+        });
     }
 
     @Override
@@ -67,26 +94,17 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         return myOrdersList.size();
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.myorders_traderge_tv:
-                JumpUtils.startFragmentByName(context, RegisterFragment.class);
-                break;
-            case R.id.myorders_pay_tv:
-               JumpUtils.startFragmentByName(context, PayInfoDetailFragment.class);
-                break;
-            case R.id.myorders_cancel_tv:
-                Toast.makeText(context, "点击取消", Toast.LENGTH_SHORT).show();
-                break;
-        }
+    public void removeData(int position) {
+        myOrdersList.remove(position);
+        notifyItemRemoved(position);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tradename;//商标名
         private TextView classfication;//分类
-        private ImageView imgview;//订单图片
+        private XCRoundRectImageView imgview;//订单图片
         private TextView payshow;//付款显示
+        private RelativeLayout myorders_btn_rl;//按钮布局
         private TextView pay;//付款
         private TextView cancel;//取消付款
         private TextView status;//状态
@@ -97,11 +115,12 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
             super(itemView);
             tradename = (TextView) itemView.findViewById(R.id.myorders_tradename_tv);
             classfication = (TextView) itemView.findViewById(R.id.myorders_classfication_TextView);
-            imgview = (ImageView) itemView.findViewById(R.id.myorders_listitem_imageView);
+            imgview = (XCRoundRectImageView) itemView.findViewById(R.id.myorders_listitem_imageView);
             payshow = (TextView) itemView.findViewById(R.id.myorders_payshow_tv);
+            myorders_btn_rl = (RelativeLayout) itemView.findViewById(R.id.myorders_btn_rl);
             pay = (TextView) itemView.findViewById(R.id.myorders_pay_tv);
-            cancel=(TextView)itemView.findViewById(R.id.myorders_cancel_tv);
-            status=(TextView)itemView.findViewById(R.id.myorders_status);
+            cancel = (TextView) itemView.findViewById(R.id.myorders_cancel_tv);
+            status = (TextView) itemView.findViewById(R.id.myorders_status);
             traderegister = (TextView) itemView.findViewById(R.id.myorders_traderge_tv);
         }
     }

@@ -100,7 +100,7 @@ public class TestRecyclerViewFragment extends BaseFragment {
                         mList = list;
                         if (mList.size() > 0 && mList != null) {
                             if (adapter != null) {
-                                adapter.updateListView(mList);
+                                adapter.update(mList);
                             }
                             ordersrcyclerview.refreshComplete();
                         }
@@ -108,7 +108,7 @@ public class TestRecyclerViewFragment extends BaseFragment {
                         if (list.size() > 0 && list != null && mpage <= 5) {
                             mList.addAll(list);
                             if (adapter != null) {
-                                adapter.updateListView(mList);
+                                adapter.update(mList);
                             }
                             ordersrcyclerview.loadMoreComplete();
                         } else {

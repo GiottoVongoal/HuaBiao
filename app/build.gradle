@@ -35,7 +35,6 @@ android {
             keyPassword "tangguo2017"
         }
     }
-
     buildTypes {
         release {
             shrinkResources true
@@ -53,6 +52,10 @@ android {
             debuggable true
             zipAlignEnabled true
         }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
 }
 

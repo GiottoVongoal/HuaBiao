@@ -61,6 +61,14 @@ public class HomeBean {
         public void setPagetitle(String pagetitle) {
             this.pagetitle = pagetitle;
         }
+
+        @Override
+        public String toString() {
+            return "BannarlistBean{" +
+                    "pageUrl='" + pageUrl + '\'' +
+                    ", pagetitle='" + pagetitle + '\'' +
+                    '}';
+        }
     }
 
     public static class HomeinfolistBean {
@@ -76,6 +84,13 @@ public class HomeBean {
 
         public void setHomeinfoUrl(String homeinfoUrl) {
             this.homeinfoUrl = homeinfoUrl;
+        }
+
+        @Override
+        public String toString() {
+            return "HomeinfolistBean{" +
+                    "homeinfoUrl='" + homeinfoUrl + '\'' +
+                    '}';
         }
     }
 
@@ -123,5 +138,24 @@ public class HomeBean {
         public void setLinechart(LineChartBean linechart) {
             this.linechart = linechart;
         }
+
+        @Override
+        public String toString() {
+            return "HotwordslistBean{" +
+                    "name='" + name + '\'' +
+                    ", industrytype='" + industrytype + '\'' +
+                    ", interpretation='" + interpretation + '\'' +
+                    ", linechart=" + linechart +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "HomeBean{" +
+                "bannarlist=" + bannarlist +
+                ", homeinfolist=" + homeinfolist +
+                ", hotwordslist=" + hotwordslist +
+                '}';
     }
 }

@@ -1,32 +1,40 @@
 {
   "shoppingmalllist": [
-
     {
-      "goodsname": "耐克",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "goodsname": "FARMHOUS",
+      "goodsimg": "https://a-ssl.duitang.com/uploads/item/201709/06/20170906162445_uGhJA.thumb.700_0.png",
       "regnumber": "19474103",
-      "applicantname": "广州美思古智能家居有限公司",
+      "applicantname": "FARMHOUS有限公司",
       "classificationname": "金属材料",
       "classificationid": "06",
       "status": "4"
     },
     {
-      "goodsname": "耐克1",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "goodsname": "SUNAD",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162501_KrBvQ.thumb.700_0.png",
       "regnumber": "19474103",
-      "applicantname": "广州美思古智能家居有限公司",
+      "applicantname": "背景阳光环球广告",
       "classificationname": "金属材料",
       "classificationid": "06",
       "status": "2"
     },
     {
-      "goodsname": "耐克2",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "goodsname": "lipsum",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162508_aT2RW.thumb.700_0.png",
       "regnumber": "19474103",
-      "applicantname": "广州美思古智能家居有限公司",
+      "applicantname": "lipsum有限公司",
       "classificationname": "金属材料",
       "classificationid": "06",
       "status": "4"
+    },
+    {
+      "goodsname": "heart",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162552_kVA32.thumb.700_0.png",
+      "regnumber": "16406103",
+      "applicantname": "heart有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "2"
     }
   ]
 }

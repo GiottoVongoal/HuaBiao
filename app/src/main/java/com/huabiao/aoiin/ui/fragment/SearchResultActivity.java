@@ -14,6 +14,8 @@ import com.huabiao.aoiin.bean.ScreenBean;
 import com.huabiao.aoiin.bean.ScreenBean.ScreenlistBean;
 import com.huabiao.aoiin.bean.SearchResultBean;
 import com.huabiao.aoiin.bean.SearchResultBean.ResultClassificationBean;
+import com.huabiao.aoiin.linechart.SuitLines;
+import com.huabiao.aoiin.linechart.Unit;
 import com.huabiao.aoiin.model.SearchModel;
 import com.huabiao.aoiin.ui.adapter.SearchResultTopAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
@@ -24,6 +26,7 @@ import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;

@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.tools.ViewTools;
-import com.huabiao.aoiin.ui.activity.GetVerificationCodeActivity;
+import com.huabiao.aoiin.ui.activity.LoginActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
@@ -94,7 +94,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.me_user_info_ll:
-                JumpUtils.startActivity(getContext(), GetVerificationCodeActivity.class);
+                JumpUtils.startActivity(getContext(), LoginActivity.class);
                 break;
             case R.id.me_user_photo:
 //                showToast("头像");

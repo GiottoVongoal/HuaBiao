@@ -108,7 +108,7 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                 buying2_tv.setText("求购此标");
                 break;
             case 2:
-                buying1_tv.setText("阻止申请");
+                buying1_tv.setText("咨询客服");
                 buying2_tv.setText("求购此标");
                 break;
             case 3:

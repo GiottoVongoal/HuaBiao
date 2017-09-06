@@ -1,12 +1,17 @@
 package com.ywy.mylibs.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
+
+import com.blankj.ALog;
 
 /**
  * 设备信息管理工具
@@ -33,6 +38,13 @@ public class DeviceUtils {
         return (int) (dip * scale + 0.5f);
     }
 
+    // Dp转Px
+    public static float convertDpToPixel(Context context, float dp) {
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * (metrics.densityDpi / 160f);
+        return px;
+    }
 
     /**
      * 将sp值转换为px值，保证文字大小不变
@@ -63,6 +75,25 @@ public class DeviceUtils {
      */
     public static int getScreenHeight(Context mContext) {
         return mContext.getResources().getDisplayMetrics().heightPixels;
+    }
+
+    // 计算每一个字符的宽度
+    public static float getCharWidth(TextView textView, char c) {
+        textView.setText(String.valueOf(c));
+        textView.measure(0, 0);
+        return textView.getMeasuredWidth();
+    }
+
+    // 计算一个字符串的宽度
+    public static int getStringWidth(TextView textView, String str, int sumWidth) {
+        for (int index = 0; index < str.length(); index++) {
+            // 计算每一个字符的宽度
+            char c = str.charAt(index);
+            float charWidth = getCharWidth(textView, c);
+            sumWidth += charWidth;
+            ALog.d("TextViewWidth", "#" + index + ": " + c + ", width=" + charWidth + ", sum=" + sumWidth);
+        }
+        return sumWidth;
     }
 
     /**

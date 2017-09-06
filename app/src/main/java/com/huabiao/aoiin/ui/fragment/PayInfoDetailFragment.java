@@ -18,10 +18,12 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ViewTools;
+import com.huabiao.aoiin.wedgit.CommonSimpleDialog;
 import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.sevenheaven.iosswitch.ShSwitchView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.utils.ClickUtil;
 
 import butterknife.Bind;
 
@@ -97,7 +99,12 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
     @Override
     public void bindView(Bundle savedInstanceState) {
         setTitle("支付信息");
-        setBackEnable();
+        setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog();
+            }
+        });
         commitBean = RegisterCommitBean.getInstance();
         ALog.i("commitBean -- >" + commitBean.toString());
         detail_orderid_tv.setText("订单编号:0123456789");
@@ -167,6 +174,27 @@ public class PayInfoDetailFragment extends BaseFragment implements View.OnClickL
                         detail_invoice_dutynum_et.getEditText().setText("");
                     }
                 });
+    }
+
+    //弹框提示是否关闭订单
+    private void showDialog() {
+        View.OnClickListener left = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        };
+        View.OnClickListener right = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClickUtil.onBackClick();
+            }
+        };
+        CommonSimpleDialog dialog = new CommonSimpleDialog(getContext());
+        dialog.setContent("你要离开订单啦!!!")
+                .setButton(true, "去意已决", "我再想想", left, right)
+                .build()
+                .show();
     }
 
     private void setOnClick() {

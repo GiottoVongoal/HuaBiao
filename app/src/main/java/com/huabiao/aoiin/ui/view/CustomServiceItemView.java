@@ -38,7 +38,7 @@ public class CustomServiceItemView extends RelativeLayout {
 
     public CustomServiceItemView(Context context) {
         super(context);
-        view = inflate(context, R.layout.layout_customerservicelist, this);
+        view = inflate(context, R.layout.customer_service_item_layout, this);
         this.context = context;
         service_name_tv = (TextView) view.findViewById(R.id.customer_service_name_tv);
         service_company_tv = (TextView) view.findViewById(R.id.customer_service_company_tv);

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.TextView;
@@ -67,7 +68,7 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
     //刷新list
     private List<MyOrdersBean.MyorderslistBean> list_refresh;
     //将四个页面装进一个数组
-    private int[]pagercv;
+    private int[] pagercv;
 
     @Override
     public BasePresenter getPresenter() {
@@ -94,7 +95,6 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
                 mpage = 1;
                 mLoadType = FlagBase.PULL_TO_REFRESH;
                 getMyordersList(mpage, n);
-
             }
 
             @Override
@@ -116,6 +116,8 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
         ordersrcyclerview.refresh();
         ordersrcyclerview.setPullRefreshEnabled(false);
         ordersrcyclerview.setLoadingMoreEnabled(false);
+        // 设置Item增加、移除动画
+        ordersrcyclerview.setItemAnimator(new DefaultItemAnimator());
     }
 
     private Handler handler = new Handler() {
@@ -124,7 +126,7 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
             super.handleMessage(msg);
             if (msg.what == 123) {
                 mLoadType = FlagBase.SCROLL_LOAD_MORE;
-                getMyordersList(mpage,n);
+                getMyordersList(mpage, n);
             }
         }
     };
@@ -137,7 +139,7 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
                     MyOrdersBean bean = (MyOrdersBean) mData;
                     List<MyOrdersBean.MyorderslistBean> list = bean.getMyorderslist();
                     if (mLoadType == FlagBase.PULL_TO_REFRESH) {
-                                  list_refresh = list;
+                        list_refresh = list;
                         if (list_refresh.size() > 0 && list_refresh != null) {
                             if (ordersAdapter != null) {
                                 ordersAdapter.update(list_refresh);
