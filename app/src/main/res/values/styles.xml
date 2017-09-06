@@ -19,7 +19,6 @@
     </style>
     <!--加粗的黑色标题文字-->
     <style name="title_tv_style">
-        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black3</item>
         <item name="android:textSize">@dimen/text_size_16</item>
     </style>

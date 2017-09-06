@@ -22,8 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:textColor="@color/black3"
-        android:textSize="@dimen/text_size_17"
-        android:textStyle="bold" />
+        android:textSize="@dimen/text_size_17" />
 
     <TextView
         android:id="@+id/tv_right"

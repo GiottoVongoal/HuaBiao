@@ -15,6 +15,7 @@
         android:id="@+id/register_data_preview_item_top_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black3"
         android:layout_gravity="center" />
 
     <TextView
@@ -22,5 +23,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/black3"
         android:layout_marginTop="5dp" />
 </LinearLayout>

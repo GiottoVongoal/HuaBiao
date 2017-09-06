@@ -47,8 +47,7 @@
                 android:text="行业"
                 android:textAlignment="center"
                 android:textColor="@color/black3"
-                android:textSize="@dimen/text_size_14"
-                android:textStyle="bold" />
+                android:textSize="@dimen/text_size_14" />
         </LinearLayout>
     </LinearLayout>
 
