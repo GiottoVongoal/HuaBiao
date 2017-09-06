@@ -70,6 +70,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     //用于传值的nameString
     private String nameString;
     private List<CreatNameBean.RecommendnamelistBean> list;
+    //行业弹框
     private PopupWindow industryWindow;
     private String industry = "";
     private String str = "";
@@ -102,12 +103,15 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                     if (!isFirst) {
                         rp.startRotate(-1);
                         goBtnIV.setEnabled(false);
-                    }else{
+                    } else {
                         //如果是第一次进入设置数据为list[0]
                         rp.initAngle();
                         meansTV.setText(list.get(0).getMeans());
-                        trademarkclassificationTv.setText(list.get(0).getLinechart().getClassificationid()+ " - " + list.get(0).getLinechart().getTrademarkclassification());
+                        trademarkclassificationTv.setText(list.get(0).getLinechart().getClassificationid() + " - " + list.get(0).getLinechart().getTrademarkclassification());
                         creat_name_line_chart.setLineChartBean(list.get(0).getLinechart());
+                        //将第一次的默认数据赋给nameString并传入下一个页面
+                        String s1=list.get(0).getLinechart().getTradename();
+                        nameString=s1;
                     }
 
 
@@ -130,7 +134,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
 
     //写入数据
     private void setCreatNameData(int position) {
-        nameString = list.get(position).getLinechart().getTradename();
+            nameString = list.get(position).getLinechart().getTradename();
 //        nameTv.setText(nameString);
         meansTV.setText(list.get(position).getMeans());
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
@@ -210,7 +214,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
         menuAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
-                industry=industryList.get(position).getIndustryname();
+                industry = industryList.get(position).getIndustryname();
                 denominate_industry_btn.setText(industry);
                 showToast(industryList.get(position).getIndustryname());
                 industryWindow.dismiss();

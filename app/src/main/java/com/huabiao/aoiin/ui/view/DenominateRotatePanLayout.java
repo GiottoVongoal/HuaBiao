@@ -68,10 +68,6 @@ public class DenominateRotatePanLayout extends View {
     }
 
     public void refreshPan(Context context) {
-        //根据list来确定盘的数目
-//        if (list != null && list.size() != 0) {
-//            panNum = list.size();
-        //给转盘固定盘数
         panNum = 4;
         if (360 % panNum != 0)
             InitAngle = 360 / panNum;
@@ -83,24 +79,23 @@ public class DenominateRotatePanLayout extends View {
         //盘上文字大小和颜色
         textPaint.setColor(Color.WHITE);
         //TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 19, getResources().getDisplayMetrics())
-        // 这部分设置文字大小和间距，然而并没有间距
+        // 这部分设置文字大小
         textPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 19, getResources().getDisplayMetrics()));
         setClickable(true);
-//        }
     }
 
-    /*组件宽高计算   模式简介：
-     MeasureSpec.UNSPECIFIED, 未指定模式
-     MeasureSpec.EXACTLY, 精准模式
-      MeasureSpec.AT_MOST, 最大模式;
-        */
+        /*组件宽高计算   模式简介：
+         MeasureSpec.UNSPECIFIED, 未指定模式
+         MeasureSpec.EXACTLY, 精准模式
+          MeasureSpec.AT_MOST, 最大模式;
+            */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int mHeight = BitmapUtil.dip2px(context, 300);
         int mWidth = BitmapUtil.dip2px(context, 300);
-//MeasureSpec.getMode(int) : 获取模式;MeasureSpec.getSize(int) : 获取大小;
+        //MeasureSpec.getMode(int) : 获取模式;MeasureSpec.getSize(int) : 获取大小;
         int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -154,14 +149,12 @@ public class DenominateRotatePanLayout extends View {
     //DrawText函数的作用很简单，就是在指定的区域内输出格式化的文本。这里是自定义的drawText方法。
     private void drawText(float startAngle, String string, int mRadius, Paint mTextPaint, Canvas mCanvas, RectF mRange) {
         Path path = new Path();
-//        path.addRect();
+        //将椭圆弧追加到当前路径
         path.addArc(mRange, startAngle, verPanRadius);
         //drawTextOnPath沿着路径绘制文本，hOffset参数指定水平偏移、vOffset指定垂直偏移
         float textWidth = mTextPaint.measureText(string);
-        float hOffset = (float) (mRadius * Math.PI / panNum - textWidth / 2);
-        //距离圆心的距离
+        float hOffset = (float) (mRadius * Math.PI / panNum - textWidth/2 );
         float vOffset = mRadius /3;
-
         mCanvas.drawTextOnPath(string, path, hOffset, vOffset, mTextPaint);
     }
 
@@ -172,7 +165,7 @@ public class DenominateRotatePanLayout extends View {
     }
 
     //旋转一圈所需要的时间
-    private static final long ONE_WHEEL_TIME = 800;
+    private static final long ONE_WHEEL_TIME = 900;
 
 
     public void initAngle(){
@@ -186,8 +179,8 @@ public class DenominateRotatePanLayout extends View {
      */
     public void startRotate(int pos) {
         //转的圈数取值在6-10之间
-        int lap = (int) (Math.random() * 6) + 4;
-
+//        int lap = (int) (Math.random() * 6) +4;
+        int lap = 6;
         int angle = 0;
         if (pos < 0) {
             angle = (int) (Math.random() * 360);
