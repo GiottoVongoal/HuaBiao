@@ -83,7 +83,11 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
         details_tv2.setOnClickListener(this);
         details_register_tv.setOnClickListener(this);
         //标题的右边图片以及监听事件
-        setTitle(nameString);
+        if (nameString == null) {
+        } else {
+            setTitle(nameString);
+        }
+
         setBackEnable();
         //收藏图片
         final ImageView shoucang = setRightIvResourse(R.mipmap.shoucang2);
