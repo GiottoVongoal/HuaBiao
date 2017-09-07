@@ -73,10 +73,10 @@ public class TestRecyclerViewFragment extends BaseFragment {
             }
         });
         ordersrcyclerview.refresh();
-        //关闭下拉刷新
-        ordersrcyclerview.setPullRefreshEnabled(false);
-        //关闭上滑加载
-        ordersrcyclerview.setLoadingMoreEnabled(false);
+//        //关闭下拉刷新
+//        ordersrcyclerview.setPullRefreshEnabled(false);
+//        //关闭上滑加载
+//        ordersrcyclerview.setLoadingMoreEnabled(false);
     }
 
     private Handler handler = new Handler() {

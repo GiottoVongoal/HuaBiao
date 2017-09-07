@@ -10,6 +10,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.HomeBean;
 import com.huabiao.aoiin.bean.HomeBean.HomeinfolistBean;
 import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
+import com.ywy.mylibs.utils.BitmapLoader;
 
 import java.util.List;
 
@@ -36,8 +37,7 @@ public class InfomationAdapter extends RecyclerView.Adapter<InfomationAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-//        BitmapLoader.ins().loadImage(list.get(position).getHomeinfoUrl(), R.mipmap.ic_launcher, holder.item_iv);
-        holder.item_iv.setBackground(context.getResources().getDrawable(R.mipmap.zhixun_bg));
+        BitmapLoader.ins().loadImage(list.get(position).getHomeinfoUrl(), R.mipmap.zhixun_bg, holder.item_iv);
     }
 
     @Override

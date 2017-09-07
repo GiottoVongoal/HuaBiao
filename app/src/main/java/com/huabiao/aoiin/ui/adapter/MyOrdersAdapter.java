@@ -1,20 +1,23 @@
 package com.huabiao.aoiin.ui.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MyOrdersBean;
-import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
+import com.huabiao.aoiin.ui.fragment.PayInfoDetailActivity;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager.OnItemClickListener;
 import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.List;
 
@@ -50,7 +53,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(MyOrdersAdapter.ViewHolder holder, final int position) {
-        MyOrdersBean.MyorderslistBean bean = myOrdersList.get(position);
+        final MyOrdersBean.MyorderslistBean bean = myOrdersList.get(position);
         //建立监听
         holder.traderegister.setText(bean.getGoodsname() + "商标注册");
         //页面内容显示
@@ -74,17 +77,26 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
         holder.classfication.setText(bean.getClassificationid() + "-" + bean.getClassificationname());
         BitmapLoader.ins().loadImage(bean.getGoodsimg(), R.mipmap.logobg, holder.imgview);
 
+        holder.myorders_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemClickListener.onItemClickListener(view, position);
+            }
+        });
+
         holder.pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "付款", Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putInt("status", bean.getStatus() == 1 ? 1 : 0);
+                JumpUtils.startActivity(context, PayInfoDetailActivity.class, bundle);
             }
         });
         holder.cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 removeData(position);
-                notifyItemRangeChanged(position, getItemCount());
+                notifyItemRangeChanged(position + 1, getItemCount());
             }
         });
     }
@@ -96,10 +108,11 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
 
     public void removeData(int position) {
         myOrdersList.remove(position);
-        notifyItemRemoved(position);
+        notifyItemRemoved(position + 1);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        private LinearLayout myorders_ll;//item布局
         private TextView tradename;//商标名
         private TextView classfication;//分类
         private XCRoundRectImageView imgview;//订单图片
@@ -113,6 +126,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
+            myorders_ll = (LinearLayout) itemView.findViewById(R.id.myorders_ll);
             tradename = (TextView) itemView.findViewById(R.id.myorders_tradename_tv);
             classfication = (TextView) itemView.findViewById(R.id.myorders_classfication_TextView);
             imgview = (XCRoundRectImageView) itemView.findViewById(R.id.myorders_listitem_imageView);
