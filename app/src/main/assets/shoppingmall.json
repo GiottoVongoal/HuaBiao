@@ -1,157 +1,94 @@
 {
   "shoppingmalllist": [
     {
-      "goodsname": "海飞丝",
-      "goodsimg": "",
+      "goodsname": "LOREM IPSUM",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162541_ZNP4R.thumb.700_0.png",
       "regnumber": "16404103",
-      "applicantname": "广州美思古智能家居有限公司",
+      "applicantname": "LOREM IPSUM有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "3"
+    },
+    {
+      "goodsname": "Bing",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162515_dPjmA.thumb.700_0.png",
+      "regnumber": "16404103",
+      "applicantname": "Bing有限公司",
       "classificationname": "金属材料",
       "classificationid": "06",
       "status": "1"
     },
     {
-      "goodsname": "Lee",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205853_txaH3.thumb.700_0.jpeg",
-      "regnumber": "16404205",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "CK",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205843_CMzAV.thumb.700_0.jpeg",
-      "regnumber": "16406103",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "chanel",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205813_nxUmk.thumb.700_0.jpeg",
-      "regnumber": "16654103",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "StarbucksCoffee",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205357_EcWfu.thumb.700_0.jpeg",
-      "regnumber": "16374103",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "LV",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210247_e2Nds.thumb.700_0.jpeg",
-      "regnumber": "16403503",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "D&G",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210228_mYkie.thumb.700_0.jpeg",
-      "regnumber": "16408503",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "gucci",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210208_xNedz.thumb.700_0.jpeg",
-      "regnumber": "16404903",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "美国队长",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210055_YRMw4.thumb.700_0.jpeg",
-      "regnumber": "16344103",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "耐克",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "goodsname": "SUNAD",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162501_KrBvQ.thumb.700_0.png",
       "regnumber": "19474103",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "1"
-    },
-    {
-      "goodsname": "Lee",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205853_txaH3.thumb.700_0.jpeg",
-      "regnumber": "16404205",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "3"
-    },
-    {
-      "goodsname": "CK",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917205843_CMzAV.thumb.700_0.jpeg",
-      "regnumber": "16406103",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "3"
-    },
-    {
-      "goodsname": "D&G",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210228_mYkie.thumb.700_0.jpeg",
-      "regnumber": "16408503",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "3"
-    },
-    {
-      "goodsname": "gucci",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201309/17/20130917210208_xNedz.thumb.700_0.jpeg",
-      "regnumber": "16404903",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "3"
-    },
-    {
-      "goodsname": "耐克",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
-      "regnumber": "19474103",
-      "applicantname": "广州美思古智能家居有限公司",
-      "classificationname": "金属材料",
-      "classificationid": "06",
-      "status": "4"
-    },
-    {
-      "goodsname": "耐克1",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
-      "regnumber": "19474103",
-      "applicantname": "广州美思古智能家居有限公司",
+      "applicantname": "背景阳光环球广告",
       "classificationname": "金属材料",
       "classificationid": "06",
       "status": "2"
     },
     {
-      "goodsname": "耐克2",
-      "goodsimg": "https://b-ssl.duitang.com/uploads/blog/201408/18/20140818004321_JBLmY.thumb.700_0.jpeg",
+      "goodsname": "GOOD",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162546_HtzaW.thumb.700_0.png",
+      "regnumber": "16404205",
+      "applicantname": "GOOD有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "3"
+    },
+    {
+      "goodsname": "FARMHOUS",
+      "goodsimg": "https://a-ssl.duitang.com/uploads/item/201709/06/20170906162445_uGhJA.thumb.700_0.png",
       "regnumber": "19474103",
-      "applicantname": "广州美思古智能家居有限公司",
+      "applicantname": "FARMHOUS有限公司",
       "classificationname": "金属材料",
       "classificationid": "06",
       "status": "4"
+    },
+    {
+      "goodsname": "heart",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162552_kVA32.thumb.700_0.png",
+      "regnumber": "16406103",
+      "applicantname": "heart有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "2"
+    },
+    {
+      "goodsname": "RebelMonkey",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162520_UwXkZ.thumb.700_0.png",
+      "regnumber": "16404205",
+      "applicantname": "RebelMonkey有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "1"
+    },
+    {
+      "goodsname": "smackdab",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162526_KczPn.thumb.700_0.png",
+      "regnumber": "16406103",
+      "applicantname": "smackdab有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "1"
+    },
+    {
+      "goodsname": "lipsum",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162508_aT2RW.thumb.700_0.png",
+      "regnumber": "19474103",
+      "applicantname": "lipsum有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "4"
+    },
+    {
+      "goodsname": "pincub",
+      "goodsimg": "https://b-ssl.duitang.com/uploads/item/201709/06/20170906162531_ReUvk.thumb.700_0.png",
+      "regnumber": "16654103",
+      "applicantname": "pincub有限公司",
+      "classificationname": "金属材料",
+      "classificationid": "06",
+      "status": "1"
     }
   ]
 }

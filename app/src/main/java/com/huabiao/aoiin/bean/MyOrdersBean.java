@@ -32,7 +32,7 @@ public class MyOrdersBean {
         private String price;
         private String classificationname;
         private String classificationid;
-        private String status;
+        private int status;
 
         public String getGoodsname() {
             return goodsname;
@@ -74,11 +74,11 @@ public class MyOrdersBean {
             this.classificationid = classificationid;
         }
 
-        public String getStatus() {
+        public int getStatus() {
             return status;
         }
 
-        public void setStatus(String status) {
+        public void setStatus(int status) {
             this.status = status;
         }
     }

@@ -11,68 +11,96 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/x100"
         android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/textInputLayout_username"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x100"
-            app:hintAnimationEnabled="true">
+            android:layout_marginLeft="@dimen/x73"
+            android:layout_marginRight="@dimen/x73"
+            android:layout_marginTop="@dimen/x206"
+            android:background="@color/white">
 
-            <EditText
-                style="@style/edittext_no_bg"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/login_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="用户名"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_toLeftOf="@+id/iv_delete_phone"
+                app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/errorAppearance"
+                app:hintAnimationEnabled="true">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/textInputLayout_password"
+                <EditText
+                    style="@style/edittext_no_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="手机号"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/iv_delete_phone"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/login_getcode_tv"
+                android:src="@mipmap/login_edit_delete"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/login_getcode_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/x40"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="获取验证码"
+                android:textColor="@color/grey_848484" />
+        </RelativeLayout>
+
+        <com.huabiao.aoiin.timecount.VerficationCodeView
+            android:id="@+id/login_vcode_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x100"
-            app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-            app:errorEnabled="true"
-            app:errorTextAppearance="@style/errorAppearance"
-            app:hintAnimationEnabled="true"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/visibility_selector">
-            <!--app:passwordToggleDrawable="@drawable/visibility_selector"-->
-
-            <EditText
-                style="@style/edittext_no_bg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="密码"
-                android:inputType="numberPassword" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_marginLeft="@dimen/x73"
+            android:layout_marginRight="@dimen/x73"
+            android:layout_marginTop="@dimen/x68" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/login_do_tv"
+        style="@style/text_btn_style"
+        android:layout_marginTop="@dimen/x160"
+        android:gravity="center"
+        android:text="登录" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x48"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/esports_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginTop="@dimen/x24"
             android:background="@color/transparent"
-            android:enabled="false"
+            android:clickable="true"
             android:gravity="center"
-            android:text="@string/login_third_login"
-            android:textColor="@color/black3"
-            android:textSize="@dimen/text_size_16" />
+            android:text="@string/login_third_login_declare"
+            android:textColor="@color/grey_848484"
+            android:textSize="@dimen/text_size_12" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/x60"
-            android:layout_marginTop="@dimen/x60"
+            android:layout_marginTop="@dimen/x178"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -97,8 +125,8 @@
                     app:rv_zoomDuration="130">
 
                     <ImageView
-                        android:layout_width="@dimen/x90"
-                        android:layout_height="@dimen/x90"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@mipmap/ic_log_sina" />
                 </com.huabiao.aoiin.ui.view.RippleView>
             </RelativeLayout>
@@ -109,7 +137,7 @@
                 android:layout_weight="3">
 
                 <com.huabiao.aoiin.ui.view.RippleView
-                    android:id="@+id/login_weixin"
+                    android:id="@+id/login_wechat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -119,8 +147,8 @@
                     app:rv_zoomDuration="130">
 
                     <ImageView
-                        android:layout_width="@dimen/x90"
-                        android:layout_height="@dimen/x90"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@mipmap/ic_log_wx" />
                 </com.huabiao.aoiin.ui.view.RippleView>
             </RelativeLayout>
@@ -141,8 +169,8 @@
                     app:rv_zoomDuration="130">
 
                     <ImageView
-                        android:layout_width="@dimen/x90"
-                        android:layout_height="@dimen/x90"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@mipmap/ic_log_qq" />
                 </com.huabiao.aoiin.ui.view.RippleView>
             </RelativeLayout>
@@ -152,18 +180,5 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/esports_des"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/x40"
-            android:background="@color/transparent"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="@string/login_third_login_declare"
-            android:textColor="@color/black3"
-            android:textSize="@dimen/text_size_10" />
     </LinearLayout>
 </LinearLayout>

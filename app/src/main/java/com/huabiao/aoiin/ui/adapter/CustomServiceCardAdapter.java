@@ -55,7 +55,7 @@ public class CustomServiceCardAdapter extends PagerAdapter implements ICardAdapt
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = LayoutInflater.from(container.getContext())
-                .inflate(R.layout.layout_customerservicelist, container, false);
+                .inflate(R.layout.customer_service_item_layout, container, false);
         container.addView(view);
         RelativeLayout rl = (RelativeLayout) view.findViewById(R.id.customer_service_rl);
         bind(mData.get(position), view);

@@ -58,13 +58,13 @@ public class UserAddressAddFragment extends BaseFragment implements View.OnClick
         setTitle("新增地址");
         setBackEnable();
 
-        add_phone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(add_phone_et, "请输入正确的手机号!", 1));
-        add_phone_et.setCounterEnabled(true);
-        add_phone_et.setCounterMaxLength(11);//最大输入限制数(输入框后边有0/11的字数统计)
+//        add_phone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(add_phone_et, "请输入正确的手机号!", 1));
+//        add_phone_et.setCounterEnabled(true);
+//        add_phone_et.setCounterMaxLength(11);//最大输入限制数(输入框后边有0/11的字数统计)
 
-        add_code_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(add_code_et, "请输入正确的邮政编码!", 2));
-        add_code_et.setCounterEnabled(true);
-        add_code_et.setCounterMaxLength(6);
+//        add_code_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(add_code_et, "请输入正确的邮政编码!", 2));
+//        add_code_et.setCounterEnabled(true);
+//        add_code_et.setCounterMaxLength(6);
 
         add_area_et.setFocusable(false);
         add_area_et.setOnClickListener(this);

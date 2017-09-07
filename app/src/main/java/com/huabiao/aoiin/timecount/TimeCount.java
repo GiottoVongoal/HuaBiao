@@ -1,8 +1,9 @@
-package com.huabiao.aoiin.tools;
+package com.huabiao.aoiin.timecount;
 
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.widget.TextView;
+
 import com.huabiao.aoiin.R;
 
 public class TimeCount extends CountDownTimer {
@@ -23,13 +24,13 @@ public class TimeCount extends CountDownTimer {
         tvGetcode.setText("重新获取");
         tvGetcode.setClickable(true);
         tvGetcode.setTextColor(context.getResources().getColor(
-                R.color.grey_848484));
+                R.color.yellow_fdd400));
     }
 
     @Override
     public void onTick(long millisUntilFinished) {// 计时过程显示
         tvGetcode.setClickable(false);
-        tvGetcode.setText("重新获取("+millisUntilFinished / 1000 +"s)");
+        tvGetcode.setText("重新获取(" + millisUntilFinished / 1000 + "s)");
         tvGetcode.setTextColor(context.getResources().getColor(
                 R.color.yellow_fdd400));
     }

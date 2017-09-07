@@ -117,6 +117,15 @@ public abstract class BaseActivity<T extends BasePresenter<IBaseView>> extends A
     }
 
     /**
+     * 设置返回键监听
+     */
+    public void setBackClickListener(View.OnClickListener clickListener) {
+        if (iv_left != null) {
+            iv_left.setOnClickListener(clickListener);
+        }
+    }
+
+    /**
      * 设置title
      */
     public void setTitle(String title) {

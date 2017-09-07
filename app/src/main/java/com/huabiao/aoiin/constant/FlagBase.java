@@ -31,4 +31,5 @@ public class FlagBase {
     public static final int BUSINESS_LICENCE = 10073;// 营业执照标识
 
     public static final String THIRD_PLATFORM = "third_platform";
+    public static final int CODE_LOGIN2REGISTER = 103;
 }

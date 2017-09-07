@@ -12,13 +12,14 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MallBean.ShoppingmalllistBean;
 import com.huabiao.aoiin.ui.fragment.BuyingFragment;
+import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.JumpUtils;
 import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.List;
 
-public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder>implements View.OnClickListener {
+public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> implements View.OnClickListener {
     private Context context;
     private List<ShoppingmalllistBean> data2;
 
@@ -61,24 +62,24 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder>imp
                     holder.mall_status_img.setImageResource(R.mipmap.chenggong);
                     break;
                 case 2:
-                    holder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
+                    holder.mall_listitem_buy_tv.setVisibility(View.GONE);
                     holder.mall_listitem_yiyi_tv.setVisibility(View.VISIBLE);
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     holder.show_TextView.setText("待审核中");
                     holder.mall_status_img.setImageResource(R.mipmap.shenghezhong);
                     break;
                 case 3:
-                    holder. mall_listitem_buy_tv.setVisibility(View.GONE);
-                    holder. mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
-                    holder. mall_listitem_Cybersquatting_tv.setVisibility(View.VISIBLE);
+                    holder.mall_listitem_buy_tv.setVisibility(View.GONE);
+                    holder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
+                    holder.mall_listitem_Cybersquatting_tv.setVisibility(View.VISIBLE);
                     holder.show_TextView.setText("商标无效");
                     holder.mall_status_img.setImageResource(R.mipmap.useless);
                     break;
                 case 4:
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
-                    holder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
+                    holder.mall_listitem_buy_tv.setVisibility(View.GONE);
                     holder.mall_listitem_yiyi_tv.setVisibility(View.VISIBLE);
-                    holder. show_TextView.setText("初审公告");
+                    holder.show_TextView.setText("初审公告");
                     holder.mall_status_img.setImageResource(R.mipmap.notice);
                     break;
             }
@@ -86,7 +87,7 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder>imp
         //抢注、求购、异议按钮监听事件
         holder.mall_listitem_Cybersquatting_tv.setOnClickListener(this);
         holder.mall_listitem_buy_tv.setOnClickListener(this);
-        holder. mall_listitem_yiyi_tv.setOnClickListener(this);
+        holder.mall_listitem_yiyi_tv.setOnClickListener(this);
 
     }
 
@@ -94,6 +95,7 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder>imp
     public int getItemCount() {
         return data2.size();
     }
+
     //设置pageid 1--求购详情页，2--异议详情页，3--抢注详情页，传到下一页面根据id设置值
     @Override
     public void onClick(View view) {
@@ -111,8 +113,9 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder>imp
         }
         JumpUtils.startFragmentByName(context, BuyingFragment.class, bundle);
     }
+
     class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
+        public XCRoundRectImageView imageView;
         public TextView mallTextview;
         public TextView show_TextView;
         public TextView register_TextView;
@@ -122,28 +125,29 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder>imp
         public TextView mall_listitem_Cybersquatting_tv;
         public TextView mall_listitem_yiyi_tv;
         public ImageView mall_status_img;
+
         public ViewHolder(View itemView) {
             super(itemView);
             //商标图片
-           imageView = (ImageView) itemView.findViewById(R.id.mall_listitem_imageView);
+            imageView = (XCRoundRectImageView) itemView.findViewById(R.id.mall_listitem_imageView);
             //商标名
-           mallTextview = (TextView) itemView.findViewById(R.id.mall_contentTextView);
+            mallTextview = (TextView) itemView.findViewById(R.id.mall_contentTextView);
             //状态
-           show_TextView = (TextView) itemView.findViewById(R.id.show_TextView);
+            show_TextView = (TextView) itemView.findViewById(R.id.show_TextView);
             // 注册号
-          register_TextView = (TextView) itemView.findViewById(R.id.mall_register_number);
+            register_TextView = (TextView) itemView.findViewById(R.id.mall_register_number);
             //申请人
             applicant_TexView = (TextView) itemView.findViewById(R.id.mall_applicantTextview);
             //分类id
             classfication_TextView = (TextView) itemView.findViewById(R.id.mall_classficationid_TextView);
             //异议按钮
-           mall_listitem_yiyi_tv = (TextView) itemView.findViewById(R.id.mall_listitem_yiyi);
+            mall_listitem_yiyi_tv = (TextView) itemView.findViewById(R.id.mall_listitem_yiyi);
             //状态图片
             mall_status_img = (ImageView) itemView.findViewById(R.id.mall_status_img);
             //抢注按钮
             mall_listitem_Cybersquatting_tv = (TextView) itemView.findViewById(R.id.mall_listitem_Cybersquatting);
             //求购按钮
-           mall_listitem_buy_tv = (TextView) itemView.findViewById(R.id.mall_listitem_buy);
+            mall_listitem_buy_tv = (TextView) itemView.findViewById(R.id.mall_listitem_buy);
         }
     }
 }

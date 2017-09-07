@@ -4,12 +4,10 @@ import android.app.Activity;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
-import com.huabiao.aoiin.constant.FlagBase;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.utils.SocializeUtils;
-import com.ywy.mylibs.utils.SPUtils;
 import com.ywy.mylibs.utils.StringUtil;
 import com.ywy.mylibs.utils.ToastUtils;
 import com.ywy.mylibs.wedgit.dialog.CommonLoadingDialog;
@@ -28,13 +26,11 @@ public class UMLoginUtil {
     private String access_token = "";
     private String openId = "";
     private CommonLoadingDialog dialog;
-    private SPUtils spUtils;
 
     public UMLoginUtil(Activity context) {
         this.mContext = context;
         mShareAPI = UMShareAPI.get(context);
-        dialog = new CommonLoadingDialog(context, "");//需要进度条文字
-        spUtils = new SPUtils("");//需要sp名称
+        dialog = new CommonLoadingDialog(context, "");
     }
 
     public void login(SHARE_MEDIA platform, LoginCallBack loginCallBack) {
@@ -46,11 +42,11 @@ public class UMLoginUtil {
     }
 
     public void deleteAuth() {
-        String platform = spUtils.getString(FlagBase.THIRD_PLATFORM);
-        if (StringUtil.isEmpty(platform)) {
-            return;
-        }
-        mShareAPI.deleteOauth(mContext, SHARE_MEDIA.convertToEmun(platform), null);
+//        String platform = PreferenceHelper.ins().getStringShareData(AppKey.THIRD_PLATFORM, false);
+//        if (StringUtil.isEmpty(platform)) {
+//            return;
+//        }
+//        mShareAPI.deleteOauth(mContext, SHARE_MEDIA.convertToEmun(platform), null);
     }
 
     UMAuthListener authListener = new UMAuthListener() {
@@ -114,7 +110,7 @@ public class UMLoginUtil {
                 sb.append(key + " = ").append(map.get(key)).append(" ");
             }
             ALog.d(sb.toString());
-            spUtils.put(FlagBase.THIRD_PLATFORM, share_media.toString());
+//            PreferenceHelper.ins().storeShareStringData(AppKey.THIRD_PLATFORM, share_media.toString());
             switch (share_media) {
                 case QQ:
                     handlerQQInfo(map);
@@ -196,8 +192,7 @@ public class UMLoginUtil {
             Set<String> keys = data.keySet();
             for (String key : keys) {
                 if (key.equals("name")) {
-                    name = data.get(key)
-                            .toString();
+                    name = data.get(key).toString();
                 }
                 if (key.equals("iconurl")) {
                     avatar = data.get(key).toString();

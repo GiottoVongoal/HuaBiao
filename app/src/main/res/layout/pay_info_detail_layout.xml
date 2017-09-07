@@ -40,7 +40,7 @@
                     android:id="@+id/pay_info_detail_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="姓名"
+                    android:text="人"
                     android:textColor="@color/black3"
                     android:textSize="@dimen/text_size_15" />
 
@@ -60,7 +60,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pay_info_detail_name"
                     android:layout_marginTop="@dimen/x20"
-                    android:text="地址地址地址地址地址地址地址地址"
+                    android:drawableLeft="@mipmap/dingwei"
+                    android:gravity="center"
+                    android:text="上海市闵行区城开中心"
                     android:textColor="@color/grey_848484"
                     android:textSize="@dimen/text_size_12" />
             </RelativeLayout>

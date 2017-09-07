@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.HomeBean;
 import com.huabiao.aoiin.bean.HomeBean.BannarlistBean;
@@ -97,6 +98,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             }
         });
 
+        bannarList = new ArrayList<>();
         home_search_tv.setOnClickListener(this);
         home_search_ll.setOnClickListener(this);
         home_creat_name_ll.setOnClickListener(this);
@@ -108,7 +110,10 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
                     HomeBean bean = (HomeBean) mData;
+                    ALog.i(bannarList == null ? "null" : "not null");
                     bannarList = bean.getBannarlist();
+                    ALog.i(bannarList == null ? "null" : "not null");
+                    ALog.i(bannarList);
                     initBannar();
                     showHotWords(bean);
                     showInfo(bean);
