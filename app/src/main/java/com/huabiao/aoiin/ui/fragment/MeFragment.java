@@ -61,7 +61,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 showToast("我的收藏");
-//                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
+                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
             }
         }, true);
         viewTools.addeditview(me_add_item_ll, null, text[1], new View.OnClickListener() {
@@ -98,7 +98,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.me_user_photo:
 //                showToast("头像");
-//                JumpUtils.startFragmentByName(getContext(), PayInfoDetailFragment.class);
                 break;
             case me_trademark_registered_form_cv:
                 JumpUtils.startFragmentByName(getContext(), TradeFormListFragment.class);

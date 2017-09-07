@@ -68,7 +68,8 @@
         <activity
             android:name=".ui.fragment.DenominateActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
+        <!--支付页面-->
+        <activity android:name=".ui.fragment.PayInfoDetailActivity" />
 
         <!--微信 必须在wxapi下，记得加上项目的包名-->
         <activity

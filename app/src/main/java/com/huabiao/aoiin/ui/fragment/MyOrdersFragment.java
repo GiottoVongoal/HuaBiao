@@ -18,6 +18,7 @@ import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.recycler.XRecyclerView;
+import com.ywy.mylibs.utils.JumpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,10 +115,18 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
             }
         });
         ordersrcyclerview.refresh();
-        ordersrcyclerview.setPullRefreshEnabled(false);
         ordersrcyclerview.setLoadingMoreEnabled(false);
         // 设置Item增加、移除动画
         ordersrcyclerview.setItemAnimator(new DefaultItemAnimator());
+
+        ordersAdapter.setOnItemClickListener(new InterfaceManager.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View view, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("status", list_refresh.get(position).getStatus() == 1 ? 1 : 0);
+                JumpUtils.startActivity(getContext(), PayInfoDetailActivity.class, bundle);
+            }
+        });
     }
 
     private Handler handler = new Handler() {

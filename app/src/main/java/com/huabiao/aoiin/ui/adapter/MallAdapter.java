@@ -56,7 +56,7 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> im
             switch (status) {
                 case 1:
                     holder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
-                    holder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
+                    holder.mall_listitem_yiyi_tv.setVisibility(View.GONE);
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     holder.show_TextView.setText("注册成功");
                     holder.mall_status_img.setImageResource(R.mipmap.chenggong);
@@ -70,7 +70,7 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> im
                     break;
                 case 3:
                     holder.mall_listitem_buy_tv.setVisibility(View.GONE);
-                    holder.mall_listitem_yiyi_tv.setVisibility(View.INVISIBLE);
+                    holder.mall_listitem_yiyi_tv.setVisibility(View.GONE);
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.VISIBLE);
                     holder.show_TextView.setText("商标无效");
                     holder.mall_status_img.setImageResource(R.mipmap.useless);

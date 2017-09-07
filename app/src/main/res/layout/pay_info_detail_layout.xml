@@ -10,6 +10,7 @@
     <include layout="@layout/view_title" />
 
     <ScrollView
+        android:id="@+id/pay_info_detail_sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -211,223 +212,231 @@
                     android:textSize="@dimen/text_size_13" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x78">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/x26"
-                    android:text="开具发票"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_16" />
-
-                <com.sevenheaven.iosswitch.ShSwitchView
-                    android:id="@+id/pay_info_detail_switch_view"
-                    android:layout_width="60dip"
-                    android:layout_height="40dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/x26"
-                    shSwitch:shadowSpace="8dip"
-                    shSwitch:tintColor="@color/yellow_fdd400" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/pay_info_detail_invoice_rl"
+            <LinearLayout
+                android:id="@+id/pay_info_detail_pay_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@color/white"
-                android:padding="@dimen/x26"
-                android:visibility="visible">
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/pay_info_detail_invoice_type_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="发票类型：纸质发票"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_14" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x78">
 
-                <TextView
-                    android:id="@+id/pay_info_detail_invoice_content_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_invoice_type_tv"
-                    android:layout_marginTop="@dimen/x28"
-                    android:text="发票内容：明细"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_14" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x26"
+                        android:text="开具发票"
+                        android:textColor="@color/black3"
+                        android:textSize="@dimen/text_size_16" />
 
-                <TextView
-                    android:id="@+id/pay_info_detail_invoice_header_tv"
-                    android:layout_width="wrap_content"
+                    <com.sevenheaven.iosswitch.ShSwitchView
+                        android:id="@+id/pay_info_detail_switch_view"
+                        android:layout_width="60dip"
+                        android:layout_height="40dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/x26"
+                        shSwitch:shadowSpace="8dip"
+                        shSwitch:tintColor="@color/yellow_fdd400" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/pay_info_detail_invoice_rl"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_invoice_content_tv"
-                    android:layout_marginTop="@dimen/x28"
-                    android:text="发票抬头："
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_14" />
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/white"
+                    android:padding="@dimen/x26"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/pay_info_detail_invoice_type_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="发票类型：纸质发票"
+                        android:textColor="@color/black3"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/pay_info_detail_invoice_content_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/pay_info_detail_invoice_type_tv"
+                        android:layout_marginTop="@dimen/x28"
+                        android:text="发票内容：明细"
+                        android:textColor="@color/black3"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/pay_info_detail_invoice_header_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/pay_info_detail_invoice_content_tv"
+                        android:layout_marginTop="@dimen/x28"
+                        android:text="发票抬头："
+                        android:textColor="@color/black3"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <RadioGroup
+                        android:id="@+id/pay_info_detail_rg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/pay_info_detail_invoice_header_tv"
+                        android:layout_toRightOf="@+id/pay_info_detail_invoice_header_tv"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/pay_info_detail_personal_rb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/checkbox_select_type"
+                            android:drawablePadding="@dimen/x16"
+                            android:text="个人"
+                            android:textSize="@dimen/text_size_14" />
+
+                        <RadioButton
+                            android:id="@+id/pay_info_detail_company_rb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:checked="true"
+                            android:drawableLeft="@drawable/checkbox_select_type"
+                            android:drawablePadding="@dimen/x16"
+                            android:text="公司"
+                            android:textSize="@dimen/text_size_14" />
+
+                    </RadioGroup>
+
+                    <RelativeLayout
+                        android:id="@+id/pay_info_detail_invoice_header_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/pay_info_detail_invoice_header_tv"
+                        android:layout_marginTop="@dimen/x28">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/pay_info_detail_invoice_header_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:hintAnimationEnabled="true">
+
+                            <EditText
+                                style="@style/edittext_no_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="@dimen/x16"
+                                android:hint="发票抬头"
+                                android:inputType="text"
+                                android:textSize="@dimen/text_size_14" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <ImageView
+                            android:id="@+id/pay_info_detail_invoice_header_delete_iv"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@mipmap/login_edit_delete"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/pay_info_detail_invoice_dutynum_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/pay_info_detail_invoice_header_rl"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@+id/pay_info_detail_invoice_dutynum_tip_iv">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/pay_info_detail_invoice_dutynum_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:hintAnimationEnabled="true">
+
+                            <EditText
+                                style="@style/edittext_no_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="纳税人识别号"
+                                android:inputType="text"
+                                android:textSize="14sp" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <ImageView
+                            android:id="@+id/pay_info_detail_invoice_dutynum_delete_iv"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@mipmap/login_edit_delete"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/pay_info_detail_invoice_dutynum_tip_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/pay_info_detail_invoice_header_rl"
+                        android:layout_marginTop="@dimen/x30"
+                        android:src="@mipmap/gantanhao" />
+                </RelativeLayout>
 
                 <RadioGroup
-                    android:id="@+id/pay_info_detail_rg"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/pay_info_detail_pay_way_rg"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/pay_info_detail_invoice_header_tv"
-                    android:layout_toRightOf="@+id/pay_info_detail_invoice_header_tv"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/x29"
+                    android:paddingRight="@dimen/x29">
 
                     <RadioButton
-                        android:id="@+id/pay_info_detail_personal_rb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:button="@null"
-                        android:drawableLeft="@drawable/checkbox_select_type"
-                        android:drawablePadding="@dimen/x16"
-                        android:text="个人"
-                        android:textSize="@dimen/text_size_14" />
-
-                    <RadioButton
-                        android:id="@+id/pay_info_detail_company_rb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"
+                        android:id="@+id/pay_info_detail_pay_wechat_rb"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x87"
                         android:button="@null"
                         android:checked="true"
-                        android:drawableLeft="@drawable/checkbox_select_type"
-                        android:drawablePadding="@dimen/x16"
-                        android:text="公司"
+                        android:drawableLeft="@mipmap/weixin"
+                        android:drawablePadding="@dimen/x11"
+                        android:drawableRight="@drawable/checkbox_select_type"
+                        android:text="微信支付"
+                        android:textColor="@color/black3"
                         android:textSize="@dimen/text_size_14" />
 
+                    <View style="@style/GrayLine" />
+
+                    <RadioButton
+                        android:id="@+id/pay_info_detail_pay_alipay_rb"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x87"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:drawableLeft="@mipmap/zhifubao"
+                        android:drawablePadding="@dimen/x11"
+                        android:drawableRight="@drawable/checkbox_select_type"
+                        android:text="支付宝支付"
+                        android:textColor="@color/black3"
+                        android:textSize="@dimen/text_size_14" />
                 </RadioGroup>
-
-                <RelativeLayout
-                    android:id="@+id/pay_info_detail_invoice_header_rl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_invoice_header_tv"
-                    android:layout_marginTop="@dimen/x28">
-
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/pay_info_detail_invoice_header_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:hintAnimationEnabled="true">
-
-                        <EditText
-                            style="@style/edittext_no_bg"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:drawablePadding="@dimen/x16"
-                            android:hint="发票抬头"
-                            android:inputType="text"
-                            android:textSize="@dimen/text_size_14" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <ImageView
-                        android:id="@+id/pay_info_detail_invoice_header_delete_iv"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/login_edit_delete"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/pay_info_detail_invoice_dutynum_rl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pay_info_detail_invoice_header_rl"
-                    android:layout_marginTop="5dp"
-                    android:layout_toLeftOf="@+id/pay_info_detail_invoice_dutynum_tip_iv">
-
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/pay_info_detail_invoice_dutynum_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:hintAnimationEnabled="true">
-
-                        <EditText
-                            style="@style/edittext_no_bg"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="纳税人识别号"
-                            android:inputType="text"
-                            android:textSize="14sp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <ImageView
-                        android:id="@+id/pay_info_detail_invoice_dutynum_delete_iv"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/login_edit_delete"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <ImageView
-                    android:id="@+id/pay_info_detail_invoice_dutynum_tip_iv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/pay_info_detail_invoice_header_rl"
-                    android:layout_marginTop="@dimen/x30"
-                    android:src="@mipmap/gantanhao" />
-            </RelativeLayout>
-
-            <RadioGroup
-                android:id="@+id/pay_info_detail_pay_way_rg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/x29"
-                android:paddingRight="@dimen/x29">
-
-                <RadioButton
-                    android:id="@+id/pay_info_detail_pay_wechat_rb"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/x87"
-                    android:button="@null"
-                    android:checked="true"
-                    android:drawableLeft="@mipmap/weixin"
-                    android:drawablePadding="@dimen/x11"
-                    android:drawableRight="@drawable/checkbox_select_type"
-                    android:text="微信支付"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_14" />
-
-                <View style="@style/GrayLine" />
-
-                <RadioButton
-                    android:id="@+id/pay_info_detail_pay_alipay_rb"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/x87"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawableLeft="@mipmap/zhifubao"
-                    android:drawablePadding="@dimen/x11"
-                    android:drawableRight="@drawable/checkbox_select_type"
-                    android:text="支付宝支付"
-                    android:textColor="@color/black3"
-                    android:textSize="@dimen/text_size_14" />
-            </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
     <View style="@style/GrayLine" />
 
     <LinearLayout
+        android:id="@+id/pay_info_detail_pay_bottom_ll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x96"
         android:layout_gravity="center"
