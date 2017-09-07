@@ -63,9 +63,10 @@
                         android:id="@+id/user_address_add_phone_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-                        app:errorEnabled="true"
-                        app:errorTextAppearance="@style/errorAppearance">
+                        app:hintAnimationEnabled="true">
+                        <!--app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"-->
+                        <!--app:errorEnabled="true"-->
+                        <!--app:errorTextAppearance="@style/errorAppearance"-->
                         <!--app:errorEnabled="true"时，开启错误提示-->
                         <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
 
@@ -89,14 +90,6 @@
                         android:src="@mipmap/login_edit_delete"
                         android:visibility="invisible" />
                 </RelativeLayout>
-                <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:id="@+id/user_address_add_area_et"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:theme="@style/TextInputLayoutLineColor"-->
-                <!--app:hintAnimationEnabled="true"-->
-                <!--app:hintTextAppearance="@style/hintAppearance">-->
 
                 <EditText
                     android:id="@+id/user_address_add_area_et"
@@ -106,7 +99,7 @@
                     android:layout_marginTop="10dp"
                     android:hint="地区"
                     android:inputType="text" />
-                <!--</android.support.design.widget.TextInputLayout>-->
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

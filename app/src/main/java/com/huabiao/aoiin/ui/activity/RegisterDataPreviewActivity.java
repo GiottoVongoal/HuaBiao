@@ -5,12 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterBean;
@@ -24,7 +22,6 @@ import com.huabiao.aoiin.model.MeModel;
 import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.tools.ActivityCollector;
 import com.huabiao.aoiin.ui.adapter.RegisterDataPreviewAdapter;
-import com.huabiao.aoiin.ui.fragment.PayInfoDetailActivity;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
@@ -33,9 +30,6 @@ import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.BitmapLoader;
 import com.ywy.mylibs.utils.ClickUtil;
 import com.ywy.mylibs.utils.JumpUtils;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import butterknife.Bind;
 
@@ -312,6 +306,8 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
                     showToast("下载表单");
                 } else {
                     setSelect(1);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("status", 1);//显示支付内容
                     JumpUtils.startActivity(this, PayInfoDetailActivity.class);
                     ActivityCollector.finishAll();
                     commitBean.emptyBean();

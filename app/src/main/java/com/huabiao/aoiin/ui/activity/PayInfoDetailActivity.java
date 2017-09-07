@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.fragment;
+package com.huabiao.aoiin.ui.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -6,6 +6,8 @@ import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.TextInputLayout;
+import android.transition.Slide;
+import android.transition.Visibility;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
+import com.huabiao.aoiin.tools.ActivityCollector;
 import com.huabiao.aoiin.tools.ViewTools;
 import com.huabiao.aoiin.wedgit.CommonSimpleDialog;
 import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
@@ -50,8 +53,8 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
     TextView pay_info_detail_tradename_top_tv;
     @Bind(R.id.pay_info_detail_register_type_top_tv)
     TextView pay_info_detail_register_type_top_tv;
-    @Bind(R.id.pay_info_detail_trade_rl)
-    RelativeLayout detail_traderl;
+    @Bind(R.id.pay_info_detail_trade_ll)
+    LinearLayout detail_trade_ll;
     @Bind(R.id.pay_info_detail_tradetype_tv)
     TextView detail_tradetype_tv;//商标类型
     @Bind(R.id.pay_info_detail_tradename_tv)
@@ -212,7 +215,7 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
     }
 
     private void setOnClick() {
-        detail_traderl.setOnClickListener(this);
+        detail_trade_ll.setOnClickListener(this);
         detail_invoice_dutynum_tip_iv.setOnClickListener(this);
         detail_pay_tv.setOnClickListener(this);
     }
@@ -230,6 +233,7 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
                 public void onClick(View v) {
                     ClickUtil.onBackClick();
                     PayInfoDetailActivity.this.finish();
+//                    overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
                 }
             };
             CommonSimpleDialog dialog = new CommonSimpleDialog(this);
@@ -239,13 +243,20 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
                     .show();
         } else {
             PayInfoDetailActivity.this.finish();
+//            overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
         }
+    }
+
+    private Visibility buildReturnTransition() {
+        Visibility enterTransition = new Slide();
+        enterTransition.setDuration(300);
+        return enterTransition;
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.pay_info_detail_trade_rl:
+            case R.id.pay_info_detail_trade_ll:
                 //商标信息
                 break;
             case R.id.pay_info_detail_invoice_dutynum_tip_iv:

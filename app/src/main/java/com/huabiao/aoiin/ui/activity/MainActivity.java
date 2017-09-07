@@ -6,6 +6,9 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.transition.ChangeBounds;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
@@ -144,6 +147,15 @@ public class MainActivity extends BaseActivity {
     }
 
     private void addFragment(Fragment fragment) {
+//        Slide slideTransition = new Slide(Gravity.LEFT);
+//        slideTransition.setDuration(300);
+//        ChangeBounds changeBoundsTransition = new ChangeBounds();
+//        changeBoundsTransition.setDuration(300);
+        // Create fragment and define some of it transitions
+//        fragment.setReenterTransition(slideTransition);
+//        fragment.setExitTransition(slideTransition);
+//        fragment.setSharedElementEnterTransition(changeBoundsTransition);
+
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction tran = manager.beginTransaction();
         tran.replace(R.id.botton_fl, fragment);

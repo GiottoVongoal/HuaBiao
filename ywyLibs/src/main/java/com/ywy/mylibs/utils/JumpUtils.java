@@ -1,9 +1,17 @@
 package com.ywy.mylibs.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.transition.ChangeBounds;
+import android.transition.Slide;
+import android.view.Gravity;
+import android.view.View;
 
+import com.ywy.mylibs.R;
 import com.ywy.mylibs.base.BindFragmentAct;
 import com.ywy.mylibs.base.WebViewAct;
 import com.ywy.mylibs.base.impl.IWebView;
@@ -13,7 +21,10 @@ import com.ywy.mylibs.base.impl.IWebView;
  */
 
 public class JumpUtils {
-
+    static final String EXTRA_SAMPLE = "sample";
+    static final String EXTRA_TYPE = "type";
+    static final int TYPE_PROGRAMMATICALLY = 0;
+    static final int TYPE_XML = 1;
 
     /**
      * 根据id进行页面跳转,针对跳转到fragment
@@ -26,12 +37,17 @@ public class JumpUtils {
     }
 
     public static void startFragmentByName(Context context, Class toClass, Bundle bundle) {
+        Intent i = new Intent(context, BindFragmentAct.class);
+//        i.putExtra(EXTRA_SAMPLE, "sample");
+//        i.putExtra(EXTRA_TYPE, TYPE_PROGRAMMATICALLY);
+//        final Pair<View, String>[] pairs = TransitionHelper.createSafeTransitionParticipants((Activity) context, true);
+//        ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, pairs);
         String className = toClass.getName();
-        Intent intent = new Intent(context, BindFragmentAct.class);
-        intent.putExtra("className", className);
+        i.putExtra("className", className);
         if (bundle != null)
-            intent.putExtras(bundle);
-        context.startActivity(intent);
+            i.putExtras(bundle);
+//        context.startActivity(i, transitionActivityOptions.toBundle());
+        context.startActivity(i);
     }
 
 
@@ -53,12 +69,16 @@ public class JumpUtils {
      * @param bundle
      */
     public static void startActivity(Context context, Class toClass, Bundle bundle) {
-        Intent intent = new Intent(context, toClass);
+        Intent i = new Intent(context, toClass);
+//        i.putExtra(EXTRA_SAMPLE, "sample");
+//        i.putExtra(EXTRA_TYPE, TYPE_PROGRAMMATICALLY);
+//        final Pair<View, String>[] pairs = TransitionHelper.createSafeTransitionParticipants((Activity) context, true);
+//        ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, pairs);
         if (bundle != null)
-            intent.putExtras(bundle);
-        context.startActivity(intent);
+            i.putExtras(bundle);
+//        context.startActivity(i, transitionActivityOptions.toBundle());
+        context.startActivity(i);
     }
-
 
     public static void loadWebViewWithOutTitle(Context context, String url) {
         loadWebView(context, url, null, false, null);

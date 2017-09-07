@@ -104,6 +104,7 @@ public class SearchModel {
                 jsonString = GetJsonToName.getJson(context, "buyinginfo.json");
                 break;
             case 2:
+            case 4:
                 jsonString = GetJsonToName.getJson(context, "yiyi.json");
                 break;
             case 3:
@@ -158,6 +159,7 @@ public class SearchModel {
             callback.getCallBackCommon(bean);
         }
     }
+
     /**
      * 商标质押列表
      *
@@ -167,11 +169,12 @@ public class SearchModel {
     public static void getPledgeList(Context context, final InterfaceManager.CallBackCommon callback) {
         String jsonString = GetJsonToName.getJson(context, "pledge.json");
         Gson gson = new Gson();
-       PledgeBean bean = gson.fromJson(jsonString, PledgeBean.class);
+        PledgeBean bean = gson.fromJson(jsonString, PledgeBean.class);
         if (callback != null) {
             callback.getCallBackCommon(bean);
         }
     }
+
     /**
      * 商标拍卖列表
      *
@@ -186,13 +189,14 @@ public class SearchModel {
             callback.getCallBackCommon(bean);
         }
     }
+
     /**
      * 我的订单列表
      *
      * @param context
      * @param callback
      */
-    public static void getMyordersList(Context context,  int index,final InterfaceManager.CallBackCommon callback) {
+    public static void getMyordersList(Context context, int index, final InterfaceManager.CallBackCommon callback) {
         String jsonList = "";
         switch (index) {
             case 1:

@@ -1,4 +1,4 @@
-package com.huabiao.aoiin.ui.fragment;
+package com.huabiao.aoiin.ui.activity;
 
 
 import android.graphics.drawable.BitmapDrawable;
@@ -19,6 +19,7 @@ import com.huabiao.aoiin.bean.RegisterOneIndustryBean;
 import com.huabiao.aoiin.model.AnalysisJson;
 import com.huabiao.aoiin.model.RegisterModel;
 import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
+import com.huabiao.aoiin.ui.fragment.DenominateDetailsFragment;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.ui.view.DenominateRotatePanLayout;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;

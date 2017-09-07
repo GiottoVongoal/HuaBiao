@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -19,7 +20,7 @@ import com.ywy.mylibs.utils.StringUtil;
 
 import java.util.List;
 
-public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> implements View.OnClickListener {
+public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> {
     private Context context;
     private List<ShoppingmalllistBean> data2;
 
@@ -52,30 +53,30 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> im
         //根据json中的status设置文字显示状态。1-注册成功，2-待审核中，3-商标无效，4-初审公告
         String statusString = mb.getStatus();
         if (!StringUtil.isEmpty(statusString)) {
-            int status = Integer.parseInt(statusString);
+            final int status = Integer.parseInt(statusString);
             switch (status) {
-                case 1:
+                case 1://可求购
                     holder.mall_listitem_buy_tv.setVisibility(View.VISIBLE);
                     holder.mall_listitem_yiyi_tv.setVisibility(View.GONE);
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     holder.show_TextView.setText("注册成功");
                     holder.mall_status_img.setImageResource(R.mipmap.chenggong);
                     break;
-                case 2:
+                case 2://可异议
                     holder.mall_listitem_buy_tv.setVisibility(View.GONE);
                     holder.mall_listitem_yiyi_tv.setVisibility(View.VISIBLE);
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     holder.show_TextView.setText("待审核中");
                     holder.mall_status_img.setImageResource(R.mipmap.shenghezhong);
                     break;
-                case 3:
+                case 3://可抢注
                     holder.mall_listitem_buy_tv.setVisibility(View.GONE);
                     holder.mall_listitem_yiyi_tv.setVisibility(View.GONE);
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.VISIBLE);
                     holder.show_TextView.setText("商标无效");
                     holder.mall_status_img.setImageResource(R.mipmap.useless);
                     break;
-                case 4:
+                case 4://可异议
                     holder.mall_listitem_Cybersquatting_tv.setVisibility(View.GONE);
                     holder.mall_listitem_buy_tv.setVisibility(View.GONE);
                     holder.mall_listitem_yiyi_tv.setVisibility(View.VISIBLE);
@@ -83,12 +84,16 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> im
                     holder.mall_status_img.setImageResource(R.mipmap.notice);
                     break;
             }
+            //抢注、求购、异议按钮监听事件
+            holder.mall_listitem_ll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("pageid", status);
+                    JumpUtils.startFragmentByName(context, BuyingFragment.class, bundle);
+                }
+            });
         }
-        //抢注、求购、异议按钮监听事件
-        holder.mall_listitem_Cybersquatting_tv.setOnClickListener(this);
-        holder.mall_listitem_buy_tv.setOnClickListener(this);
-        holder.mall_listitem_yiyi_tv.setOnClickListener(this);
-
     }
 
     @Override
@@ -97,24 +102,9 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> im
     }
 
     //设置pageid 1--求购详情页，2--异议详情页，3--抢注详情页，传到下一页面根据id设置值
-    @Override
-    public void onClick(View view) {
-        Bundle bundle = new Bundle();
-        switch (view.getId()) {
-            case R.id.mall_listitem_buy:
-                bundle.putInt("pageid", 1);
-                break;
-            case R.id.mall_listitem_yiyi:
-                bundle.putInt("pageid", 2);
-                break;
-            case R.id.mall_listitem_Cybersquatting:
-                bundle.putInt("pageid", 3);
-                break;
-        }
-        JumpUtils.startFragmentByName(context, BuyingFragment.class, bundle);
-    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        private LinearLayout mall_listitem_ll;
         public XCRoundRectImageView imageView;
         public TextView mallTextview;
         public TextView show_TextView;
@@ -128,6 +118,8 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> im
 
         public ViewHolder(View itemView) {
             super(itemView);
+            //商城item布局
+            mall_listitem_ll = (LinearLayout) itemView.findViewById(R.id.mall_listitem_ll);
             //商标图片
             imageView = (XCRoundRectImageView) itemView.findViewById(R.id.mall_listitem_imageView);
             //商标名

@@ -1,6 +1,5 @@
 package com.huabiao.aoiin.ui.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -9,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -22,7 +20,7 @@ import com.huabiao.aoiin.bean.HomeBean.BannarlistBean;
 import com.huabiao.aoiin.bean.HomeBean.HomeinfolistBean;
 import com.huabiao.aoiin.bean.HomeBean.HotwordslistBean;
 import com.huabiao.aoiin.model.HomeModel;
-import com.huabiao.aoiin.ui.activity.MainActivity;
+import com.huabiao.aoiin.ui.activity.DenominateActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
 import com.huabiao.aoiin.ui.adapter.HotWordsAdapter;

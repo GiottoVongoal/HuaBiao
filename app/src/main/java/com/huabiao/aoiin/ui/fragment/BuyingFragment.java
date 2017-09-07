@@ -84,11 +84,12 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
     //商标注册信息初审公告日期
     @Bind(R.id.buying_registerinfo_preliminarynoticedate)
     TextView registerinfo_preliminarynoticedate;
-    int n;
+    private int status;
     //下面的两个按钮
     private TextView[] tvlist = new TextView[2];
     //未收藏
     private boolean flag = false;
+
     @Override
     public BasePresenter getPresenter() {
         return null;
@@ -98,16 +99,14 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
     public void bindView(Bundle savedInstanceState) {
         //bundle传递数据，最下方按钮的文字变化，case123是表示页面id
         Bundle bundle = getActivity().getIntent().getExtras();
-        n = bundle.getInt("pageid", 1);
+        status = bundle.getInt("pageid", 1);
         setTitle("商标详情页");
         setRightIvResourse(getResources().getDrawable(R.mipmap.ic_launcher));
         setBackEnable();
-        switch (n) {
+        switch (status) {
             case 1:
-                buying1_tv.setText("咨询客服");
-                buying2_tv.setText("求购此标");
-                break;
             case 2:
+            case 4:
                 buying1_tv.setText("咨询客服");
                 buying2_tv.setText("求购此标");
                 break;
@@ -137,7 +136,7 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
         });
         buying1_tv.setOnClickListener(this);
         buying2_tv.setOnClickListener(this);
-        SearchModel.getBuyingInfo(getContext(), n, new InterfaceManager.CallBackCommon() {
+        SearchModel.getBuyingInfo(getContext(), status, new InterfaceManager.CallBackCommon() {
             @Override
             public void getCallBackCommon(Object mData) {
                 if (mData != null) {
@@ -148,19 +147,20 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                     view_classfication.setText(buyingInfoBean.getClassificationid() + "类" + "-" + buyingInfoBean.getClassifictiontype());
                     view_trademarkstatus.setText(buyingInfoBean.getStatus());
                     //根据json的状态位来显示不同的状态
-                    int i = Integer.parseInt(buyingInfoBean.getStatus());
+//                    int i = Integer.parseInt(buyingInfoBean.getStatus());
+                    int i = status;
                     switch (i) {
-                        case 0:
-                            view_trademarkstatus.setText("商标无效");
-                            break;
                         case 1:
-                            view_trademarkstatus.setText("初审公告");
-                            break;
-                        case 2:
                             view_trademarkstatus.setText("注册成功");
                             break;
-                        case 3:
+                        case 2:
                             view_trademarkstatus.setText("待审核中");
+                            break;
+                        case 3:
+                            view_trademarkstatus.setText("商标无效");
+                            break;
+                        case 4:
+                            view_trademarkstatus.setText("初审公告");
                             break;
                     }
                     //商标基础信息获取数据
@@ -215,9 +215,9 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buying1_tv:
-                switch (n) {
+                switch (status) {
                     case 1:
-                        JumpUtils.startFragmentByName(getContext(),CustomerServiceFragment.class);
+                        JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
                         setSelect(1);
                         break;
                     case 2:
@@ -226,13 +226,13 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                         break;
                     case 3:
 
-                        JumpUtils.startFragmentByName(getContext(),CustomerServiceFragment.class);
+                        JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
                         setSelect(1);
                         break;
                 }
                 break;
             case R.id.buying2_tv:
-                switch (n) {
+                switch (status) {
                     case 1:
                         showToast("求购详情页的求购按钮");
                         setSelect(0);

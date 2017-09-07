@@ -27,6 +27,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@style/Theme.ActivityAnimation</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="Theme.ActivityAnimation" parent="@android:style/Animation">

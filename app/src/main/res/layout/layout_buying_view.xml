@@ -21,7 +21,6 @@
         android:layout_gravity="center_horizontal"
 
         android:layout_marginTop="@dimen/x27"
-        android:text="商标名"
         android:textColor="@color/black3"
         android:textSize="@dimen/text_size_17" />
 
@@ -31,7 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/x20"
-        android:text="商标类型"
         android:textColor="@color/black3"
         android:textSize="@dimen/text_size_14" />
 
@@ -46,7 +44,6 @@
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="上面的变化"
         android:textColor="@color/black3"
         android:textSize="@dimen/text_size_12" />
 </LinearLayout>

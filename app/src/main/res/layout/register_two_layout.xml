@@ -131,10 +131,10 @@
                         android:id="@+id/register_card_two_userphone_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
-                        app:errorEnabled="true"
-                        app:errorTextAppearance="@style/errorAppearance"
                         app:hintAnimationEnabled="true">
+                        <!--app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"-->
+                        <!--app:errorEnabled="true"-->
+                        <!--app:errorTextAppearance="@style/errorAppearance"-->
                         <!--app:errorEnabled="true"时，开启错误提示-->
                         <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
 

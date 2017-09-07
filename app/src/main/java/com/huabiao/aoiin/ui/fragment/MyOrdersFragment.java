@@ -13,6 +13,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.MyOrdersBean;
 import com.huabiao.aoiin.constant.FlagBase;
 import com.huabiao.aoiin.model.SearchModel;
+import com.huabiao.aoiin.ui.activity.PayInfoDetailActivity;
 import com.huabiao.aoiin.ui.adapter.MyOrdersAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.ywy.mylibs.base.BaseFragment;
