@@ -124,6 +124,7 @@
         android:paddingLeft="@dimen/x14"
         android:paddingRight="@dimen/x14"
         android:paddingTop="@dimen/x31"
+        app:columnNum="4"
         app:textBackground="@drawable/round_gray"
         app:textColor="@color/grey_999999"
         app:textLineMargin="@dimen/x19"
