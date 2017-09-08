@@ -13,9 +13,9 @@
         android:id="@+id/register_one_tradename_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/x190"
         android:paddingLeft="@dimen/x81"
-        android:paddingRight="@dimen/x81">
+        android:paddingRight="@dimen/x81"
+        android:paddingTop="@dimen/x190">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/register_one_tradename_et"
@@ -35,8 +35,8 @@
             android:id="@+id/register_one_tradename_delete_iv"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_alignBaseline="@+id/register_one_tradename_et"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:src="@mipmap/login_edit_delete"
             android:visibility="invisible" />
@@ -46,9 +46,9 @@
         android:id="@+id/register_one_goodsname_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/x78"
         android:paddingLeft="@dimen/x81"
-        android:paddingRight="@dimen/x81">
+        android:paddingRight="@dimen/x81"
+        android:paddingTop="@dimen/x78">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/register_one_goodsname_et"
@@ -69,7 +69,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_alignBaseline="@+id/register_one_goodsname_et"
             android:layout_marginRight="15dp"
             android:src="@mipmap/login_edit_delete"
             android:visibility="invisible" />

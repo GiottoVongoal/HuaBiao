@@ -34,12 +34,10 @@
                     android:gravity="center_vertical"
                     android:hint="@string/edittext_hint"
                     android:imeOptions="actionSearch"
-                    android:maxLength="10"
                     android:maxLines="1"
                     android:paddingLeft="@dimen/x30"
                     android:singleLine="true"
                     android:textColorHint="@color/grey_b2b2b2"
-                    android:textCursorDrawable="@color/black3"
                     android:textSize="11sp" />
 
                 <ImageView
@@ -117,12 +115,15 @@
 
     <com.huabiao.aoiin.wedgit.MultipleTextViewGroup xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/search_mall_history_search_tv_group"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/x14"
-        android:layout_marginRight="@dimen/x14"
-        android:layout_marginTop="@dimen/x31"
+        android:layout_marginTop="@dimen/x2"
+        android:background="@color/white"
         android:gravity="center"
+        android:paddingBottom="@dimen/x31"
+        android:paddingLeft="@dimen/x14"
+        android:paddingRight="@dimen/x14"
+        android:paddingTop="@dimen/x31"
         app:textBackground="@drawable/round_gray"
         app:textColor="@color/grey_999999"
         app:textLineMargin="@dimen/x19"
@@ -130,4 +131,17 @@
         app:textPaddingRight="@dimen/x25"
         app:textSize="@dimen/text_size_12"
         app:textWordMargin="@dimen/x17" />
+
+    <TextView
+        android:id="@+id/search_mall_history_search_nothing_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x2"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/x26"
+        android:paddingLeft="@dimen/x14"
+        android:paddingRight="@dimen/x14"
+        android:paddingTop="@dimen/x26"
+        android:text="暂无历史记录" />
 </LinearLayout>

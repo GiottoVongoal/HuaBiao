@@ -23,6 +23,7 @@ import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.RegisterCommitBean;
 import com.huabiao.aoiin.tools.ActivityCollector;
+import com.huabiao.aoiin.tools.AnimatorUtils;
 import com.huabiao.aoiin.tools.ViewTools;
 import com.huabiao.aoiin.wedgit.CommonSimpleDialog;
 import com.huabiao.aoiin.wedgit.XCRoundRectImageView;
@@ -111,6 +112,8 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
 
     private int orderStatus;
 
+    private AnimatorUtils animatorUtils;
+
     @Override
     public void getIntentValue() {
         super.getIntentValue();
@@ -127,6 +130,8 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
                 showDialog();
             }
         });
+
+        animatorUtils = new AnimatorUtils();
 
         switch (orderStatus) {
             case 1:
@@ -155,10 +160,10 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
             public void onSwitchStateChange(boolean isOn) {
                 if (isOn) {
                     // 打开布局
-                    openHiddenView(detail_invoice_rl);
+                    animatorUtils.openHiddenView(detail_invoice_rl);
                 } else {
                     // 关闭布局
-                    closeHiddenView(detail_invoice_rl);
+                    animatorUtils.closeHiddenView(detail_invoice_rl);
                 }
             }
         });
@@ -278,38 +283,6 @@ public class PayInfoDetailActivity extends BaseActivity implements View.OnClickL
         return super.dispatchKeyEvent(event);
     }
 
-    private void openHiddenView(final View view) {
-        view.setVisibility(View.VISIBLE);
-        view.measure(0, 0);////measure方法的参数值都设为0
-        ValueAnimator valueAnimator = creatDropAnimator(view, 0, view.getMeasuredHeight());//getMeasuredHeight获取组件高度
-        valueAnimator.start();
-    }
-
-    private void closeHiddenView(final View view) {
-        ValueAnimator valueAnimator = creatDropAnimator(view, view.getHeight(), 0);
-        //动画结束之后执行隐藏
-        valueAnimator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                view.setVisibility(View.GONE);
-            }
-        });
-        valueAnimator.start();
-    }
-
-    private ValueAnimator creatDropAnimator(final View view, int start, int end) {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(start, end);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int Value = (Integer) animation.getAnimatedValue();
-                ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-                layoutParams.height = Value;
-                view.setLayoutParams(layoutParams);
-            }
-        });
-        return valueAnimator;
-    }
 
     @Override
     public int getContentLayout() {

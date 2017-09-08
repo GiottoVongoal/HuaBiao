@@ -112,10 +112,6 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
                 tvs[i].setBackground(getResources().getDrawable(R.mipmap.btn_yellow));
             }
         }
-    }
-
-    @Override
-    public void onClick(final View view) {
         KeyboardUtils.hideSoftInput(getActivity());
         tradename = tradename_et.getEditText().getText().toString();
         goodsname = goodsname_et.getEditText().getText().toString();
@@ -127,15 +123,18 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
             showToast("请输入商品名");
             return;
         }
+        JumpUtils.startActivity(getContext(), position == 0 ? RegisterOneActivity.class : CustomerServiceFragment.class);
+    }
+
+    @Override
+    public void onClick(final View view) {
         switch (view.getId()) {
             case R.id.register_one_register_tv:
                 //注册按钮
                 setSelect(0);
-                JumpUtils.startActivity(getContext(), RegisterOneActivity.class);
                 break;
             case R.id.register_one_register_custom_tv:
                 setSelect(1);
-                JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
                 break;
             case R.id.register_one_tradename_rl:
                 tradename_et.getEditText().setFocusable(true);

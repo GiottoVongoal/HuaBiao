@@ -34,9 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingTop="@dimen/x180"
                 android:paddingLeft="@dimen/x81"
-                android:paddingRight="@dimen/x81">
+                android:paddingRight="@dimen/x81"
+                android:paddingTop="@dimen/x180">
                 <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/finance_tradename_tl"
@@ -56,8 +56,8 @@
                     android:id="@+id/finance_tradename_delete_iv"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
+                    android:layout_alignBaseline="@+id/finance_tradename_tl"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
                     android:src="@mipmap/login_edit_delete"
                     android:visibility="invisible" />
@@ -68,9 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingTop="@dimen/x76"
                 android:paddingLeft="@dimen/x81"
                 android:paddingRight="@dimen/x81"
+                android:paddingTop="@dimen/x76"
                 app:layout_constraintTop_toBottomOf="@+id/finance_tradename_tl">
                 <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
                 <android.support.design.widget.TextInputLayout
@@ -91,8 +91,8 @@
                     android:id="@+id/finance_tradeid_delete_iv"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
+                    android:layout_alignBaseline="@+id/finance_tradeid_tl"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
                     android:src="@mipmap/login_edit_delete"
                     android:visibility="invisible" />

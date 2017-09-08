@@ -221,11 +221,11 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                         setSelect(1);
                         break;
                     case 2:
-                        showToast("异议详情页的阻止按钮");
+                    case 4:
+                        JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
                         setSelect(1);
                         break;
                     case 3:
-
                         JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
                         setSelect(1);
                         break;
@@ -238,6 +238,7 @@ public class BuyingFragment extends BaseFragment implements View.OnClickListener
                         setSelect(0);
                         break;
                     case 2:
+                    case 4:
                         showToast("异议详情页的求购按钮");
                         setSelect(0);
                         break;

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.tools.AnimatorUtils;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ToSearchMallPageEvent;
 import com.huabiao.aoiin.wedgit.MultipleTextViewGroup;
@@ -47,10 +48,14 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
     MultipleTextViewGroup history_tv_group;
     @Bind(R.id.search_mall_history_search_clear_tv)
     TextView history_clear_tv;
+    @Bind(R.id.search_mall_history_search_nothing_tv)
+    TextView history_nothing_tv;
 
     private List<String> historyList;
     private String historyString;// 用于存储历史纪录的字符串
     private SPUtils sp;
+
+    private AnimatorUtils animatorUtils;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
@@ -91,6 +96,12 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (search_et.getText().toString().trim().length() > 10) {
+                    String search = search_et.getText().toString().trim();
+                    search_et.setText(search.substring(0, 10));
+                    search_et.setSelection(10);
+                    showToast("最多只能10个字哦!");
+                }
             }
         });
         search_delete_iv.setOnClickListener(this);
@@ -99,6 +110,7 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
         historyList = new ArrayList<>();
         sp = new SPUtils("searchtrademark");//搜索商标
         initHistory();
+        animatorUtils = new AnimatorUtils();
 
         history_tv_group.setTextViews(historyList);
         history_tv_group.setOnMultipleTVItemClickListener(this);
@@ -107,14 +119,25 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
         setOnClick();
     }
 
-    private void initHistory() {
-        historyString = sp.getString("historylist", "");
-        ALog.i("---本地搜索历史-->", historyString);
-        if (historyString.length() != 0) {
-            stringToList(historyString);
-            history_clear_tv.setVisibility(View.VISIBLE);
+    /**
+     * 进行查询并将查询内容写入历史记录中
+     */
+    private void gotoSearch(String searchString) {
+        KeyboardUtils.hideSoftInput(getActivity());
+        if (!TextUtils.isEmpty(searchString)) {
+            if (searchString.length() <= 1) {
+                showToast("最少也要2个字哦!");
+                return;
+            }
+            if (searchString.length() > 10) {
+                showToast("最多只能10个字哦!");
+                return;
+            }
+            putString(searchString);
+            getActivity().finish();
+            AppBus.getInstance().post(toSearchMall(1, searchString));
         } else {
-            history_clear_tv.setVisibility(View.GONE);
+            showToast("请输入搜索内容");
         }
     }
 
@@ -124,17 +147,10 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
             case R.id.search_mall_search_tv:
                 String etString = search_et.getText().toString().trim();
                 if (!TextUtils.isEmpty(etString)) {
-                    if (etString.length() <= 1) {
-                        showToast("最少也要2个字哦!");
-                        return;
-                    }
-                    if (etString.length() > 10) {
-                        showToast("最多只能10个字哦!");
-                        return;
-                    }
                     gotoSearch(etString);
                 } else {
-                    ClickUtil.onBackClick();
+                    KeyboardUtils.hideSoftInput(getActivity());
+                    getActivity().finish();
                 }
                 break;
             case R.id.search_mall_history_search_clear_tv:
@@ -161,17 +177,16 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
         return new ToSearchMallPageEvent(index, searchString);
     }
 
-    /**
-     * 进行查询并将查询内容写入历史记录中
-     */
-    private void gotoSearch(String searchString) {
-        KeyboardUtils.hideSoftInput(getActivity());
-        if (!TextUtils.isEmpty(searchString)) {
-            putString(searchString);
-            getActivity().finish();
-            AppBus.getInstance().post(toSearchMall(1, searchString));
+    private void initHistory() {
+        historyString = sp.getString("historylist", "");
+        ALog.i("---本地搜索历史-->", historyString);
+        if (historyString.length() != 0) {
+            stringToList(historyString);
+            history_clear_tv.setVisibility(View.VISIBLE);
+            history_nothing_tv.setVisibility(View.GONE);
         } else {
-            showToast("请输入搜索内容");
+            history_clear_tv.setVisibility(View.GONE);
+            history_nothing_tv.setVisibility(View.VISIBLE);
         }
     }
 
@@ -194,7 +209,7 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
     }
 
     /**
-     * 弹出框提示是否清除历史搜索记录
+     * 清除历史搜索记录
      */
     private void clearHistory() {
 //        OnClickListener off = new OnClickListener() {
@@ -206,10 +221,11 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
 //        OnClickListener on = new OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-        sp.put("historylist", "");
+//        sp.put("historylist", "");
         historyList.clear();
-        history_tv_group.setVisibility(View.GONE);
         history_clear_tv.setVisibility(View.GONE);
+        history_nothing_tv.setVisibility(View.VISIBLE);
+        animatorUtils.closeHiddenView(history_tv_group);// 关闭布局
         showToast("清除成功");
 //            }
 //        };
