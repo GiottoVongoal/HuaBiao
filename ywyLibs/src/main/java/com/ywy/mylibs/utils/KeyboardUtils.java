@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import static android.R.id.edit;
+
 /**
  * <pre>
  *     author: Blankj
@@ -95,11 +97,11 @@ public final class KeyboardUtils {
      *
      * @param edit 输入框
      */
-    public static void showSoftInput(EditText edit) {
+    public static void showSoftInput(Activity activity, EditText edit) {
         edit.setFocusable(true);
         edit.setFocusableInTouchMode(true);
         edit.requestFocus();
-        InputMethodManager imm = (InputMethodManager) Utils.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm == null) return;
         imm.showSoftInput(edit, 0);
     }
@@ -107,8 +109,8 @@ public final class KeyboardUtils {
     /**
      * 切换键盘显示与否状态
      */
-    public static void toggleSoftInput() {
-        InputMethodManager imm = (InputMethodManager) Utils.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+    public static void toggleSoftInput(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm == null) return;
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }

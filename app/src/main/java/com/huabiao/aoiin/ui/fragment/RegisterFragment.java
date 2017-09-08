@@ -21,8 +21,6 @@ import com.ywy.mylibs.utils.KeyboardUtils;
 
 import butterknife.Bind;
 
-import static com.huabiao.aoiin.R.id.search_goodsname_tl;
-
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
@@ -93,7 +91,6 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 
         tvs[0] = register_tv;
         tvs[1] = custom_tv;
-        setSelect(0);
 
         tradename_rl.setOnClickListener(this);
         goodsname_rl.setOnClickListener(this);
@@ -123,7 +120,11 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
             showToast("请输入商品名");
             return;
         }
-        JumpUtils.startActivity(getContext(), position == 0 ? RegisterOneActivity.class : CustomerServiceFragment.class);
+        if (position == 0) {
+            JumpUtils.startActivity(getContext(), RegisterOneActivity.class);
+        } else {
+            JumpUtils.startActivity(getContext(), CustomerServiceFragment.class);
+        }
     }
 
     @Override
@@ -137,14 +138,10 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
                 setSelect(1);
                 break;
             case R.id.register_one_tradename_rl:
-                tradename_et.getEditText().setFocusable(true);
-                tradename_et.getEditText().setFocusableInTouchMode(true);
-                tradename_et.getEditText().requestFocus();
+                KeyboardUtils.showSoftInput(getActivity(),tradename_et.getEditText());
                 break;
             case R.id.register_one_goodsname_rl:
-                goodsname_et.getEditText().setFocusable(true);
-                goodsname_et.getEditText().setFocusableInTouchMode(true);
-                goodsname_et.getEditText().requestFocus();
+                KeyboardUtils.showSoftInput(getActivity(),goodsname_et.getEditText());
                 break;
         }
     }

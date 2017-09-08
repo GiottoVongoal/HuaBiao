@@ -15,6 +15,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
+import com.ywy.mylibs.utils.KeyboardUtils;
 
 import static com.huabiao.aoiin.R.id.tv;
 
@@ -181,7 +182,7 @@ public class ViewTools {
 
     private static boolean isFocus;
 
-    public static EditText setEdittext( final EditText myEditText,
+    public static EditText setEdittext(final EditText myEditText,
                                        final ImageView delete, final View.OnClickListener onClickListener) {
         isFocus = false;
         myEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -220,5 +221,12 @@ public class ViewTools {
         });
         delete.setOnClickListener(onClickListener);
         return myEditText;
+    }
+
+    public static void setEdittextFoces(EditText editText) {
+//        KeyboardUtils.showSoftInput(editText);
+        editText.setFocusable(true);
+        editText.setFocusableInTouchMode(true);
+        editText.requestFocus();
     }
 }

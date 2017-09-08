@@ -101,14 +101,10 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
                 JumpUtils.startFragmentByName(getContext(), AuctionFragment.class);
                 break;
             case R.id.finance_tradename_rl:
-                tradename_tl.getEditText().setFocusable(true);
-                tradename_tl.getEditText().setFocusableInTouchMode(true);
-                tradename_tl.getEditText().requestFocus();
+                KeyboardUtils.showSoftInput(getActivity(), tradename_tl.getEditText());
                 break;
             case R.id.finance_tradeid_rl:
-                tradeid_tl.getEditText().setFocusable(true);
-                tradeid_tl.getEditText().setFocusableInTouchMode(true);
-                tradeid_tl.getEditText().requestFocus();
+                KeyboardUtils.showSoftInput(getActivity(), tradeid_tl.getEditText());
                 break;
         }
 

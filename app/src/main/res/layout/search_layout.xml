@@ -48,8 +48,10 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignBaseline="@+id/search_goodsname_tl"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="15dp"
+                    android:paddingBottom="@dimen/x10"
                     android:src="@mipmap/login_edit_delete"
                     android:visibility="invisible" />
             </RelativeLayout>
@@ -79,8 +81,10 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignBaseline="@+id/search_tradename_tl"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="15dp"
+                    android:paddingBottom="@dimen/x10"
                     android:src="@mipmap/login_edit_delete"
                     android:visibility="invisible" />
             </RelativeLayout>

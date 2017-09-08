@@ -1,7 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,8 +12,8 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.tools.ViewTools;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.ClickUtil;
 import com.ywy.mylibs.utils.JumpUtils;
+import com.ywy.mylibs.utils.KeyboardUtils;
 
 import butterknife.Bind;
 
@@ -95,14 +94,10 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                 startSearch();
                 break;
             case R.id.search_goodsname_rl:
-                search_goodsname_tl.getEditText().setFocusable(true);
-                search_goodsname_tl.getEditText().setFocusableInTouchMode(true);
-                search_goodsname_tl.getEditText().requestFocus();
+                KeyboardUtils.showSoftInput(getActivity(),search_goodsname_tl.getEditText());
                 break;
             case R.id.search_tradename_rl:
-                search_tradename_tl.getEditText().setFocusable(true);
-                search_tradename_tl.getEditText().setFocusableInTouchMode(true);
-                search_tradename_tl.getEditText().requestFocus();
+                KeyboardUtils.showSoftInput(getActivity(),search_tradename_tl.getEditText());
                 break;
         }
     }
