@@ -5,6 +5,7 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -24,12 +25,18 @@ import butterknife.Bind;
  * @description 金融页面
  */
 public class FinanceFragment extends BaseFragment implements View.OnClickListener {
+    //商标名
+    @Bind(R.id.finance_tradename_rl)
+    RelativeLayout tradename_rl;
     @Bind(R.id.finance_tradename_tl)
-    TextInputLayout tradename_tl;//商标名
+    TextInputLayout tradename_tl;
     @Bind(R.id.finance_tradename_delete_iv)
     ImageView tradename_delete_iv;
+    //商标编号
+    @Bind(R.id.finance_tradeid_rl)
+    RelativeLayout tradeid_rl;
     @Bind(R.id.finance_tradeid_tl)
-    TextInputLayout tradeid_tl;//商标编号
+    TextInputLayout tradeid_tl;
     @Bind(R.id.finance_tradeid_delete_iv)
     ImageView tradeid_delete_iv;
 
@@ -49,6 +56,8 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
         evaluate_circle_tv.setOnClickListener(this);
         trade_pledge_ll.setOnClickListener(this);
         trade_sale_ll.setOnClickListener(this);
+        tradename_rl.setOnClickListener(this);
+        tradeid_rl.setOnClickListener(this);
 
         ViewTools.setEdittext(tradename_tl.getEditText(), tradename_delete_iv
                 , new View.OnClickListener() {
@@ -91,7 +100,18 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
                 //商标拍卖
                 JumpUtils.startFragmentByName(getContext(), AuctionFragment.class);
                 break;
+            case R.id.finance_tradename_rl:
+                tradename_tl.getEditText().setFocusable(true);
+                tradename_tl.getEditText().setFocusableInTouchMode(true);
+                tradename_tl.getEditText().requestFocus();
+                break;
+            case R.id.finance_tradeid_rl:
+                tradeid_tl.getEditText().setFocusable(true);
+                tradeid_tl.getEditText().setFocusableInTouchMode(true);
+                tradeid_tl.getEditText().requestFocus();
+                break;
         }
+
     }
 
     @Override

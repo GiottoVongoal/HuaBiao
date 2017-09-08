@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/grey_f8f8f8"
     android:orientation="vertical">
 
     <LinearLayout
@@ -39,6 +39,7 @@
                     android:paddingLeft="@dimen/x30"
                     android:singleLine="true"
                     android:textColorHint="@color/grey_b2b2b2"
+                    android:textCursorDrawable="@color/black3"
                     android:textSize="11sp" />
 
                 <ImageView
@@ -71,7 +72,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
+        android:paddingBottom="@dimen/x26"
+        android:paddingLeft="@dimen/x14"
+        android:paddingRight="@dimen/x14"
+        android:paddingTop="@dimen/x26">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相关推荐"
+            android:textColor="@color/black3"
+            android:textSize="@dimen/text_size_14" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x20"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/x26"
         android:paddingLeft="@dimen/x14"
         android:paddingRight="@dimen/x14"
         android:paddingTop="@dimen/x26">

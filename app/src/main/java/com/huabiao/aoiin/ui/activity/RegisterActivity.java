@@ -35,7 +35,7 @@ import butterknife.Bind;
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
  * @date 2017-07-21 15:57
- * @description 默认注册页面
+ * @description 默认注册页面(不再使用)
  */
 public class RegisterActivity extends BaseActivity {
 

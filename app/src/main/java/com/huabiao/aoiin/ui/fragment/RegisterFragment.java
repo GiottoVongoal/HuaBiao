@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -20,6 +21,8 @@ import com.ywy.mylibs.utils.KeyboardUtils;
 
 import butterknife.Bind;
 
+import static com.huabiao.aoiin.R.id.search_goodsname_tl;
+
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
@@ -27,12 +30,18 @@ import butterknife.Bind;
  * @description Tab中的注册输入页面
  */
 public class RegisterFragment extends BaseFragment implements View.OnClickListener {
+    //商标名
+    @Bind(R.id.register_one_tradename_rl)
+    RelativeLayout tradename_rl;
     @Bind(R.id.register_one_tradename_et)
-    TextInputLayout tradename_et;//商标名
+    TextInputLayout tradename_et;
     @Bind(R.id.register_one_tradename_delete_iv)
     ImageView register_one_tradename_delete_iv;
+    //商品名
+    @Bind(R.id.register_one_goodsname_rl)
+    RelativeLayout goodsname_rl;
     @Bind(R.id.register_one_goodsname_et)
-    TextInputLayout goodsname_et;//商品名
+    TextInputLayout goodsname_et;
     @Bind(R.id.register_one_goodsname_delete_iv)
     ImageView register_one_goodsname_delete_iv;
 
@@ -85,6 +94,9 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
         tvs[0] = register_tv;
         tvs[1] = custom_tv;
         setSelect(0);
+
+        tradename_rl.setOnClickListener(this);
+        goodsname_rl.setOnClickListener(this);
     }
 
     @Override
@@ -124,6 +136,16 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
             case R.id.register_one_register_custom_tv:
                 setSelect(1);
                 JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
+                break;
+            case R.id.register_one_tradename_rl:
+                tradename_et.getEditText().setFocusable(true);
+                tradename_et.getEditText().setFocusableInTouchMode(true);
+                tradename_et.getEditText().requestFocus();
+                break;
+            case R.id.register_one_goodsname_rl:
+                goodsname_et.getEditText().setFocusable(true);
+                goodsname_et.getEditText().setFocusableInTouchMode(true);
+                goodsname_et.getEditText().requestFocus();
                 break;
         }
     }

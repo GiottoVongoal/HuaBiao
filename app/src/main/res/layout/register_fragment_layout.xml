@@ -10,9 +10,10 @@
         layout="@layout/view_title" />
 
     <RelativeLayout
+        android:id="@+id/register_one_tradename_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x190"
+        android:paddingTop="@dimen/x190"
         android:paddingLeft="@dimen/x81"
         android:paddingRight="@dimen/x81">
 
@@ -42,9 +43,10 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/register_one_goodsname_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x78"
+        android:paddingTop="@dimen/x78"
         android:paddingLeft="@dimen/x81"
         android:paddingRight="@dimen/x81">
 

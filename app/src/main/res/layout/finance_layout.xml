@@ -30,10 +30,11 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/finance_tradename_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/x180"
+                android:paddingTop="@dimen/x180"
                 android:paddingLeft="@dimen/x81"
                 android:paddingRight="@dimen/x81">
                 <!--TextInputLayout的颜色来自style中的colorAccent的颜色-->
@@ -63,10 +64,11 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/finance_tradeid_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/x76"
+                android:paddingTop="@dimen/x76"
                 android:paddingLeft="@dimen/x81"
                 android:paddingRight="@dimen/x81"
                 app:layout_constraintTop_toBottomOf="@+id/finance_tradename_tl">

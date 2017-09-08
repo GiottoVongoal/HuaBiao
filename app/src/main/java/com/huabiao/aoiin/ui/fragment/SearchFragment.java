@@ -6,6 +6,7 @@ import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
@@ -24,12 +25,19 @@ import butterknife.Bind;
  * @description 查询商标输入页面
  */
 public class SearchFragment extends BaseFragment implements View.OnClickListener {
+    //商品名
+    @Bind(R.id.search_goodsname_rl)
+    RelativeLayout search_goodsname_rl;
+    @Bind(R.id.search_goodsname_tl)
+    TextInputLayout search_goodsname_tl;
+    //商标名
+    @Bind(R.id.search_tradename_rl)
+    RelativeLayout search_tradename_rl;
     @Bind(R.id.search_tradename_tl)
-    TextInputLayout search_tradename_tl;//商标名
+    TextInputLayout search_tradename_tl;
     @Bind(R.id.search_tradename_delete_iv)
     ImageView search_tradename_delete_iv;
-    @Bind(R.id.search_goodsname_tl)
-    TextInputLayout search_goodsname_tl;//商品名
+
     @Bind(R.id.search_goodsname_delete_iv)
     ImageView search_goodsname_delete_iv;
     @Bind(R.id.search_tv)
@@ -65,6 +73,9 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                         search_goodsname_tl.getEditText().setText("");
                     }
                 });
+
+        search_goodsname_rl.setOnClickListener(this);
+        search_tradename_rl.setOnClickListener(this);
     }
 
     @Override
@@ -82,6 +93,16 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     return;
                 }
                 startSearch();
+                break;
+            case R.id.search_goodsname_rl:
+                search_goodsname_tl.getEditText().setFocusable(true);
+                search_goodsname_tl.getEditText().setFocusableInTouchMode(true);
+                search_goodsname_tl.getEditText().requestFocus();
+                break;
+            case R.id.search_tradename_rl:
+                search_tradename_tl.getEditText().setFocusable(true);
+                search_tradename_tl.getEditText().setFocusableInTouchMode(true);
+                search_tradename_tl.getEditText().requestFocus();
                 break;
         }
     }
