@@ -63,7 +63,7 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
         search_et.setOnKeyListener(new View.OnKeyListener() {// 输入完后按键盘上的搜索键【回车键改为了搜索键】
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {// 修改回车键功能
+                if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP) {// 修改回车键功能
                     // 先隐藏键盘
                     ((InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE))
                             .hideSoftInputFromWindow(getActivity().getCurrentFocus()
@@ -130,7 +130,6 @@ public class SearchMallFragment extends BaseFragment implements View.OnClickList
                 return;
             }
             if (searchString.length() > 10) {
-                showToast("最多只能10个字哦!");
                 return;
             }
             putString(searchString);
