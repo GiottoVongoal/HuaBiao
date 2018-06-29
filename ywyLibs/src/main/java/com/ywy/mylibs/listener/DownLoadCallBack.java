@@ -22,5 +22,8 @@ public abstract class DownLoadCallBack {
     public void onProgress(long fileSizeDownloaded) {
     }
 
+    public void onLoading(long total, long current) {
+    }
+
     abstract public void onSucess(String path, String name, long fileSize);
 }

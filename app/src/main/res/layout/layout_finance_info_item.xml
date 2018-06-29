@@ -7,7 +7,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
 
         <com.huabiao.aoiin.wedgit.XCRoundRectImageView
             android:id="@+id/auctionrcv_img"

@@ -27,7 +27,7 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <lecho.lib.hellocharts.view.LineChartView
+    <com.huabiao.aoiin.hellocharts.view.LineChartView
         android:id="@+id/chart"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

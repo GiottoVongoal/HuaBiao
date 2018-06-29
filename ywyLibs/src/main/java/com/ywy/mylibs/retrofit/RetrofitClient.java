@@ -15,8 +15,8 @@ import com.ywy.mylibs.listener.ICallBackStatusCode;
 import com.ywy.mylibs.manager.RetrofitCookieManger;
 import com.ywy.mylibs.manager.RetrofitDownLoadManager;
 import com.ywy.mylibs.utils.CommonDialogUtils;
-import com.ywy.mylibs.utils.NullUtils;
 import com.ywy.mylibs.utils.NetWorkUtils;
+import com.ywy.mylibs.utils.NullUtils;
 import com.ywy.mylibs.utils.ToastUtils;
 import com.ywy.mylibs.wedgit.dialog.CommonLoadingDialog;
 
@@ -405,7 +405,7 @@ public class RetrofitClient {
      * @param action
      * @param callBack
      */
-    public void download(String action, DownLoadCallBack callBack) {
+    public void download(String apkName, String action, DownLoadCallBack callBack) {
 
         if (downMaps.get(action) == null) {
             downObservable = apiManager.downloadFile(action);
@@ -421,7 +421,7 @@ public class RetrofitClient {
             return;
         }
         RetrofitDownLoadManager.isDownLoading = true;
-        downObservable.compose(schedulersTransformer).subscribe(new DownSubscriber<ResponseBody>(callBack, mContext));
+        downObservable.compose(schedulersTransformer).subscribe(new DownSubscriber<ResponseBody>(apkName,callBack, mContext));
     }
 
     /**
@@ -443,7 +443,7 @@ public class RetrofitClient {
         private static final long caheMaxSize = 10 * 1024 * 1024;
 
         private okhttp3.Call.Factory callFactory;
-        private String baseUrl ;
+        private String baseUrl;
         private Boolean isLog = false;
         private List<InputStream> certificateList;
         private HostnameVerifier hostnameVerifier;

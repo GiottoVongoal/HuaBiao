@@ -131,6 +131,9 @@
                         android:id="@+id/register_card_two_userphone_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"
+                        app:errorEnabled="true"
+                        app:errorTextAppearance="@style/errorAppearance"
                         app:hintAnimationEnabled="true">
                         <!--app:counterOverflowTextAppearance="@style/counterOverflowTextAppearance"-->
                         <!--app:errorEnabled="true"-->
@@ -139,13 +142,14 @@
                         <!--app:hintAnimationEnabled="true"设置是否可以使用动画-->
 
                         <EditText
+                            android:id="@+id/editText"
                             style="@style/edittext_no_bg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="联系电话"
                             android:inputType="phone"
                             android:maxLines="1"
-                            android:singleLine="true" />
+                            android:singleLine="true"  />
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
@@ -208,7 +212,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="邮政编码"
-                            android:inputType="number" />
+                            android:inputType="number"
+                            android:maxLength="6" />
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
@@ -235,8 +240,8 @@
                 android:layout_marginTop="@dimen/x66"
                 android:gravity="center"
                 android:padding="10dp"
-                android:textColor="@color/black3"
-                android:text="2/3" />
+                android:text="2/3"
+                android:textColor="@color/black3" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

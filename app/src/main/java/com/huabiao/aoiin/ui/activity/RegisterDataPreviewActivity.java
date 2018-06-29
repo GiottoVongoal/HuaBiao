@@ -2,7 +2,9 @@ package com.huabiao.aoiin.ui.activity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -285,6 +287,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
         commit_tv.setOnClickListener(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -308,7 +311,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
                     setSelect(1);
                     Bundle bundle = new Bundle();
                     bundle.putInt("status", 1);//显示支付内容
-                    JumpUtils.startActivity(this, PayInfoDetailActivity.class);
+                    JumpUtils.startActivity(this, PayInfoDetailActivity.class, bundle);
                     ActivityCollector.finishAll();
                     commitBean.emptyBean();
                 }
@@ -317,6 +320,7 @@ public class RegisterDataPreviewActivity extends BaseActivity implements View.On
     }
 
     //显示大图
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void showLargeImg(ImageView iv, String path) {
         Intent i = new Intent(this, ShowLargeImageActivity.class);
         i.putExtra("path", path);

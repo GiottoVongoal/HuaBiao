@@ -25,9 +25,11 @@ public class RetrofitDownLoadManager {
     private Handler handler;
     public static boolean isDownLoading = false;
     public static boolean isCancel = false;
+    private String apkName;
 
-    public RetrofitDownLoadManager(DownLoadCallBack callBack) {
+    public RetrofitDownLoadManager(String apkName, DownLoadCallBack callBack) {
         this.callBack = callBack;
+        this.apkName = apkName;
         handler = new Handler(Looper.getMainLooper());
     }
 
@@ -36,9 +38,9 @@ public class RetrofitDownLoadManager {
     /**
      * DownLoadManager getInstance
      */
-    public static synchronized RetrofitDownLoadManager getInstance(DownLoadCallBack callBack) {
+    public static synchronized RetrofitDownLoadManager getInstance(String downloadPath, DownLoadCallBack callBack) {
         if (sInstance == null) {
-            sInstance = new RetrofitDownLoadManager(callBack);
+            sInstance = new RetrofitDownLoadManager(downloadPath, callBack);
         }
         return sInstance;
     }
@@ -55,7 +57,8 @@ public class RetrofitDownLoadManager {
             fileSuffix = ".png";
         }
         // 其他同上 自己判断加入
-        final String name = System.currentTimeMillis() + fileSuffix;
+//        final String name = System.currentTimeMillis() + fileSuffix;
+        final String name = apkName + fileSuffix;
         final String path = context.getExternalFilesDir(null) + File.separator + name;
         ALog.d("path:-->" + path);
         try {
@@ -86,15 +89,14 @@ public class RetrofitDownLoadManager {
                     fileSizeDownloaded += read;
                     ALog.d("file download: " + fileSizeDownloaded + " of " + fileSize);
                     if (callBack != null) {
-                        if (callBack != null) {
-                            final long finalFileSizeDownloaded = fileSizeDownloaded;
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    callBack.onProgress(finalFileSizeDownloaded);
-                                }
-                            }, 200);
-                        }
+                        final long finalFileSizeDownloaded = fileSizeDownloaded;
+                        callBack.onLoading(fileSize, finalFileSizeDownloaded);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                callBack.onProgress(finalFileSizeDownloaded);
+                            }
+                        }, 200);
                     }
                 }
 

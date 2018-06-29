@@ -8,7 +8,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/popwin_industry_list_rv"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:cacheColorHint="@color/white"
         android:fadingEdge="none"
@@ -16,12 +16,5 @@
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="none"
         android:scrollingCache="false" />
-
-    <LinearLayout
-        android:id="@+id/popwin_industry_list_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical" />
 
 </LinearLayout>

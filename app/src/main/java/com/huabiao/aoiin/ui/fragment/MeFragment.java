@@ -17,8 +17,6 @@ import com.ywy.mylibs.wedgit.wedgit.CircleView;
 
 import butterknife.Bind;
 
-import static com.huabiao.aoiin.R.id.me_trademark_registered_form_cv;
-
 /**
  * @author 杨丽亚.
  * @PackageName com.huabiao.aoiin.ui.fragment
@@ -61,7 +59,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 showToast("我的收藏");
-                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
+//                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
             }
         }, true);
         viewTools.addeditview(me_add_item_ll, null, text[1], new View.OnClickListener() {
@@ -99,7 +97,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
             case R.id.me_user_photo:
 //                showToast("头像");
                 break;
-            case me_trademark_registered_form_cv:
+            case R.id.me_trademark_registered_form_cv:
                 JumpUtils.startFragmentByName(getContext(), TradeFormListFragment.class);
                 break;
             case R.id.me_remind_progress_cv:
@@ -107,6 +105,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                 JumpUtils.startActivity(getContext(), UserProgressActivity.class);
                 break;
             case R.id.me_order_cv:
+                //我的订单
                 JumpUtils.startFragmentByName(getContext(), MyOrdersFragment.class);
                 break;
         }

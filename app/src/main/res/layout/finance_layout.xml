@@ -116,18 +116,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x93"
-                android:orientation="horizontal"
-                android:paddingBottom="15dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:layout_height="@dimen/x300"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/finance_trade_pledge_ll"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -139,20 +137,23 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="商标质押"
                         android:textColor="@color/black3"
                         android:textSize="@dimen/text_size_14" />
                 </LinearLayout>
 
-                <View style="@style/GrayLine_shu" />
+                <View style="@style/GrayLine_shu"
+                    android:layout_marginTop="@dimen/x50"/>
 
                 <LinearLayout
                     android:id="@+id/finance_trade_sale_ll"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -164,7 +165,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="商标拍卖"
                         android:textColor="@color/black3"

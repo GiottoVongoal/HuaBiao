@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="热搜词:"
+            android:text="热搜词  :"
             android:textColor="@color/black3"
             android:textSize="@dimen/text_size_12" />
 
@@ -30,7 +30,7 @@
             style="@style/title_tv_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="@dimen/x10" />
     </LinearLayout>
 
     <TextView
@@ -54,8 +54,8 @@
         android:id="@+id/hot_words_item_means_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/x27"
         android:lineSpacingExtra="@dimen/x14"
-        android:padding="@dimen/x27"
         android:textColor="@color/black3"
         android:textSize="@dimen/text_size_11" />
 </LinearLayout>

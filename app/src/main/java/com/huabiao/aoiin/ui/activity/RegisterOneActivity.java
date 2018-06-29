@@ -24,7 +24,6 @@ import com.huabiao.aoiin.ui.adapter.UpMenuAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 import com.huabiao.aoiin.wedgit.FullyLinearLayoutManager;
-import com.huabiao.aoiin.wedgit.ScreenPopupWindow;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
 import com.ywy.mylibs.utils.JumpUtils;
@@ -87,7 +86,8 @@ public class RegisterOneActivity extends BaseActivity implements View.OnClickLis
         classification_rv.setAdapter(adapter);
 
         commitBean = RegisterCommitBean.getInstance();
-        select_tradetype_tv.setOnClickListener(this);
+//        select_tradetype_tv.setOnClickListener(this);
+        select_tradetype_tv.setVisibility(View.INVISIBLE);
         next_tv.setOnClickListener(this);
 
         getClassification();
@@ -151,8 +151,9 @@ public class RegisterOneActivity extends BaseActivity implements View.OnClickLis
         switch (view.getId()) {
             case R.id.register_card_one_select_tradetype_tv:
                 //按类筛选
-                getClassification();
-                popMenu.showAsDropDown(view);
+                showToast("筛选");
+//                getClassification();
+//                popMenu.showAsDropDown(view);
                 break;
             case R.id.register_card_one_next_tv:
                 //下一步
@@ -198,12 +199,12 @@ public class RegisterOneActivity extends BaseActivity implements View.OnClickLis
         });
         popRecyclerView = (RecyclerView) contentView
                 .findViewById(R.id.popwin_supplier_list_rv);
-        contentView.findViewById(R.id.popwin_supplier_list_bottom)
-                .setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        popMenu.dismiss();
-                    }
-                });
+//        contentView.findViewById(R.id.popwin_supplier_list_bottom)
+//                .setOnClickListener(new View.OnClickListener() {
+//                    public void onClick(View arg0) {
+//                        popMenu.dismiss();
+//                    }
+//                });
         popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<String> l = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {

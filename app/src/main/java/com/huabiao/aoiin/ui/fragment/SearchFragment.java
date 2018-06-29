@@ -54,8 +54,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         setTitle("查询");
         setBackEnable();
 
-//        search_tradename_tl.getEditText().setText("海飞丝");
-//        search_goodsname_tl.getEditText().setText("洗发水");
+        search_tradename_tl.getEditText().setText("海飞丝");
+        search_goodsname_tl.getEditText().setText("洗发水");
         search_tv.setOnClickListener(this);
 
         ViewTools.setEdittext(search_tradename_tl.getEditText(), search_tradename_delete_iv

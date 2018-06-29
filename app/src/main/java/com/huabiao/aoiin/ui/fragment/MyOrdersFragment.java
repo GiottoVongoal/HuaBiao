@@ -116,7 +116,7 @@ public class MyOrdersFragment extends BaseFragment implements View.OnClickListen
             }
         });
         ordersrcyclerview.refresh();
-        ordersrcyclerview.setLoadingMoreEnabled(false);
+//        ordersrcyclerview.setLoadingMoreEnabled(false);
         // 设置Item增加、移除动画
         ordersrcyclerview.setItemAnimator(new DefaultItemAnimator());
 

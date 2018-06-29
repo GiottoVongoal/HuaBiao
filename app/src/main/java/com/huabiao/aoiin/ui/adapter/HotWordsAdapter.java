@@ -7,16 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.blankj.ALog;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.HomeBean.HotwordslistBean;
-import com.huabiao.aoiin.bean.LineChartBean;
-import com.huabiao.aoiin.linechart.SuitLines;
-import com.huabiao.aoiin.linechart.Unit;
 import com.huabiao.aoiin.wedgit.DrawLineChartView;
 
-import java.security.SecureRandom;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

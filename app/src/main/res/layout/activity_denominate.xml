@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/denominate_top_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -31,11 +32,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@null"
-                android:maxLength="10"
-                android:singleLine="true"
                 android:gravity="center_vertical"
                 android:hint="输入商标名"
+                android:maxLength="10"
                 android:paddingLeft="@dimen/x22"
+                android:singleLine="true"
                 android:textColor="@color/black3"
                 android:textColorHint="@color/grey_b2b2b2"
                 android:textSize="@dimen/text_size_14" />
@@ -45,11 +46,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableRight="@mipmap/xia"
+                android:paddingRight="@dimen/x22"
                 android:text="行业"
                 android:textAlignment="center"
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_14" />
+            <!--android:drawableRight="@mipmap/xia"-->
+
         </LinearLayout>
     </LinearLayout>
 

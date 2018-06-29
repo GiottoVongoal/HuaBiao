@@ -11,19 +11,18 @@ import android.widget.TextView;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.LineChartBean;
+import com.huabiao.aoiin.hellocharts.gesture.ContainerScrollType;
+import com.huabiao.aoiin.hellocharts.gesture.ZoomType;
+import com.huabiao.aoiin.hellocharts.model.Axis;
+import com.huabiao.aoiin.hellocharts.model.AxisValue;
+import com.huabiao.aoiin.hellocharts.model.Line;
+import com.huabiao.aoiin.hellocharts.model.LineChartData;
+import com.huabiao.aoiin.hellocharts.model.PointValue;
+import com.huabiao.aoiin.hellocharts.model.ValueShape;
+import com.huabiao.aoiin.hellocharts.view.LineChartView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import lecho.lib.hellocharts.gesture.ContainerScrollType;
-import lecho.lib.hellocharts.gesture.ZoomType;
-import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.model.ValueShape;
-import lecho.lib.hellocharts.view.LineChartView;
 
 /**
  * @author 杨丽亚.
@@ -95,10 +94,13 @@ public class DrawLineChartView extends RelativeLayout {
                 for (int j = 0; j < data.getLinevalue().size(); j++) {
                     mPointValues.add(new PointValue(j, data.getLinevalue().get(j)));
                 }
-                Line line = new Line(mPointValues).setColor(Color.parseColor(data.getLinecolor())).setCubic(false).setStrokeWidth(2);  //折线的颜色,粗细
+                Line line = new Line(mPointValues).setColor(getResources().getColor(R.color.yellow_fdd400)).setCubic(false).setStrokeWidth(2);  //折线的颜色,粗细
                 line.setShape(ValueShape.CIRCLE);//折线图上每个数据点的形状  这里是圆形 （有三种 ：ValueShape.DIAMOND  ValueShape.CIRCLE  ValueShape.SQUARE）
                 line.setCubic(true);//曲线是否平滑
                 line.setFilled(true);//是否填充曲线的面积
+                line.setAreaTransparency(30);//设置填充的透明度
+//                line.setFullColor(getResources().getColor(R.color.yellow_fcf2d9));
+                line.setHasGradientToTransparent(true);//是否有透明梯度
                 // line.setHasLabels(true);//曲线的数据坐标是否加上备注
                 line.setPointRadius(1);//设置坐标点大小
                 line.setHasLabelsOnlyForSelected(true);//点击数据坐标提示数据（设置了这个line.setHasLabels(true);就无效）
@@ -131,7 +133,7 @@ public class DrawLineChartView extends RelativeLayout {
 //      data.setAxisXTop(axisX);  //x 轴在顶部
 
         Axis axisY = new Axis();  //Y轴
-        axisY.setTextColor(getResources().getColor(R.color.grey_282828));
+        axisY.setTextColor(getResources().getColor(R.color.grey_d5d5db));
 //        axisY.setName("温度");//y轴标注
         axisY.setTextSize(6);//设置字体大小
         axisY.setHasLines(true);
@@ -141,7 +143,7 @@ public class DrawLineChartView extends RelativeLayout {
 //      data.setAxisYRight(axisY);  //y轴设置在右边
 
         //设置行为属性，支持缩放、滑动以及平移
-        chart.setInteractive(true);
+        chart.setInteractive(false);//设置图表是可以交互的true（拖拽，缩放等效果的前提）
         chart.setZoomType(ZoomType.HORIZONTAL_AND_VERTICAL);
         chart.setContainerScrollEnabled(true, ContainerScrollType.HORIZONTAL);
         chart.setLineChartData(data);

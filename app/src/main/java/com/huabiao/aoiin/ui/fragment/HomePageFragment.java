@@ -5,36 +5,42 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.blankj.ALog;
 import com.huabiao.aoiin.R;
+import com.huabiao.aoiin.bean.FinanceEvakuateReportBean;
 import com.huabiao.aoiin.bean.HomeBean;
 import com.huabiao.aoiin.bean.HomeBean.BannarlistBean;
 import com.huabiao.aoiin.bean.HomeBean.HomeinfolistBean;
 import com.huabiao.aoiin.bean.HomeBean.HotwordslistBean;
 import com.huabiao.aoiin.model.HomeModel;
+import com.huabiao.aoiin.retrofit.RetrofitClinetImpl;
 import com.huabiao.aoiin.ui.activity.DenominateActivity;
 import com.huabiao.aoiin.ui.activity.UserProgressActivity;
 import com.huabiao.aoiin.ui.adapter.BannerAdapter;
 import com.huabiao.aoiin.ui.adapter.HotWordsAdapter;
 import com.huabiao.aoiin.ui.adapter.InfomationAdapter;
 import com.huabiao.aoiin.ui.interfaces.InterfaceManager;
-import com.huabiao.aoiin.wedgit.ObservableScrollView;
+import com.huabiao.aoiin.wedgit.ScrollRecyclerView;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
+import com.ywy.mylibs.retrofit.RetrofitClient;
 import com.ywy.mylibs.utils.JumpUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
+import okhttp3.ResponseBody;
 
 /**
  * @author 杨丽亚.
@@ -42,7 +48,7 @@ import butterknife.Bind;
  * @date 2017-07-20 09:56
  * @description 首页
  */
-public class HomePageFragment extends BaseFragment implements View.OnClickListener, ObservableScrollView.OnObservableScrollViewListener {
+public class HomePageFragment extends BaseFragment implements View.OnClickListener {
     //Banner
     @Bind(R.id.home_bannar_vp)
     ViewPager home_bannar_vp;
@@ -59,12 +65,11 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     private List<ImageView> mlist;
     //输入框
     @Bind(R.id.home_sv)
-    ObservableScrollView home_sv;
+    ScrollView home_sv;
     @Bind(R.id.home_top_ll)
     LinearLayout home_top_ll;
     @Bind(R.id.home_search_tv)
     TextView home_search_tv;
-    private int mHeight;
     //按钮
     @Bind(R.id.home_search_ll)
     LinearLayout home_search_ll;
@@ -76,25 +81,15 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     LinearLayout home_progress_ll;
     //资讯
     @Bind(R.id.home_information_rv)
-    RecyclerView home_information_rv;
+    ScrollRecyclerView home_information_rv;
     private InfomationAdapter infomationAdapter;
     //热搜词
     @Bind(R.id.home_hot_words_rv)
-    RecyclerView home_hot_words_rv;
+    ScrollRecyclerView home_hot_words_rv;
     private HotWordsAdapter hotWordsAdapter;
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-        ViewTreeObserver viewTreeObserver = home_bannar_vp.getViewTreeObserver();
-        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                home_bannar_vp.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                mHeight = home_bannar_vp.getHeight();
-                //注册滑动监听
-                home_sv.setOnObservableScrollViewListener(HomePageFragment.this);
-            }
-        });
 
         bannarList = new ArrayList<>();
         home_search_tv.setOnClickListener(this);
@@ -195,47 +190,47 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             }
         }.start();
 
-//        Map<String, String> source = new HashMap<>();
-//        source.put("tradename", "海飞丝");
-//        source.put("industry", "建筑行业");
-//        source.put("industryid", "1");
-//        RetrofitClinetImpl.getInstance(getContext())
-//                .newRetrofitClient()
-//                .postL("api/v2/wallet"
-//                        , source
-//                        , new RetrofitClient.ResponseCallBack<ResponseBody>() {
-//                            @Override
-//                            public void onSucceess(ResponseBody response) {
-//                                try {
-//                                    String string = new String(response.bytes());
-//                                    ALog.i("RetrofitClinetImpl---string--->" + string);
-//                                } catch (IOException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Throwable throwable) {
-//                                if (throwable != null) {
-//                                    ALog.i("RetrofitClinetImpl---throwable--->" + throwable.getMessage());
-//                                }
-//                            }
-//                        });
-//
-//        RetrofitClinetImpl.getInstance(getContext())
-//                .newRetrofitClient()
-//                .executePost("sfsd/sdfsd/sdfasd"
-//                        , new HashMap<String, String>()
-//                        , new RetrofitClient.ResponseCallBack<FinanceEvakuateReportBean>() {
-//                            @Override
-//                            public void onSucceess(FinanceEvakuateReportBean response) {
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Throwable e) {
-//
-//                            }
-//                        });
+        Map<String, String> source = new HashMap<>();
+        source.put("tradename", "海飞丝");
+        source.put("industry", "建筑行业");
+        source.put("industryid", "1");
+        RetrofitClinetImpl.getInstance(getContext())
+                .newRetrofitClient()
+                .postL("api/v2/wallet"
+                        , source
+                        , new RetrofitClient.ResponseCallBack<ResponseBody>() {
+                            @Override
+                            public void onSucceess(ResponseBody response) {
+                                try {
+                                    String string = new String(response.bytes());
+                                    ALog.i("RetrofitClinetImpl---string--->" + string);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Throwable throwable) {
+                                if (throwable != null) {
+                                    ALog.i("RetrofitClinetImpl---throwable--->" + throwable.getMessage());
+                                }
+                            }
+                        });
+
+        RetrofitClinetImpl.getInstance(getContext())
+                .newRetrofitClient()
+                .executePost("sfsd/sdfsd/sdfasd"
+                        , new HashMap<String, String>()
+                        , new RetrofitClient.ResponseCallBack<FinanceEvakuateReportBean>() {
+                            @Override
+                            public void onSucceess(FinanceEvakuateReportBean response) {
+                            }
+
+                            @Override
+                            public void onFailure(Throwable e) {
+
+                            }
+                        });
     }
 
     @Override
@@ -248,6 +243,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             case R.id.home_search_ll:
                 //查询
                 JumpUtils.startFragmentByName(getContext(), SearchFragment.class);
+//                String url = "http//ucan.25pp.com/Wandoujia_web_seo_baidu_homepage.apk";
+//                AppUpdatePopupWindow aupw = new AppUpdatePopupWindow(getActivity(), true, url, "更新内容");
+//                aupw.showAsDropDown(view, 0, 0);
                 break;
             case R.id.home_creat_name_ll:
                 //取名
@@ -262,27 +260,6 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 JumpUtils.startActivity(getContext(), UserProgressActivity.class);
                 break;
         }
-    }
-
-    @Override
-    public void onObservableScrollViewListener(int l, int t, int oldl, int oldt) {
-//        if (t <= 0) {
-//            //顶部图处于最顶部，标题栏透明
-//            home_top_ll.setAlpha(1);
-//            home_top_ll.setBackgroundColor(Color.argb(0, 255, 255, 255));
-//        } else if (t > 0 && t <= mHeight / 2) {
-//            //滑动过程中，渐变
-//            float scale = (float) (t / (mHeight / 2));//算出滑动距离比例
-//            float alpha = (255 * scale);//得到透明度
-//            home_top_ll.setAlpha(alpha / 100);
-//            home_top_ll.setBackgroundColor(Color.argb((int) alpha, 255, 255, 255));
-//        } else if (t > mHeight / 2 && t <= mHeight) {
-//
-//        } else {
-//            //过顶部图区域，标题栏定色
-//            home_top_ll.setAlpha(1);
-//            home_top_ll.setBackgroundColor(Color.argb(255, 255, 255, 255));
-//        }
     }
 
     //实现VierPager监听器接口

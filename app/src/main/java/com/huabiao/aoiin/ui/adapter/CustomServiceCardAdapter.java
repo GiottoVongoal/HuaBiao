@@ -13,6 +13,7 @@ import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.CustomerServiceListBean.CustomerservicelistBean;
 import com.huabiao.aoiin.ui.interfaces.ICardAdapter;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +88,7 @@ public class CustomServiceCardAdapter extends PagerAdapter implements ICardAdapt
         customer_yuyin_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ToastUtils.getInstance().showToast("与" + item.getCustomerserviceid() + "号客服" + item.getCustomerservicename() + "沟通");
                 ALog.i("id--->" + item.getCustomerserviceid() + ",name--->" + item.getCustomerservicename());
             }
         });

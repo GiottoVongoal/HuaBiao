@@ -56,6 +56,9 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     //折线图
     @Bind(R.id.creat_name_line_chart)
     DrawLineChartView creat_name_line_chart;
+    //输入框ll布局
+    @Bind(R.id.denominate_top_ll)
+    LinearLayout denominate_top_ll;
     //输入商品名
     @Bind(R.id.denominate_trade_name_et)
     EditText denominate_trade_name_et;
@@ -86,7 +89,9 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
         setTitle("商标取名");
         setBackEnable();
         refreshView(true);//flase不可点击，true可点击
-        denominate_industry_btn.setOnClickListener(this);
+        denominate_industry_btn.setOnClickListener(this);//关闭行业的下拉框
+        denominate_industry_btn.setText("产品");//默认显示列表的第二个
+        industry = "产品";
         denominate_layout.setOnClickListener(this);
         goBtnIV.setOnClickListener(this);
     }
@@ -111,8 +116,8 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                         trademarkclassificationTv.setText(list.get(0).getLinechart().getClassificationid() + " - " + list.get(0).getLinechart().getTrademarkclassification());
                         creat_name_line_chart.setLineChartBean(list.get(0).getLinechart());
                         //将第一次的默认数据赋给nameString并传入下一个页面
-                        String s1=list.get(0).getLinechart().getTradename();
-                        nameString=s1;
+                        String s1 = list.get(0).getLinechart().getTradename();
+                        nameString = s1;
                     }
 
 
@@ -135,7 +140,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
 
     //写入数据
     private void setCreatNameData(int position) {
-            nameString = list.get(position).getLinechart().getTradename();
+        nameString = list.get(position).getLinechart().getTradename();
 //        nameTv.setText(nameString);
         meansTV.setText(list.get(position).getMeans());
         String classificationString = list.get(position).getLinechart().getClassificationid() + " - " + list.get(position).getLinechart().getTrademarkclassification();
@@ -187,7 +192,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
     private void showIndustryWindow(View view, final List<RegisterOneIndustryBean.IndustrylistBean> industryList) {
         View industryview = view.inflate(this, R.layout.layout_industry, null);
         industryWindow = new PopupWindow(industryview, LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
+                LinearLayout.LayoutParams.WRAP_CONTENT);
         industryWindow.setOutsideTouchable(true);
         industryWindow.setBackgroundDrawable(new BitmapDrawable());
         industryWindow.setFocusable(true);
@@ -198,14 +203,8 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                 denominate_industry_btn.setTextColor(getResources().getColor(R.color.black3));
             }
         });
-//        denominate_industry_btn.setText(industryList.get(1).getIndustryname());//默认显示列表的第二个
+        denominate_industry_btn.setText(industryList.get(1).getIndustryname());//默认显示列表的第二个
         popRecyclerView = (RecyclerView) industryview.findViewById(R.id.popwin_industry_list_rv);
-        industryview.findViewById(R.id.popwin_industry_list_bottom).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                industryWindow.dismiss();
-            }
-        });
         popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<String> list = new ArrayList<>();
         for (int i = 0; i < industryList.size(); i++) {
@@ -222,7 +221,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
             }
         });
         //显示窗口方式
-        industryWindow.showAsDropDown(denominate_industry_btn);
+        industryWindow.showAsDropDown(denominate_top_ll);
 
     }
 

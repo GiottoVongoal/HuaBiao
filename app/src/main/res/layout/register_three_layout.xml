@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/x28"
-        android:paddingRight="@dimen/x65">
+        android:paddingLeft="@dimen/x28">
 
         <TextView
             style="@style/title_tv_style"
@@ -34,12 +33,14 @@
                 android:layout_height="wrap_content"
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
+                android:paddingRight="@dimen/x65"
                 android:text="普通注册"
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_15" />
 
             <View
                 style="@style/GrayLine"
+                android:layout_marginRight="@dimen/x28"
                 android:layout_marginTop="@dimen/x35" />
 
             <RadioButton
@@ -49,12 +50,14 @@
                 android:layout_marginTop="@dimen/x35"
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
+                android:paddingRight="@dimen/x65"
                 android:text="加急注册"
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_15" />
 
             <View
                 style="@style/GrayLine"
+                android:layout_marginRight="@dimen/x28"
                 android:layout_marginTop="@dimen/x35" />
 
             <RadioButton
@@ -64,6 +67,7 @@
                 android:layout_marginTop="@dimen/x35"
                 android:button="@null"
                 android:drawableRight="@drawable/checkbox_select_type"
+                android:paddingRight="@dimen/x65"
                 android:text="注册 + 预审 + 退费担保"
                 android:textColor="@color/black3"
                 android:textSize="@dimen/text_size_15" />
@@ -71,6 +75,7 @@
 
         <View
             style="@style/GrayLine"
+            android:layout_marginRight="@dimen/x28"
             android:layout_marginTop="15dp" />
 
         <TextView
@@ -79,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/x95"
+            android:paddingRight="@dimen/x60"
             android:text="总费用"
             android:textColor="@color/black3"
             android:textSize="@dimen/text_size_17" />
@@ -88,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/x25"
+            android:paddingRight="@dimen/x60"
             android:text="(注册不成功，翻倍全额退款)"
             android:textColor="@color/grey_999999"
             android:textSize="@dimen/text_size_12" />

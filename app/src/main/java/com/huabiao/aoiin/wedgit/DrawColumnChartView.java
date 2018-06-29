@@ -2,35 +2,23 @@ package com.huabiao.aoiin.wedgit;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.TestBean;
+import com.huabiao.aoiin.hellocharts.listener.ColumnChartOnValueSelectListener;
+import com.huabiao.aoiin.hellocharts.model.Axis;
+import com.huabiao.aoiin.hellocharts.model.AxisValue;
+import com.huabiao.aoiin.hellocharts.model.Column;
+import com.huabiao.aoiin.hellocharts.model.ColumnChartData;
+import com.huabiao.aoiin.hellocharts.model.SubcolumnValue;
+import com.huabiao.aoiin.hellocharts.util.ChartUtils;
+import com.huabiao.aoiin.hellocharts.view.ColumnChartView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import lecho.lib.hellocharts.formatter.ColumnChartValueFormatter;
-import lecho.lib.hellocharts.formatter.SimpleColumnChartValueFormatter;
-import lecho.lib.hellocharts.listener.ColumnChartOnValueSelectListener;
-import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.Column;
-import lecho.lib.hellocharts.model.ColumnChartData;
-import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.model.SubcolumnValue;
-import lecho.lib.hellocharts.model.ValueShape;
-import lecho.lib.hellocharts.util.ChartUtils;
-import lecho.lib.hellocharts.view.ColumnChartView;
-
-import static android.R.attr.data;
-import static android.R.attr.label;
-import static android.R.id.list;
 
 /**
  * @author 杨丽亚.

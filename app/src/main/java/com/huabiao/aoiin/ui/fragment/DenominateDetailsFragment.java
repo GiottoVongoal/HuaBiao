@@ -80,7 +80,8 @@ public class DenominateDetailsFragment extends BaseFragment implements View.OnCl
     public void bindView(Bundle savedInstanceState) {
         //三个按钮的监听
         details_tv1.setOnClickListener(this);
-        details_tv2.setOnClickListener(this);
+//        details_tv2.setOnClickListener(this);//关闭筛选的下拉框
+        details_tv2.setVisibility(View.INVISIBLE);
         details_register_tv.setOnClickListener(this);
         //标题的右边图片以及监听事件
         if (nameString == null) {

@@ -11,8 +11,10 @@ import rx.Subscriber;
 public class DownSubscriber<ResponseBody extends okhttp3.ResponseBody> extends Subscriber<ResponseBody> {
     private DownLoadCallBack callBack;
     private Context context;
+    private String apkName;
 
-    public DownSubscriber(DownLoadCallBack callBack, Context context) {
+    public DownSubscriber(String apkName, DownLoadCallBack callBack, Context context) {
+        this.apkName = apkName;
         this.callBack = callBack;
         this.context = context;
     }
@@ -43,6 +45,6 @@ public class DownSubscriber<ResponseBody extends okhttp3.ResponseBody> extends S
     @Override
     public void onNext(ResponseBody responseBody) {
         ALog.d("CoreDownSubscriber:--> onNext");
-        RetrofitDownLoadManager.getInstance(callBack).writeResponseBodyToDisk(context, responseBody);
+        RetrofitDownLoadManager.getInstance(apkName, callBack).writeResponseBodyToDisk(context, responseBody);
     }
 }

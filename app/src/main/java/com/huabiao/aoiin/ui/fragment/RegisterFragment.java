@@ -68,8 +68,8 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 
         getActivity().getWindow().setBackgroundDrawableResource(R.mipmap.bg_icon);
 
-//        tradename_et.getEditText().setText("我是商标名(注册)");
-//        goodsname_et.getEditText().setText("我是商品名(注册)");
+        tradename_et.getEditText().setText("我是商标名(注册)");
+        goodsname_et.getEditText().setText("我是商品名(注册)");
         register_tv.setOnClickListener(this);
         custom_tv.setOnClickListener(this);
         ViewTools.setEdittext(tradename_et.getEditText(), register_one_tradename_delete_iv
@@ -123,7 +123,7 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
         if (position == 0) {
             JumpUtils.startActivity(getContext(), RegisterOneActivity.class);
         } else {
-            JumpUtils.startActivity(getContext(), CustomerServiceFragment.class);
+            JumpUtils.startFragmentByName(getContext(), CustomerServiceFragment.class);
         }
     }
 

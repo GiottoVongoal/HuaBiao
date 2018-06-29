@@ -12,7 +12,7 @@ import com.ywy.mylibs.manager.AppManager;
 /**
  * 创建于 2014/4/17
  *
- * @author yangqinghai
+ * @author
  */
 public class ToastUtils {
 
@@ -47,8 +47,6 @@ public class ToastUtils {
     }
 
 
-
-
     /**
      * 显示toast内容
      *
@@ -56,25 +54,26 @@ public class ToastUtils {
      * @return
      */
     public Toast showToast(String content) {
-        if(AppManager.getAppManager().getTopActivity() == null){
+        if (AppManager.getAppManager().getTopActivity() == null) {
             ALog.e("TopActivity == null");
             return mToast;
         }
-        if(mToast == null){
-            mToast = Toast.makeText(AppManager.getAppManager().getTopActivity(),content, Toast.LENGTH_SHORT);
-        }else {
+        if (mToast == null) {
+            mToast = Toast.makeText(AppManager.getAppManager().getTopActivity(), content, Toast.LENGTH_SHORT);
+        } else {
             mToast.setText(content);
         }
         mToast.show();
         return mToast;
     }
+
     /**
      * 显示toast内容
      *
      * @param contentId：内容id
      * @return
      */
-    public Toast showToast(int contentId){
+    public Toast showToast(int contentId) {
         return showToast(BaseApplication.getContext().getString(contentId));
     }
 
@@ -93,8 +92,10 @@ public class ToastUtils {
 //        mToast.setView(layout);
         return mToast;
     }
+
     /**
      * 初始化 toast
+     *
      * @return
      */
     private Toast initToast() {

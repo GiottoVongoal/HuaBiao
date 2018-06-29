@@ -50,8 +50,8 @@ public class FinanceFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-//        tradename_tl.getEditText().setText("商标名");
-//        tradeid_tl.getEditText().setText("商标编号");
+        tradename_tl.getEditText().setText("商标名");
+        tradeid_tl.getEditText().setText("商标编号");
 
         evaluate_circle_tv.setOnClickListener(this);
         trade_pledge_ll.setOnClickListener(this);

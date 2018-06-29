@@ -1,9 +1,11 @@
 package com.huabiao.aoiin.ui.fragment;
 
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -93,17 +95,18 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
     //下拉筛选
     private void initShaixuan(View view, final List<ScreenclassficationBean.SlistBean> list) {
         View contentView = view.inflate(getContext(), R.layout.layout_shaixuan, null);
-        popupWindowshaixuan = new PopupWindow(contentView,
-                LinearLayout.LayoutParams.MATCH_PARENT,
+
+        final PopupWindow popupWindowshaixuan = new PopupWindow(contentView, LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindowshaixuan.setOutsideTouchable(true);
-        popupWindowshaixuan.setBackgroundDrawable(new BitmapDrawable());
+        popupWindowshaixuan.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.menu_bg));
         popupWindowshaixuan.setFocusable(true);
-        popupWindowshaixuan.setAnimationStyle(R.style.popwin_anim_style);
+//        popupWindowshaixuan.setAnimationStyle(R.style.popwin_anim_style);
         popupWindowshaixuan.setOnDismissListener(new PopupWindow.OnDismissListener() {
             public void onDismiss() {
             }
         });
+
         popRecyclerView = (RecyclerView) contentView
                 .findViewById(R.id.popwin_shaixuan_list_rv);
         contentView.findViewById(R.id.popwin_shaixuan_list_bottom)
@@ -126,6 +129,10 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
             }
         });
         //窗口显示方式
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
+        popupWindowshaixuan.showAtLocation(view, Gravity.NO_GRAVITY, location[0], location[1] - popupWindowshaixuan.getHeight());
+        //在控件的下方弹出窗口
         popupWindowshaixuan.showAsDropDown(view);
     }
 
@@ -156,7 +163,7 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                     MallBean mallBean = (MallBean) mData;
                     if (page == 1) {
                         mallAapter = new MallAdapter(getContext(), mallBean.getShoppingmalllist());
-                      mall_listview.setAdapter(mallAapter);
+                        mall_listview.setAdapter(mallAapter);
                     } else {
                         mallAapter.addList(mallBean.getShoppingmalllist());
                     }
@@ -201,16 +208,17 @@ public class MallFragment extends BaseFragment implements View.OnClickListener {
                 getList(page, m);
                 break;
             case R.id.mall_img:
-                SearchModel.getScreenclassfication(getContext(), new InterfaceManager.CallBackCommon() {
-                    @Override
-                    public void getCallBackCommon(Object mData) {
-                        if (mData != null) {
-                            ScreenclassficationBean bean = (ScreenclassficationBean) mData;
-                            initShaixuan(view, bean.getSlist());
-                        }
-                    }
-                });
-                popRecyclerView.setAdapter(menuAdapter);
+                showToast("筛选");
+//                SearchModel.getScreenclassfication(getContext(), new InterfaceManager.CallBackCommon() {
+//                    @Override
+//                    public void getCallBackCommon(Object mData) {
+//                        if (mData != null) {
+//                            ScreenclassficationBean bean = (ScreenclassficationBean) mData;
+//                            initShaixuan(view, bean.getSlist());
+//                        }
+//                    }
+//                });
+//                popRecyclerView.setAdapter(menuAdapter);
                 break;
             case R.id.mall_search_tv:
                 //输入框

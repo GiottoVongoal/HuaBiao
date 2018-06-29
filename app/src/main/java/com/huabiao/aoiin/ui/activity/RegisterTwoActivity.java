@@ -76,13 +76,13 @@ public class RegisterTwoActivity extends BaseActivity implements View.OnClickLis
         tvs[2] = company_tv;
 
         commitBean = RegisterCommitBean.getInstance();
-//        userphone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(userphone_et, "请输入正确的手机号!", 1));
-//        userphone_et.setCounterEnabled(true);
-//        userphone_et.setCounterMaxLength(11);//最大输入限制数(输入框后边有0/11的字数统计)
+        userphone_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(userphone_et, "请输入正确的手机号!", 1));
+        userphone_et.setCounterEnabled(true);
+        userphone_et.setCounterMaxLength(11);//最大输入限制数(输入框后边有0/11的字数统计)
 
-//        code_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(code_et, "请输入正确的邮政编码!", 2));
-//        code_et.setCounterEnabled(true);
-//        code_et.setCounterMaxLength(6);
+        code_et.getEditText().addTextChangedListener(new CheckEdittextTextWatcher(code_et, "请输入正确的邮政编码!", 2));
+        code_et.setCounterEnabled(true);
+        code_et.setCounterMaxLength(6);
 
         natura_tv.setOnClickListener(this);
         individual_tv.setOnClickListener(this);

@@ -28,6 +28,7 @@
     <color name="grey_efefef">#efefef</color>
     <color name="grey_eeedef">#eeedef</color>
     <color name="grey_999999">#999999</color>
+    <color name="grey_888888">#888888</color>
     <color name="grey_282828">#282828</color>
     <color name="grey_5000">#5000</color>
     <color name="grey_FFF5F5F9">#FFF5F5F9</color>
@@ -38,6 +39,7 @@
     <!-- 背景灰白 -->
     <color name="backgroundwhite">#efeff4</color>
     <color name="popup_bg_b0000000">#b0000000</color>
+    <color name="popup_bg_70000000">#70000000</color>
     <color name="popup_bg_66333333">#66333333</color>
     <!--红色-->
     <color name="red_ff0000">#ff0000</color>
@@ -52,5 +54,6 @@
     <color name="black_6">#0F000000</color>
 
     <color name="yellow_fdd400">#fdd400</color>
+    <color name="yellow_fcf2d9">#9d598e</color>
     <color name="green_aed79b">#AED79B</color>
 </resources>

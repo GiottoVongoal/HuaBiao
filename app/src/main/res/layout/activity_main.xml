@@ -17,14 +17,16 @@
         android:id="@+id/botton_navi_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:itemTextColor="@color/black3"
+        android:visibility="visible"
+        app:itemIconTint="@color/visibility_selector"
+        app:itemTextColor="@color/visibility_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation" />
-    <!--app:itemIconTint="@color/seletor_bottom_navi"-->
+    <!--app:itemIconTint="@color/visibility_selector"-->
 
     <View
-        style="@style/GrayLine"  />
+        style="@style/GrayLine"
+        android:visibility="gone" />
 
     <RadioGroup
         android:id="@+id/home_rg"
@@ -33,7 +35,8 @@
         android:background="@color/white"
         android:gravity="bottom"
         android:orientation="horizontal"
-        android:padding="@dimen/x10">
+        android:padding="@dimen/x10"
+        android:visibility="gone">
 
         <RadioButton
             android:id="@+id/home_shouye_rb"

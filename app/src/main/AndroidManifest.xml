@@ -55,7 +55,9 @@
             android:name=".ui.activity.UserProgressActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <!-- 显示大图ImageVIew -->
-        <activity android:name=".ui.activity.ShowLargeImageActivity" />
+        <activity
+            android:name=".ui.activity.ShowLargeImageActivity"
+            android:theme="@style/myTransparent" />
         <!-- 注册页面 -->
         <activity android:name=".ui.activity.RegisterActivity" />
         <!-- 注册-->
@@ -101,6 +103,17 @@
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="5923b460c62dca5f9c000967" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.huabiao.aoiin"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!--元数据-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

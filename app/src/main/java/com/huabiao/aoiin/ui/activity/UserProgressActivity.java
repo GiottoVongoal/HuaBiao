@@ -1,11 +1,14 @@
 package com.huabiao.aoiin.ui.activity;
 
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -73,21 +76,7 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
         //透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         //设置状态栏颜色
-        StatusBarUtils.setWindowStatusBarColor(this, R.color.yellow_fdd400);
-
-        //设置Toolbar
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);//决定左上角的图标是否可以点击
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//决定左上角图标的右侧是否有向左的小箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-        //设置标题
-        mCollapsingToolbarLayout.setTitleEnabled(false);
+//        StatusBarUtils.setWindowStatusBarColor(this, R.color.yellow_fdd400);
 
         getTrademarkList();
     }
@@ -101,12 +90,36 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                     UserTrademarkProgressListBean bean = (UserTrademarkProgressListBean) mData;
                     List<TrademarkprogresslistBean> list = bean.getTrademarkprogresslist();
                     toolbar_title.setText(list.get(0).getTrademarkname());//默认显示第一个类别
+                    initToolBar(list.get(0).getTrademarkname());
                     initPopMenu(list);
                     initData(list.get(0).getTrademarkid());//根据类别获取商标进度数据
-                    toolbar_title.setOnClickListener(UserProgressActivity.this);
+                    //关闭点击事件
+//                    toolbar_title.setOnClickListener(UserProgressActivity.this);
                 }
             }
         });
+    }
+
+    private void initToolBar(String title) {
+        //设置Toolbar
+        toolbar.setTitle(title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);//决定左上角的图标是否可以点击
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//决定左上角图标的右侧是否有向左的小箭头
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        //设置标题
+//        mCollapsingToolbarLayout.setTitleEnabled(false);
+        mCollapsingToolbarLayout.setCollapsedTitleGravity(Gravity.LEFT);//设置收缩后标题的位置
+        mCollapsingToolbarLayout.setExpandedTitleGravity(Gravity.CENTER);////设置展开后标题的位置
+//        mCollapsingToolbarLayout.setTitle("我是大标题");//设置标题的名字
+        mCollapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);//设置展开后标题的颜色
+        mCollapsingToolbarLayout.setCollapsedTitleTextColor(Color.BLACK);//设置收缩后标题的颜色
     }
 
     private void initData(String trademarkId) {
@@ -118,6 +131,7 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                     bean = (UserProgressListBean) mData;
                     progress_tv.setText(bean.getLatestprogress());
                     progress_tv.setOnClickListener(UserProgressActivity.this);
+                    progress_tv.setVisibility(View.INVISIBLE);
                     user_progress_rv.setLayoutManager(new FullyLinearLayoutManager(UserProgressActivity.this));
                     final List<ProgresslistBean> l = bean.getUserprogresslist();
                     mAdapter = new UserProgressAdapter(UserProgressActivity.this, l);
@@ -145,7 +159,8 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         popMenu.setOutsideTouchable(true);
-        popMenu.setBackgroundDrawable(new BitmapDrawable());
+        ColorDrawable dw = new ColorDrawable(0xb0000000);
+        popMenu.setBackgroundDrawable(dw);
         popMenu.setFocusable(true);
         popMenu.setAnimationStyle(R.style.popwin_anim_style);
         popMenu.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -155,12 +170,12 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
         });
         popRecyclerView = (RecyclerView) contentView
                 .findViewById(R.id.popwin_supplier_list_rv);
-        contentView.findViewById(R.id.popwin_supplier_list_bottom)
-                .setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        popMenu.dismiss();
-                    }
-                });
+//        contentView.findViewById(R.id.popwin_supplier_list_bottom)
+//                .setOnClickListener(new View.OnClickListener() {
+//                    public void onClick(View arg0) {
+//                        popMenu.dismiss();
+//                    }
+//                });
         popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<String> l = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
@@ -187,6 +202,20 @@ public class UserProgressActivity extends BaseActivity implements View.OnClickLi
                 getTrademarkList();
                 toolbar_title.setTextColor(getResources().getColor(R.color.black3));
                 popMenu.showAsDropDown(toolbar_title, 0, 3);
+                // 设置背景颜色变暗
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp.alpha = 0.7f;
+                getWindow().setAttributes(lp);
+                popMenu.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+                    @Override
+                    public void onDismiss() {
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getWindow().setAttributes(lp);
+                    }
+                });
+
                 break;
             case R.id.user_progress_tv:
                 //最新进度

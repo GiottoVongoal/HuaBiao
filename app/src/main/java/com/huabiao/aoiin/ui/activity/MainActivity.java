@@ -1,18 +1,19 @@
 package com.huabiao.aoiin.ui.activity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.transition.ChangeBounds;
-import android.transition.Slide;
-import android.view.Gravity;
+import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.blankj.ALog;
@@ -23,6 +24,7 @@ import com.huabiao.aoiin.ui.fragment.MallFragment;
 import com.huabiao.aoiin.ui.fragment.MeFragment;
 import com.huabiao.aoiin.ui.ottobus.AppBus;
 import com.huabiao.aoiin.ui.ottobus.ToSearchMallPageEvent;
+import com.huabiao.aoiin.wedgit.BottomNavigationViewHelper;
 import com.squareup.otto.Subscribe;
 import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.base.BasePresenter;
@@ -37,20 +39,20 @@ import butterknife.Bind;
 
 public class MainActivity extends BaseActivity {
 
-    @Bind(R.id.home_rg)
-    RadioGroup home_rg;
+//    @Bind(R.id.home_rg)
+//    RadioGroup home_rg;
 
-    @Bind(R.id.home_shouye_rb)
-    RadioButton home_shouye_rb;
-    @Bind(R.id.home_mall_rb)
-    RadioButton home_mall_rb;
-    @Bind(R.id.home_finance_rb)
-    RadioButton home_finance_rb;
-    @Bind(R.id.home_me_rb)
-    RadioButton home_me_rb;
+//    @Bind(R.id.home_shouye_rb)
+//    RadioButton home_shouye_rb;
+//    @Bind(R.id.home_mall_rb)
+//    RadioButton home_mall_rb;
+//    @Bind(R.id.home_finance_rb)
+//    RadioButton home_finance_rb;
+//    @Bind(R.id.home_me_rb)
+//    RadioButton home_me_rb;
 
-    //    @Bind(R.id.botton_navi_view)
-//    BottomNavigationView botton_navi_view;
+    @Bind(R.id.botton_navi_view)
+    BottomNavigationView botton_navi_view;
     @Bind(R.id.botton_fl)
     FrameLayout botton_fl;
 
@@ -58,7 +60,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void bindView(Bundle savedInstanceState) {
-//        BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
+        BottomNavigationViewHelper.disableShiftMode(botton_navi_view);//点击效果和三个item时的效果相同
         homePageFragment = new HomePageFragment();
         mallFragment = new MallFragment();
         financeFragment = new FinanceFragment();
@@ -83,64 +85,70 @@ public class MainActivity extends BaseActivity {
         } else {
 //            ALog.i("!newFile.exists()");
         }
-//        botton_navi_view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()) {
-//                    case R.id.menu_item_one:
-//                        setItem(0);
-//                        break;
-//                    case R.id.menu_item_two:
-//                        setItem(1);
-//                        break;
-//                    case R.id.menu_item_three:
-//                        setItem(2);
-//                        break;
-//                    case R.id.menu_item_four:
-//                        setItem(3);
-//                        break;
-//                }
-//                return true;//返回 true 使点击有效
-//            }
-//        });
-
-        home_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        botton_navi_view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                if (i == home_shouye_rb.getId()) {
-                    //首页
-                    setItem(0);
-                } else if (i == home_mall_rb.getId()) {
-                    //商城
-                    setItem(1);
-                } else if (i == home_finance_rb.getId()) {
-                    //金融
-                    setItem(2);
-                } else if (i == home_me_rb.getId()) {
-                    //我的
-                    setItem(3);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_item_one:
+                        setItem(0);
+                        break;
+                    case R.id.menu_item_two:
+                        setItem(1);
+                        break;
+                    case R.id.menu_item_three:
+                        setItem(2);
+                        break;
+                    case R.id.menu_item_four:
+                        setItem(3);
+                        break;
                 }
+                return true;//返回 true 使点击有效
             }
         });
-        home_rg.check(home_shouye_rb.getId());
+
+//        home_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+//                if (i == home_shouye_rb.getId()) {
+//                    //首页
+//                    setItem(0);
+//                } else if (i == home_mall_rb.getId()) {
+//                    //商城
+//                    setItem(1);
+//                } else if (i == home_finance_rb.getId()) {
+//                    //金融
+//                    setItem(2);
+//                } else if (i == home_me_rb.getId()) {
+//                    //我的
+//                    setItem(3);
+//                }
+//            }
+//        });
+//        home_rg.check(home_shouye_rb.getId());
+        setItem(0);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            //进行授权
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
     }
 
     public void setItem(int index) {
         switch (index) {
             case 0:
-                home_rg.check(home_shouye_rb.getId());
+//                home_rg.check(home_shouye_rb.getId());
                 addFragment(homePageFragment);
                 break;
             case 1:
-                home_rg.check(home_mall_rb.getId());
+//                home_rg.check(home_mall_rb.getId());
                 addFragment(mallFragment);
                 break;
             case 2:
-                home_rg.check(home_finance_rb.getId());
+//                home_rg.check(home_finance_rb.getId());
                 addFragment(financeFragment);
                 break;
             case 3:
-                home_rg.check(home_me_rb.getId());
+//                home_rg.check(home_me_rb.getId());
                 addFragment(meFragment);
                 break;
         }
@@ -169,6 +177,7 @@ public class MainActivity extends BaseActivity {
      */
     @Subscribe
     public void ToSearcmMallPageEvent(ToSearchMallPageEvent event) {
+        botton_navi_view.setSelectedItemId(botton_navi_view.getMenu().getItem(event.getIndex()).getItemId());//设置选中的item效果
         setItem(event.getIndex());
         ((MallFragment) mallFragment).SearchMallEvent(event.getSearchStr());
         if (mallFragment.isVisible())
