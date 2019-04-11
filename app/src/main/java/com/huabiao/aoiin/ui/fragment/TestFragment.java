@@ -1,8 +1,6 @@
 package com.huabiao.aoiin.ui.fragment;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -10,11 +8,9 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.ywy.mylibs.base.BaseFragment;
 import com.ywy.mylibs.base.BasePresenter;
-import com.ywy.mylibs.utils.CameraUtils;
 import com.ywy.mylibs.utils.JumpUtils;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 
 /**
@@ -39,9 +35,9 @@ public class TestFragment extends BaseFragment {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = Environment.getExternalStorageDirectory().getPath();
-                Uri filePath = Uri.parse(url);
-                startActivity(CameraUtils.getCameraIntent(filePath));
+//                String url = Environment.getExternalStorageDirectory().getPath();
+//                Uri filePath = Uri.parse(url);
+//                startActivity(CameraUtils.getCameraIntent(filePath));
             }
         });
         TextView tv5 = new TextView(getContext());

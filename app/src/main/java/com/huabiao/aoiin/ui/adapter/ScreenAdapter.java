@@ -1,6 +1,8 @@
 package com.huabiao.aoiin.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +13,13 @@ import android.widget.TextView;
 import com.huabiao.aoiin.R;
 import com.huabiao.aoiin.bean.ClassificationBean;
 import com.huabiao.aoiin.bean.ScreenBean;
+import com.ywy.mylibs.base.BaseActivity;
 import com.ywy.mylibs.utils.BitmapLoader;
+import com.ywy.mylibs.utils.ToastUtils;
 
 import java.util.List;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * @author 杨丽亚.
@@ -61,13 +67,14 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+    public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         ViewHolderGroup groupHolder;
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_hint_popupwindow, parent, false);
             groupHolder = new ViewHolderGroup();
             groupHolder.iv_left = (ImageView) convertView.findViewById(R.id.screen_item_left_iv);
             groupHolder.tv_content = (TextView) convertView.findViewById(R.id.screen_item_content_tv);
+            groupHolder.tv_choose = (TextView) convertView.findViewById(R.id.screen_item_choose_tv);
             groupHolder.iv_right = (ImageView) convertView.findViewById(R.id.screen_item_right_iv);
             convertView.setTag(groupHolder);
         } else {
@@ -75,6 +82,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
         }
         groupHolder.iv_left.setVisibility(View.GONE);
         groupHolder.iv_right.setVisibility(View.VISIBLE);
+        groupHolder.tv_choose.setVisibility(View.VISIBLE);
         if (isExpanded) {//展开
             groupHolder.iv_right.setImageResource(R.mipmap.shouqi);
         } else {
@@ -82,6 +90,21 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
         }
         groupHolder.tv_content.setTextSize(16);
         groupHolder.tv_content.setText(list.get(groupPosition).getSname());
+        groupHolder.tv_choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.getInstance().showToast("点击了" + list.get(groupPosition).getSname());
+                // 设置返回数据
+                Bundle bundle = new Bundle();
+                bundle.putString("id", "100");
+                bundle.putString("name", list.get(groupPosition).getSname());
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                // 返回intent
+                ((BaseActivity) mContext).setResult(RESULT_OK, intent);
+                ((BaseActivity) mContext).finish();
+            }
+        });
         return convertView;
     }
 
@@ -120,6 +143,7 @@ public class ScreenAdapter extends BaseExpandableListAdapter {
 
     private static class ViewHolderGroup {
         private TextView tv_content;
+        private TextView tv_choose;
         private ImageView iv_right;
         private ImageView iv_left;
     }

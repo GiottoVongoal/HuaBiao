@@ -1,7 +1,6 @@
 package com.huabiao.aoiin.wedgit;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -143,7 +142,7 @@ public class DrawLineChartView extends RelativeLayout {
 //      data.setAxisYRight(axisY);  //y轴设置在右边
 
         //设置行为属性，支持缩放、滑动以及平移
-        chart.setInteractive(false);//设置图表是可以交互的true（拖拽，缩放等效果的前提）
+        chart.setInteractive(true);//设置图表是可以交互的true（拖拽，缩放等效果的前提）
         chart.setZoomType(ZoomType.HORIZONTAL_AND_VERTICAL);
         chart.setContainerScrollEnabled(true, ContainerScrollType.HORIZONTAL);
         chart.setLineChartData(data);

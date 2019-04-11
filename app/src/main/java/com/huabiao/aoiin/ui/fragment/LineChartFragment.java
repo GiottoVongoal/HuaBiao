@@ -60,7 +60,7 @@ public class LineChartFragment extends BaseFragment {
 
     private List<TestBean> setData() {
         List<TestBean> months = new ArrayList<>();
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < 5; i++) {
             TestBean testBean = new TestBean();
             testBean.setName("Name" + i);
             testBean.setNum(i + 3);

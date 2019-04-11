@@ -59,7 +59,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 showToast("我的收藏");
-//                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
+                JumpUtils.startFragmentByName(getContext(), TestFragment.class);
             }
         }, true);
         viewTools.addeditview(me_add_item_ll, null, text[1], new View.OnClickListener() {

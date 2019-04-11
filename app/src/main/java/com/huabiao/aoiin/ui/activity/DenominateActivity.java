@@ -203,6 +203,7 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
                 denominate_industry_btn.setTextColor(getResources().getColor(R.color.black3));
             }
         });
+
         denominate_industry_btn.setText(industryList.get(1).getIndustryname());//默认显示列表的第二个
         popRecyclerView = (RecyclerView) industryview.findViewById(R.id.popwin_industry_list_rv);
         popRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -222,7 +223,6 @@ public class DenominateActivity extends BaseActivity implements DenominateRotate
         });
         //显示窗口方式
         industryWindow.showAsDropDown(denominate_top_ll);
-
     }
 
     @Override
