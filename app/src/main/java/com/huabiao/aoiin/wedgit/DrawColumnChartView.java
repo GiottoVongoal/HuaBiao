@@ -50,8 +50,7 @@ public class DrawColumnChartView extends RelativeLayout {
         List<Column> columnList = new ArrayList<>();
         //每根柱子又可以分为多根柱子
         List<SubcolumnValue> subcolumnValueList;
-//        int columns = 7;//一共7根柱子
-        int subColumn = 1;//每根柱子的子柱子为1根
+        int subColumn = 2;//每根柱子的子柱子为1根
         for (int i = 0; i < months.size(); i++) {
             subcolumnValueList = new ArrayList<>();
             for (int j = 0; j < subColumn; j++) {

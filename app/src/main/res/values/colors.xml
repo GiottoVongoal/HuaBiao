@@ -15,7 +15,6 @@
     <color name="grey_DDDDDD">#DDDDDD</color>
     <color name="grey_DBDBDB">#DBDBDB</color>
     <color name="grey_d7d7d7">#d7d7d7</color>
-    <color name="grey_d5d5db">#d5d5db</color>
     <color name="grey_f2f2f2">#f2f2f2</color>
     <color name="grey_EEEEEE">#eeeeee</color>
     <color name="grey_e1e1e1">#e1e1e1</color>
@@ -29,7 +28,10 @@
     <color name="grey_eeedef">#eeedef</color>
     <color name="grey_999999">#999999</color>
     <color name="grey_888888">#888888</color>
+
     <color name="grey_282828">#282828</color>
+    <color name="grey_d5d5db">#d5d5db</color>
+
     <color name="grey_5000">#5000</color>
     <color name="grey_FFF5F5F9">#FFF5F5F9</color>
     <!--黑色-->
